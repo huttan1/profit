@@ -1,0 +1,1477 @@
+
+/***************** GENERAL HTML-TAGS FOR ALL MODULES ***************************************************/
+HR
+{
+	border-top: 1px solid #808080;
+	border-bottom: 1px solid white;
+}
+.IE7 HR
+{
+    height: 1px;
+}
+FIELDSET
+{
+	border: 1px solid #808080;
+	width: 400px;
+	padding: 10px;
+	padding-top: 0px;
+}
+LEGEND
+{
+	/*	background: #fb0; 	border: #26a solid 1px;*/
+	font-weight: normal;
+	padding-right: 5px;
+}
+
+ input[type=checkbox],
+ input[type=radio]
+{
+    margin-right: 3px;
+}
+
+
+/***************** TEXT ***************************************************/
+.litText
+{
+	/*Ordinary text*/
+	font-size: 85%;
+}
+.litBoldText
+{
+	/*Bold text*/
+	font-weight: bold;
+	font-size: 85%;
+}
+.litSmallText
+{
+	/*Small text*/
+	font-size: 77%;
+}
+.litItalicText
+{
+	/*Small text*/
+	font-size: 85%;
+	font-style: italic;
+}
+.litSmallItalicText
+{
+	/*Small italic text*/
+	font-size: 77%;
+	font-style: italic;
+}
+.litPageStatusHelp
+{
+	/*Explanation of page icons (Web Publishing)*/
+	font-size: 77%;
+}
+.litTextNormalWeight
+{
+	font-weight: normal;
+}
+.litFixedTextWidth600
+{
+	width: 600px;
+}
+.litDescriptionText
+{
+	width: 600px;
+	font-size: 85%;
+	margin-bottom: 5px;
+}
+.litBoldHeader
+{
+	font-weight: bold;
+	font-size: 85%;
+	margin-top: 11px;
+	min-height: 1px;
+}
+.litBoldHeader1
+{
+	font-weight: bold;
+	font-size: 85%;
+	margin-top: 10px;
+	min-height: 1px;
+}
+.litParagraphText
+{
+	font-size: 85%;
+	margin-top: 5px;
+}
+.litRequiredStar
+{
+	font-family: Verdana;
+}
+
+
+/***************** LISTING ***************************************************/
+.litContentTopHeader
+{
+	/*Innehållsrubrik för en listvy*/
+	font-weight: bold;
+	font-size: 100%;
+}
+.litContentTopGuide
+{
+	/*Text som visar vilket steg man befinner sig i guiden, ex: steg 1 av 6. Visas efter innehållsrubriken.*/
+	font-size: 100%;
+}
+.litContentPager
+{
+	/*Länkarna i sidväxlingen för en lista*/
+	font-size: 85%;
+}
+A.litContentPager:link
+{
+	font-weight: bold;
+	color: #0388D1;
+	text-decoration: none;
+}
+A.litContentPager:active
+{
+	font-weight: bold;
+	color: #0388D1;
+	text-decoration: none;
+}
+A.litContentPager:hover
+{
+	font-weight: bold;
+	color: #0388D1;
+	text-decoration: none;
+}
+A.litContentPager:visited
+{
+	font-weight: bold;
+	color: #0388D1;
+	text-decoration: none;
+}
+.litContentPagerDisabled
+{
+	/*Länkarna i sidväxlingen för en lista*/
+	font-size: 85%;
+	filter: alpha(opacity=50) gray;
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}
+A.litContentPagerDisabled:link
+{
+	filter: alpha(opacity=50) gray;
+	font-weight: normal;
+	color: black;
+}
+A.litContentPagerDisabled:active
+{
+	filter: alpha(opacity=50) gray;
+	font-weight: normal;
+	color: black;
+}
+A.litContentPagerDisabled:hover
+{
+	filter: alpha(opacity=50) gray;
+	font-weight: normal;
+	color: black;
+}
+A.litContentPagerDisabled:visited
+{
+	filter: alpha(opacity=50) gray;
+	font-weight: normal;
+	color: black;
+}
+.litContentInfo
+{
+	/*Informationstext för en listning, ex: Nu visas sida...*/
+	font-size: 85%;
+}
+.litListHeader
+{
+	/*Rubrikceller i en listtabell*/
+	font-size: 85%;
+	font-weight: bold !important;
+}
+.litListHeaderLight
+{
+	/*Rubrikceller i en listtabell*/
+	font-size: 85%;
+	font-weight: bold !important;
+	background-color: #EEEBE1 !important;
+	text-align: left !important;
+}
+.litListHeaderEdit
+{
+	/*List header edit page*/
+	font-size: 85%;
+	font-weight: bold !important;
+	text-align: left;
+	padding-left: 5px !important;
+}
+.litListHeaderLeft
+{
+	/*Rubrikceller i en listtabell*/
+	font-size: 85%;
+	font-weight: bold !important;
+	border-right: 1px solid white;
+	padding-right: 10px;
+}
+.litListContent
+{
+	/*Content in a list table*/
+	font-size: 85%;
+	text-align: left !important;
+	font-weight: normal !important;
+}
+.litListContentEdit
+{
+	/*Table content edit page*/
+	font-size: 85%;
+	padding-bottom: 0px !important;
+	padding-left: 5px !important;
+}
+.litListContentSmall
+{
+	/*Innehåll i en listtabell, liten text*/
+	font-size: 82%;
+}
+.litImageList
+{
+	padding: 8px;
+	border: 1px solid white;
+}
+.litImageListSelected
+{
+	border: 1px solid #808080;
+}
+.litDivider
+{
+	/*Avdelare som exempelvis används vid sidväxling*/
+	border-left: 1px #808080 solid;
+	background-color: white;
+}
+
+/***************** FORMS OBJECTS ***************************************************/
+.litInputButton
+{
+	width: 120px;
+	/*margin-left: 5px;*/
+	font-size: 85%;
+}
+
+.litInputButtonBack
+{
+	width: 150px;
+	margin-left: 5px;
+	font-size: 85%;
+}
+.litInputButtonSearch
+{
+	width: 70px;
+	font-size: 85%;
+}
+.litInputButtonCancel
+{
+	font-size: 85%;
+}
+.litInputButtonSave
+{
+	font-size: 85%;
+}
+.litInputButtonNext
+{
+	font-size: 85%;
+}
+.litInputButtonPrev
+{
+	font-size: 85%;
+}
+.litInputButtonAdd
+{
+	width: 80px;
+	margin-right: 5px;
+	font-size: 85%;
+}
+.litInputButtonRemove
+{
+	width: 80px;
+	margin-right: 5px;
+	font-size: 85%;
+}
+.litInputRadio
+{
+}
+
+.litInputCheckbox
+{
+}
+
+.litInputCheckbox input
+{
+    margin-right: 4px;
+}
+.litInputCheckbox label 
+{
+    vertical-align:top;
+}
+
+ .litInputFile
+{
+	width: 400px;
+	padding: 2px;
+	font-size: 85%;
+	height: 20px;
+}
+.litInputText
+{
+	width: 400px;
+	font-size: 85%;
+}
+.litInputText30
+{
+	width: 30px;
+	font-size: 85%;
+}
+.litInputText100
+{
+	width: 100px;
+	font-size: 85%;
+}
+.litInputText150
+{
+	width: 150px;
+	font-size: 85%;
+}
+.litInputText175
+{
+	width: 175px;
+	font-size: 85%;
+}
+.litInputText200
+{
+	width: 200px;
+	font-size: 85%;
+}
+.litInputText275
+{
+	width: 275px;
+	font-size: 85%;
+}
+.litInputText770
+{
+	width: 770px;
+	font-size: 85%;
+}
+.litInputTextArea
+{
+	width: 400px;
+	font-size: 85%;
+}
+.litInputTextArea285
+{
+	width: 285px;
+	font-size: 85%;
+}
+.litInputSelect
+{
+	width: 200px;
+	font-size: 85%;
+}
+
+.litInputSelect340
+{
+    width: 340px;
+	font-size: 85%;
+}
+
+.litInputSelectSearch
+{
+	width: 200px;
+	margin-left: 5px;
+	font-size: 85%;
+}
+.litInputSelectSort
+{
+	width: 100px;
+	margin-right: 5px;
+	font-size: 85%;
+}
+.litInputFullWidth
+{
+	width: 100%;
+	font-size: 85%;
+}
+
+.litInputFullWidth2
+{	
+	font-size: 85%;
+}
+
+
+/***************** LOG IN ***************************************************/
+.litLoginContact
+{
+	/*Kontakttexten*/ /*Denna klass finns även i skinfilen!*/
+	font-size: 85%;
+}
+.litLoginContactLink
+{
+	/*Länk i kontakttexten*/
+	font-weight: normal !important;
+	text-decoration: none !important;
+}
+.litLoginCopyright
+{
+	/*Denna klass finns även i skinfilen!*/
+	font-size: 75%;
+}
+
+
+/***************** ERROR MESSAGE ***************************************************/
+x.litErrorMsg
+{
+	/*Felmeddelande som exempelvis används vid validering*/
+	color: #FF0000 !important;
+	font-size: 85%;
+}
+x.litErrorFieldset
+{
+	/*Fieldset för felmeddelande*/
+	color: #FF0000 !important;
+	border: 1px solid #FF0000;
+	font-size: 85%;
+}
+x.litErrorFieldsetMsg
+{
+	/*Felmeddelande, används innuti ett fieldset*/
+	color: #FF0000 !important;
+	font-size: 100%;
+}
+
+
+/***************** OK-MESSAGE ***************************************************/
+x.litOkMsg
+{
+	/*Ok-meddelande som exempelvis används vid spara*/
+	color: #00AA00 !important;
+	font-size: 85%;
+}
+x.litOkFieldset
+{
+	/*Fieldset för Ok-meddelande*/
+	color: #00AA00 !important;
+	border: 1px solid #00AA00;
+	font-size: 85%;
+}
+x.litOkFieldsetMsg
+{
+	/*Ok-meddelande, används innuti ett fieldset*/
+	color: #00AA00 !important;
+	font-size: 100%;
+}
+
+/***************** TABS ***************************************************/
+.litTabItem
+{
+	float: left;
+	line-height: normal;
+}
+.litTabItemUL
+{
+	margin: 0;
+	padding: 7px 7px 0;
+	list-style: none;
+}
+.litTabItemLI
+{
+	float: left;
+	margin: 0;
+	padding: 0 0 0 9px;
+	border-bottom: 1px solid white;
+	background-position: 0 -150px;
+}
+.litTabItemLICurrent
+{
+	background-position: 0 -150px;
+	border-width: 0;
+	font-weight: bold;
+}
+.litTabItemSeparator
+{
+	clear: left;
+}
+.litTabItemLarge
+{
+	height: 19px;
+	cursor: pointer;
+}
+a.litTabItemLinkDisabled
+{
+	font-size: 85%;
+	float: left;
+	display: block;
+	padding: 5px 11px 4px 3px;
+	text-decoration: none;
+	font-weight: normal !important;
+	width: auto;
+}
+a.litTabItemLink
+{
+	font-size: 85%;
+	float: left;
+	display: block;
+	padding: 5px 11px 4px 3px;
+	text-decoration: none;
+	font-weight: normal !important;
+}
+a.litTabItemLink:link
+{
+	width: auto;
+	font-weight: normal;
+}
+a.litTabItemLink:hover
+{
+	font-weight: normal;
+}
+a.litTabItemLink:active
+{
+	font-weight: normal;
+}
+a.litTabItemLink:visited
+{
+	font-weight: normal;
+}
+a.litTabItemLinkLarge
+{
+	height: 19px;
+	float: left;
+	display: block; /*	padding:9px 11px 4px 3px;*/
+	padding: 7px 11px 4px 3px;
+	text-decoration: none;
+	font-weight: normal !important;
+}
+a.litTabItemLinkLarge:link
+{
+	width: auto;
+	font-weight: normal;
+}
+a.litTabItemLinkLarge:hover
+{
+	font-weight: normal;
+}
+a.litTabItemLinkLarge:active
+{
+	font-weight: normal;
+}
+a.litTabItemLinkLarge:visited
+{
+	font-weight: normal;
+}
+a.litTabItemCurrentLink
+{
+	background-position: 100% -150px;
+	padding-bottom: 5px;
+	font-weight: bold !important;
+}
+a.litTabItemCurrentLink:link
+{
+	font-weight: bold !important;
+}
+a.litTabItemCurrentLink:hover
+{
+	font-weight: bold !important;
+}
+a.litTabItemCurrentLink:active
+{
+	font-weight: bold !important;
+}
+a.litTabItemCurrentLink:visited
+{
+	font-weight: bold !important;
+}
+
+
+/***************** TOOLBAR ***************************************************/
+.litToolbarSpace, .litToolbarDivider
+{
+	float: left;
+	height: 13px;
+	margin-top: 2px;
+	width: 1px;
+	margin-left: 3px;
+	margin-right: 3px;
+	border: 0px;
+}
+.litToolbarSpace
+{
+	float: left;
+	width: 0px;
+}
+.litToolbarItemDisabled
+{
+    color: #b0b0b0;
+	/*filter: alpha(opacity=50) gray;
+	-moz-opacity: 0.4;
+	opacity: 0.4;*/
+}
+
+.litToolbarItemDisabled img
+{
+}
+
+.litDisabled nobr
+{
+	color: #b0b0b0;
+}
+
+/*.litDisabled img
+{
+	filter: alpha(opacity=60) gray;
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+}*/
+
+/*.litToolbarItemDisabled
+{
+    filter: alpha(opacity=50) gray;
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border-right: 1px solid #F8F7F7;
+	
+	border-bottom: 1px solid #F0EEEE;
+}*/
+.ca_tb_img
+{
+    border-collapse: - !important;
+}
+
+/*Disabled class for ComponentArt toolbar*/
+.litToolbarItemDisabledCA
+{
+	/*filter: alpha(opacity=50) gray;
+	-moz-opacity: 0.4;
+	opacity: 0.4;*/
+	padding: 1px 3px;
+}
+
+/* Duplicate of above with less margin */
+
+
+.litToolbarItemText
+{
+	margin-right: 10px;
+}
+.litToolbarItem
+{
+    height: 17px;
+    padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	vertical-align: middle;
+	float: left;
+}
+.IE7 .litToolbarItem
+{
+    height: 13px !important;
+}
+.litToolbarItemNew
+{
+	height: 17px;
+
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+/* Duplicate of above with less margin */
+
+.litToolbarItemOnMouseOver
+{
+	padding-top: 0px;
+	padding-bottom: 0px;	
+}
+/* Duplicate of above with less margin */
+.litToolbarItemOnMouseDown
+{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+/* Duplicate of above with less margin */
+.litToolbarItemSelected
+{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: #F5F5F5;
+}
+.litToolbarItemSelectedOnMouseOver
+{
+	background-color: #DDDDDD;
+}
+.litToolbarLink
+{
+	cursor: default;
+	text-decoration: none !important;
+}
+a.litToolbarLink:link
+{
+	text-decoration: none !important;
+}
+a.litToolbarLink:active
+{
+	text-decoration: none !important;
+}
+a.litToolbarLink:hover
+{
+	text-decoration: none !important;
+}
+a.litToolbarLink:visited
+{
+	text-decoration: none !important;
+}
+.litIconBlank
+{
+	height: 16px;
+	width: 1px;
+}
+.litToolbar
+{
+	margin-left: 2px;
+}
+.litToolbar TABLE TR TD.ca_tb_txt
+{
+	padding-left: 5px;
+	padding-right: 1px;
+	cursor:pointer;
+}
+.litToolbar TABLE TR TD.ca_tb_img
+{
+	padding-left: 2px;
+	cursor:pointer;
+}
+.ca_tb_ddn { cursor:pointer; }
+
+/***************** CALENDAR (ComponentArt) ***************************************************/
+.litCalendar
+{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #7F9DB9;
+	border-collapse: collapse;
+	background-color: #EFF5F9;
+	cursor: default;
+}
+.litCalendar td
+{
+	font-size: 11px;
+	
+}
+.aa { position:absolute; top:100px; left:300px; }
+
+.litCalendarSmall
+{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #7F9DB9;
+	border-collapse: collapse;
+	background-color: #EFF5F9;
+	cursor: default;
+}
+.litCalendarSmall td
+{
+	font-size: 10px;
+}
+
+.litCalendarTitle
+{
+	font-weight: bold;
+	background-image: url(../../LitiumStudio/Images/calendar/cal_titleBg.gif);
+	background-repeat: repeat-x;
+	border-bottom: 1px solid #7F9DB9;
+	font-size: 11px !important;
+}
+.litCalendarDay
+{
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	cursor: pointer;
+	text-align: center;
+	border-width: 1px;
+	border-color: #FFFFFF;
+	border-style: solid;
+}
+.litCalendarDayHeader
+{
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #EFF5F9;
+}
+.litCalendarDayHover
+{
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	cursor: pointer;
+	text-align: center;
+	border-width: 1px;
+	border-color: #7F9DB9 !important;
+	border-style: solid;
+	background-image: url(../../LitiumStudio/Images/calendar/cal_dayOverBg.gif);
+	background-repeat: repeat-x;
+}
+.litCalendarToday
+{
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	cursor: pointer;
+	text-align: center;
+	border-width: 1px;
+	border-color: #7F9DB9 !important;
+	border-style: solid;
+}
+.litCalendarMonth, .litCalendarMonthBig
+{
+	background-color: #FFFFFF;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-top: 0px;
+	
+}
+
+.litCalendarMonthBig
+{
+    font-size: 11px !important;
+    width: 190px;
+	height: 150px;
+	font-size: 85%;
+}
+
+.litCalendarNextPrev
+{
+	cursor: pointer;
+	height: 25px;
+	vertical-align: middle;
+	padding: 0px 5px 0px 5px;
+}
+.litCalendarOtherMonthDay
+{
+	color: #999999;
+}
+.litCalendarSelectedDay
+{
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: #000000;
+	border-width: 1px;
+	border-color: #7F9DB9 !important;
+	border-style: solid;
+	font-weight: bold;
+	background-image: url(../../LitiumStudio/Images/calendar/cal_daySelectedBg.gif);
+	background-repeat: repeat-x;
+}
+.litCalendarSelector
+{
+	width: 14px;
+	cursor: pointer;
+	text-align: left;
+	vertical-align: middle;
+	background-color: #EFF5F9;
+}
+.litCalendarButton
+{
+	border: none;
+	cursor: pointer;
+}
+.litCalendarPicker
+{
+	background-color: #FFFFFF;
+	border: 1px #7F9DB9 solid;
+	padding: 2px;
+	cursor: pointer;
+}
+.litCalendarOutOfRangeDay
+{
+	visibility: hidden;
+}
+
+/***************** GRID (ComponentArt) **************************************/
+.Grid
+{
+	cursor: pointer;
+	width: 100%;
+}
+.Grid P, .Grid TD, .Grid TR, .Grid DIV, .Grid INPUT, .Grid SELECT, .Grid TEXTAREA
+{
+	font-size: small;
+	font-family: Arial, Verdana, Helvetica;
+}
+
+.GridDataArea
+{
+    height: 425px;
+    
+}
+
+.GridDataAreaDialog
+{
+    height: 330px;
+    
+}
+.GridHeader
+{
+	height: 36px;
+	cursor: default;
+	padding-left: 10px;
+	padding-right: 2px;
+}
+
+.GridTabData
+{
+    height: 100% !important;
+}
+
+.IE .GridData
+{
+    height: 597px !important;
+}
+
+.GridHeaderNoIcon
+{
+	height: 36px;
+	cursor: default;
+	padding-left: 0px;
+	padding-right: 2px;
+}
+
+.GridHeader2
+{
+	height: 36px;
+	cursor: default;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+.GridHeaderText
+{
+	font-weight: bold;
+	font-size: 100% !important;
+}
+.GridFooter, .GridFooterTab
+{
+	cursor: default;
+	padding: 7px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	vertical-align: middle;
+}
+
+.GridFooter
+{
+    height :30px;
+}
+
+.GridFooterEmpty
+{
+	height: 0px;
+	visibility: hidden;
+}
+.GridFooterText
+{
+	font-size: 85% !important;
+}
+.HeadingRow  {
+	
+}
+
+.HeadingCell {
+	padding-right: 4px;
+	padding-left: 7px;
+	font-size: 85% !important;
+}
+
+.HeadingCell td {
+	width: 100%;
+}
+
+.HeadingCell img {
+	float: left;
+	margin-left: 5px;
+}
+
+.HeadingCellActive
+{
+}
+.HeadingRow td.FirstHeadingCell
+{
+}
+.HeadingCellText
+{
+	text-align: left;
+	padding-top: 2px !important;
+	padding-bottom: 1px !important;
+	width: auto !important;
+	white-space: nowrap;
+	font-size: 85% !important;
+}
+
+.HeadingCellText td
+{
+	text-align: left;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	width: auto !important;
+	white-space: nowrap;
+}
+
+.HeadingCellTextNoSorting
+{
+	font-size: 85% !important;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	width: auto !important;
+	white-space: nowrap;
+	cursor: default;
+}
+
+.DataCell
+{
+
+}
+
+/* Rows without Link */
+.RowWithoutLink
+{
+	cursor: default;
+}
+.RowWithoutLink a 
+{ 
+    text-decoration:none;
+    font-weight:normal;
+    font-size:11px;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+	cursor:default;
+}
+.DataCellTextInCoupleLines div
+{
+	border-bottom: 1px solid #FFFFFF;
+	padding: 4px;
+	padding-left: 7px;
+	height: auto !important;
+	white-space: normal !important;
+}
+.RowWithoutLink td.DataCell
+{
+	border-bottom: 1px solid #FFFFFF;
+	padding: 4px;
+	padding-left: 7px;
+	height: 10px;
+}
+
+.HoverRow td.DataCell div a 
+{ 
+    text-decoration:none;
+    font-weight:normal;
+    font-size:11px;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+	cursor:default;  
+}
+tr.RowWithoutLink td.DataCell div a 
+{ 
+    text-decoration:none;
+    font-weight:normal;
+    font-size: 85% !important;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+	cursor:default;  
+}
+tr.RowWithoutLinkSelected td.DataCell div a 
+{ 
+    text-decoration:none;
+    font-weight:normal;
+    font-size:11px;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+	cursor:default;  
+}
+
+tr.RowLink td.DataCell div a 
+{ 
+    text-decoration:underline; font-weight: bold; color: #000099; cursor:pointer;
+}
+tr.RowLinkHover td.DataCell div a 
+{ 
+    text-decoration:underline; font-weight: bold; color: #000099; cursor:pointer;
+}
+
+.Row
+{
+	cursor: default;
+}
+.Row td.DataCell
+{
+	padding: 4px;
+	padding-left: 7px;
+	height: 10px;
+}
+
+.GridRowTotal
+{
+    font-weight: bold;
+}
+
+td.TreeLine
+{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.RowBoldText
+{
+	cursor: default;
+}
+.RowBoldText td.DataCell
+{
+	padding: 4px;
+	padding-left: 7px;
+	height: 10px;
+	font-weight: bold;
+}
+.DataCell div
+{
+	font-size: 85% !important;
+}
+
+.SelectedRow td.DataCell
+{
+	padding: 4px;
+	padding-left: 7px;
+}
+.SelectedRow td.FirstDataCell
+{
+	border-right: 0px;
+	padding-left: 2px;
+	padding-right: 3px;
+}
+.HoverRow td.DataCell
+{
+	padding: 4px;
+	padding-left: 7px;
+}
+.GroupHeading
+{
+	font-weight: bold;
+	font-size: 85% !important;
+	padding-top: 10px;
+	padding-bottom: 3px;
+}
+.GroupByCell
+{
+	cursor: pointer;
+}
+.GroupByText
+{
+	font-size: 85% !important;
+	font-weight: bold;
+	padding-right: 5px;
+}
+.SliderBottom
+{
+	height: 14px;
+}
+.SliderBottom td
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 85% !important;
+}
+.SliderPopup
+{
+	width: 288px;
+	height: 60px;
+}
+.SearchBox
+{
+	margin-right: 5px;
+	width: 200px;
+	font-size: 11px !important;
+	font-weight: normal;
+}
+.SearchBoxSmall
+{
+	margin-right: 5px;
+	width: 100px;
+	font-size: 11px !important;
+	font-weight: normal;
+}
+.SearchText
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 85% !important;
+}
+.ScrollBar
+{
+	background-image: url(../../LitiumStudio/Images/grid/scroller/scroller_bg.gif);
+}
+.ScrollGrip
+{
+	background-image: url(../../LitiumStudio/Images/grid/scroller/scroll_gripBg.gif);
+}
+
+
+/***************** COMBOBOX (ComponentArt) **************************************/
+.comboBox
+{
+	border: 1px solid #A6A7AA;
+	background-color: white;
+}
+.comboBox table, .comboBoxHover table, .comboDropDown table
+{
+	width: auto !important;
+	filter: none !important;
+}
+.comboBox td, .comboBoxHover td, .comboDropDown td
+{
+	height: auto !important;
+	border: none !important;
+	padding: 0px !important;
+}
+.comboBoxHover
+{
+	border: 1px solid #555555;
+	background-color: white;
+}
+.comboDropDown
+{
+	border: 1px solid #868686;
+	background-color: white;
+	padding: 1px;
+	padding-right: 0px;
+	width: 500px;
+	cursor: default;
+}
+.comboTextBox
+{
+	font-size: 85%;
+	border: 0px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.comboTextBoxHover
+{
+	background-color: #B2B4BF;
+}
+.comboItem
+{
+	font-size: 85%;
+	padding: 3px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+.comboItemHover
+{
+	background-color: #B2B4BF;
+	background-image: url(../../LitiumStudio/Images/combobox/comboItemBg.gif);
+	font-size: 85%;
+	border: 1px solid #DBCE99;
+	padding: 2px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+
+/***************** OTHER ***************************************************/
+.litSelectedItem
+{
+	/*Markerad mall i publiceringsverktyget*/
+	border: 2px solid darkblue !important;
+}
+.litUnSelectedItem
+{
+	/*Omarkerad mall i publiceringsverktyget*/
+	padding: 2px;
+}
+.litInputTable
+{
+	/**/
+	margin-bottom: 3px;
+}
+.litInputTable td
+{
+	/**/
+	padding: 0px !important;
+}
+.litBlankAddDelete
+{
+	/*Blank div som täcker lika stor yta som en plus- eller minusknapp*/
+	width: 21px;
+}
+.litProgressArea
+{
+	background-color: #FFFFFF;
+	border: 1px solid #A19E98;
+	width: 300px;
+}
+.litProgressbar
+{
+	background-image: url(images/progressbar_bg.gif);
+	height: 16px;
+}
+.litFieldset
+{
+	width: 550px;
+}
+
+/*********************** ALTERNATING TABLE ROWS ***************************************/
+.litTableHeader1
+{
+	font-size: 85%;
+	font-weight: bold !important;
+	background-color: #edeae0;
+	border-bottom: silver 1px solid;
+}
+.litRow1
+{
+	background-color: #f1efe8;
+	border-bottom: blue 1px solid;
+}
+.litRow2
+{
+	background-color: #ffffff;
+	border-bottom: #d3cebc 1px solid;
+}
+
+
+
+
+/* Styles for Payment modla popup */
+.GridPayPop{ 
+    background-color: #ffffff;
+    border: 2px solid #A19E98;     
+}
+.GridPayPop P, .GridPayPop TD, .GridPayPop TR, .GridPayPop DIV, .GridPayPop INPUT, .GridPayPop SELECT, .GridPayPop TEXTAREA{
+    COLOR: #000000;
+}
+.GridPayPopHeader{
+    background-color:#ffffff;
+    border-bottom:1px solid #A19E98;
+    padding:10px;
+}
+.GridPayPopText{
+    color: #FFFFFF;
+}
+.GridPayPopFooter{
+    background-color:#ffffff;
+    border-top: 1px solid #A19E98; 
+}
+
+/* for Modalpopup overlapping combo boxes in ie6 */
+.ie6Overlap2 iframe
+{
+	display:block;
+	z-index:-1;
+	FILTER: mask();
+	position:absolute;
+	top:0px;
+	left:0px;	
+	width:773px;	
+	height:405px;
+	background-color:#000000;	
+}
+
+.ie6Overlap3 iframe
+{
+	display:block;
+	z-index:-1;
+	FILTER: mask();
+	position:absolute;
+	top:0px;
+	left:0px;	
+	width:773px;	
+	height:450px;
+	background-color:#000000;	
+}
+
+.litFormLeft { float:left; width:110px; height:20px; }
+.litFormRight { float:right; margin-left:110px; margin-top:-20px; width:160px;}
+
+.litError { background-color:#FFF3F0; border:1px solid #FF4111; color:#FF0000; }
+.litErrorMsg{font-size: 85% !important;}
+
+.WhiteSpace { white-space: -moz-pre-wrap; }
+
+.litDisabledText
+{
+    float:left;
+    filter:alpha(opacity=55);
+    -moz-opacity:.60;
+    opacity:.60;
+}
+
+.litDisabledImage
+{
+    filter:alpha(opacity=35);
+    -moz-opacity:.50;
+    opacity:.50;
+}
+
+.litModuleStatusTextV2 {
+	font-size: 85%;
+}
+
+/* css styles for right paddind of Big grid */
+.HeadingCellBig {
+	padding-right: 7px;
+}
+.HeadingCellTextBig {
+	padding-right: 7px;
+}
+.DataCellBig {
+    padding-right: 7px;
+    position: relative;
+    right: 4px;
+}
+.Row td.DataCellBig {
+	padding-right: 7px;
+}
+.Row td.DataCellBig div {
+	margin-right: 7px;
+}
+.RowBoldText td.DataCellBig {
+	padding-right: 7px;
+}
+.SelectedRow td.DataCellBig {
+	padding-right: 7px;
+}
+.SelectedRow td.DataCellBig div {
+	margin-right: 7px;
+}
+.HoverRow td.DataCellBig {
+	padding-right: 7px;
+}
+.HoverRow td.DataCellBig div {
+	margin-right: 7px;
+}
+
+.litContentPager1,
+.HoverRow td.DataCell div a.litContentPager1,
+.HoverRow td.DataCell div a.litContentPager1:hover
+{
+	font-size: 85%;
+	font-weight: normal;
+	color: #0388D1;
+	text-decoration: none;
+	cursor:pointer;
+}
+
+.contentCss
+{
+    background-color: #ffffff;
+}

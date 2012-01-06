@@ -1,0 +1,97 @@
+.TreeView{ 
+  padding-top: 10px;
+  padding-left: 5px;
+  bottom:0px;
+  top:0px;
+  left:0px;
+  right:0px;
+  position:absolute;
+  overflow:auto;
+  overflow:-moz-scrollbars-vertical;
+} 
+.InternalLinkTreeView {
+  width: 613px;
+  //width: 620px;
+}
+
+.TreeNode{ 
+  font-family: arial,verdana; 
+  font-size: 85%; 
+  padding: 1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  cursor: pointer;
+  cursor: hand;
+  margin-left: 2px;
+  width:auto!important;
+} 
+.TreeNodeDisabled
+{
+	font-family: arial,verdana;
+	font-size: 85%;
+	padding: 1px;
+	padding-left: 3px;
+	padding-right: 3px;
+	cursor: pointer !important;
+	margin-left: 2px;
+	width: auto !important;
+	color: gray;
+} 
+.SelectedTreeNode{ 
+  font-family: arial,verdana; 
+  font-size: 85%; 
+  padding: 1px; 
+  padding-left: 3px; 
+  padding-right: 3px; 
+  margin-left:1px;
+  background-color:white; 
+  border: 1px solid gray;
+  cursor: default; 
+  width:auto!important;
+} 
+.HoverTreeNode{
+  font-family: arial,verdana; 
+  font-size: 85%; 
+  padding: 1px; 
+  padding-left: 3px; 
+  padding-right: 3px;
+  margin-left:1px;
+  background-color:#cccccc; 
+  border: 1px solid gray;
+  cursor: pointer;
+  cursor: hand;
+  width:auto!important;
+}
+.TreeNodeRow{ 
+  height: 20px; 
+}
+.TreeNodeApprove, .SelectedTreeNodeApprove, .HoverTreeNodeApprove{
+ background-image:url(../../../LitiumStudio/Images/icons_standard/hand_green_card.png);
+ background-repeat:no-repeat;
+ background-position:right;
+ padding-right:16px;
+}
+
+.litImageList{
+	padding:8px;
+	margin-bottom:5px;
+	margin-right:5px;
+	cursor:pointer;
+    background-color:#F6F6F6;
+    border:1px solid #CCCCCC;
+}
+.litImageListOver{
+    border: 1px solid #7F9DB9;
+    background-image: url(../../Editor/editor/skins/litiumstudio/images/toolbar.imagelistover.gif);
+    background-position: center center;
+}
+.litImageListSelected{
+    border: 1px solid #7F9DB9;
+    background-image: url(../../Editor/editor/skins/litiumstudio/images/toolbar.imageliston.gif);
+    background-position: center center;
+}
+.TreeViewPopup{
+  padding-top: 0px;
+  padding-left: 0px;
+  position:relative;
+}

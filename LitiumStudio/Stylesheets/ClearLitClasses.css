@@ -1,0 +1,54 @@
+﻿.litModuleContentWithTreeWithPagerMainAreaV2, 
+.litModuleContentWithTreeWithPagerTopAreaV2, 
+.litModuleContentWithTreeWithPagerBottomAreaV2,
+.litTreeView,
+.litModuleContentWithTreeNoTopMainAreaV2,
+.litModuleContentWithTreeMainAreaV2,
+.litModuleContentWithTreeTopAreaSingleRowV2,
+.litModuleTopAreaV2,
+.litModuleContentToolbarAreaV2,
+.litModuleContentAreaV2,
+.litModuleContentTopAreaV2,
+.litModuleContentMainAreaV2,
+.litModuleContentBottomAreaV2
+{
+	position: inherit;
+}
+.litToolbar, .litToolbarItemDisabled
+{
+	height: 17px;
+	margin-top: 2px;
+	vertical-align: top;
+}
+.litToolbar .litToolbarItemOnMouseOver 
+{
+	height: 17px;
+	padding-top: 0px;
+}
+td.litToolbarItemOnMouseDown 
+{
+    height: 17px;
+	padding-top: 0px;
+}
+.litToolbarItem 
+{
+	margin-top: 2px;
+	height: 17px;
+}
+
+.litGuideStars, .litGuideStars2 
+{
+	background-image: none;
+}
+.litToolbarDivider 
+{
+	margin-top: 6px;
+}
+.litNavMenuGroup
+{
+	font-size: 13px;
+}
+.litCalendar TD
+{
+	font-size: 11px;
+}

@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="false" Inherits="Site.CMS.Templates.Base" CodeFile="~/Site/CMS/Templates/Framework/Base.Master.cs" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" OnPreRender="HtmlHtmlOnPreRender" runat="server" lang="<%= CurrentState.WebSite.Culture.Name %>">
+<head>
+    <title><web:SearchEngineTitle runat="server" /></title>
+    <web:SearchEngineDescription runat="server" />
+    <web:SearchEngineKeywords runat="server" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="<%= Page.ResolveUrl("~/ui/css/base.ashx") %>" />
+	<link rel="stylesheet" type="text/css" href="<%= Page.ResolveUrl("~/ui/css/video-js.css") %>" />	  
+    <!--[if (lte IE 6)]><link rel="stylesheet" type="text/css" href="/ui/css/ie6.css" /><![endif]-->
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/ui/js/jquery.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/ui/js/swfobject.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/ui/js/litium.js") %>"></script>
+	<script type="text/javascript" src="<%= Page.ResolveUrl("~/ui/js/video.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/UI/js/superfish.js")%>"></script>	
+    <asp:ContentPlaceHolder ID="Head" runat="server" />
+</head>
+<body class="site" OnPreRender="HtmlBodyOnPreRender" runat="server">
+<form method="post" runat="server">
+
+	<div id="page" class="container_12" style="border:1px solid #CCC;-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">
+		<div id="header">
+			<web:UsePage runat="server" StructureLevel="1">
+				<a class="grid_5" id="home" href="<web:PageURL runat=server />" title="<web:WebSiteString runat=server Name=FrameworkLogotypeTitle />">
+					<img src="<%= Page.ResolveUrl("~/ui/img/framework/logo_true_or_false.png") %>" alt="<web:WebSiteString runat=server Name=FrameworkLogotypeAlternative />" />
+				</a>
+
+			 </web:UsePage>
+				
+		</div>
+	
+	
+		<web:PageList
+			AddClassOnLink="true"
+			AddClassOnListItem="true"
+			ClassList="nav container plain sf-menu"
+			ClassSelected="selected"
+			ClassSelectedParent="selectedparent"
+            ShowAllChildren="true"
+			ListID="nav"
+			MaxDepth="4"
+			ShowStartPage="true"
+			StartLevel="1"
+			runat="server"
+              />
+		<div style="margin-left:25px;margin-top:5px;">
+		<site:LinkChain ID="LinkChain1" runat="server" />
+        </div>
+		<div id="body" class="grid_12">
+		
+			<div id="content" class="grid_9 omega">
+				
+				<div id="article">
+					<asp:ContentPlaceHolder ID="Content" runat="server" />
+				</div>
+			</div> <!-- #content -->
+		</div> <!-- #body -->
+		<div id="footer" class="grid_12">
+			<p>
+				<span><web:WebSiteString Name="FrameworkFooter1" runat="server" /></span>
+				<span><a target="_blank" href="http://<web:WebSiteString Name=FrameworkURL runat=server />"><web:WebSiteString Name="FrameworkURL" runat="server" /></a></span>
+				<span><a href="mailto:<web:WebSiteString Name=FrameworkEmailAddress runat=server />"><web:WebSiteString Name="FrameworkEmailAddress" runat="server" /></a></span>				
+				<span><web:WebSiteString Name="FrameworkFooter2" runat="server" /></span>
+			</p>
+		</div> <!-- #footer -->
+	</div> <!-- #page -->
+	<web:IsInAdministrationMode runat="server">
+		<OnFalse>
+			<web:GoogleAnalyticsScript runat="server" />
+			<web:ProspectFinderScript runat="server" />
+		</OnFalse>
+	</web:IsInAdministrationMode>
+</form>
+</body>
+</html>

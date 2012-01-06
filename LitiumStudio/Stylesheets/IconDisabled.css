@@ -1,0 +1,976 @@
+﻿/***************** ICONS ***************************************************/
+.litToolbarItemDisabled .litIconUpDown{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/up_down_16px.png); 
+}
+.litToolbarItemDisabled .litIconArrowLeft{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_left_blue_16px.png); 
+}
+.litToolbarItemDisabled .litIconArrowRight{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_right_blue_16px.png); 
+}
+.litToolbarItemDisabled .litIconSortDescending{
+	height:16px;
+	margin-left: 4px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/sort_descending_16px.png); 
+}
+.litToolbarItemDisabled .litIconSortAscending{
+	height:16px;
+	margin-left: 4px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/sort_ascending_16px.png); 
+}
+.litToolbarItemDisabled .litIconView{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/view.png); 
+}
+.litToolbarItemDisabled .litIconDelete2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/delete.png); 
+}
+.litToolbarItemDisabled .litIconRefresh{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/refresh_16px.png); 
+}
+.litToolbarItemDisabled .litIconAdd2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/add.png); 
+}
+.litToolbarItemDisabled .litIconAdd2_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/add.png); 
+}
+.litToolbarItemDisabled .litIconPencil{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/pencil.png); 
+}
+.litToolbarItemDisabled .litIconExport2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/export.png);
+}
+.litToolbarItemDisabled .litIconImport2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/import.png);
+}
+.litToolbarItemDisabled .litIconError{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/error.png);
+}
+.litToolbarItemDisabled .litIconOk{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/check2_16px.png);
+}
+.litToolbarItemDisabled .litIconPagePublish{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/page_published.png);
+}
+.litToolbarItemDisabled .litIconPageTimePublish{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/page_timepublished.png);
+}
+.litToolbarItemDisabled .litIconPageUnPublish{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/page_unpublished.png);
+}
+.litToolbarItemDisabled .litIconPageWorkingCopy
+{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/ps_work_16px.png);
+}
+.litToolbarItemDisabled .litIconPublish{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/ok.png);
+}
+.litToolbarItemDisabled .litIconUnpublish{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/ps_unpubl2_16px.png);
+}
+
+.litToolbarItemDisabled .litIconIncomplete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/ps_incomplete_16px.png);
+}
+
+.litToolbarItemDisabled .litIconReadyForPublish{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/hand_green_card.png);
+}
+.litToolbarItemDisabled .litIconTimePublish{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/clock.png);
+}
+.litToolbarItemDisabled .litIconPublishWithSubpages
+{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/workingcopy_published.png);
+}
+.litToolbarItemDisabled .litIconWorkingCopy{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/ps_work_16px.png);
+}
+.litToolbarItemDisabled .litIconWorkCopy{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/view.png);
+}
+.litToolbarItemDisabled .litIconHiddenInMenu{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/hidden.png);
+}
+.litToolbarItemDisabled .litIconWarning{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/warning_16px.png);
+}
+.litToolbarItemDisabled .litIconFind{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/find.png);
+}
+.litToolbarItemDisabled .litIconKeys{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/keys_16px.png);
+}
+.litToolbarItemDisabled .litIconArrowDownBlue{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_down_blue.png); 
+}
+.litToolbarItemDisabled .litIconArrowDownBlue_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_down_blue.png); 
+}
+.litToolbarItemDisabled .litIconArrowUpBlue{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_up_blue.png); 
+}
+.litToolbarItemDisabled .litIconArrowUpBlue_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_up_blue.png); 
+}
+.litToolbarItemDisabled .litIconTextBold{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_bold_16px.png); 
+}
+.litToolbarItemDisabled .litIconTextItalics{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_italics_16px.png); 
+}
+.litToolbarItemDisabled .litIconTextUnderlined{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_underlined_16px.png); 
+}
+.litToolbarItemDisabled .litIconTextAlignLeft{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_align_left_16px.png); 
+}
+.litToolbarItemDisabled .litIconTextAlignRight{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_align_right_16px.png); 
+}
+.litToolbarItemDisabled .litIconTextAlignCenter{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_align_center_16px.png); 
+}
+.litToolbarItemDisabled .litIconTextAlignJustified{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_align_justified_16px.png); 
+}
+.litToolbarItemDisabled .litIconCopy{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/copy.png); 
+}
+.litToolbarItemDisabled .litIconCopy_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/copy.png); 
+}
+.litToolbarItemDisabled .litIconCut{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/cut.png); 
+}
+.litToolbarItemDisabled .litIconCut_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/cut.png); 
+}
+.litToolbarItemDisabled .litIconPaste{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/clipboard.png); 
+}
+.litToolbarItemDisabled .litIconPaste_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/clipboard.png); 
+}
+.litToolbarItemDisabled .litIconEnvironment{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/environment.png); 
+}
+.litToolbarItemDisabled .litIconTextRichColored{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/text_rich_colored_16px.png); 
+}
+.litToolbarItemDisabled .litIconGear{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/gear.png); 
+}
+.litToolbarItemDisabled .litIconColumnAddAfter{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/column_add_after_16px.png); 
+}
+.litToolbarItemDisabled .litIconColumnAddBefore{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/column_add_before_16px.png); 
+}
+.litToolbarItemDisabled .litIconColumnDelete{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/column_delete_16px.png); 
+}
+.litToolbarItemDisabled .litIconRowAddAfter{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/row_add_after_16px.png); 
+}
+.litToolbarItemDisabled .litIconRowAddBefore{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/row_add_before_16px.png); 
+}
+.litToolbarItemDisabled .litIconRowDelete{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/row_delete_16px.png); 
+}
+.litToolbarItemDisabled .litIconTableAdd{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/table_add_16px.png); 
+}
+.litToolbarItemDisabled .litIconTableDelete{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/table_delete_16px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentOk{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_ok_16px.png);
+}
+.litToolbarItemDisabled .litIconDocumentPulse{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_pulse_16px.png);
+}
+.litToolbarItemDisabled .litIconAbout{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/about.png);
+}
+.litToolbarItemDisabled .litIconDiskBlue{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/floppy_disk_blue.png); 
+}
+.litToolbarItemDisabled .litIconDiskBlue2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/disk_blue_24px.png); 
+}
+
+.litToolbarItemDisabled .litIconHelp2{
+	height:24px;
+	margin-top: 4px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/help2_24px.png); 
+}
+.litToolbarItemDisabled .litIconStop{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/sign_stop.png); 
+}
+.litToolbarItemDisabled .litIconArrowLeftBlue{
+	height:24px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_left_blue_24px.png); 
+}
+.litToolbarItemDisabled .litIconUser3{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/user3_16px.png);
+}
+.litToolbarItemDisabled .litIconDoor2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/door2_16px.png);
+}
+.litToolbarItemDisabled .litIconLogout{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/logout_16px.png);
+}
+.litToolbarItemDisabled .litIconCheck{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/check.png); 
+}
+.litToolbarItemDisabled .litIconLock{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/lock.png); 
+}
+.litToolbarItemDisabled .litIconLockOpen{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/lock_open.png); 
+}
+.litToolbarItemDisabled .litIconGarbageFull{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/garbage_full_16px.png); 
+}
+.litToolbarItemDisabled .litIconGarbageEmpty{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/garbage_empty.png); 
+}
+.litToolbarItemDisabled .litIconGarbageEmpty_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/garbage_empty.png); 
+}
+.litToolbarItemDisabled .litIconGarbageEmpty2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/garbage_empty_24px.png); 
+}
+.litToolbarItemDisabled .litIconArchive{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder_document.png); 
+}
+.litToolbarItemDisabled .litIconArchive_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder_document.png); 
+}
+.litToolbarItemDisabled .litIconArchive2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/archive_24px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentExchange{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_exchange_16px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentExchange2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_exchange_24px.png);
+}
+.litToolbarItemDisabled .litIconDocumentView{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_view.png); 
+}
+.litToolbarItemDisabled .litIconDocumentView2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_view_24px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentPinned{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_pinned_16px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentPinnedDelete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_pinned_delete_16px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentPinnedOver{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_pinned_over_16px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentPreferences{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_preferences_24px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentTime{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_time_24px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentChart{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_chart_24px.png); 
+}
+.litToolbarItemDisabled .litIconEarthPreferences{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/earth_preferences_16px.png); 
+}
+.litToolbarItemDisabled .litIconEarthPreferences2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/earth_preferences_24px.png); 
+}
+.litToolbarItemDisabled .litIconRecycle{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/recycle_16px.png); 
+}
+.litToolbarItemDisabled .litIconGarbageDelete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/garbage_delete_16px.png); 
+}
+.litToolbarItemDisabled .litIconArchiveDelete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/archive_delete_16px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentExchangeDelete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_exchange_delete_16px.png); 
+}
+.litToolbarItemDisabled .litIconTemplate{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/template_16px.png); 
+}
+.litToolbarItemDisabled .litIconTemplate2{
+	height:32px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/template_32px.png); 
+}
+.litToolbarItemDisabled .litIconPageType{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/pagetype_16px.png); 
+}
+.litToolbarItemDisabled .litIconPageType2{
+	height:32px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/pagetype_32px.png); 
+}
+.litToolbarItemDisabled .litIconRequired{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/required.png); 
+}
+.litToolbarItemDisabled .litIconNavRightBlue{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/nav_right_blue.png); 
+}
+.litToolbarItemDisabled .litIconDocumentFind{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_find_24px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentFind2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_find_16px.png);
+}
+.litToolbarItemDisabled .litIconDocumentAdd{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_add_24px.png); 
+}
+.litToolbarItemDisabled .litIconDocumentAdd2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_add_16px.png); 
+}
+.litToolbarItemDisabled .litIconReplace2{
+	height:16px;
+	margin:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/replace2_16px.png); 
+}
+.litToolbarItemDisabled .litIconAdd{
+	height:16px;
+	margin-left:5px;
+	margin-top:3px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/add_16px.png);
+}
+.litToolbarItemDisabled .litIconDelete{
+	height:16px;
+	margin-left:5px;
+	margin-top:3px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/delete_16px.png);
+}
+.litToolbarItemDisabled .litIconDocumentGear{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_gear.png);
+}
+.litToolbarItemDisabled .litIconDocumentGear2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_gear_24px.png);
+}
+.litToolbarItemDisabled .litIconGear2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/gear_24px.png);
+}
+.litToolbarItemDisabled .litIconDocuments{
+	height:24px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/documents_24px.png);
+}
+.litToolbarItemDisabled .litIconBookOpen{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/book_open_16px.png);
+}
+.litToolbarItemDisabled .litIconModulePanel{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/component_blue.png);
+}
+.litToolbarItemDisabled .litIconGauge{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/gauge_16px.png); 
+}
+.litToolbarItemDisabled .litIconNootbookMyTask{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/notebook2.png); 
+}
+.litToolbarItemDisabled .litIconEdit{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/edit_16px.png); 
+}
+.litToolbarItemDisabled .litIconNootbookAdd{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/notebook_add_16px.png); 
+}
+.litToolbarItemDisabled .litIconCopyRecursively_NoText{
+	height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/copy_recursively_16px.png); 
+}
+.litToolbarItemDisabled .litIconPresentationChart{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/presentation_chart_16px.png); 
+}
+.litToolbarItemDisabled .litIconLineChart{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/chart_line.png);
+}
+.litToolbarItemDisabled .litIconDownload{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/import.png);
+}
+.litToolbarItemDisabled .litIconRemoveFromCategory{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/branch_delete_16px.png);
+}
+
+.litToolbarItemDisabled .litIconSharedPage
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/shared_16px.png);
+}
+
+.litToolbarItemDisabled .litIconMasterPage
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/master_16px.png);
+}
+
+.litToolbarItemDisabled .litIconArrowMoveLeft
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_move_gray_left_16px.png);
+	cursor: pointer;
+}
+
+.litToolbarItemDisabled .litIconArrowMoveRight
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/arrow_move_gray_right_16px.png);
+	cursor: pointer;
+}
+
+.litToolbarItemDisabled .litIconOfficeBuilding
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/office_building.png);
+}
+
+.litToolbarItemDisabled .litIconArticle
+{
+    height:14px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/product_blue.png);
+	vertical-align:middle;
+}
+
+.litToolbarItemDisabled .litIconPackageArticle
+{
+    height:14px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/package_article.png);
+	vertical-align:middle;
+}
+
+.litToolbarItemDisabled .litIconVariant
+{
+    height:14px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/variant.png);
+	vertical-align:middle;
+}
+
+.litToolbarItemDisabled .litIconProductCatalog{
+    vertical-align:middle;
+    height:16px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/earth2.png); 
+}
+
+.litToolbarItemDisabled .litIconFolder{
+    vertical-align:middle;
+    height:14px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder_closed.png); 
+}
+
+.litToolbarItemDisabled .litIconFolderPublished{
+    vertical-align:middle;
+    height:16px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder_closed_published.png); 
+}
+
+.litToolbarItemDisabled .litIconFolderUnPublished{
+    vertical-align:middle;
+    height:16px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder_closed_unpublished.png); 
+}
+
+.litToolbarItemDisabled .litIconFolderIncomplete{
+    vertical-align:middle;
+    height:16px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder_closed_incomplete.png); 
+}
+
+.litToolbarItemDisabled .litIconFolderOpen{
+    vertical-align:middle;
+    height:14px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder.png); 
+}
+
+.litToolbarItemDisabled .litIconProduct
+{
+	vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/product_green.png); 
+}
+
+.litToolbarItemDisabled .litIconProductGroup{
+    vertical-align:middle;
+    height:14px;
+    width: 16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/folder_closed.png); 
+}
+
+.litToolbarItemDisabled .litIconAddressLists
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/addresslists_16px.png);
+}
+
+.litToolbarItemDisabled .litIconBusinesswoman{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/businesswoman.png);
+}
+
+.litToolbarItemDisabled .litIconBookBlue{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/book_blue_16px.png);
+}
+
+.litToolbarItemDisabled .litIconShoppingCart{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/shopping_cart_16px.png);
+}
+
+.litToolbarItemDisabled .litIconBarcode{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/barcode_16.png);
+}
+
+.litToolbarItemDisabled .litIconShoppingBag{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/document_notebook.png);
+}
+
+.litToolbarItemDisabled .litIconShoppingBagEmpty{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/shopping_bag_empty_16px.png);
+}
+
+.litToolbarItemDisabled .litIconCurrencyDollar{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/currency_dollar.png);
+}
+
+.litToolbarItemDisabled .litIconPopUp
+{
+	height: 16px;
+    margin-left: 5px;
+	padding-left:5px;
+	top: 3px;	
+	cursor: pointer;
+}
+
+.litToolbarItemDisabled .litIconDelivery{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/box_16px.png);
+}
+
+.litToolbarItemDisabled .litIconPayment
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/credit_card.png);
+}
+
+.litToolbarItemDisabled .litIconCampaign
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/megaphone_16px.png);
+}
+
+.litToolbarItemDisabled .litIconShelf
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/shelf_empty16.png);
+}
+
+.litToolbarItemDisabled .litIconDatabase
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/data_16px.png);
+}
+
+.litToolbarItemDisabled .litIconHarddrive
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/hard_drive_16x.png);
+}
+
+.litToolbarItemDisabled .litIconViewDisabled
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/view_disabled_16px.png);
+}
+
+
+.litToolbarItemDisabled .litIconCopyRecursivelyDisabled
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/copy_recursively_disabled_16px.png);
+}
+
+.litToolbarItemDisabled .litIconFoundationGroups {
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/businesspeople.png); 
+}
+
+.litToolbarItemDisabled .litIconFoundationUsers {
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/businesswoman.png); 
+}
+
+.litToolbarItemDisabled .litIconLicense {
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/id_card.png); 
+}
+
+.litToolbarItemDisabled .litIconLanguages
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/main_languages_16px.png); 
+}
+
+.litToolbarItemDisabled .litIconCurrencies
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/currency_dollar.png); 
+}
+
+.litToolbarItemDisabled .litIconModules
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/cubes_green.png); 
+}
+
+.litToolbarItemDisabled .litIconMessages
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/book_blue_open.png); 
+}
+
+.litToolbarItemDisabled .litIconMainLog
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/history2.png); 
+}
+
+.litToolbarItemDisabled .litIconECommerce
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/ECommerce/images/main_ecommerce_16px.png); 
+}
+
+.litToolbarItemDisabled .litIconMediaArchive
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/MediaArchive/Images/main_mediaArchive_16px.png); 
+}
+
+.litToolbarItemDisabled .litIconCircular
+{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../LitiumStudio/Newsletter/images/main_circular_16px.png); 
+}
+
+.lsContentHeader 
+.lsContentHeaderHeading 
+.litToolbarItemDisabled .litIconPSTranslation {
+	vertical-align:middle;
+    margin-right:5px;
+    height:12px;
+    width:16px;
+	background-image: url(../Images/icons_standard_disabled/translation_16px.png);
+}
+.litToolbarItemDisabled .litIconTranslate{
+	height:12px;
+    width:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/translation_16px.png); 
+}
+.litToolbarItemDisabled .litIconArticleGroup
+{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/article_group.png);
+}
+
+.litToolbarItemDisabled .litIconConnect{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/graph_edge_directed.png); 
+}
+
+.litToolbarItemDisabled .litIconManagePerson
+{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/businesswoman.png);
+}
+.litToolbarItemDisabled .litIconPDF
+{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Help/Images/PDF.png);
+}
+.litToolbarItemDisabled .litIconHelp{
+	height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/help2.png); 
+}
+.litToolbarItemDisabled .litIconDelivery
+{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/package.png); 
+}
+.litToolbarItemDisabled .litIconFlagUnitedKingdom
+{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../../LitiumStudio/Images/icons_standard_disabled/flags/flag_united_kingdom.png); 
+}

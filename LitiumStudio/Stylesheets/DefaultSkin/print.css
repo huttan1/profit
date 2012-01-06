@@ -1,0 +1,70 @@
+﻿BODY, P, TD, TR, DIV, INPUT, SELECT, TEXTAREA, FIELDSET, LEGEND
+{
+	font-size: small;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+}
+
+
+.litLogoAreaV2, .litNavAreaV2
+{    
+    display:none;    
+}
+
+.litSplitter { position:absolute; left:-300px; top:0px; }
+
+.litRightToolBar, .litRightHeader { display:none; }
+
+.litRightContent { position:absolute; left:0px; display:block; height:800px; }
+
+.litLeftToolBar, .litSplitterLeft { display:none; width:0px; position:absolute; left:0px; top:0px; }
+.litLeftMenu { display:none; width:0px; position:absolute; left:0px; top:0px; }
+
+.GridFooter { display:none; }
+
+.litRightContent { overflow:visible; height:100%; }
+
+
+.innerTable div { width:110px; }
+.Grid td { padding:5px; font-size:12px; width:100%; }
+
+.litModuleContentWithTreeMainAreaV2New { overflow: visible; height: 100%; }
+
+
+
+
+
+/* Formatting according to new version */
+
+.hiddenData { display:none; width:0px; }
+.Grid .hiddenData td { display:none; width:0px; }
+.hiddenHeader { display:none; width:0px; }
+.Grid .hiddenHeader td { display:none; width:0px; }
+.DataCell .hiddenData { display:none; width:0px; }
+.MidGrid { clear:both; margin-bottom:10px; }
+.BottomLeft2 { margin-top:10px; }
+.BottomRight2 { margin-top:10px; }
+
+.currencyStyle 
+{	 
+	text-align:right;	
+}
+
+.litBoldText { font-weight:bold; font-size:12px; }
+.litBoldHeader, .litBoldHeader1 { font-weight:bold; font-size:12px; width:100px; height:20px; }
+.GroupHeader { font-weight:bold; font-size:16px; }
+.litFormLeft { width:110px; min-height:20px; }
+.litFormRight { margin-left:110px; margin-top:-20px; width:160px; min-height:20px;}
+.printMove { margin-left:-15px; }
+.printMove2 { margin-top:10px; margin-bottom:20px; }
+.printBorder { border-bottom:2px solid #CCCCCC; border-bottom-style:dotted; margin-bottom:15px; }
+
+/* Printing Grid Styles */
+.HeadingCell { border:1px solid #CCCCCC; border-collapse:collapse; padding:2px 0px 2px 2px; height:30px; text-align:left; }
+.HeadingRow .HeadingCellText { font-weight:bold; font-size:12px; }
+.DataCell { border:1px solid #CCCCCC; border-collapse:collapse; padding:2px 0px 2px 2px; text-align:left; font-size:12px; }
+
+.PrintHeadShow { display:block; }
+.printHeader {margin-left: 4px !important;}
+
+

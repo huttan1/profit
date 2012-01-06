@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration>
+	<appSettings>
+		<add key="xmlRpcURL" value="http://beta-test.kreditor.se"/>
+		<add key="storeId" value =""/>
+		<add key="sharedSecret" value=""/>
+		<add key="clientIPAddress" value=""/>
+		<add key="isTestMode" value="true"/>
+		<add key="DefaultPaymentMode" value="Charge" />
+
+		<!-- URL FOR INVOICES -->
+		<add key="InvoiceUrl" value="https://online.klarna.com/temp/" />
+
+		<!-- Enable or disable payment methods. -->
+		<add key="isInvoiceEnabled" value="true"/>
+        <add key="isPartialPaymentEnabled" value="true"/>
+
+        <!-- Fully qualified type of the creator class that will create the Payment Args for this payment provider.
+				 This creator class should create a type that can interpret results from checkout flow and produce a Payment args.-->
+		<add key="PaymentProviderArgsCreatorType" value="CMS.PageTypes.CheckOut.KreditorPaymentArgsCreator"/>
+	</appSettings>
+</configuration>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration>
+      <appSettings>   
+        
+          <!-- Use https://www.sandbox.paypal.com/cgi-bin/webscr for testing
+               Use https://www.paypal.com/cgi-bin/webscr to go live -->
+          <add key="serverURL" value="https://www.sandbox.paypal.com/cgi-bin/webscr"/>
+        
+          <!-- PayPal API credentials -->
+          <add key="apiUserName" value ="seller_1265875310_biz_api1.teamwork.lk"/>
+          <add key="apiPassword" value="1265875318"/>
+          <add key="apiSignature" value="AiPC9BjkCyDFQXbSkoZcgqH3hpacAW6j5LmmCp8T7A5hnphoQqCvk6eU" />
+        
+          <add key="isTestMode" value="true" />
+          
+          <!-- Use an image url which is hosted in a secure location so that the browser warnings
+               can be avoided while transferring to PayPal site. Max size is 750 pixels wide by 90 pixels high -->
+          <add key="headerImage" value="" />
+         
+        	<!-- Enable or disable payment methods. -->
+		      <add key="isExpressCheckoutEnabled" value="true"/>
+        
+		      <add key="DefaultPaymentMode" value="Reserve" />
+		
+		      <!-- Fully qualified type of the creator class that will create the Payment Args for this payment provider.
+				       This creator class should create a type that can interpret results from checkout flow and produce Payment args. -->
+		      <add key="PaymentProviderArgsCreatorType" value="CMS.PageTypes.CheckOut.PayPalPaymentArgsCreator"/>
+          	
+      </appSettings>
+</configuration>

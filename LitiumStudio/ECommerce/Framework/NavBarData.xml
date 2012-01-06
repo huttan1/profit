@@ -1,0 +1,14 @@
+﻿<Tree>
+  <Node ReplaceId="c_navBarItemOrders" Text="" />
+    
+  <Node ReplaceId="c_navBarItemDeliveries" Text="" />
+    
+  <Node ReplaceId="c_navBarItemPayments" Text="" />
+    
+  <Node ReplaceId="c_navBarItemCampaigns" Text="" />
+    
+  <Node ReplaceId="c_navBarItemReports" Text="" />
+
+  <Node ReplaceId="c_navBarItemPanels" Text="" />
+  
+</Tree>

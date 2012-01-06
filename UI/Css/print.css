@@ -1,0 +1,10 @@
+/*-----------------------------------------------------------------------------
+print.css
+-----------------------------------------------------------------------------*/
+@media print {
+	body * { color: #000 !important; }
+	#header, #nav, #subnav, #footer, #linkchain { display: none; }
+	#page, #content, .sections > .section, .sections > .section1, .sections > .section2 { float:none; width: auto; }
+}
+
+/*---------------------------------------------------------------------------*/

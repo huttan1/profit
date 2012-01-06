@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Framework.Cache</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Framework.Cache.UpdateFeed.ICacheUpdateSubscriber">
+            <summary>
+            Implementors of this interface can subscribe to cache updates.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.ICacheUpdateSubscriber.SubscriptionNotificationRemove(System.String)">
+            <summary>
+            Notification from subscription when a cache item should be removed.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.ICacheUpdateSubscriber.SubscriptionNotificationFlush">
+            <summary>
+            Notification from subscription when a cache should be flushed.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.ICacheUpdateSubscriber.ManagerName">
+            <summary>
+            Name of the cache manager.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.CacheProviderContainer">
+            <summary>
+            Container of cache providers.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheProviderContainer.GetAllProviders">
+            <summary>
+            Gets all initialized cache providers.
+            </summary>
+            <returns>Cache providers.</returns>
+        </member>
+        <member name="T:Litium.Framework.Cache.ICacheBaseSetting">
+            <summary>
+            Settings on the cache base.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheBaseSetting.ManagerName">
+            <summary>
+            Name of the cache manager.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheBaseSetting.ExpirationTime">
+            <summary>
+            The expiration time for cache items.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheBaseSetting.AbsoluteExpirationTime">
+            <summary>
+            The absoulte expiration time for cache items. If set to TimeSpan(0) no caching is used.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheBaseSetting.SlidingExpirationTime">
+            <summary>
+            The sliding expiration time for cache items. If set to TimeSpan(0) no caching is used.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeed">
+            <summary>
+            Feed to report cache updates to and get the latest changes.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeed.GetNewUpdateItems(System.DateTime)">
+            <summary>
+            Get new update items that are newer then <paramref name="fromDate"/>.
+            </summary>
+            <param name="fromDate">Items newer then this date should be fetched.</param>
+            <returns>A list of new updates.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeed.AddUpdateItem(Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeedItem)">
+            <summary>
+            Adds a new update to the feed.
+            </summary>
+            <param name="updateItem">The update item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeed.DeleteOldUpdateItems(System.DateTime)">
+            <summary>
+            Deletes update items older then <paramref name="toDate"/>.
+            </summary>
+            <param name="toDate">Items older then this should be removed.</param>
+        </member>
+        <member name="T:Litium.Framework.Cache.MicrosoftCachingProvider">
+            <summary>
+            Implementation of Microsoft Enterprise Library Caching Block.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.LocalCacheProviderBase">
+            <summary>
+            Base implementation for a local cache. Reports/subscribes cache updates to a feed.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.ICacheProvider">
+            <summary>
+            Cache provider to implement to support a custom cache.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.ICacheProvider.Add(System.String,System.Object)">
+            <summary>
+            Adds/updates a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <param name="value">The value to be stored.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.ICacheProvider.GetData(System.String)">
+            <summary>
+            Gets the value of a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <returns>The cache item value. Null if not found in cache.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.ICacheProvider.Remove(System.String)">
+            <summary>
+            Removes a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.ICacheProvider.Flush">
+            <summary>
+            Flushes the cache.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.ICacheProvider.Contains(System.String)">
+            <summary>
+            Determines whether CacheProvider contains the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            	<c>true</c> if contains the specified key; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheProvider.CacheBaseSetting">
+            <summary>
+            Has settings used in cache.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheProvider.Count">
+            <summary>
+            The number of items currently in the cache.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheProvider.ManagerName">
+            <summary>
+            Name of the cache manager.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.#ctor(Litium.Framework.Cache.ICacheBaseSetting)">
+            <summary>
+            Base implementation for a local cache. Reports/subscribes cache updates to a feed.
+            </summary>
+            <param name="cacheBaseSetting">Base setting object.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.Contains(System.String)">
+            <summary>
+            Determines whether CacheProvider contains the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            	<c>true</c> if contains the specified key; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.SubscriptionNotificationRemove(System.String)">
+            <summary>
+            Notification from subscription when a cache item should be removed.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.SubscriptionNotificationFlush">
+            <summary>
+            Notification from subscription when a cache should be flushed.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.Add(System.String,System.Object)">
+            <summary>
+            Adds/updates a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <param name="value">The value to be stored.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.GetData(System.String)">
+            <summary>
+            Gets the value of a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <returns>The cache item value. Null if not found in cache.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.Remove(System.String)">
+            <summary>
+            Removes an item localy and adds to a update feed that will lead to a remove notification being raised.
+            </summary>
+            <param name="key">Key of the cache item to be removed.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.LocalCacheProviderBase.Flush">
+            <summary>
+            Flushes the local cache and adds to a update feed that will lead to a flush notification being raised.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.LocalCacheProviderBase.CacheBaseSetting">
+            <summary>
+            Has settings used in cache.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.LocalCacheProviderBase.ManagerName">
+            <summary>
+            Name of cache manager.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.LocalCacheProviderBase.Count">
+            <summary>
+            The number of items currently in the cache.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.MicrosoftCachingProvider.GetInstance(Litium.Framework.Cache.ICacheBaseSetting)">
+            <summary>
+            Gets an instance of <see cref="T:Litium.Framework.Cache.MicrosoftCachingProvider"/>.
+            Requires configuration in app/web.config.
+            </summary>
+            <param name="cacheBaseSetting">Base setting object.</param>
+            <returns>Instance of <see cref="T:Litium.Framework.Cache.MicrosoftCachingProvider"/>.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.MicrosoftCachingProvider.GetInstanceWithoutConfig(Litium.Framework.Cache.ICacheBaseSetting,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             Gets an instance of <see cref="T:Litium.Framework.Cache.MicrosoftCachingProvider"/>.
+            </summary>
+             <param name="cacheBaseSetting">Base setting object.</param>
+            <param name="maximumElementsInCacheBeforeScavenging">Max elements in cache.</param>
+            <param name="numberToRemoveWhenScavenging">Number removed when cache gets to big.</param>
+            <param name="expirationPollFrequencyInSeconds">Time between cache clearing.</param>
+             <returns>Instance of <see cref="T:Litium.Framework.Cache.MicrosoftCachingProvider"/>.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.MicrosoftCachingProvider.GetExpirations">
+            <summary>
+            Gets an array of expirations. 
+            </summary>
+            <returns>Array of expirations.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.MicrosoftCachingProvider.Add(System.String,System.Object)">
+            <summary>
+            Adds/updates a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <param name="value">The value to be stored.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.MicrosoftCachingProvider.GetData(System.String)">
+            <summary>
+            Gets the value of a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <returns>The cache item value. Null if not found in cache.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.MicrosoftCachingProvider.SubscriptionNotificationRemove(System.String)">
+            <summary>
+            Notification from subscription when a cache item should be removed.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.MicrosoftCachingProvider.SubscriptionNotificationFlush">
+            <summary>
+            Notification from subscription when a cache should be flushed.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.MicrosoftCachingProvider.MaximumElementsInCacheBeforeScavenging">
+            <summary>
+            The maximum number of items the cache should contain before scavenging will remove items.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.MicrosoftCachingProvider.Count">
+            <summary>
+            The number of items currently in the cache.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeedItem">
+            <summary>
+            Update feed item that contains information of what to be cleared from the cache.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeedItem.ManagerName">
+            <summary>
+            Name of the cache manager.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeedItem.UpdateType">
+            <summary>
+            Type of update.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeedItem.Key">
+            <summary>
+            Key of the cache item to be removed.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeedItem.CreationDate">
+            <summary>
+            Creation date of the item.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.UpdateFeed.CacheUpdateType">
+            <summary>
+            Type of update.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Cache.UpdateFeed.CacheUpdateType.Flush">
+            <summary>
+            Used to flush a cache.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Cache.UpdateFeed.CacheUpdateType.Remove">
+            <summary>
+            Used to remove a certain item from a cache.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.UpdateFeed.CacheUpdateFeedItem">
+            <summary>
+            Update feed item that contains information of what to be cleared from the cache.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.CacheUpdateFeedItem.#ctor(System.String,Litium.Framework.Cache.UpdateFeed.CacheUpdateType,System.String,System.DateTime)">
+            <summary>
+            Update feed item that contains information of what to be cleared from the cache.
+            </summary>
+            <param name="managerName">Name of cache manager.</param>
+            <param name="updateType">Type of update.</param>
+            <param name="key">Key of the cache item to be removed.</param>
+            <param name="creationDate">Creation date of the item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.CacheUpdateFeedItem.#ctor(System.String,Litium.Framework.Cache.UpdateFeed.CacheUpdateType,System.DateTime)">
+            <summary>
+            Update feed item that contains information of what to be cleared from the cache.
+            </summary>
+            <param name="managerName">Name of cache manager.</param>
+            <param name="updateType">Type of update.</param>
+            <param name="creationDate">Creation date of the item.</param>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.CacheUpdateFeedItem.ManagerName">
+            <summary>
+            Name of the cache manager.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.CacheUpdateFeedItem.UpdateType">
+            <summary>
+            Type of update.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.CacheUpdateFeedItem.Key">
+            <summary>
+            Key of the cache item to be removed.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.CacheUpdateFeedItem.CreationDate">
+            <summary>
+            Creation date of the item.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner">
+            <summary>
+            Update cleaner that handles cleanup of caches.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.AddSubscriber(Litium.Framework.Cache.UpdateFeed.ICacheUpdateSubscriber)">
+            <summary>
+            Adds a new cache subscriber.
+            </summary>
+            <param name="subscriber">Subscriber that implements <see cref="T:Litium.Framework.Cache.UpdateFeed.ICacheUpdateSubscriber"/>.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.AddUpdateItem(Litium.Framework.Cache.UpdateFeed.ICacheUpdateFeedItem)">
+            <summary>
+            Adds a new update item.
+            </summary>
+            <param name="updateItem">A update item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.StartWorker">
+            <summary>
+            Starts the cleaner worker that runs in the background.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.StopWorker">
+            <summary>
+            Stops the cleaner worker.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.RunCleanCache">
+            <summary>
+            Runs a cleanup of the cache.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.CacheUpdateFeed">
+            <summary>
+            Update feed to add/get updates from.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.WorkerCleanInterval">
+            <summary>
+            Interval for how often the cache should be cleaned (milliseconds).
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.UpdateFeed.CacheUpdateCleaner.FeedItemSecondsToSave">
+            <summary>
+            How long a feed item should be saved.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.ICacheKey">
+            <summary>
+            Key that identifies a cache item.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.ICacheKey.Key">
+            <summary>
+            Key put together as a string.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Cache.StorageItemGetter`1">
+            <summary>
+            Method used when an item doesn't exist in the cache and needs to be fetched from storage.
+            </summary>
+            <typeparam name="TItem">Type of the item.</typeparam>
+            <returns>Item from storage. Null when not found.</returns>
+        </member>
+        <member name="T:Litium.Framework.Cache.CacheBase`2">
+            <summary>
+            Base class for cache.
+            </summary>
+            <typeparam name="TKey">Type of keys.</typeparam>
+            <typeparam name="TItem">Type of items.</typeparam>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheBase`2.CreateProviderInstance">
+            <summary>
+            Returns a cache provider instance.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheBase`2.Add(`0,`1)">
+            <summary>
+            Adds/updates a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <param name="value">The value to be stored.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheBase`2.Contains(`0)">
+            <summary>
+            Determines whether cache contains the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            	<c>true</c> if contains the specified key; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheBase`2.GetData(`0)">
+            <summary>
+            Gets the value of a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+            <returns>The cache item value. Null if not found in cache.</returns>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheBase`2.Remove(`0)">
+            <summary>
+            Removes a cache item.
+            </summary>
+            <param name="key">Key of the cache item.</param>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheBase`2.Flush">
+            <summary>
+            Flushes the cache.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Cache.CacheBase`2.TryGetItem(`0,Litium.Framework.Cache.StorageItemGetter{`1})">
+            <summary>
+            Tries to get an item from the cache. If not successful, calls itemGetter to get the uncached value from storage.
+            </summary>
+            <param name="key">Identifier of cache item.</param>
+            <param name="itemGetter">Used to get uncached value.</param>
+            <returns>Item from cache or from storage. Null if not found in cache or storage.</returns>
+        </member>
+        <member name="P:Litium.Framework.Cache.CacheBase`2.ManagerName">
+            <summary>
+            Name of the cache manager.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.CacheBase`2.ExpirationTime">
+            <summary>
+            The expiration time for cache items in minutes.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.CacheBase`2.AbsoluteExpirationTime">
+            <summary>
+            Gets the absolute expiration time.
+            </summary>
+            <value>The absolute expiration time.</value>
+        </member>
+        <member name="P:Litium.Framework.Cache.CacheBase`2.SlidingExpirationTime">
+            <summary>
+            The sliding expiration time for cache items.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Litium.Framework.Cache.CacheBase`2.SerializeValues">
+            <summary>
+            If true, items added to the cache will be serialized.
+            If false, items will be added to the cache without being serialized.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Cache.CacheBase`2.Count">
+            <summary>
+            The number of items currently in the cache.
+            </summary>
+        </member>
+    </members>
+</doc>

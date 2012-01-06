@@ -1,0 +1,602 @@
+<%@ Import Namespace="Litium.Studio.UI.ProductCatalog.Common.Constants" %>
+
+<%@ master language="C#" autoeventwireup="true" masterpagefile="~/LitiumStudio/Framework/LitiumStudio.master" inherits="LitiumStudio_ProductCatalog_Base, Litum.Studio.Web" %>
+
+<%@ Register TagPrefix="ToolBar" TagName="ToolBarCommon" Src="~/LitiumStudio/WebUserControls/ToolBarCommonButtons.ascx" %>
+<asp:Content ID="AdminPageContent" ContentPlaceHolderID="HeaderContent" runat="Server">
+	<Telerik:RadScriptBlock ID="RadScriptBlock2" runat="server">
+		<link href="<%=Page.ResolveUrl("~/LitiumStudio/ProductCatalog/Styles/ProductCatalog.css")%>"
+			type="text/css" rel="stylesheet" />
+		<script type="text/javascript">
+			function progressActivate() {
+				progressDisableTags("INPUT");
+				progressDisableTags("TEXTAREA");
+				progressDisableTags("SELECT");
+				var img = document.getElementById('imageProgress');
+				if (img) {
+					img.src = 'Images/progress.gif';
+					img.style.display = 'inline';
+				}
+				if (document.getElementById('textProgress'))
+					document.getElementById('textProgress').style.display = 'inline';
+			}
+			function progressDisableTags(tagName) {
+				var tag = document.getElementsByTagName(tagName);
+				for (i = 0; i < tag.length; i++)
+					tag[i].disabled = true;
+			}
+			function NodeBeforeMove(sender, eventArgs) {
+				var nodeValue = eventArgs.get_sourceNode().get_value();
+				var currentProductID = '<%=(Request.Params["pid"] ?? string.Empty) %>';
+				var currentProductGroupID = '<%=(Request.Params["pgid"] ?? string.Empty) %>';
+				var isProductNode = true;
+				if (nodeValue.indexOf('<%= StringConstants.CHILD_PRODUCT_GROUP_NAME %>') != -1) isProductNode = false;
+				//			
+				//			if ((isProductNode && currentProductID != '' && nodeValue.indexOf(currentProductID) != -1) || (!isProductNode && currentProductGroupID != '' && nodeValue.indexOf(currentProductGroupID) != -1)) {
+				//				alert('<Foundation:ModuleString ID="ModuleString111" Name="ValidatorRelationToYourself" Runat="server"/>');
+				//				eventArgs.set_cancel(true);
+				//			}
+			}
+
+			////////////////////////////
+			var maskpanel = function () {
+				this.divobj;
+				this.show = function (divId) {
+					var currentDiv = document.getElementById(divId);
+					currentDiv.style.overflow = "hidden";
+
+					if (!document.getElementById("xdivmasking")) {
+						var divEle = document.createElement('div');
+						divEle.setAttribute("id", "xdivmasking");
+
+						currentDiv.appendChild(divEle);
+						var divSty = document.getElementById("xdivmasking").style;
+						divSty.position = "absolute"; divSty.top = "0px"; divSty.left = "0px";
+						divSty.zIndex = "46"; divSty.opacity = "0"; divSty.backgroundColor = "#000";
+						divSty.filter = "alpha(opacity=0)";
+					}
+
+					this.divobj = document.getElementById("xdivmasking");
+					this.divobj.style.height = currentDiv.clientHeight + 'px';
+					this.divobj.style.width = currentDiv.clientWidth + 'px';
+					this.divobj.style.display = "block";
+
+				};
+				this.hide = function () {
+					this.divobj.style.display = "none";
+				};
+			}
+
+			function hide_mask() {
+				divmask.hide();
+				var currentDiv = document.getElementById('LeftTreeDiv');
+				currentDiv.style.overflow = "auto";
+			}
+
+			function NodeBeforeSelect(sender, eventArgs) {
+				divmask = new maskpanel();
+				divmask.show('LeftTreeDiv');
+				setTimeout('hide_mask()', 300);
+
+			}
+			////////////////////////////
+		
+		</script>
+	</Telerik:RadScriptBlock>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="LitiumStudioTopMenu" runat="Server">
+	<ToolBar:ToolBarCommon ID="c_commonToolBar" runat="server" />
+	<ComponentArt:Menu runat="server" ID="c_menuAdd" DefaultDisabledItemLookId="DisabledItemLook"
+		ImagesBaseUrl="~/LitiumStudio/Images/" CssClass="litNavMenuGroup" DefaultItemLookId="DefaultItemLook"
+		DefaultGroupItemSpacing="1" DefaultItemTextAlign="Left" DefaultItemTextWrap="false"
+		DefaultGroupExpandOffsetX="0" DefaultGroupExpandOffsetY="0" DefaultGroupExpandDirection="Auto"
+		TopGroupExpandDirection="BelowLeft" TopGroupExpandOffsetY="0" CollapseDuration="100"
+		CollapseSlide="ExponentialDecelerate" ExpandDuration="100" ExpandSlide="ExponentialDecelerate"
+		ExpandDelay="0" ExpandOnClick="false" CascadeCollapse="true" CollapseDelay="10000"
+		HideSelectElements="false" HighlightExpandedPath="true" KeyboardEnabled="true"
+		OverlayWindowedElements="true" ShadowColor="Gray" ShadowEnabled="true" ShadowOffset="2"
+		Orientation="Vertical" ContextMenu="Custom" ScrollingEnabled="true" ScrollDownLookId="ScrollDownItemLook"
+		EnableViewState="false" ScrollUpLookId="ScrollUpItemLook" OnItemSelected="AddMenu_OnItemSelected">
+		<ItemLooks>
+			<ComponentArt:ItemLook LookId="DefaultItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded" ActiveCssClass="litNavMenuItemActive"
+				HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="5" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="4" />
+			<ComponentArt:ItemLook LookId="DisabledItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem litDisabled" LabelPaddingBottom="5" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="4" />
+			<ComponentArt:ItemLook LookId="ExpandableItemLook" RightIconUrl="menu/arrow.gif"
+				RightIconWidth="20" RightIconHeight="15" CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded"
+				ActiveCssClass="litNavMenuItemActive" HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4"
+				LabelPaddingLeft="10" LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="BreakItem" ImageUrl="splitter/splitter_verBg.gif"
+				ImageWidth="100%" ImageHeight="1" />
+		</ItemLooks>
+		<Items>
+			<ComponentArt:MenuItem ID="m_ArticleGroup" Look-LeftIconUrl="icons_standard/article_group.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem ID="m_Article" Look-LeftIconUrl="icons_standard/product_blue.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem ID="m_VariantGroup" Look-LeftIconUrl="icons_standard/variant.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem LookId="BreakItem" />
+			<ComponentArt:MenuItem ID="m_ProductCatalog" Look-LeftIconUrl="icons_standard/earth2.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem ID="m_ProductGroup" Look-LeftIconUrl="icons_standard/folder_closed.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem LookId="BreakItem" />
+			<ComponentArt:MenuItem ID="m_PriceList" Look-LeftIconUrl="icons_standard/barcode_16.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem ID="m_Warehouse" Look-LeftIconUrl="icons_standard/shelf_empty16.png"
+				AutoPostBackOnSelect="true" />
+		</Items>
+		<ItemLooks>
+			<ComponentArt:ItemLook LookId="DefaultItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded" ActiveCssClass="litNavMenuItemActive"
+				HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="DisabledItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem litDisabled" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="Separator" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuBreak litDisabled" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+		</ItemLooks>
+	</ComponentArt:Menu>
+	<ToolBar:HorizontalToolbar ToolbarIndex="0" id="mc_toolbarRight" runat="server">
+		<ToolBar:ToolbarItem DisabledClass="litToolbarItem litToolbarItemDisabled" Class="litToolbarItem"
+			LinkClass="litToolbarLink" ImageClass="litIconCut" SelectedClass="litToolbarItem litToolbarItemSelected"
+			ImageURL="Images/transparent.gif" ID="c_toolbarItemCut" runat="server" />
+		<ToolBar:ToolbarItem DisabledClass="litToolbarItem litToolbarItemDisabled" Class="litToolbarItem"
+			LinkClass="litToolbarLink" ImageClass="litIconCopy" SelectedClass="litToolbarItem litToolbarItemSelected"
+			ImageURL="Images/transparent.gif" ID="c_toolbarItemCopy" runat="server" />
+		<ToolBar:ToolbarItem DisabledClass="litToolbarItem litToolbarItemDisabled" Class="litToolbarItem"
+			LinkClass="litToolbarLink" ImageClass="litIconPaste" SelectedClass="litToolbarItem litToolbarItemSelected"
+			ImageURL="Images/transparent.gif" ID="c_toolbarItemPaste" runat="server" />
+	</ToolBar:HorizontalToolbar>
+	<asp:ContentPlaceHolder ID="ToolbarRight" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="LitiumStudioMenu" runat="Server">
+	<input type="hidden" id="nodeValueHiddenField" name="nodeValueHiddenField" runat="server" />
+	<Telerik:RadScriptBlock ID="RadScriptBlock1" runat="server">
+		<script type="text/javascript">
+			var isDraggingFromGrid = false;
+
+			function RowDragStarted(sender, args) {
+				isDraggingFromGrid = true;
+				document.onmouseup = MouseUpHandler;
+			}
+
+			function MouseUpHandler() {
+				isDraggingFromGrid = false;
+			}
+
+			function onRowDropping(sender, args) {
+				isDraggingFromGrid = false;
+				if (currentNode) {
+					$get('<%= nodeValueHiddenField.ClientID %>').value = currentNode.get_value();
+					args.set_destinationHtmlElement('<%= nodeValueHiddenField.ClientID %>');
+				}
+				else {
+					args.set_cancel(true);
+				}
+			}
+
+			var currentNode = null;
+			var oldNodeClassName = null;
+
+			function onNodeMouseOver(sender, args) {
+				//gets the node upon mousing over the node
+				currentNode = args.get_node();
+				oldNodeClassName = currentNode._element.className;
+				if (sender._dragging || isDraggingFromGrid) {
+					currentNode._element.className += ' destination';
+				}
+			}
+
+			function onNodeMouseOut(sender, args) {
+				//resets the currentNode value upon mousing out
+				currentNode._element.className = oldNodeClassName;
+				oldNodeClassName = null;
+				currentNode = null;
+			}
+			function onClientContextMenuShowing(sender, args) {
+				var treeNode = args.get_node();
+				if (treeNode == null) {
+					return;
+				}
+				treeNode.set_selected(true);
+				//change status of items enable/disable/hide/visible 
+				setMenuItemsState(args.get_menu().get_items(), treeNode);
+			}
+
+			function onClientContextMenuItemClicking(sender, args) {
+				var menuItem = args.get_menuItem();
+				var treeNode = args.get_node();
+				if (treeNode == null) {
+					return;
+				}
+				var nodeValue = treeNode.get_value();
+				menuItem.get_menu().hide();
+				var confirmDelete = '<%= m_currentModule.Strings.GetValue(ModuleStringConstants.MESSAGE_DELETE_CONFIRM, FoundationContext.LanguageID, true)%>';
+				var isArticleGroup = nodeValue.indexOf('<%=  StringConstants.CHILD_ARTICLE_GROUP_NAME %>') > -1;
+				var isProductGroup = nodeValue.indexOf('<%= StringConstants.CHILD_PRODUCT_GROUP_NAME %>') > -1;
+				var isProductCatalog = nodeValue.indexOf('<%= StringConstants.CHILD_PRODUCT_CATALOG_NAME %>') > -1;
+				switch (menuItem.get_value()) {
+					case '<%=StringConstants.BUTTON_DELETE %>':
+						if (isArticleGroup || isProductGroup || isProductCatalog) {
+							var result = confirm(stringFormat(confirmDelete, [treeNode.get_text()]));
+							args.set_cancel(!result);
+						}
+						break;
+				}
+			}
+			function stringFormat(format, arguments) {
+				var str = format;
+				for (i = 0; i < arguments.length; i++) {
+					str = str.replace('{' + i + '}', arguments[i]);
+				}
+				return str;
+			};
+			//this method disables the appropriate context menu items
+			function setMenuItemsState(menuItems, treeNode) {
+				var nodeValue = treeNode.get_value();
+				if (nodeValue == null) {
+					return;
+				}
+				var ItemAddArticleGroupItemsEnabled = false;
+				var isArticleNode = false;
+				var ItemAddProductCatalogEnabled = false;
+				var ItemAddProductGroupEnabled = false;
+				var isProductNode = false;
+				var ItemViewEnabled = false;
+				var ItemCutEnabled = false;
+				var ItemCopyEnabled = false;
+				var ItemPasteEnabled = false;
+				var ItemDeleteEnabled = false;
+				var ItemUpEnabled = false;
+				var ItemMoveEnabled = false;
+				var ItemPublishEnabled = false;
+				var ItemDownEnabled = false;
+				var ItemPriceEnabled = false;
+				var ItemPriceVisible = false;
+				var ItemExportEnabled = false;
+				var ItemExportVisible = false;
+				var ItemImportEnabled = false;
+				var ItemPermisionEnabled = false;
+				var ItemRelationsEnabled = false;
+				var ItemRelationsVisible = false;
+				var ItemListPricedEnabled = false;
+				var ItemListPriceEnabled = false;
+				var ItemEditEnabled = false;
+				var ItemViewEnabled = false;
+
+				var writeAccess = '<%= WriteAccess %>'.toLowerCase() === 'true';
+				var allowAdminArticleGroup = '<%= AllowAdminArticleGroup %>'.toLowerCase() === 'true';
+				var hasLicenseForVariantGroup = '<%= HasLicenseForVariantGroup %>'.toLowerCase() === 'true';
+				var hasLicenseForMoreAssortment = '<%= HasLicenseForMoreAssortment %>'.toLowerCase() === 'true';
+				var hasLicenseForProductRelations = '<%= HasLicenseForProductRelations %>'.toLowerCase() === 'true';
+				var hasLicenseForPriceAgents = '<%= HasLicenseForPriceAgents %>'.toLowerCase() === 'true';
+				var hasLicenseForExport = '<%= HasLicenseForExport %>'.toLowerCase() === 'true';
+
+				//-------------- Article group scope --------------------------
+				var isRootOfArticleGroup = nodeValue.indexOf('<%= StringConstants.BASE_ARTICLE_GROUP_REGISTRY %>') > -1;
+				var isTopOfArticleGroup = nodeValue.indexOf('<%= StringConstants.TOP_ARTICLE_GROUP %>') > -1;
+				var isArticleGroup = nodeValue.indexOf('<%=  StringConstants.CHILD_ARTICLE_GROUP_NAME %>') > -1;
+				var isAccumulatedArticleGroup = nodeValue.indexOf('<%= StringConstants.ALL_ARTICLE_GROUP_REGISTRY %>') > -1;
+				//-------------- Assortment -----------------------------------
+				var isRootOfAssortment = nodeValue.indexOf('<%= StringConstants.BASE_PRODUCT_CATALOG %>') > -1;
+				var isProduct = nodeValue.indexOf('<%= StringConstants.CHILD_PRODUCT_ITEM_NAME %>') > -1;
+				var isProductCatalog = nodeValue.indexOf('<%= StringConstants.CHILD_PRODUCT_CATALOG_NAME %>') > -1;
+				var isProductGroup = nodeValue.indexOf('<%= StringConstants.CHILD_PRODUCT_GROUP_NAME %>') > -1;
+				var IsComplete = false;
+				var IsPublished = false;
+				var IsParentPublished = true;
+				//-------------- Stock and Price ------------------------------
+				var isStock = nodeValue.indexOf('<%= StringConstants.BASE_STOCKBALANCE %>') > -1;
+				var isPrice = nodeValue.indexOf('<%= StringConstants.BASE_PRICELIST %>') > -1;
+
+				//---- Add View group			
+				ItemAddArticleGroupItemsEnabled = writeAccess && ((isRootOfArticleGroup || isArticleGroup || isTopOfArticleGroup) && allowAdminArticleGroup);
+				isArticleNode = isRootOfArticleGroup || isArticleGroup || isAccumulatedArticleGroup || isTopOfArticleGroup;
+				ItemAddProductCatalogEnabled = writeAccess && isRootOfAssortment && hasLicenseForMoreAssortment;
+				ItemAddProductGroupEnabled = writeAccess && (isProductCatalog || isProductGroup);
+				isProductNode = isRootOfAssortment || isProduct || isProductCatalog || isProductGroup;
+
+				//---- Cut copy delete edit group
+				ItemEditEnabled = ((isArticleGroup || isTopOfArticleGroup) && allowAdminArticleGroup) || isProduct || isProductCatalog || isProductGroup;
+				ItemCutEnabled = (isArticleGroup && allowAdminArticleGroup) || isProduct || isProductGroup;
+				ItemCopyEnabled = isProduct || isProductCatalog || isProductGroup;
+				ItemDeleteEnabled = (isArticleGroup && allowAdminArticleGroup) || isProduct || isProductCatalog || isProductGroup;
+				//ItemPasteEnabled = isArticleGroup || isProduct || isProductCatalog || isProductGroup;
+				//--- Move group
+				ItemMoveEnabled = isProduct || (isArticleGroup && allowAdminArticleGroup) || isProductGroup;
+				//				ItemUpEnabled = false;
+				//				ItemDownEnabled = false;
+				//--- additional group
+				ItemPriceEnabled = hasLicenseForPriceAgents;
+				ItemPriceVisible = hasLicenseForPriceAgents && (isProductGroup || isProductCatalog);
+
+				ItemExportEnabled = hasLicenseForExport;
+				ItemExportVisible = isProductGroup || isProductCatalog;
+
+				ItemImportEnabled = false;
+				ItemPermisionEnabled = false;
+
+				ItemRelationsVisible = isProductGroup;
+
+
+				ItemListPricedEnabled = false;
+				ItemListPriceEnabled = false;
+				ItemPublishEnabled = isProductGroup || isProductCatalog;
+
+				//------------------------------------------------------------------------------------------
+				var clipboardValue = $get('<%= c_hiddenClipboardValue.ClientID %>').value;
+				if (clipboardValue.indexOf('<%= StringConstants.CHILD_PRODUCT_ITEM_NAME %>') > -1) {
+					if (isProduct || isProductCatalog || isProductGroup) {
+						ItemPasteEnabled = writeAccess;
+					}
+				}
+				if (clipboardValue.indexOf('<%= StringConstants.CHILD_PRODUCT_CATALOG_NAME %>') > -1) {
+					if (isRootOfAssortment) {
+						ItemPasteEnabled = writeAccess;
+					}
+				}
+				if (clipboardValue.indexOf('<%= StringConstants.CHILD_PRODUCT_GROUP_NAME %>') > -1) {
+					if (isProductGroup || isProductCatalog) {
+						ItemPasteEnabled = writeAccess;
+					}
+				}
+				if (clipboardValue.indexOf('<%= StringConstants.CHILD_ARTICLE_GROUP_NAME %>') > -1) {
+					if (isRootOfArticleGroup || isArticleGroup || isTopOfArticleGroup) {
+						ItemPasteEnabled = writeAccess;
+					}
+				}
+
+				if (nodeValue == clipboardValue) {
+
+					if (isProductGroup) {
+						ItemPasteEnabled = writeAccess;
+					}
+				}
+				//----------------------------------------------------------------------------------------------
+				if (treeNode._attributes) {
+					var nodeAttribute = treeNode._attributes.getAttribute("IsComplete");
+					if (nodeAttribute != null)
+						IsComplete = nodeAttribute.toLowerCase() === 'true';
+					nodeAttribute = treeNode._attributes.getAttribute("IsPublished");
+					if (nodeAttribute != null)
+						IsPublished = nodeAttribute.toLowerCase() === 'true';
+					nodeAttribute = treeNode.get_parent()._attributes.getAttribute("IsPublished");
+					if (nodeAttribute != null)
+						IsParentPublished = nodeAttribute.toLowerCase() === 'true';
+				}
+				if (writeAccess) {
+					if (treeNode._attributes) {
+						ItemUpEnabled = treeNode._attributes.getAttribute("SortUpEnabled").toLowerCase() === 'true';
+						ItemDownEnabled = treeNode._attributes.getAttribute("SortDownEnabled").toLowerCase() === 'true';
+						if (treeNode._attributes.getAttribute("AllowRelation") != null) {
+							ItemRelationsEnabled = hasLicenseForProductRelations && treeNode._attributes.getAttribute("AllowRelation").toLowerCase() === 'true';
+						}
+					}
+				}
+				else {
+
+					ItemCutEnabled = false;
+					ItemCopyEnabled = false;
+					ItemPasteEnabled = false;
+					ItemDeleteEnabled = false;
+				}
+				for (var i = 0; i < menuItems.get_count(); i++) {
+					var menuItem = menuItems.getItem(i);
+					switch (menuItem.get_value()) {
+						case '<%=StringConstants.BUTTON_VIEW%>':
+							formatMenuItem(menuItem, ItemViewEnabled, ItemViewEnabled);
+							break;
+						case '<%=StringConstants.BUTTON_ARTICLE_GROUP_NEW %>':
+							formatMenuItem(menuItem, isArticleNode && writeAccess, isArticleNode);
+							for (var j = 0; j < menuItem.get_items().get_count(); j++) {
+								var menuSubItem = menuItem.get_items().getItem(j);
+								switch (menuSubItem.get_value()) {
+									case '<%=StringConstants.BUTTON_ADD_ARTICLE_GROUP%>':
+										formatMenuItem(menuSubItem, ItemAddArticleGroupItemsEnabled, isArticleNode);
+										break;
+									case '<%=StringConstants.BUTTON_ADD_ARTICLE %>':
+										formatAdditioanlMenuItem(isArticleNode && writeAccess, isArticleNode, menuSubItem);
+										break;
+									case '<%=StringConstants.BUTTON_ADD_VARIANTS%>':
+										formatAdditioanlMenuItem(isArticleNode && writeAccess && hasLicenseForVariantGroup, isArticleNode, menuSubItem);
+										break;
+								}
+							}
+							break;
+						case '<%=StringConstants.BUTTON_ADD_PRODUCT_CATALOG%>':
+							formatAdditioanlMenuItem(ItemAddProductCatalogEnabled, isRootOfAssortment, menuItem);
+							break;
+						case '<%=StringConstants.BUTTON_ADD_PRODUCT_GROUP%>':
+							formatAdditioanlMenuItem(ItemAddProductGroupEnabled, isProductNode && !isRootOfAssortment, menuItem);
+							break;
+						case '<%=StringConstants.BUTTON_EDIT%>':
+							formatMenuItem(menuItem, ItemEditEnabled && writeAccess, true);
+							break;
+						case '<%=StringConstants.BUTTON_CUT%>':
+							formatMenuItem(menuItem, ItemCutEnabled && writeAccess, true);
+							break;
+						case '<%=StringConstants.BUTTON_COPY%>':
+							formatMenuItem(menuItem, ItemCopyEnabled && writeAccess, true);
+							break;
+						case '<%=StringConstants.BUTTON_DELETE %>':
+							formatMenuItem(menuItem, ItemDeleteEnabled && writeAccess, true);
+							break;
+						case '<%=StringConstants.BUTTON_PASTE %>':
+							formatMenuItem(menuItem, ItemPasteEnabled && writeAccess, true);
+							break;
+						case '<%=StringConstants.BUTTON_PUBLISH %>':
+							formatMenuItem(menuItem, ItemPublishEnabled && IsComplete && IsParentPublished && writeAccess, ItemPublishEnabled && isProductGroup && !IsPublished);
+							break;
+						case '<%=StringConstants.BUTTON_PUBLISH_ALL %>':
+							formatMenuItem(menuItem, writeAccess && ItemPublishEnabled && (IsComplete && IsParentPublished || isProductCatalog), (ItemPublishEnabled && !IsPublished) || (ItemPublishEnabled && isProductCatalog));
+							break;
+						case '<%=StringConstants.BUTTON_UNPUBLISH_ALL %>':
+							formatMenuItem(menuItem, writeAccess && ItemPublishEnabled, ItemPublishEnabled && (IsPublished || isProductCatalog));
+							break;
+						case 'PublishSeparator':
+							formatMenuItem(menuItem, ItemPublishEnabled, ItemPublishEnabled);
+							break;
+						case '<%=StringConstants.BUTTON_RELATIONS %>':
+							formatMenuItem(menuItem, ItemRelationsEnabled, ItemRelationsVisible);
+							break;
+						case 'MoveSeparator':
+							formatMenuItem(menuItem, ItemMoveEnabled, ItemMoveEnabled);
+							break;
+						case '<%=StringConstants.BUTTON_MOVE %>':
+							formatMenuItem(menuItem, ItemMoveEnabled && writeAccess, ItemMoveEnabled);
+							for (var j = 0; j < menuItem.get_items().get_count(); j++) {
+								var menuSubItem = menuItem.get_items().getItem(j);
+								switch (menuSubItem.get_value()) {
+									case '<%=StringConstants.BUTTON_MOVE_UP %>':
+										menuSubItem.set_enabled(ItemUpEnabled);
+										break;
+									case '<%=StringConstants.BUTTON_MOVE_DOWN %>':
+										menuSubItem.set_enabled(ItemDownEnabled);
+										break;
+									case '<%=StringConstants.BUTTON_MOVE_TO_TOP %>':
+										menuSubItem.set_enabled(ItemUpEnabled);
+										break;
+									case '<%=StringConstants.BUTTON_MOVE_TO_BOTTOM %>':
+										menuSubItem.set_enabled(ItemDownEnabled);
+										break;
+								}
+							}
+							break;
+						case "PriceSeparator":
+							formatMenuItem(menuItem, ItemPriceEnabled && writeAccess, ItemPriceVisible);
+							break;
+						case '<%=StringConstants.BUTTON_PRICE_AGENT_LIST %>':
+							formatMenuItem(menuItem, ItemPriceEnabled && writeAccess, ItemPriceVisible);
+							for (var j = 0; j < menuItem.get_items().get_count(); j++) {
+								var menuSubItem = menuItem.get_items().getItem(j);
+								switch (menuSubItem.get_value()) {
+									case '<%=StringConstants.BUTTON_PRICE_ADD_ALL %>':
+										menuSubItem.set_enabled(ItemPriceEnabled);
+										break;
+									case '<%=StringConstants.BUTTON_PRICE_REMOVE_ALL %>':
+										menuSubItem.set_enabled(ItemPriceEnabled);
+										break;
+								}
+							}
+							break;
+						case "ExportSeparator":
+							formatMenuItem(menuItem, ItemExportEnabled, ItemExportVisible);
+							break;
+						case '<%=StringConstants.BUTTON_EXPORT %>':
+							formatMenuItem(menuItem, ItemExportEnabled, ItemExportVisible);
+							break;
+						case '<%=StringConstants.BUTTON_IMPORT %>':
+							formatMenuItem(menuItem, ItemImportEnabled, ItemImportEnabled);
+							break;
+						case '<%=StringConstants.BUTTON_PERMISSION %>':
+							formatMenuItem(menuItem, ItemPermisionEnabled, ItemPermisionEnabled);
+							break;
+						case '<%=StringConstants.BUTTON_PRICED_ARTICLES %>':
+							formatMenuItem(menuItem, ItemListPricedEnabled, ItemListPricedEnabled);
+							break;
+						case '<%=StringConstants.BUTTON_PRICING_ARTICLES %>':
+							formatMenuItem(menuItem, ItemListPriceEnabled, ItemListPriceEnabled);
+							break;
+						case "PriceListSeparator":
+							formatMenuItem(menuItem, ItemListPriceEnabled || ItemListPricedEnabled, ItemListPriceEnabled || ItemListPricedEnabled);
+							break;
+					}
+				}
+			}
+			//formats the Text of the menu item
+			function formatAdditioanlMenuItem(ItemAddEnabled, isAddGroup, menuItem) {
+				if (ItemAddEnabled) {
+					formatMenuItem(menuItem, true, true)
+				}
+				else if (isAddGroup) {
+					formatMenuItem(menuItem, false, true)
+				}
+				else {
+					menuItem.set_visible(false);
+				}
+			}
+			function formatMenuItem(menuItem, isEnabled, isVisible) {
+				menuItem.set_enabled(isEnabled);
+				menuItem.set_visible(isVisible);
+			}
+						
+		</script>
+	</Telerik:RadScriptBlock>
+	<asp:HiddenField ID="c_hiddenClipboardValue" runat="server" />
+	<asp:HiddenField ID="c_hiddenCopyRelations" runat="server" Value="true" />
+	<LS:TreeHelper runat="server" ID="m_treeHelper" AssociatedControlID="LeftTree" />
+	<LS:ContextMenuHelper ID="ContextMenuHelper1" runat="server" AssociatedControlID="LeftTree" />
+	<Telerik:RadTreeView ID="LeftTree" runat="server" EnableDragAndDrop="true" EnableDragAndDropBetweenNodes="true"
+		EnableViewState="false" PersistLoadOnDemandNodes="false" OnClientMouseOver="onNodeMouseOver"
+		OnClientMouseOut="onNodeMouseOut" OnClientNodeDropping="NodeBeforeMove" OnNodeDrop="LeftTree_NodeMoved"
+		OnNodeExpand="LeftTree_NodeExpand" OnNodeClick="LeftTree_NodeClick" CausesValidation="false">
+		<ContextMenus>
+			<Telerik:RadTreeViewContextMenu ID="TreeContextMenu" runat="server" EnableViewState="false"
+				ExpandAnimation-Type="None" ExpandDelay="0" CollapseAnimation-Type="None" CollapseDelay="0">
+				<Items>
+					<Telerik:RadMenuItem Value="ButtonArticleGroupNew" PostBack="false" ImageUrl="../../Images/icons_standard/add.png">
+						<Items>
+							<Telerik:RadMenuItem Value="ButtonAddArticleGroup" ImageUrl="../../Images/icons_standard/article_group2.png" />
+							<Telerik:RadMenuItem Value="ButtonAddArticle" ImageUrl="../../Images/icons_standard/product_blue.png" />
+							<Telerik:RadMenuItem Value="ButtonAddVariants" ImageUrl="../../Images/icons_standard/variant.png" />
+						</Items>
+					</Telerik:RadMenuItem>
+					<Telerik:RadMenuItem Value="ButtonAddProductCatalog" ImageUrl="../../Images/icons_standard/earth2.png" />
+					<Telerik:RadMenuItem Value="ButtonAddProductGroup" ImageUrl="../../Images/icons_standard/folder_closed.png" />
+					<Telerik:RadMenuItem Value="ButtonView" ImageUrl="../../Images/icons_standard/view.png" />
+					<Telerik:RadMenuItem Value="ButtonEdit" ImageUrl="../../Images/icons_standard/pencil.png" />
+					<Telerik:RadMenuItem Value="ButtonDelete" ImageUrl="../../Images/icons_standard/delete.png" />
+					<Telerik:RadMenuItem Value="AddSeparator" IsSeparator="true" />
+					<Telerik:RadMenuItem Value="ButtonCut" ImageUrl="../../Images/icons_standard/cut.png" />
+					<Telerik:RadMenuItem Value="ButtonCopy" ImageUrl="../../Images/icons_standard/copy.png" />
+					<Telerik:RadMenuItem Value="ButtonPaste" ImageUrl="../../Images/icons_standard/clipboard.png" />
+					<%--<Telerik:RadMenuItem Value="MoveSeparator" IsSeparator="true" />--%>
+					<Telerik:RadMenuItem Value="ButtonMove">
+						<Items>
+							<Telerik:RadMenuItem Value="ButtonMoveUp" ImageUrl="../../Images/icons_standard/arrow_up_blue.png" />
+							<Telerik:RadMenuItem Value="ButtonMoveDown" ImageUrl="../../Images/icons_standard/arrow_down_blue.png" />
+							<Telerik:RadMenuItem Value="ButtonMoveToTop" ImageUrl="../../Images/icons_standard/arrow_up_blue_top_16px.png" />
+							<Telerik:RadMenuItem Value="ButtonMoveToBottom" ImageUrl="../../Images/icons_standard/arrow_down_blue_bottom_16px.png" />
+						</Items>
+					</Telerik:RadMenuItem>
+					<Telerik:RadMenuItem Value="ButtonRelations" ImageUrl="../../Images/icons_standard/assign_add.png" />
+					<Telerik:RadMenuItem Value="PublishSeparator" IsSeparator="true" />
+					<Telerik:RadMenuItem Value="ButtonPublishAll" Text="ToolbarPublishProductGroup" ImageUrl="../../Images/icons_standard/ok.png" />
+					<Telerik:RadMenuItem Value="ButtonPublishAllWithContent" Text="ToolbarPublishProductGroupWithSubGroups"
+						ImageUrl="../../Images/icons_standard/ok.png" />
+					<Telerik:RadMenuItem Value="ButtonUnPublishAll" Text="ToolbarUnpublishAll" ImageUrl="../../Images/icons_standard/unpublish_16px.png" />
+					<Telerik:RadMenuItem Value="PriceListSeparator" IsSeparator="true" />
+					<Telerik:RadMenuItem Value="ButtonListPriced" ImageUrl="../../Images/icons_standard/barcode_16.png" />
+					<Telerik:RadMenuItem Value="ButtonListPrice" ImageUrl="../../Images/icons_standard/barcode_16.png" />
+					<Telerik:RadMenuItem Value="PriceSeparator" IsSeparator="true" />
+					<Telerik:RadMenuItem Value="ButtonPriceAgentList">
+						<Items>
+							<Telerik:RadMenuItem Value="ButtonPriceAddAll" ImageUrl="../../Images/icons_standard/document_pinned_over_16px.png" />
+							<Telerik:RadMenuItem Value="ButtonPriceRemoveAll" ImageUrl="../../Images/icons_standard/document_pinned_delete_16px.png" />
+						</Items>
+					</Telerik:RadMenuItem>
+					<Telerik:RadMenuItem Value="ExportSeparator" IsSeparator="true" />
+					<Telerik:RadMenuItem Value="ButtonExport" ImageUrl="../../Images/icons_standard/export.png" />
+					<Telerik:RadMenuItem Value="ButtonImport" ImageUrl="../../Images/icons_standard/import.png" />
+					<Telerik:RadMenuItem Value="ButtonPermission" />
+				</Items>
+			</Telerik:RadTreeViewContextMenu>
+		</ContextMenus>
+	</Telerik:RadTreeView>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="LitiumStudioContentHeading" runat="Server">
+	<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="LitiumStudioContent" runat="Server">
+	<asp:ContentPlaceHolder ID="ContentRight" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content3" runat="server" ContentPlaceHolderID="LitiumStudioFilterArea">
+	<asp:ContentPlaceHolder ID="LitiumStudioFilterArea" runat="Server" />
+</asp:Content>

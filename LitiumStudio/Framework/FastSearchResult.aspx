@@ -1,0 +1,1 @@
+﻿<%@ page language="C#" autoeventwireup="true" inherits="LitiumStudio_Framework_FastSearchResult, Litum.Studio.Web" %>

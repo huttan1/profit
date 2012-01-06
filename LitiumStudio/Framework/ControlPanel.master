@@ -1,0 +1,23 @@
+<%@ master language="C#" autoeventwireup="true" inherits="LitiumStudio_Framework_ControlPanel, Litum.Studio.Web" masterpagefile="LitiumStudio.master" %>
+
+<%@ MasterType VirtualPath="LitiumStudio.master" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="Server">
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="LitiumStudioTopMenu" runat="Server">
+	<asp:ContentPlaceHolder ID="ToolbarRight" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="LitiumStudioMenu" runat="Server">
+	<LS:TreeHelper runat="server" ID="m_treeHelper" AssociatedControlID="Tree" />
+	<Telerik:RadTreeView ID="Tree" runat="server" CausesValidation="false" EnableViewState="false" OnNodeClick="Tree_NodeClick" SingleExpandPath="true"/>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="LitiumStudioContentHeading" runat="Server">
+	<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="LitiumStudioContent" runat="Server">
+	<asp:ContentPlaceHolder ID="ContentRight" runat="Server" />
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="LitiumStudioFilterArea">
+	<asp:ContentPlaceHolder ID="LitiumStudioFilterArea" runat="Server" />
+</asp:Content>

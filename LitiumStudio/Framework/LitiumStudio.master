@@ -1,0 +1,221 @@
+﻿<%@ master language="C#" autoeventwireup="true" inherits="LitiumStudio_Frameworks_LitiumStudio, Litum.Studio.Web" %>
+
+<%@ Register TagName="LogoutMessage" TagPrefix="LM" Src="~/LitiumStudio/Foundation/WebUserControls/LogoutMessage.ascx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" runat="server" id="html">
+<head runat="server">
+	<title>Litium Studio</title>
+	<asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+	</asp:ContentPlaceHolder>
+	<Telerik:RadCodeBlock runat="server">
+		<script type="text/javascript">
+			// <![CDATA[
+			var ClientID = "<%=Session.SessionID %>";
+			function RadAjaxManager() {
+				return $find("<%=AjaxManager.ClientID %>");
+			}
+			function StartMenu() {
+				return $find("<%=StartMenu.ClientID %>");
+			}
+		// ]]>
+		</script>
+	</Telerik:RadCodeBlock>
+</head>
+<body>
+	<form id="LitiumStudioForm" runat="server">
+	<asp:ScriptManager ID="ScriptManager" runat="server" />
+	<Telerik:RadAjaxManager runat="server" ID="AjaxManager" OnAjaxSettingCreated="ajaxManager_AjaxSettingCreated"
+		DefaultLoadingPanelID="AjaxLoadingPanel" ClientEvents-OnRequestStart="conditionalPostback" />
+	<Telerik:RadAjaxLoadingPanel runat="server" ID="AjaxLoadingPanel" Skin="Windows7" />
+	<div class="lsTop">
+		<div class="lsTopHeading">
+			<asp:Literal runat="server" ID="ModuleHeading" EnableViewState="false" />
+		</div>
+	</div>
+	<div class="lsTopMenu">
+		<div class="lsTopContainer">
+			<asp:ContentPlaceHolder ID="LitiumStudioTopMenu" runat="server" />
+		</div>
+	</div>
+	<Telerik:RadSplitter VisibleDuringInit="false" ID="LitiumStudioMainSplitter" runat="server"
+		EnableEmbeddedBaseStylesheet="true" LiveResize="true" HeightOffset="59" Height="100%"
+		Width="100%" SplitBarsSize="1" ResizeWithBrowserWindow="true" CssClass="lsMainSplitter"
+		BorderSize="0">
+		<Telerik:RadPane ID="LitiumStudioLeftPane" OnClientResized="LitiumStudio_PaneResized"
+			BorderStyle="None" runat="server" Width="222" CssClass="lsContent">
+			<asp:ContentPlaceHolder ID="LitiumStudioMenu" runat="server" />
+		</Telerik:RadPane>
+		<Telerik:RadSplitBar CssClass="lsMainSplitterBar" ID="LitiumStudioSplitterBar" runat="server"
+			CollapseMode="None" BorderStyle="None" />
+		<Telerik:RadPane ID="LitiumStudioRightPane" runat="server" MinWidth="200" Scrolling="None"
+			BorderStyle="None">
+			<Telerik:RadSplitter ID="LitiumStudioContentSplitter" runat="server" EnableEmbeddedBaseStylesheet="true"
+				LiveResize="true" Width="100%" SplitBarsSize="1" ResizeWithBrowserWindow="true"
+				BorderSize="0" Orientation="Horizontal">
+				<Telerik:RadPane ID="LitiumStudioHeadingPane" runat="server" MinHeight="28" Height="28"
+					CssClass="lsContentHeader" Scrolling="None">
+					<asp:Panel runat="server" CssClass="lsInformation" ID="LitiumStudioInformation">
+						<div class="lsInformationHeading" id="LitiumStudioInformationBar">
+							<asp:Image runat="server" ImageUrl="../Images/Transparent.gif" ID="InformationImage" /><asp:Label
+								runat="server" ID="InformationHeading" />
+							<asp:HyperLink ID="InformationCloseLink" ImageUrl="../Images/Transparent.gif" runat="server"
+								NavigateUrl="javascript:$find('LitiumStudioInformationBar').Hide()" Style="float: right;"
+								CssClass="lsInformationClose" />
+						</div>
+						<asp:Panel runat="server" CssClass="lsInformationContent" ID="InformationContent">
+							&nbsp;
+						</asp:Panel>
+					</asp:Panel>
+					<div class="lsContentHeaderHeading" id="LitiumStudioFilterArea">
+						<asp:HyperLink ID="LitiumStudioFilterSwitcher" runat="server" NavigateUrl="javascript:$find('LitiumStudioFilterArea').Switch()"
+							Style="position: relative; float: right;">
+							<asp:Image runat="server" ID="LitiumStudioFilterAreaImage" ImageUrl="../Images/Transparent.gif" />
+						</asp:HyperLink>						    	    
+						<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="server" />
+						&nbsp;
+					</div>
+					<asp:Panel runat="server" ID="LitiumStudioFilterAreaContainer" CssClass="lsFilterArea">
+						<asp:ContentPlaceHolder runat="server" ID="LitiumStudioFilterArea" />
+					</asp:Panel>
+				</Telerik:RadPane>
+				<Telerik:RadPane ID="LitiumStudioContentPane" runat="server" PersistScrollPosition="true"
+					CssClass="lsContent">
+					<asp:ContentPlaceHolder ID="LitiumStudioContent" runat="server" />
+				</Telerik:RadPane>
+			</Telerik:RadSplitter>
+		</Telerik:RadPane>
+	</Telerik:RadSplitter>
+	<asp:Panel ID="FastSearchPanel" runat="server" DefaultButton="SearchButton" CssClass="lsFastSearch">
+		<div style="float: left;">
+			<asp:TextBox runat="server" CssClass="lsFastSearchInput" ID="FastSearchText" autocomplete="off" />
+			<div style="display: none;">
+				<asp:Button ID="SearchButton" OnClick="SearchButton_Click" runat="server" />
+			</div>
+		</div>
+		<div class="lsFastSearchButtons">
+			<asp:ImageButton runat="server" EnableViewState="false" ID="FastSearchButton" CssClass="lsFastSearchButton"
+				ImageUrl="../Images/transparent.gif" OnClientClick="return false;" />
+			<Telerik:RadMenu runat="server" EnableViewState="false" ID="SearchMenu" EnableEmbeddedSkins="false"
+				EnableEmbeddedBaseStylesheet="false" ClickToOpen="true" Skin="NoSkin" ExpandAnimation-Type="None"
+				ExpandDelay="0" CollapseAnimation-Type="None" CollapseDelay="0">
+				<Items>
+					<Telerik:RadMenuItem runat="server" ImageUrl="../Images/Transparent.gif" CssClass="lsFastSearchModuleButton">
+						<GroupSettings ExpandDirection="Down" />
+						<Items>
+							<Telerik:RadMenuItem runat="server" CssClass="lsFastSearchMenuPosition">
+								<ItemTemplate>
+									<asp:Image ID="Image2" ImageUrl="../Images/Transparent.gif" runat="server" CssClass="lsFastSearchMenuTop" />
+									<table cellpadding="0" cellspacing="0" border="0" class="lsFastSearchMenuTable">
+										<tr>
+											<td valign="top" style="padding-left: 4px; padding-right: 4px;">
+												<Telerik:RadMenu ID="ModulesMenu" runat="server" EnableEmbeddedSkins="false" EnableScreenBoundaryDetection="false"
+													Skin="NoSkin" ExpandAnimation-Type="None" ExpandDelay="0" CollapseAnimation-Type="None"
+													CollapseDelay="0" />
+											</td>
+										</tr>
+									</table>
+									<asp:Image ID="Image3" ImageUrl="../Images/Transparent.gif" runat="server" CssClass="lsFastSearchMenuBottom" />
+								</ItemTemplate>
+							</Telerik:RadMenuItem>
+						</Items>
+					</Telerik:RadMenuItem>
+				</Items>
+			</Telerik:RadMenu>
+		</div>
+	</asp:Panel>
+	<asp:Panel runat="server" ID="FastSearchResult" CssClass="lsFastSearchResult">
+		<div class="lsFastSearchResultTop">
+		</div>
+		<div class="lsFastSearchResultMiddle">
+			<asp:Panel runat="server" ID="FastSearchResultHeader" CssClass="lsFastSearchResultHeader" />
+			<asp:Panel runat="server" ID="FastSearchResultList" CssClass="lsFastSearchResultList">
+				<table>
+					<tbody>
+						<tr onclick="Litium.Studio.UI.FastSearch.NavigateTo('#link#')">
+							<td class="col1" style="width: 5%;">
+								#imageUrl#
+							</td>
+							<td class="col2">
+								#text1#
+							</td>
+							<td class="col3">
+								#text2#
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</asp:Panel>
+			<asp:Panel runat="server" ID="FastSearchResultFooter" CssClass="lsFastSearchResultFooter">
+				<asp:LinkButton runat="server" ID="FastSearchResultShowMoreLinkButton" OnClick="SearchButton_Click" />
+			</asp:Panel>
+		</div>
+		<div class="lsFastSearchResultBottom">
+		</div>
+	</asp:Panel>
+	<div class="lsStartMenu">
+		<Telerik:RadMenu ID="StartMenu" runat="server" EnableEmbeddedSkins="false" EnableScreenBoundaryDetection="false"
+			EnableViewState="false" ClickToOpen="true" Skin="NoSkin" ExpandAnimation-Type="None"
+			ExpandDelay="0" CollapseAnimation-Type="None" CollapseDelay="0">
+			<Items>
+				<Telerik:RadMenuItem ImageUrl="../Images/startbuttontransparent.png" CssClass="lsStartMenuButtonImage" ExpandedCssClass="lsStartMenuExpandedButtonImage" >
+					<GroupSettings OffsetX="-33" OffsetY="-3" />
+					<Items>
+						<Telerik:RadMenuItem runat="server">
+							<ItemTemplate>
+								<asp:Image ImageUrl="../Images/Transparent.gif" runat="server" CssClass="lsStartMenuTop" />
+								<table cellpadding="0" cellspacing="0" border="0" class="lsStartMenuTable">
+									<tr>
+										<td valign="top" style="width: 172px; padding-left: 4px; padding-right: 4px;">
+											<Telerik:RadMenu ID="ModulesMenu" runat="server" EnableEmbeddedSkins="false" EnableScreenBoundaryDetection="false"
+												OnClientItemClicked="LitiumStudio_StartItemClick" Skin="NoSkin" />
+										</td>
+									</tr>
+									<tr style="height: 25px;">
+										<td valign="top">
+										    <div style="padding-top: 10px; width: 172px;">
+											    <Telerik:RadMenu runat="server" ID="HelpButton" EnableEmbeddedSkins="false" OnClientItemClicked="LitiumStudio_StartItemHelpClick"
+												    EnableEmbeddedBaseStylesheet="false" Skin="NoSkin">
+												    <Items>
+													    <Telerik:RadMenuItem runat="server" CssClass="lsStartMenuHelpButton" DisabledCssClass="lsStartMenuHelpButton"
+														    NavigateUrl="~/LitiumStudio/Help/Default.aspx" Target="_blank" OnPreRender="FixLink" />
+												    </Items>
+											    </Telerik:RadMenu>
+											    <br />													
+											    <Telerik:RadMenu runat="server" ID="ControlpanelButton" EnableEmbeddedSkins="false"
+												    EnableEmbeddedBaseStylesheet="false" Skin="NoSkin" OnClientItemClicked="LitiumStudio_StartItemClick">
+												    <Items>
+													    <Telerik:RadMenuItem runat="server" CssClass="lsStartMenuLeftButton" DisabledCssClass="lsStartMenuLeftButtonDisabled"
+														    NavigateUrl="~/LitiumStudio/Foundation/Controlpanel.aspx" OnPreRender="FixLink" />
+												    </Items>
+											    </Telerik:RadMenu>
+											    <br />
+											    <Telerik:RadMenu runat="server" ID="LogoutButton" EnableEmbeddedSkins="false" EnableEmbeddedBaseStylesheet="false"
+												    Skin="NoSkin" OnClientItemClicked="LitiumStudio_StartItemClick">
+												    <Items>
+													    <Telerik:RadMenuItem runat="server" CssClass="lsStartMenuRightButton" DisabledCssClass="lsStartMenuRightButtonDisabled"
+														    NavigateUrl="~/LitiumStudio/Logout.ashx" OnPreRender="FixLink" />
+												    </Items>
+											    </Telerik:RadMenu>
+											</div>
+										</td>
+									</tr>
+								</table>
+								<asp:Image ImageUrl="../Images/Transparent.gif" runat="server" CssClass="lsStartMenuBottom" />
+							</ItemTemplate>
+						</Telerik:RadMenuItem>
+					</Items>
+				</Telerik:RadMenuItem>
+			</Items>
+		</Telerik:RadMenu>
+	</div>
+	<asp:UpdatePanel runat="server" ID="InformationUpdatePanel">
+		<ContentTemplate>
+			<LS:InformationBar runat="server" ID="InformationPanelController" Container="LitiumStudioInformation"
+				Content="InformationContent" Header="InformationHeading" IconImage="InformationImage"
+				Splitter="LitiumStudioContentSplitter" />
+		</ContentTemplate>
+	</asp:UpdatePanel>
+	<LM:LogoutMessage ID="LogoutMessage1" runat="server" />
+	</form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+.pagination { margin-top:10px; margin-bottom:10px; }
+.pagination a { }
+
+.pagination a:link, 
+.pagination a:visited, 
+.pagination a:hover,
+.pagination a:active { 
+    width:17px; 
+    text-align:center; 
+    display:block; 
+    float:left; 
+    padding:5px 6px 5px 6px; 
+    margin-right:2px; 
+    margin-bottom:2px; 
+ }
+
+.pagination a, .pagination span {
+    width:17px; 
+    text-align:center; 
+    color:#000000;
+    text-decoration:none; 
+    display:block; 
+    float:left; 
+    padding:5px 6px 5px 6px;
+    margin-right:2px; 
+    margin-bottom:2px;
+}
+
+.pagination .current {
+    width:17px; 
+    text-align:center; 
+    color:#FFFFFF!important;
+    text-decoration:none; 
+    display:block; 
+    float:left; 
+    padding:5px 6px 5px 6px; 
+    margin-right:2px; 
+    margin-bottom:2px;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	width:17px; 
+	text-align:center; 
+	color:#000000;
+	text-decoration:none; 
+	display:block; 
+	float:left; 
+	padding:5px 6px 5px 6px; 
+	margin-right:2px; 
+	margin-bottom:2px;
+}

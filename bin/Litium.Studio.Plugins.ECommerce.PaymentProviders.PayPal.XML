@@ -1,0 +1,1435 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK">
+            <summary>
+            Paypal response acknowledgements.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK.Success">
+            <summary>
+            Success.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK.SuccessWithWarning">
+            <summary>
+            Success With Warning.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK.Failure">
+            <summary>
+            Failure.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK.FailureWithWarning">
+            <summary>
+            Failure With Warning
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK.Warning">
+            <summary>
+            Warning
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.ResponseACK.Error">
+            <summary>
+            Error.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCancelPaymentArgs">
+            <summary>
+            Arguments for Cancel payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCancelPaymentArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCancelPaymentArgs"/> class.
+            </summary>
+            <param name="note">The note.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCancelPaymentArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCancelPaymentArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCancelPaymentArgs.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>The note.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentResult">
+            <summary>
+            Result of the operation Complete Payment, <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>    
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentResult.TransactionID">
+            <summary>
+            Gets or sets the transaction ID.
+            </summary>
+            <value>The transaction ID.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentResult.ErrorMessage">
+            <summary>
+            Gets or sets the error message.
+            </summary>
+            <value>The error message.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs">
+            <summary>
+            Paypal arguments for execute payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs"/> class.
+            </summary>
+            <param name="responseUrl">The response URL.</param>
+            <param name="cancelUrl">The cancel URL.</param>
+            <param name="clientLanguage">The client language.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs.ExecuteScript">
+            <summary>
+            Gets or sets the execute script that execute the payment provider script that post information to provider site.
+            </summary>
+            <value>The execute script.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs.ResponseUrl">
+            <summary>
+            Gets or sets the response URL.
+            </summary>
+            <value>The response URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs.CancelUrl">
+            <summary>
+            Gets or sets the cancel URL.
+            </summary>
+            <value>The cancel URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs.ClientLanguage">
+            <summary>
+            Gets or sets the client language.
+            </summary>
+            <value>The client language.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentArgs.ExecuteScriptHandler">
+            <summary>
+            delegate to execute the payment provider script that post information to provider site, or redirect to provider site.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentResult">
+            <summary>
+            PayPal result of ExecutePayment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentResult.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentResult"/> class.
+            </summary>
+            <param name="redirectUrl">The redirect URL.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentResult"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalExecutePaymentResult.RedirectUrl">
+            <summary>
+            Gets or sets the redirect URL.
+            </summary>
+            <value>The redirect URL.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentMethod">
+            <summary>
+            Represents PayPal payment methods.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentMethod.NONE">
+            <summary>
+            Not specified.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentMethod.EXPRESS_CHECKOUT">
+            <summary>
+            Pay using a paypal account
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentMethod.WEBSITE_PAYMENTS_PRO">
+            <summary>
+            Pay using any major credit/debit card on your site
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentMethod.WEBSITE_PAYMENTS_STANDARD">
+            <summary>
+            Pay using any major credit/debit card on paypal
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams">
+            <summary>
+            Memento for order parameters that should be passed to PayPal provider.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.#ctor(Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams"/> class.
+            </summary>
+            <param name="paymentInfo">Payment info.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.SetShippingParameters(Litium.Foundation.Modules.ECommerce.Orders.Order)">
+            <summary>
+            Sets the shipping parameters.
+            If more than one deliveries are there, shipping address is not included.
+            </summary>
+            <param name="order">The order.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.SetCartItems(Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Sets the cart items.
+            </summary>
+            <param name="paymentInfo">The payment info.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.SetCartItems(Litium.Foundation.Modules.ECommerce.Orders.Order,Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Sets the cart items.
+            </summary>
+            <param name="order">The order.</param>
+            <param name="paymentInfo">The payment info.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ReconsileTotalAmounts(System.String,Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Match the cartItemTotal total to the payment info total to weed out the rounding off error.
+            </summary>
+            <param name="itemNo">The item no.</param>
+            <param name="paymentInfo">The payment info.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.PaymentMethod">
+             <summary>
+             Gets or sets the method of payment.
+             </summary>
+             <remarks>PayPal supports several different payment methods. The parameter method is used to define the
+             payment method to be selected for the current order. If method is not entered or is left empty, the
+             assumption is made that it is an Express Checkout purchase (same as express.checkout).
+            </remarks>
+             <value>The method of payment.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.IsTest">
+            <summary>
+            Gets or sets a value indicating whether this is test mode.
+            </summary>
+            <value><c>true</c> if in test mode; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <remarks>A three-character currency code for one of the currencies mentioned below. Default: USD.
+            (AUD, CAD, CHF, CZK, DKK, EUR, GBP, HKD, HUF, JPY, NOK, NZD, PLN, SEK, SGD, USD)</remarks>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.OrderTotal">
+            <summary>
+            Gets or sets the order total.
+            </summary>
+            <remarks>
+            Must not exceed $10,000 USD in any currency. No currency symbol. 
+            Must have two decimal places, decimal separator must be a period (.), 
+            and the optional thousands separator must be a comma (,).
+            </remarks>
+            <value>The order total.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ItemTotalWithoutTax">
+            <summary>
+            Gets or sets the item total without tax.
+            </summary>
+            <remarks>
+            Must not exceed $10,000 USD in any currency. No currency symbol. 
+            Must have two decimal places, decimal separator must be a period (.), 
+            and the optional thousands separator must be a comma (,).
+            </remarks>
+            <value>The item total.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ItemTax">
+            <summary>
+            Gets or sets the item tax.
+            </summary>
+            <remarks>
+            Must not exceed $10,000 USD in any currency. No currency symbol. 
+            Must have two decimal places, decimal separator must be a period (.), 
+            and the optional thousands separator must be a comma (,).
+            </remarks>
+            <value>The item tax.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingCost">
+            <summary>
+            Gets or sets the shipping cost.
+            </summary>
+            <remarks>
+            Must not exceed $10,000 USD in any currency. No currency symbol. 
+            Must have two decimal places, decimal separator must be a period (.), 
+            and the optional thousands separator must be a comma (,).
+            </remarks>
+            <value>The shipping cost.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.HandlingCost">
+            <summary>
+            Gets or sets the handling cost.
+            </summary>
+            <remarks>
+            Must not exceed $10,000 USD in any currency. No currency symbol. 
+            Must have two decimal places, decimal separator must be a period (.), 
+            and the optional thousands separator must be a comma (,).
+            </remarks>
+            <value>The handling cost.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.CartItems">
+            <summary>
+            Gets or sets the cart items.
+            </summary>
+            <value>The order rows.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.Email">
+            <summary>
+            Gets or sets the customer email.
+            </summary>
+            <value>Email address of the customer. PayPal uses this value to pre-fill the PayPal membership sign-up portion 
+            of the PayPal login page. Character length and limit: 127 single-byte alphanumeric characters</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.OrderId">
+            <summary>
+            Gets or sets the order id.
+            </summary>
+            <remarks>The unique order id. PayPal returns this value to you on DoExpressCheckoutPayment response. 
+            Character length and limitations: 127 single-byte alphanumeric characters</remarks>
+            <value>The order id.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.CountryCode">
+            <summary>
+            Gets or sets the country code of the customer.
+            </summary>
+            <value>Determines the locale of pages displayed by PayPal during Express Checkout.
+            Character length and limitations: Any two-character country code.
+            The following two-character country codes are supported by PayPal: (AT, AU, BE, CA, CH, CN, DE, ES, FR, GB, IT, NL, PL, US)
+            Any other value will default to US.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingName">
+            <summary>
+            Gets or sets the name of the shipping address.
+            </summary>
+            <value>The name of the shipping address.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingStreet1">
+            <summary>
+            Gets or sets name of the shipping street address 1.
+            </summary>
+            <value>The name of the shipping street address 1.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingStreet2">
+            <summary>
+            Gets or sets name of the shipping street address 2.
+            </summary>
+            <value>The name of the shipping street address 2.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingCity">
+            <summary>
+            Gets or sets the city of the shipping address.
+            </summary>
+            <value>The city of the shipping address.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingState">
+            <summary>
+            Gets or sets the state of the shipping.
+            </summary>
+            <value>The state of the shipping.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingZipCode">
+            <summary>
+            Gets or sets the shipping zip code.
+            </summary>
+            <value>The shipping zip code.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingCountry">
+            <summary>
+            Gets or sets the shipping country.
+            </summary>
+            <value>The shipping country.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.ShippingPhone">
+            <summary>
+            Gets or sets the shipping phone number.
+            </summary>
+            <value>The shipping phone number.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams.NoShipping">
+            <summary>
+            Gets or sets a value indicating whether [no shipping].
+            No shipping address will be displayed.
+            </summary>
+            <value><c>true</c> if [no shipping]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentAction">
+            <summary>
+            PayPal supported payment actions
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentAction.Sale">
+            <summary>
+            Indicates that this is a final sale for which you are
+            requesting payment. The funds are immediately moved
+            from the customer PayPal account to the merchant PayPal
+            account
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentAction.Authorization">
+            <summary>
+            Indicates that this payment is a basic
+            authorization subject to settlement with PayPal
+            Authorization and Capture.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentAction.Order">
+            <summary>
+            Indicates that this payment is is an order
+            authorization subject to settlement with PayPal
+            Authorization and Capture.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem">
+            <summary>
+            Cart Item in PayPal
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.#ctor(System.String,Litium.Foundation.Modules.ECommerce.Carriers.PaymentInfoRowCarrier)">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Litium.Foundation.Modules.ECommerce.Carriers.FeeCarrier"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem"/>.
+            </summary>
+            <param name="itemNo">The itemNo.</param>
+            <param name="carrier">The carrier.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.op_Implicit(Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier)~Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem"/>.
+            </summary>
+            <param name="carrier">The carrier.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.op_Implicit(Litium.Foundation.Modules.ECommerce.Carriers.FeeCarrier)~Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Litium.Foundation.Modules.ECommerce.Carriers.FeeCarrier"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem"/>.
+            </summary>
+            <param name="carrier">The carrier.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.#ctor(System.String,System.String,System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem"/>.
+            </summary>
+            <param name="description">The description.</param>
+            <param name="articleNumber">The article number.</param>
+            <param name="unitPrice">The unit price.</param>
+            <param name="unitVat">The unit vat.</param>
+            <param name="quantity">The quantity.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.L_NAME">
+            <summary>
+            Gets or sets order row description
+            </summary>
+            <value>The l_ NAME.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.L_NUMBER">
+            <summary>
+            Gets or sets the article number
+            </summary>
+            <value>The l_ NUMBER.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.L_AMT">
+            <summary>
+            Gets or sets unit Price, without vat.
+            </summary>
+            <value>The l_ AMT.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.UnitPrice">
+            <summary>
+            Gets the unit price.
+            </summary>
+            <value>The unit price.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.L_TAXAMT">
+            <summary>
+            Gets or sets the TotalVATAmount.
+            </summary>
+            <value>The l_ TAXAMT.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.UnitTaxAmount">
+            <summary>
+            Gets the unit tax amount.
+            </summary>
+            <value>The unit tax amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.L_QTY">
+            <summary>
+            Gets or sets the Quantity.
+            </summary>
+            <value>The l_ QTY.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CartItem.Quantity">
+            <summary>
+            Gets the quantity.
+            </summary>
+            <value>The quantity.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus">
+            <summary>
+            Paypal transaction status
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.None">
+            <summary>
+            No status.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.CanceledReversal">
+            <summary>
+            A reversal has been canceled; for example, when you win
+            a dispute and the funds for the reversal have been returned to you.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Completed">
+            <summary>
+            The payment has been completed, and the funds have been added
+            successfully to your account balance.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Denied">
+            <summary>
+            You denied the payment. This happens only if the payment was
+            previously pending because of possible reasons described for the
+            PendingReason element.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Expired">
+            <summary>
+            The authorization period for this payment has been reached.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Failed">
+            <summary>
+            The payment has failed. This happens only if the payment was made
+            from your customer’s bank account.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.InProgress">
+            <summary>
+            The transaction has not terminated, e.g. an authorization may be
+            awaiting completion.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.PartiallyRefunded">
+            <summary>
+            The payment has been partially refunded.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Pending">
+            <summary>
+            The payment is pending. See the PendingReason field for more
+            information.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Refunded">
+            <summary>
+            You refunded the payment.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Reversed">
+            <summary>
+            A payment was reversed due to a chargeback or other type of
+            reversal. The funds have been removed from your account balance and returned to
+            the buyer. The reason for the reversal is specified in the ReasonCode element.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Processed">
+            <summary>
+            A payment has been accepted.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.TransactionStatus.Voided">
+            <summary>
+            An authorization for this transaction has been voided.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider">
+            <summary> 
+            Implements the PayPal provider
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CancelPayment(Litium.Foundation.Modules.ECommerce.Plugins.CancelPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Cancels a current payment. This is only possible in certain scenarios.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks> 
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ReturnPayment(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user. 
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ReturnPayment(Litium.Foundation.Modules.ECommerce.Plugins.ReturnPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.GetPaymentMethods">
+            <summary>
+            Returns the list of payment methods.
+            </summary>
+            <returns>A dictionary containing integer id for each payment method and a payment method name.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.GetPaymentMethodsSupported">
+            <summary>
+            Gets a list of Payment methods.
+            </summary>
+            <returns>List of payment method description.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.GetPaymentMethodsSupported(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentMode)">
+            <summary>
+            Gets the list of payment methods supported, for the given execute payment mode.
+            Note that, some payment providers does not support all the payment methods for reserve mode.
+            </summary>
+            <param name="paymentMode">The payment mode.</param>
+            <returns>List of supported payment methods.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ProviderRedirectedToUrlSuccess(System.Collections.Specialized.NameValueCollection,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            The payment provider redirected to the urlSuccess specified in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String@,Litium.Foundation.Security.SecurityToken)"/> 
+            </summary>
+            <param name="queryString">Query string collection from httpRequest.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.Complete(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentAction,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the transaction.
+            </summary>
+            <param name="payPalToken">The pay pal token.</param>
+            <param name="payerId">The payer id.</param>
+            <param name="action">The action.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ProviderRedirectedToUrlCancel(System.Collections.Specialized.NameValueCollection,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            The payment provider redirected to the urlCancel specified in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String@,Litium.Foundation.Security.SecurityToken)"/> 
+            </summary>
+            <param name="queryString">Query string collection from httpRequest.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Executes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns>Results of executing payment.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.OnProviderCallback(System.Collections.Specialized.NameValueCollection,System.Boolean,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Method to execute when the Payment provider redirects back into Litium studio after a call to it.
+            </summary>
+            <param name="queryString">The query string.</param>
+            <param name="isSuccess">if the Payment provider result redirected to success, this is true, else false.</param>
+            <param name="token">The token.</param>
+            <remarks>
+            After calling any of the methods on the payment providers external API,
+            usually over a web service, over a HTTP post, remote procedure call or a similar method,
+            the payment provider will redirect the execution control back into Litium Studio.
+            <para>The execution control is given back by the provider by redirecting back to a Litium Studio page
+            or a entry port such as a webhandler, in most cases. </para>
+            	<para>Usually, this redirect location is given to the payment provider when calling the <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/> method.</para>
+            	<para>After getting the execution control back, this method should be called, irrespective of the result of the execution.</para>
+            	<para>In the implementation of this method, any post call back scenarios specific to payment provider should be handled.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.SyncPaymentStatusWithProvider(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Syncs the payment status with provider.
+            </summary>
+            <param name="token">The token.</param>
+            <remarks>On occations where communication line failures or other errors occur during communication with
+            payment provider, the payment status in Litium Studio may remain behind the internal status of the transaction
+            in payment provider.
+            <para>
+            For example, suppose a ExecutePayment is called, which will put the payment status to InitiatedDirectPayment,
+            but lets say the control does not return at all. The Payment status may remain at InitiatedDirectPayment
+            when viewed from Litium Studio. But at the payment providers end, this status can be Failed, Reserved, Paid, etc.
+            </para>
+            	<para>This method should try to see whether a transaction exists in the target payment provider system,
+            and if it exists find out its status and adjust the Payment status accordingly.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge money from customer account.
+            </summary>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="language">The language.</param>
+            <param name="redirectUrl">The redirect URL.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve money from customer account.
+            </summary>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="language">The language.</param>
+            <param name="redirectUrl">The redirect URL.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CanReserveMoneyFromCustomerAccount">
+            <summary>
+            Whether money can be reserved from customer account.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CanChargeCustomerAccountDirectly">
+            <summary>
+            Whether customer account can be charged directly.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CanCompleteCurrentTransaction">
+            <summary>
+            Whether current transaction can be completed or not.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CanCancelCurrentTransaction">
+            <summary>
+            Whether current transaction can be cancelled or not.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CanReturnPayment">
+            <summary>
+            Whether payment can be returned via administration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.CanEditPayment">
+            <summary>
+            Whether payment can be edited via administration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets the type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalProvider.AdminPanel">
+            <summary>
+            Gets the payment administratoin panels path.
+            </summary>
+            <value>The payment administration panels path.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs">
+            <summary>
+            Arguments for Complete payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs.#ctor(Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CompleteType,System.Decimal,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs"/> class.
+            </summary>
+            <param name="completeType">Type of the complete.</param>
+            <param name="amount">The amount.</param>
+            <param name="currencyCode">The currency code.</param>
+            <param name="invoiceNumber">The invoice number.</param>
+            <param name="note">The note.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs.CompleteType">
+            <summary>
+            Gets or sets the type of the complete.
+            </summary>
+            <value>The type of the complete.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs.Amount">
+            <summary>
+            Gets or sets the amount.
+            </summary>
+            <value>The amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs.CurrencyCode">
+            <summary>
+            Gets or sets the currency code.
+            </summary>
+            <value>The currency code.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs.InvoiceNumber">
+            <summary>
+            Gets or sets the invoice number.
+            </summary>
+            <value>The invoice number.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCompletePaymentArgs.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>The note.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit">
+            <summary>
+            Currency unit denotes a preset rounded off decimal value.
+            The precision of currency units is two decimal places for Paypal.
+            </summary>
+            <remarks>
+            NOTE: IConvertible is implemented to throw the InvalidCast exception, if attempted to cast to a invalid type.
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit"/> struct.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.#ctor(System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Number"/> class.
+            </summary>
+            <param name="amount">The amount.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.op_Implicit(System.Decimal)~Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Decimal"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit"/>.
+            </summary>
+            <param name="amount">The amount.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.op_Implicit(Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit)~System.Decimal">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit"/> to <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="amount">The amount.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance, using Invariant culture.
+            Formatting is always to two decimal places.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            Note that precision of the number is predetermined by precision of currency unit.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="formatProvider">The format provider.</param>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.CompareTo(System.Object)">
+            <summary>
+            Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.
+            </summary>
+            <param name="obj">An object to compare with this instance.</param>
+            <returns>
+            A 32-bit signed integer that indicates the relative order of the objects being compared. The return value has these meanings:
+            Value
+            Meaning
+            Less than zero
+            This instance is less than <paramref name="obj"/>.
+            Zero
+            This instance is equal to <paramref name="obj"/>.
+            Greater than zero
+            This instance is greater than <paramref name="obj"/>.
+            </returns>
+            <exception cref="T:System.ArgumentException">
+            	<paramref name="obj"/> is not the same type as this instance.
+            </exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#GetTypeCode">
+            <summary>
+            Returns the <see cref="T:System.TypeCode"/> for this instance.
+            </summary>
+            <returns>
+            The enumerated constant that is the <see cref="T:System.TypeCode"/> of the class or value type that implements this interface.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToBoolean(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent Boolean value using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            A Boolean value equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToByte(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 8-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 8-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToChar(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent Unicode character using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            A Unicode character equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToDateTime(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent <see cref="T:System.DateTime"/> using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            A <see cref="T:System.DateTime"/> instance equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToDecimal(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent <see cref="T:System.Decimal"/> number using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            A <see cref="T:System.Decimal"/> number equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToDouble(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent double-precision floating-point number using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            A double-precision floating-point number equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToInt16(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 16-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 16-bit signed integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToInt32(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 32-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 32-bit signed integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToInt64(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 64-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 64-bit signed integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToSByte(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 8-bit signed integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 8-bit signed integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToSingle(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent single-precision floating-point number using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            A single-precision floating-point number equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToString(System.IFormatProvider)">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <param name="provider">The provider.</param>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToType(System.Type,System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an <see cref="T:System.Object"/> of the specified <see cref="T:System.Type"/> that has an equivalent value, using the specified culture-specific formatting information.
+            </summary>
+            <param name="conversionType">The <see cref="T:System.Type"/> to which the value of this instance is converted.</param>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An <see cref="T:System.Object"/> instance of type <paramref name="conversionType"/> whose value is equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToUInt16(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 16-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 16-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToUInt32(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 32-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 32-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.System#IConvertible#ToUInt64(System.IFormatProvider)">
+            <summary>
+            Converts the value of this instance to an equivalent 64-bit unsigned integer using the specified culture-specific formatting information.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> interface implementation that supplies culture-specific formatting information.</param>
+            <returns>
+            An 64-bit unsigned integer equivalent to the value of this instance.
+            </returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.FormattedAmount">
+            <summary>
+            Gets or sets the formatted amount, this is the actual rounded off.
+            </summary>
+            <value>The amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.ActualAmount">
+            <summary>
+            Gets or sets the actual amount.
+            </summary>
+            <value>The actual amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalCurrencyUnit.Precision">
+            <summary>
+            Gets or sets the precision.
+            Changing the precision will change the precision of already initialized values.
+            </summary>
+            <value>The precision.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.RefundType">
+            <summary>
+            Paypal refund types
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.RefundType.Other">
+            <summary>
+            Other refund.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.RefundType.Full">
+            <summary>
+            Full refund.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.RefundType.Partial">
+            <summary>
+            Partial refund.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings">
+            <summary>
+            Provides configuration information about the PayPal payment provider from configuration file.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.WEB_SERVER_URL">
+            <summary>
+            Key for web URL
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.API_USER_NAME">
+            <summary>
+            Key for API user name
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.API_PASSWORD">
+            <summary>
+            Key for API password
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.API_SIGNATURE">
+            <summary>
+            Key for API signature.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.IS_TEST_MODE">
+            <summary>
+            Testmode. If in test mode the transactions are carried out in a sandbox.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.HEADER_IMAGE_URL">
+            <summary>
+            Header image URL. Host this image on a secure server so your buyer’s web browser does
+            not display a message that the payment contains insecure items. 
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.IS_EXPRESS_CHECKOUT_ENABLED">
+            <summary>
+            key for payment method IS_EXPRESS_CHECKOUT_ENABLED enable or disable in config file.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.PAYMENT_MODE">
+            <summary>
+            key for the default payment mode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.PAYMENT_PROVIDER_ARGS_CREATOR_TYPE">
+            <summary>
+            key for the PaymentProviderArgsCreatorType
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.LoadConfiguration">
+            <summary>
+            Loads the configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.WebServerURL">
+            <summary>
+            The web server URL for PayPal
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.ApiUserName">
+            <summary>
+            The API user name 
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.ApiPassword">
+            <summary>
+            The API password
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.ApiSignature">
+            <summary>
+            The API signature
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.IsTestMode">
+            <summary>
+            Specify the environment wherther sandbox or live.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.HeaderImageURL">
+            <summary>
+            Gets or sets the header image URL.
+            </summary>
+            <value>The header image URL.</value>
+            <remarks>
+            Header image URL. Host this image on a secure server so your buyer’s web browser does
+            not display a message that the payment contains insecure items. 
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.IsExpressCheckoutEnabled">
+            <summary>
+            Gets or sets a value indicating whether payment method IS_EXPRESS_CHECKOUT_ENABLED is enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is express checkout enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.DefaultPaymentMode">
+            <summary>
+            Gets the default payment mode.
+            </summary>
+            <value>The default payment mode.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PluginSettings.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs">
+            <summary>
+            Arguments for Return payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs.#ctor(Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.RefundType,System.Decimal,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs"/> class.
+            </summary>
+            <param name="refundType">Type of the refund.</param>
+            <param name="amount">The amount.</param>
+            <param name="currencyCode">The currency code.</param>
+            <param name="note">The note.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs.RefundType">
+            <summary>
+            Gets or sets the type of the refund.
+            </summary>
+            <value>The type of the refund.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs.Amount">
+            <summary>
+            Gets or sets the amount.
+            </summary>
+            <value>The amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs.CurrencyCode">
+            <summary>
+            Gets or sets the currency code.
+            </summary>
+            <value>The currency code.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalReturnPaymentArgs.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>The note.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response">
+            <summary>
+            Response from PayPal provider.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Creates a instance of response from the Http request query string.
+            </summary>
+            <param name="queryString">Query string name value collection from Http request.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.op_Implicit(System.Collections.Specialized.NameValueCollection)~Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response">
+            <summary>
+            Implicit conversion of a HttpResponse to a PayPal response.
+            </summary>
+            <param name="queryString">Query string name value collection from Http request.</param>
+            <returns>object of PayPal response.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.ConstructErrorMessage(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Constructs the error message.
+            </summary>
+            <param name="queryString">The query string.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.Token">
+            <summary>
+            Token received from PayPal.
+            </summary>
+            <value>The token.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.PayerId">
+            <summary>
+            Payer Id received from PayPal.
+            </summary>
+            <value>The payer id.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.TransactionStatus">
+            <summary>
+            Gets or sets the transaction status.
+            </summary>
+            <value>The transaction status.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.TransactionID">
+            <summary>
+            Gets or sets the transaction ID.
+            </summary>
+            <value>The transaction ID.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.IsSuccess">
+            <summary>
+            Gets or sets a value indicating whether this instance is success.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is success; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.ErrorMessage">
+            <summary>
+            Gets or sets the error message.
+            </summary>
+            <value>The error message.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.PendingReason">
+            <summary>
+            Gets or sets the pending reason.
+            </summary>
+            <value>The pending reason.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.Ack">
+            <summary>
+            Gets or sets the response ACK.
+            </summary>
+            <value>The response ACK.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.AuthorizationID">
+            <summary>
+            Gets or sets the authorization ID.
+            </summary>
+            <value>The authorization ID.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.RefundTransactionID">
+            <summary>
+            Gets or sets the refund transaction ID.
+            </summary>
+            <value>The refund transaction ID.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.Response.Note">
+            <summary>
+            Gets or sets the note.
+            </summary>
+            <value>The note.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI">
+            <summary>
+            PayPal API and support methods.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.InitializeRequest(com.paypal.sdk.services.NVPCallerServices)">
+            <summary>
+            Initializes the request with PayPal API credentials.
+            </summary>
+            <param name="caller">The caller.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.SetExpressCheckout(Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentAction,Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.OrderParams,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Calls the SetExpressCheckout method on Paypal API.
+            </summary>
+            <param name="paymentAction">The payment action.</param>
+            <param name="orderParams">The order params.</param>
+            <param name="returnURL">The return URL.</param>
+            <param name="cancelURL">The cancel URL.</param>
+            <param name="language">The language.</param>
+            <param name="redirectUrl">The redirect URL.</param>
+            <returns>A response object.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.GetExpressCheckoutDetails(System.String)">
+            <summary>
+            Gets the express checkout details.
+            </summary>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.DoExpressCheckoutPayment(System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PaymentAction,System.Decimal,System.String,System.String)">
+            <summary>
+            Does the express checkout payment.
+            </summary>
+            <param name="token">The token.</param>
+            <param name="paymentAction">The payment action.</param>
+            <param name="amount">The amount.</param>
+            <param name="currencyCode">The currency code.</param>
+            <param name="payerId">The payer id.</param>
+            <returns>A response object with the buyer's note (if applicable).</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.DoCapture(System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CompleteType,System.Decimal,System.String,System.String,System.String)">
+            <summary>
+            Captures the transaction.
+            </summary>
+            <param name="authorizationId">The authorization id.</param>
+            <param name="completeType">Type of the complete.</param>
+            <param name="amount">The amount.</param>
+            <param name="currencyCode">The currency code.</param>
+            <param name="invoiceNumber">The invoice number.</param>
+            <param name="note">The note.</param>
+            <returns>A response object with the authorization id set.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.RefundTransaction(System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.RefundType,System.Decimal,System.String,System.String)">
+            <summary>
+            Refunds the transaction.
+            </summary>
+            <param name="transactionId">The transaction id.</param>
+            <param name="refundType">Type of the refund.</param>
+            <param name="amount">The amount to refund. Needed only for a partial refund.</param>
+            <param name="currencyCode">The currency code. Needed only for a partial refund.</param>
+            <param name="note">The note. Needed only for a partial refund.</param>
+            <returns>A response object with refund transaction id set.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.DoVoid(System.String,System.String)">
+            <summary>
+            Voids the transaction.
+            </summary>
+            <param name="authorizationId">The authorization id.</param>
+            <param name="note">The note.</param>
+            <returns>A response object with the authorization id set.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.DoReauthorization(System.String,System.Decimal,System.String)">
+            <summary>
+            Does the reauthorization.
+            </summary>
+            <param name="authorizationId">The authorization id.</param>
+            <param name="amount">The amount.</param>
+            <param name="currencyCode">The currency code.</param>
+            <returns>A response object with the authorization id set.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.PayPalAPI.GetTransactionDetails(System.String)">
+            <summary>
+            Gets the transaction details.
+            </summary>
+            <param name="transactionId">The transaction id.</param>
+            <returns>A response object.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CompleteType">
+            <summary>
+            Paypal complete types
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CompleteType.Complete">
+            <summary>
+            This the last capture you intend to make.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.PayPal.CompleteType.NotComplete">
+            <summary>
+            You intend to make additional captures.
+            </summary>
+        </member>
+    </members>
+</doc>

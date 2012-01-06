@@ -1,0 +1,11 @@
+/* Status information position */
+.litStatusInformation 
+{
+	position: absolute;
+	top: 70px;
+	right: 40px;
+	background-color: White;
+	border: solid 1px #A19E98;
+	z-index: 9999;
+	padding: 5px;
+}

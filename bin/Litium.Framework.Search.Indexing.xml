@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Framework.Search.Indexing</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Framework.Search.Indexing.IndexWorker">
+            <summary>
+            Index worker.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IndexWorker.Start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IndexWorker.Abort">
+            <summary>
+            Aborts this instance.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Indexing.IndexJob">
+            <summary>
+            A contract for scheduled indexing jobs. Implement this abstract class
+            for periodic rebuilding, appending or updating of indexes.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IndexJob.Execute(Litium.Framework.Search.Indexing.IIndexingService)">
+            <summary>
+            Consumers of <see cref="T:Litium.Framework.Search.Indexing.IndexJob"/> should call this method in order to
+            execute the scheduled task.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexJob.IndexName">
+            <summary>
+            The name of the index targeted by this job.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexJob.LanguageId">
+            <summary>
+            Identifies the language or channel that is targeted by the index.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexJob.TimeOfDay">
+            <summary>
+            The time of day this job will be executed.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Indexing.ReadableDocumentTag">
+            <summary>
+            A tag is a piece of content that, added to a <see cref="T:Litium.Framework.Search.SearchRequest"/>, 
+            can be used to filter on, sorted by and/or read. 
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Indexing.DocumentTag">
+            <summary>
+            A tag is a piece of content that, added to a <see cref="T:Litium.Framework.Search.SearchRequest"/>, 
+            can be used to filter on, sorted by and/or read. 
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.DocumentTag.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name of the tag.</param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.DocumentTag.#ctor(System.String,System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.DocumentTag.#ctor(System.String,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.DocumentTag.#ctor(System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.DocumentTag.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">if set to <c>true</c> [value].</param>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.DocumentTag.Readable">
+            <summary>
+            Gets or sets if the tag should be stored, readable.
+            </summary>
+            <value>The store.</value>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.DocumentTag.Analyzed">
+            <summary>
+            Gets or sets how to value should be indexed, analyse it or not.
+            </summary>
+            <value>The index.</value>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.DocumentTag.TermVector">
+            <summary>
+            Gets or sets if to add to the term vector, to allow quick querys of terms of a query.
+            </summary>
+            <value>The term vector.</value>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.ReadableDocumentTag.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name of the tag.</param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.ReadableDocumentTag.#ctor(System.String,System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.ReadableDocumentTag.#ctor(System.String,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.ReadableDocumentTag.#ctor(System.String,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.ReadableDocumentTag.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.DocumentTag"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">if set to <c>true</c> [value].</param>
+        </member>
+        <member name="T:Litium.Framework.Search.Indexing.IndexDocument">
+            <summary>
+            An index entry representing one originating entity.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexDocument.Id">
+            <summary>
+            The Id value will be indexed and stored in the index file. 
+            The value should correspond to the identifier of the originating entity. 
+            Index items are updated or deleted based on this value. 
+            For database records the value should correspond to a primary key. 
+            For files on disk the value should correspond to a file name (e.g. c:\myfiles\mydoc.docx).
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexDocument.Title">
+            <summary>
+            A short description of the originating entity. 
+            The text will be indexed and made available when searching. 
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexDocument.Body">
+            <summary>
+            Any piece of textual content that should be indexed and made available when searching.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexDocument.Tags">
+            <summary>
+            Any piece of data that should be indexed and available for sorting and filtering purposes.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.IndexDocument.Boost">
+            <summary>
+            A value indicating the relevance of the searchable content of this index entry, 
+            relative to other entries. 
+            
+            The value is zero by default. Setting the value to something higher than zero 
+            will improve this document's rankning. 
+            
+            Setting the value to a negative number has no effect on the rankning.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Indexing.IIndexingService">
+            <summary>
+            A service contract for full-text indexing facilities.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Build(System.Collections.Generic.IEnumerable{Litium.Framework.Search.Indexing.IndexDocument},System.String,System.String,System.Boolean)">
+            <summary>
+            Creates or rebuilds an index.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Add(Litium.Framework.Search.Indexing.IndexDocument,System.String,System.String,System.Boolean)">
+            <summary>
+            Appends an item to an existing index.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Add(System.Collections.Generic.IEnumerable{Litium.Framework.Search.Indexing.IndexDocument},System.String,System.String,System.Boolean)">
+            <summary>
+            Appends a list of items to an existing index.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Update(Litium.Framework.Search.Indexing.IndexDocument,System.String,System.String,System.Boolean)">
+            <summary>
+            Updates an item in an existing index.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Update(System.Collections.Generic.IEnumerable{Litium.Framework.Search.Indexing.IndexDocument},System.String,System.String,System.Boolean)">
+            <summary>
+            Updates a list of items in an existing index.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Remove(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Removes an item from an existing index.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Remove(System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean)">
+            <summary>
+            Removes a list of items from an existing index.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.HasDeletions(System.String,System.String)">
+            <summary>
+            Determines whether the specified index name has deletions.
+            </summary>
+            <param name="indexName">Name of the index.</param>
+            <param name="languageId">The language id.</param>
+            <returns>
+            	<c>true</c> if the specified index name has deletions; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.ExpungeDeletes(System.String,System.String)">
+            <summary>
+            Expunges the deletes.
+            </summary>
+            <param name="indexName">Name of the index.</param>
+            <param name="languageId">The language id.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.IIndexingService.Optimize(System.String,System.String)">
+            <summary>
+            Optimizes the index.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Sample</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Sample.ECommerce.PricingRules.BasicAdditionalOrderInfoArgs">
+            <summary>
+            Provides sample additional order info.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Sample.ECommerce.PricingRules.BasicAdditionalOrderInfoArgs.PartPaymentInTwoInstallments">
+            <summary>
+            Gets or sets a value indicating whether this instance is part payment with two installments.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is part payment; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Litium.Studio.Sample.PluginSettings">
+            <summary>
+            Provides configuration information about the Litium.Studio.Sample
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Sample.PluginSettings.UNIT_DELIVERY_COST">
+            <summary>
+            Key for delivery cost.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Sample.PluginSettings.UNIT_PROCESSING_FEE">
+            <summary>
+            Key for processing fee
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Sample.PluginSettings.UNIT_HANDLING_COST">
+            <summary>
+            Key for handling cost.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Sample.PluginSettings.ORDER_DISCOUNT">
+            <summary>
+            Key for Order discount
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Sample.PluginSettings.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Sample.PluginSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Sample.PluginSettings.LoadConfiguration">
+            <summary>
+            Verifies the configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Sample.PluginSettings.UnitHandlingFee">
+            <summary>
+            Gets or sets the unit handling fee.
+            </summary>
+            <value>The unit handling fee.</value>
+        </member>
+        <member name="P:Litium.Studio.Sample.PluginSettings.UnitProcessingFee">
+            <summary>
+            Gets or sets the unit processing fee.
+            </summary>
+            <value>The unit processing fee.</value>
+        </member>
+        <member name="P:Litium.Studio.Sample.PluginSettings.UnitDeliveryCost">
+            <summary>
+            Gets or sets the unit delivery cost.
+            </summary>
+            <value>The unit delivery cost.</value>
+        </member>
+        <member name="P:Litium.Studio.Sample.PluginSettings.OrderDiscountWithVAT">
+            <summary>
+            Gets or sets the order discount with VAT.
+            </summary>
+            <value>The order discount with VAT.</value>
+        </member>
+        <member name="T:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow">
+            <summary>
+            A simple checkout flow.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.CreateOrder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+            <returns>A new order carrier.</returns>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.CreateOrder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.CreateAdditionalOrderInfoArgs(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the additional order info.
+            </summary>
+            <param name="token">The token.</param>
+            <returns></returns>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.CreateAdditionalOrderInfoArgs(Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.AddAdditionalOrderInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Plugins.AdditionalOrderInfoArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the additional order info.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="additionalOrderInfo">The additional order info.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.AddAdditionalOrderInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Plugins.AdditionalOrderInfoArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.ConfigureDeliveries(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Configures the deliveries, by verifying order rows are matched with delivery rows.
+            If the order carrier order rows or amounts has changed, the delivery rows need recalculation.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.AddPaymentInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the payment info.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="paymentProviderName">Name of the payment provider.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="billingAddress">The payment address.</param>
+            <param name="token">The token.</param>
+            <returns>
+            Payment info carrier added, or null if not added.
+            </returns>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.AddPaymentInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.EditPaymentInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Edits the payment info.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="paymentInfoIdToEdit">The payment info id to edit.</param>
+            <param name="paymentProviderName">Name of the payment provider.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="billingAddress">The billing address.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.CreateSplitPaymentInfoRows(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.PaymentInfoCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the split payment info rows.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="paymentInfoCarrier">The payment info carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.RemoveExistingPaymentInfoRows(Litium.Foundation.Modules.ECommerce.Carriers.PaymentInfoCarrier)">
+            <summary>
+            Removes the existing payment info rows.
+            </summary>
+            <param name="paymentInfoCarrier">The payment info carrier.</param>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.SimpleCheckoutFlow.AddPartPayment(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken,Litium.Foundation.Modules.ECommerce.Carriers.PaymentInfoCarrier)">
+            <summary>
+            Adds the part payment.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="paymentProviderName">Name of the payment provider.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="billingAddress">The billing address.</param>
+            <param name="token">The token.</param>
+            <param name="paymentInfoCarrier">The payment info carrier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Litium.Studio.Sample.ECommerce.PricingRules.BasicFeeCalculator">
+            <summary>
+            a basic fee calculator.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.BasicFeeCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate Fees.
+            </summary>
+            <param name="orderCarrier">Carrier for which fees need to be calculted</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="T:Litium.Studio.Sample.ECommerce.PricingRules.BasicDeliveryCostCalculator">
+            <summary>
+            Sample implementation of IDeliveryCostCalculator.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.BasicDeliveryCostCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate the delivery cost connected to the Order. Delivery carriers should be properly filled up and present for the cost calculation.
+            </summary>
+            <param name="orderCarrier">Carrier containing complete information about the order.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Sample.ECommerce.PricingRules.BasicDeliveryCostCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate the delivery cost connected to a single delivery. 
+            </summary>
+            <param name="deliveryCarrier">Carrier containing complete information about the delivery.
+            Update the delivery cost and other information in delivery carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+    </members>
+</doc>

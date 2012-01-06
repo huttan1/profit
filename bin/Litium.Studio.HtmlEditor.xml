@@ -1,0 +1,555 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.HtmlEditor</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.HtmlEditor.FileBrowser.Config">
+            <summary>
+            Config helper.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.Config.SetConfig">
+            <summary>
+            Set config, empty impl, virtual
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.Enabled">
+            <summary>
+            Enabled
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.UserFilesPath">
+            <summary>
+            User files path.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.UserFilesAbsolutePath">
+            <summary>
+            User absolute files path.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.ForceSingleExtension">
+            <summary>
+            Single extension
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.AllowedTypes">
+            <summary>
+            Allowed types.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.HtmlExtensions">
+            <summary>
+            Html extensions.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.TypeConfig">
+            <summary>
+            Type config.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.Config.UserFilesDirectory">
+            <summary>
+            The absolution path (server side) of the user files directory. It 
+            is based on the <see cref="P:Litium.Studio.HtmlEditor.FileBrowser.Config.UserFilesAbsolutePath"/>.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.FileBrowser.Connector">
+            <summary>
+            Connector.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase">
+            <summary>
+            Base worker class, abstract-
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase.FileUpload(System.String,System.String,System.Boolean)">
+            <summary>
+            File upload.
+            </summary>
+            <param name="resourceType">Type of resource.</param>
+            <param name="currentFolder">Folder.</param>
+            <param name="isQuickUpload">Quick upload.</param>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase.SendFileUploadResponse(System.Int32,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Send upload response.
+            </summary>
+            <param name="errorNumber">Error Nr.</param>
+            <param name="isQuickUpload">Quick upload.</param>
+            <param name="fileUrl">URL.</param>
+            <param name="fileName">File name.</param>
+            <param name="customMsg">Message.</param>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase.ServerMapFolder(System.String,System.String,System.Boolean)">
+            <summary>
+            Serve map folder.
+            </summary>
+            <param name="resourceType">Type of resource.</param>
+            <param name="folderPath">Folder.</param>
+            <param name="isQuickUpload">Quick upload.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase.SanitizeFolderName(System.String)">
+            <summary>
+            Do a cleanup of the folder name to avoid possible problems
+            </summary>
+            <param name="folderName">Folder name to clean up.</param>
+            <returns>Clean folder name.</returns>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase.Config">
+            <summary>
+            Config.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.Connector.OnLoad(System.EventArgs)">
+            <summary>
+            Onload.
+            </summary>
+            <param name="e">args.</param>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig">
+            <summary>
+            Type config
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig.AllowedExtensions">
+            <summary>
+            List of allowed extensions.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig.DeniedExtensions">
+            <summary>
+            List of denied extensions.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig.FilesPath">
+            <summary>
+            File path.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig.FilesAbsolutePath">
+            <summary>
+            Absolute path.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig.QuickUploadPath">
+            <summary>
+            Quick upload path
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig.QuickUploadAbsolutePath">
+            <summary>
+            Quick upload absolute path
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.TypeConfig.#ctor(Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fileWorker">Worker.</param>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.FileBrowser.TypeConfigList">
+            <summary>
+            Type config list.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.TypeConfigList.#ctor(Litium.Studio.HtmlEditor.FileBrowser.FileWorkerBase)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="fileWorker">Worker.</param>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.FileBrowser.TypeConfigList.Item(System.String)">
+            <summary>
+            Get method.
+            </summary>
+            <param name="typeName">Type.</param>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.FileBrowser.Uploader">
+            <summary>
+            Uploader.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.FileBrowser.Uploader.OnLoad(System.EventArgs)">
+            <summary>
+            Onload.
+            </summary>
+            <param name="e">Args.</param>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.LanguageDirection">
+            <summary>
+            Language direction.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.LanguageDirection.LeftToRight">
+            <summary>
+            Left to right.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.HtmlEditor.LanguageDirection.RightToLeft">
+            <summary>
+            Right to left.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.HtmlEditor">
+            <summary>
+            HTML Editor.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.HtmlEditor.HtmlEditor"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.CreateHtml">
+            <summary>
+            Create HTML
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Render.
+            </summary>
+            <param name="writer">Writer.</param>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.OnPreRender(System.EventArgs)">
+            <summary>
+            On pre render.
+            </summary>
+            <param name="e">Args.</param>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.CheckBrowserCompatibility">
+            <summary>
+            Check if compatibil browser.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.IsCompatibleBrowser">
+            <summary>
+            Checks if the current HTTP request comes from a browser compatible
+            with FCKeditor.
+            </summary>
+            <returns>"true" if the browser is compatible.</returns>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.IsCompatibleBrowser(System.Web.HttpRequest)">
+            <summary>
+            Checks if the provided HttpRequest object comes from a browser
+            compatible with FCKeditor.
+            </summary>
+            <returns>"true" if the browser is compatible.</returns>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.LoadPostData(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Load post data
+            </summary>
+            <param name="postDataKey">Key.</param>
+            <param name="postCollection">Collection.</param>
+            <returns>true if loaded ok.</returns>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditor.RaisePostDataChangedEvent">
+            <summary>
+            Raise post data changed event, empty impl.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.Config">
+            <summary>
+            Config.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.Value">
+            <summary>
+            Value.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.BasePath">
+            <summary>
+            <p>
+            	Sets or gets the virtual path to the editor's directory. It is
+            	relative to the current page.
+            </p>
+            <p>
+            	The default value is "/fckeditor/".
+            </p>
+            <p>
+            	The base path can be also set in the Web.config file using the 
+            	appSettings section. Just set the "FCKeditor:BasePath" for that. 
+            	For example:
+            	<code>
+            	&lt;configuration&gt;
+            		&lt;appSettings&gt;
+            			&lt;add key="FCKeditor:BasePath" value="/scripts/fckeditor/" /&gt;
+            		&lt;/appSettings&gt;
+            	&lt;/configuration&gt;
+            	</code>
+            </p>
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ToolbarSet">
+            <summary>
+            Toolbar set.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.Width">
+            <summary>
+            Width.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.Height">
+            <summary>
+            Height.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.CMSInstalled">
+            <summary>
+            Added by Litium 16-06-2008. Whether the CMS Module available or not. 
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.CssClass">
+            <summary>
+            Added by Litium 16-06-2008. Css class in the body tag.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.MediaArchiveInstalled">
+            <summary>
+            Added by Litium 16-06-2008. Whether the media archive module is available or not.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ModuleType">
+            <summary>
+            Added by Litium 09-07-2008. Type of the module that use the editor. Is used to tell the control which link-plugin that should be loaded.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.OwnerID">
+            <summary>
+            Added by Litium 16-06-2008. ID of the owner of the edited text. 
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.PropertyCollectionType">
+            <summary>
+            Added by Litium 16-06-2008. Type of the property collection of the edited text. 
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.SpellcheckLanguage">
+            <summary>
+            Added by Litium 19-06-2008. Whether the Spellcheck Language is. 
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.CustomConfigurationsPath">
+            <summary>
+            Custom configurations path.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.EditorAreaCSS">
+            <summary>
+            Editor area CSS.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.BaseHref">
+            <summary>
+            Base Href.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.SkinPath">
+            <summary>
+            Skin path.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.PluginsPath">
+            <summary>
+            Plugin path.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FullPage">
+            <summary>
+            Full page.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.Debug">
+            <summary>
+            Debug.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.AutoDetectLanguage">
+            <summary>
+            Auto detect language.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.DefaultLanguage">
+            <summary>
+            Default language.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ContentLangDirection">
+            <summary>
+            Content language direction.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.EnableXHTML">
+            <summary>
+            Enabel XHTML.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.EnableSourceXHTML">
+            <summary>
+            Enable source XHTML.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FillEmptyBlocks">
+            <summary>
+            Fill empty blocks.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FormatSource">
+            <summary>
+            Format source.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FormatOutput">
+            <summary>
+            Format output.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FormatIndentator">
+            <summary>
+            Format indentator.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.GeckoUseSPAN">
+            <summary>
+            Gecko use span.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.StartupFocus">
+            <summary>
+            Start up focus.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ForcePasteAsPlainText">
+            <summary>
+            Force paste as plain text.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ForceSimpleAmpersand">
+            <summary>
+            Force simple ampersand.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.TabSpaces">
+            <summary>
+            Tab space.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.UseBROnCarriageReturn">
+            <summary>
+            Use BROn carriage return
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ToolbarStartExpanded">
+            <summary>
+            Toolbar start expand.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ToolbarCanCollapse">
+            <summary>
+            Toolbar can collapse.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FontColors">
+            <summary>
+            Font color.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FontNames">
+            <summary>
+            Font name.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FontSizes">
+            <summary>
+            Font size.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.FontFormats">
+            <summary>
+            Font formats.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.StylesXmlPath">
+            <summary>
+            Styles XML path.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.LinkBrowserURL">
+            <summary>
+            Link browser URL.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.ImageBrowserURL">
+            <summary>
+            Image browser URL.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditor.HtmlEncodeOutput">
+            <summary>
+            HTML Encode output.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.HtmlEditorConfigurations">
+            <summary>
+            Html editor configurations
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditorConfigurations.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="info">Info.</param>
+            <param name="context">Context.</param>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditorConfigurations.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Get object data.
+            </summary>
+            <param name="info">Info.</param>
+            <param name="context">Context.</param>
+        </member>
+        <member name="P:Litium.Studio.HtmlEditor.HtmlEditorConfigurations.Item(System.String)">
+            <summary>
+            Configuration name.
+            </summary>
+            <param name="configurationName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Litium.Studio.HtmlEditor.HtmlEditorDesigner">
+            <summary>
+            Html Editor Designer
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.HtmlEditorDesigner.GetDesignTimeHtml">
+            <summary>
+            Retrieves the HTML markup that is used to represent the control at design time.
+            </summary>
+            <returns>The HTML markup used to represent the control at design time.</returns>
+        </member>
+        <member name="M:Litium.Studio.HtmlEditor.Util.CreateDirectory(System.String)">
+            <summary>
+            This method should provide safe substitude for Directory.CreateDirectory().
+            </summary>
+            <param name="path">The directory path to be created.</param>
+            <returns>A <see cref="T:System.IO.DirectoryInfo"/> object for the created directory.</returns>
+            <remarks>
+            	<para>
+            	This method creates all the directory structure if needed.
+            	</para>
+            	<para>
+            	The System.IO.Directory.CreateDirectory() method has a bug that gives an
+            	error when trying to create a directory and the user has no rights defined
+            	in one of its parent directories. The CreateDirectory() should be a good 
+            	replacement to solve this problem.
+            	</para>
+            </remarks>
+        </member>
+    </members>
+</doc>

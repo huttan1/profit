@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Templates imagesBasePath="Images/">
+  <!--
+  <Template title="The template name" image="small_description_image_displayed_in_the_dialog.gif">
+		<Description>The template description</Description>
+		<Html>
+			<![CDATA[
+				Place your HTML-code here!
+			]]>
+		</Html>
+	</Template>
+  -->
+</Templates>

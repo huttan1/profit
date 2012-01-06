@@ -1,0 +1,51 @@
+﻿/***************** TREEVIEW (ComponentArt) **************************************/
+.litTreeView
+{
+	padding-top: 10px;
+	padding-left: 5px;
+	bottom: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+	overflow: auto;
+	overflow: -moz-scrollbars-vertical;
+}
+
+.litTreeNode
+{
+	font-family: arial,verdana;
+	font-size: 85%;
+	padding: 1px;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-left: 2px;
+	margin-right: 1px;
+	width: auto !important;
+}
+.litSelectedTreeNode
+{
+	font-family: arial,verdana;
+	font-size: 85%;
+	padding: 1px;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-left: 1px;
+	cursor: default;
+	width: auto !important;
+	background-color: #FFFFFF;
+	border: 1px solid gray;
+}
+.litHoverTreeNode
+{
+	font-family: arial,verdana;
+	font-size: 85%;
+	padding: 1px;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-left: 2px;
+	margin-right: 1px;
+	width: auto !important;
+	cursor: pointer;
+	cursor: hand;
+}

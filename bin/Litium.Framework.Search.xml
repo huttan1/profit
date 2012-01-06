@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Framework.Search</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Framework.Search.ReadableTag">
+            <summary>
+            A tag is a piece of content that, added to a <see cref="T:Litium.Framework.Search.SearchRequest"/>, 
+            can be used to filter on, sorted by and/or read. 
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Tag">
+            <summary>
+            A tag is a piece of content that, added to a <see cref="T:Litium.Framework.Search.SearchRequest"/>, 
+            can be used to filter on and/or sort by. 
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.TagBase">
+            <summary>
+            A tag is a piece of content that, added to a <see cref="T:Litium.Framework.Search.SearchRequest"/>, 
+            can be used to filter on and/or sort by. 
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.TagBase.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.TagBase.#ctor(System.String,System.Decimal)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.TagBase.#ctor(System.String,System.DateTime)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.TagBase.#ctor(System.String,System.Guid)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.TagBase.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="P:Litium.Framework.Search.TagBase.Name">
+            <summary>
+            The name of the tag. 
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.TagBase.Value">
+            <summary>
+            The tag value.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Tag.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Tag.#ctor(System.String,System.Decimal)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Tag.#ctor(System.String,System.DateTime)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Tag.#ctor(System.String,System.Guid)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Tag.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Tag"/>.
+            </summary>
+            <param name="name">The name of the tag. </param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="P:Litium.Framework.Search.Tag.Boost">
+            <summary>
+            Gets or sets the boost for this query clauseb. 
+            Documents matching this clause will (in addition to the normal weightings) have their score multiplied by the value.
+            </summary>
+            <value>The boost for the tag.</value>
+        </member>
+        <member name="P:Litium.Framework.Search.Tag.AllowFuzzy">
+            <summary>
+            Gets or sets a value indicating whether [allow fuzzy].
+            </summary>
+            <value><c>true</c> if [allow fuzzy]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Litium.Framework.Search.ReadableTag.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.ReadableTag"/>.
+            </summary>
+            <param name="name">The name of the tag.</param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.ReadableTag.#ctor(System.String,System.DateTime)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.ReadableTag"/>.
+            </summary>
+            <param name="name">The name of the tag.</param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.ReadableTag.#ctor(System.String,System.Guid)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.ReadableTag"/>.
+            </summary>
+            <param name="name">The name of the tag.</param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.ReadableTag.#ctor(System.String,System.Decimal)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.ReadableTag"/>.
+            </summary>
+            <param name="name">The name of the tag.</param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.ReadableTag.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.ReadableTag"/>.
+            </summary>
+            <param name="name">The name of the tag.</param>
+            <param name="value">The tag value.</param>
+        </member>
+        <member name="T:Litium.Framework.Search.Configuration.IndexConfigurationElement">
+            <summary>
+            Represents an index configuration element within a search configuration file.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.IndexConfigurationElement.Name">
+            <summary>
+            The name of the index. Must be unique within the application domain.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.IndexConfigurationElement.Path">
+            <summary>
+            The physical path of the index directory.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.IndexConfigurationElement.UniqueId">
+            <summary>
+            A concatenation of <see cref="P:Litium.Framework.Search.Configuration.IndexConfigurationElement.Name"/> and <see cref="P:Litium.Framework.Search.Configuration.IndexConfigurationElement.LanguageId"/>.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.IndexConfigurationElement.LanguageId">
+            <summary>
+            Identifies the language or channel that is targeted by the index.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.IndexConfigurationElement.Jobs">
+            <summary>
+            A collection of scheduled indexing jobs.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.SearchRequest">
+            <summary>
+            Provides the data neccessary for the <see cref="T:Litium.Framework.Search.ISearchService"/> to build a query 
+            and execute it on one or more indexes. 
+            
+            Which properties are required and which are optional depends on the specific 
+            <see cref="T:Litium.Framework.Search.ISearchService"/> implementation.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.SearchRequest.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.FilterTagsExist">
+            <summary>
+            Returns true if one or more filtering tags have been added, otherwise false.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.ReadTagsExist">
+            <summary>
+            Returns true if one or more read tags have been added, otherwise false.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.QueryName">
+            <summary>
+            The name of the query configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.LanguageId">
+            <summary>
+            Identifies the language or channel targeted in the request.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.Text">
+            <summary>
+            The text to search for. The value can be a single word or a phrase.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.Paging">
+            <summary>
+            Limits the result to a defined page.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.FilterTags">
+            <summary>
+            Limits the result to those that match the tags.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.ExcludeTags">
+            <summary>
+            Excludes items that matches the tags.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.Ranges">
+            <summary>
+            Limits the result to those that are within the specified ranges.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.Sortings">
+            <summary>
+            Changes the way the result is sorted, from the default behavior (sort by relevance) 
+            to instead sort by one or more tag names.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchRequest.ReadTags">
+            <summary>
+            Populates the resulting <see cref="T:Litium.Framework.Search.Hit"/> with the stored value of the tag.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Configuration.QueryConfigurationElement">
+            <summary>
+            Represents a query configuration element within a search configuration file.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.QueryConfigurationElement.Name">
+            <summary>
+            The name of the query. Must be unique within the application domain.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.QueryConfigurationElement.LanguageId">
+            <summary>
+            Identifies the language or channel targeted in the query.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.QueryConfigurationElement.UniqueId">
+            <summary>
+            A concatenation of <see cref="P:Litium.Framework.Search.Configuration.QueryConfigurationElement.Name"/> and <see cref="P:Litium.Framework.Search.Configuration.QueryConfigurationElement.LanguageId"/>.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.QueryConfigurationElement.ComponentId">
+            <summary>
+            The component identificator of the type that should be resolved
+            when creating an instance of the query entity.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.QueryConfigurationElement.IndexNames">
+            <summary>
+            The names of the indexes targeted by the query.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.ISearchService">
+            <summary>
+            A service contract for full-text search facilities.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.ISearchService.Search(Litium.Framework.Search.SearchRequest)">
+            <summary>
+            Compiles a query from the data in the provided <see cref="T:Litium.Framework.Search.SearchRequest"/> 
+            and executes the query across one or more indexes. The collected hits 
+            are returned in the <see cref="T:Litium.Framework.Search.SearchResponse"/> object. 
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Sorting">
+            <summary>
+            Defines how sorting will be done, i.e. which tag to sort on and in what direction.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Sorting.#ctor(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Sorting"/> with ascending sort direction.
+            </summary>
+            <param name="tagName">The name of the tag to sort on.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Sorting.#ctor(System.String,Litium.Framework.Search.SortingFieldType)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Sorting"/> with ascending sort direction.
+            </summary>
+            <param name="tagName">The name of the tag to sort on.</param>
+            <param name="fieldType">Type of the field.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Sorting.#ctor(System.String,Litium.Framework.Search.SortDirection)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Sorting"/>.
+            </summary>
+            <param name="tagName">The name of the tag to sort on.</param>
+            <param name="direction">Ascending or descending sort direction.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Sorting.#ctor(System.String,Litium.Framework.Search.SortDirection,Litium.Framework.Search.SortingFieldType)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Sorting"/>.
+            </summary>
+            <param name="tagName">The name of the tag to sort on.</param>
+            <param name="direction">Ascending or descending sort direction.</param>
+            <param name="fieldType">Type of the field.</param>
+        </member>
+        <member name="P:Litium.Framework.Search.Sorting.TagName">
+            <summary>
+            The name of the tag to sort on.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Sorting.Direction">
+            <summary>
+            The direction of the sorting (ascending or descending). 
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Sorting.FieldType">
+            <summary>
+            Type of the field.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.SearchResponse">
+            <summary>
+            The result from querying one or more indexes.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchResponse.Hits">
+            <summary>
+            The index entries that were fetched from the search index when executing a query.
+            If the Paging property of the  <see cref="T:Litium.Framework.Search.SearchRequest"/> parameter supplied to 
+            <see cref="T:Litium.Framework.Search.ISearchService"/> was set, this collection is a paged result.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchResponse.TotalHitCount">
+            <summary>
+            The total number of hits, regardless of the Paging property of the
+            <see cref="T:Litium.Framework.Search.SearchRequest"/> parameter supplied to <see cref="T:Litium.Framework.Search.ISearchService"/>.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.SearchResponse.MaxScore">
+            <summary>
+            The scoring value of the most relevant hit.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.SortDirection">
+            <summary>
+            Sort direction options.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Hit">
+            <summary>
+            An item fetched from a search index as a result of a query.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Hit.#ctor(System.String,System.String,System.String,System.String,System.Single)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Hit"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Hit.#ctor(System.String,System.String,System.String,System.String,System.Single,System.Collections.ObjectModel.Collection{Litium.Framework.Search.Tag})">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Hit"/>.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Hit.Id">
+            <summary>
+            Identifies the originating entity.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Hit.Title">
+            <summary>
+            A short description of the originating entity.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Hit.IndexName">
+            <summary>
+            The name of the hit index.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Hit.LanguageId">
+            <summary>
+            The language identifier of the hit index.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Hit.Score">
+            <summary>
+            Scoring value set by the underlying search facility.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Hit.Tags">
+            <summary>
+            Tags recomposed from the index. 
+            Can be null.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Configuration.JobConfigurationElement">
+            <summary>
+            Represents an index job configuration element within a search configuration file.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.JobConfigurationElement.TimeOfDay">
+            <summary>
+            The scheduled time of day of the job.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Configuration.JobConfigurationElement.ComponentId">
+            <summary>
+            The component identificator of the type that should be resolved
+            when creating an instance of the index job entity.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.SortingFieldType">
+            <summary>
+            Sorting field type options.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.SortingFieldType.Score">
+            <summary>
+            Sort by search score, relevanse
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.SortingFieldType.DocumentNumber">
+            <summary>
+            Sort by index order
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.SortingFieldType.Auto">
+            <summary>
+            Guess type of sort based on field contents, Requires data in index, else exception during search.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.SortingFieldType.String">
+            <summary>
+            Sort as string value
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.SortingFieldType.Int">
+            <summary>
+            Sort as int value
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.SortingFieldType.Float">
+            <summary>
+            Sort as float
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.SortingFieldType.Date">
+            <summary>
+            Sort as date value.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Range">
+            <summary>
+            Defines a lower and upper limit of a range 
+            as well as the tag on which the range will be applied.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Range.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Range"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Range.#ctor(System.String,System.DateTime,System.DateTime)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Range"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Range.#ctor(System.String,System.Decimal,System.Decimal)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Range"/>.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Range.Boost">
+            <summary>
+            Gets or sets the boost for this query clauseb. 
+            Documents matching this clause will (in addition to the normal weightings) have their score multiplied by the value.
+            </summary>
+            <value>The boost for the tag.</value>
+        </member>
+        <member name="P:Litium.Framework.Search.Range.TagName">
+            <summary>
+            The name of the tag on which the range will be applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Range.FromValue">
+            <summary>
+            The lower limit of the range.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Range.ToValue">
+            <summary>
+            The upper limit of the range.
+            </summary>
+        </member>
+        <member name="T:Litium.Framework.Search.Paging">
+            <summary>
+            Paging information used by consumers of <see cref="T:Litium.Framework.Search.SearchRequest"/>'s, 
+            (primarily <see cref="T:Litium.Framework.Search.ISearchService"/> implementations) to determine how large 
+            (and which part) of a result set should be compiled and returned in the 
+            <see cref="T:Litium.Framework.Search.SearchResponse"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Paging.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Paging"/>.
+            </summary>
+            <param name="pageNumber">Then number of the page.</param>
+            <param name="pageSize">The maxmimum number of items per page.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Paging.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:Litium.Framework.Search.Paging.PageNumber">
+            <summary>
+            The number of the page.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Paging.PageSize">
+            <summary>
+            The maxmimum number of items per page.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Paging.Default">
+            <summary>
+            Creates a paging object with PageNumber = 1, PageSize = 1000.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.OptionalTagClause.FilterTagsExist">
+            <summary>
+            Returns true if one or more filtering tags have been added, otherwise false.
+            </summary>
+        </member>
+    </members>
+</doc>

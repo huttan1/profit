@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Templates imagesBasePath="Images/">
+  
+  <Template title="Test Template" image="Article1.gif">
+		<Description>Template</Description>
+		<Html>
+			<![CDATA[
+				<div class="padding">     
+
+                        <h1>Brasseriet</h1> 
+                        
+                        <p class="preamble">V&auml;lkommen till Brasseriet som ligger p&aring; balkongen med utsikt &ouml;ver kasinot och Olle Hjortzbergs fantastiska v&auml;gg- och takm&aring;lningar. Njut av v&aring;rt stora utbud med allt fr&aring;n enkla sm&aring;r&auml;tter till lyxiga femr&auml;tters menyer.</p> 
+ 
+ 
+                        
+                        Restaurangen har 100 platser, men vi dukar g&auml;rna om f&ouml;r mingelparty upp till 250 g&auml;ster.&nbsp;<BR><BR>&Ouml;ppettider alla dagar 17.00-23.30<BR>Bordsbokning: 08-781 88 00<BR><BR><BR> 
+<div class="foodmenu"> 
+ 
+                            <div class="foodmenutop"><img src="/ui/img/menu/menu-top-brasseriet.gif"></div> 
+                            <div class="foodmenupadding"> 
+                            <div><img src="/ui/img/menu/menu-forratter.gif" alt="" /></div> 
+ 
+                                <table> 
+                                    
+                                        
+                                        <tr> 
+<td>DILLSOTAD LAX med gurkp&auml;rlor och pepparrot</td> 
+                                        <td class="price">135:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>SOS Tre sorters sill samt br&ouml;d och V&auml;sterbottensost</td> 
+                                        <td class="price">115:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>KNAPERSTEKT FL&Auml;SKSIDA med r&ouml;kt vitl&ouml;kscreme och ramsl&ouml;k</td> 
+                                        <td class="price">135:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+ 
+                                    </table><div><img src="/ui/img/menu/menu-huvudratt.gif" alt="" /></div> 
+ 
+                                <table> 
+                                    
+                                        
+                                        <tr> 
+<td>HALSTRAD G&Ouml;S med m&auml;rg, brynt sm&ouml;r och prim&ouml;rer</td> 
+                                        <td class="price">280:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>LAX med ljummen sallad och dillcreme</td> 
+                                        <td class="price">190:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>&Ouml;RTBAKAD MOVITZKYCKLING med sm&ouml;rad buljong och soyab&ouml;nor</td> 
+                                        <td class="price">245:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>ENTREC&Ocirc;TE med tryffelsm&ouml;r och pommes frites</td> 
+                                        <td class="price">260:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+ 
+                                    </table><div><img src="/ui/img/menu/document-background_rdax_414x0.gif" alt="" /></div> 
+ 
+                                <table> 
+                                    
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+ 
+                                    </table><div><img src="/ui/img/menu/menu-helt-tom.gif" alt="" /></div> 
+ 
+                                <table> 
+                                    
+ 
+                                    </table><div><img src="/ui/img/menu/menu-desserter.gif" alt="" /></div> 
+ 
+                                <table> 
+                                    
+                                        
+                                        <tr> 
+<td>RABARBERRULLAD NOUGATPARFAIT med fl&auml;derblomssocker och smulpaj</td> 
+                                        <td class="price">115:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>KAFFECREME med havressorbet och jorgubbsscones</td> 
+                                        <td class="price">115:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>TRYFFEL, styckpris</td> 
+                                        <td class="price">30:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td>SORBETKULA, styckpris</td> 
+                                        <td class="price">30:-</td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+                                        
+                                        <tr> 
+<td></td> 
+                                        <td class="price"></td> 
+                                    </tr> 
+ 
+ 
+                                    </table>     
+                            </div><!--/.padding--> 
+                            <div><img src="/ui/img/menu/menu-bottom.gif" alt="" /></div> 
+			]]>
+		</Html>
+	</Template>
+  
+</Templates>

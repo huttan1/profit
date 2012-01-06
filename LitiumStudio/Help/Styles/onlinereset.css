@@ -1,0 +1,16 @@
+@import url(../../Stylesheets/DefaultSkin/Skin.css);
+@import url(../../Stylesheets/foundation.css);
+/*-----------------------------------------------------------------------------
+Styles to reset Framemaker
+-----------------------------------------------------------------------------*/
+body, p, td, tr, div, input, select, textarea, fieldset, legend, ol, li
+{
+	font-size: 10px!Important;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+}
+
+
+li{text-indent:0!Important; display:list-item!Important;}
+li.Lettered {list-style-type:lower-latin;}
+p{font-family: Arial, Verdana, Helvetica, Sans-Serif!Import;}

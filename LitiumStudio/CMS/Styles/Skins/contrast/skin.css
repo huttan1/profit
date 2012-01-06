@@ -1,0 +1,13 @@
+.TreeNode{ 
+  color:#FFFFFF;
+} 
+.SelectedTreeNode{ 
+  background-color:#FFFFFF; 
+  border: 1px solid #000000;
+  color:#000000;
+} 
+.HoverTreeNode{
+  background-color:#CCCCCC; 
+  border: 1px solid #000000;
+  color:#000000;
+}

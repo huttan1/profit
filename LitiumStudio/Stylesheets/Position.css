@@ -1,0 +1,777 @@
+﻿html, body, form
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+:link img
+{
+	border: none;
+}
+.clearer
+{
+	clear: both;
+	height: auto;
+}
+/**************************/
+.lsToolbar
+{
+	overflow: hidden !important;
+	border: solid 1px black;
+}
+.lsContent
+{
+	position: relative;
+}
+/**************************/
+.lsTop
+{
+	height: 33px;
+	overflow: hidden;
+	padding-right: 189px;
+}
+.lsTop .lsTopHeading
+{
+	white-space: nowrap;
+	margin-left: 50%;
+	margin-right: 50%;
+	margin-top: 10px;
+}
+/**************************/
+.lsTopMenu
+{
+	padding-top: 1px;
+}
+.lsTopMenu, .lsListHeader
+{
+	height: 26px;
+	overflow: hidden;
+}
+.lsTopMenu .lsTopContainer
+{
+	width: 1000px;
+}
+.lsTopMenu .lsTopContainer > div 
+{
+	float: left;
+}
+.lsTablePartHalf
+{
+	width: 50%;
+	height: 150px;
+	vertical-align: top;
+}
+
+.lsFilterItem
+{
+    margin-right: 20px;
+    width: 200px;
+}
+.litModuleContentWithTreeMainSizeV2
+{
+	width: 100%;
+	height: 100%;
+}
+
+.litInputLeftArea
+{
+	padding-left: 9px !important;
+	padding-right: 9px !important;
+	padding-top: 8px !important;
+}
+
+.litInputRightArea
+{
+	padding-left: 8px !important;
+	padding-top: 6px !important;
+}
+
+.litLeftArea
+{
+	/**/
+	float: left; /*	width: 50%;*/
+}
+.litRightArea
+{
+	/**/
+	float: right; /*	width: 250px;*/
+}
+.litListAreaV2 td, .litListWithTreeAreaV2 td, .litListWithTreeWithTabAreaV2 td
+{
+	height: 25px;
+	padding-left: 10px;
+}
+.litListAreaV2 th, .litListWithTreeAreaV2 th, .litListWithTreeWithTabAreaV2 th
+{
+	height: 25px;
+	padding-left: 10px;
+}
+
+.litListWithTreeAreaV2 table
+{
+	width: 100%;
+}
+
+.litModalPopupHeader
+{
+    font-size: 72%;
+    font-weight: bold;
+}
+.litModalPopupContent
+{
+	overflow: hidden;
+}
+.litModalPopupIFrame
+{
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 400px;
+}
+div.contentCssMediaArchive .litModalPopupIFrame
+{
+    height: 450px;
+}
+.litModalPopupBody
+{
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	font-size: 11pt;
+}
+/**************************/
+.RadTreeView 
+{
+	margin-left: 8px;
+	margin-top: 10px;
+}
+.RadTreeView .rtSp
+{
+	width: 10px;
+}
+.RadTreeView .rtTop, 
+.RadTreeView .rtMid, 
+.RadTreeView .rtBot
+{
+	padding: 1px 0 1px 10px !important;
+}
+.RadTreeView .rtLI .rtPlus, 
+.RadTreeView .rtLI .rtMinus
+{
+	margin-left: -12px !important;
+	margin-right: 3px !important;
+	width: 9px;
+}
+
+.RadTreeView .rtLI .rtLI .rtPlus, 
+.RadTreeView .rtLI .rtLI .rtMinus
+{
+	margin-left: -15px !important;
+	margin-right: 5px !important;
+	width: 9px;
+}
+div.RadTreeView .rtUL .rtLI .rtUL 
+{
+	padding-left: 12px;
+}
+div.RadTreeView .rtUL .rtLI .rtUL .rtLI .rtUL 
+{
+	padding-left: 12px;
+}
+div.RadTreeView .rtIn
+{
+	padding-left: 0px;
+}
+div.RadTreeView .rtHover .rtIn
+{
+	padding-left: 0px;
+	margin-left: 1px;
+}
+div.RadTreeView .rtSelected .rtIn
+{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+div.RadTreeView .rtLI .rtLI .rtIn
+{
+	padding-left: 3px;
+}
+div.RadTreeView .rtLI .rtLI .rtHover .rtIn
+{
+	padding-left: 3px;
+}
+div.RadTreeView .rtLI .rtLI .rtSelected .rtIn
+{
+	padding-top: 2px;
+	padding-left: 3px !important;
+	padding-right: 3px !important;
+}
+div.RadTreeView .rtUL SPAN
+{
+	cursor: pointer;
+}
+/**************************/
+.lsFastSearch
+{
+	position: absolute;
+	right: 0px;
+	width: 200px;
+	height: 24px;
+	top: 5px;
+	padding-left: 5px;
+	padding-top: 3px;
+	vertical-align: top;
+}
+.lsFastSearch .lsFastSearchInput
+{
+	height: 16px;
+	border: none;
+	line-height: 16px;
+	width: 162px;
+}
+.lsFastSearch .lsFastSearchButtons
+{
+	float: left;
+}
+.lsFastSearch .lsFastSearchButton
+{
+	float: left;
+	width: 16px;
+	height: 22px;
+}
+/**************************/
+.lsContentHeader
+{
+	min-height: 28px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+.lsContentHeader .lsContentHeaderHeading
+{
+	height: 28px;
+	line-height: 28px;
+	vertical-align: middle;
+	padding-left: 8px;
+}
+.lsContentHeader .lsContentHeaderHeading img
+{
+	margin-top: -4px;
+	vertical-align: middle;
+	margin-right: 5px;
+	height: 16px;
+	background-repeat: no-repeat;
+}
+/**************************/
+.lsStartMenu
+{
+	position: absolute;
+	top: 0px;
+}
+.lsStartMenu .RadMenu .rmLeftImage
+{
+   margin-top: 0px;
+}
+.lsStartMenuTable
+{
+	width: 172px; /*326px;*/
+	height: 310px;
+}
+.lsStartMenuTop
+{
+	width: 172px; /*326px;*/
+	height: 4px;
+}
+.IE6 .lsStartMenuTop, .IE7 .lsStartMenuTop
+{
+	position: absolute;
+	top: 35px;
+}
+.lsStartMenuBottom
+{
+	width: 172px; /*326px;*/
+	height: 9px;
+}
+.IE6 .lsStartMenuBottom, .IE7 .lsStartMenuBottom
+{
+	position: relative;
+	top: -6px;
+}
+.lsStartMenuMiddle
+{
+	width: 2px;
+}
+.lsStartMenuItem, .lsStartMenuItemDisabled
+{
+	height: 35px;
+	width: 163px !important; /* 141 */
+	overflow: hidden;
+	line-height: 35px;
+}
+.lsStartMenuLeftButton
+{
+	width: 163px !important; /*143px !important;*/
+	height: 23px;
+	line-height: 23px;
+	margin-left: 4px;
+	margin-top:2px;
+}
+.lsStartMenuRightButton
+{
+	width: 163px !important;
+	height: 23px;
+	line-height: 23px;
+	margin-left: 4px; /*2px;*/
+	margin-top:2px;
+}
+.lsStartMenuHelpButton
+{
+	width: 163px !important;
+	height: 23px;
+	line-height: 23px;
+	margin-left: 4px; /*2px;*/
+}
+/**************************/
+.lsFastSearchModuleButton
+{
+	margin-left: 2px;
+	width: 5px;
+	height: 22px;
+	line-height: 22px;
+	margin-bottom: -1px;
+}
+
+.lsFastSearchMenuTable
+{
+	width: 143px;
+}
+.lsFastSearchMenuTop
+{
+	width: 143px;
+	height: 2px;
+}
+.lsFastSearchMenuBottom
+{
+	width: 143px;
+	height: 9px;
+}
+.lsFastSearchMenuItem, .lsFastSearchMenuItemDisabled, .lsFastSearchMenuItemSelected
+{
+	height: 24px;
+	line-height: 24px;
+}
+.lsFastSearchMenuPosition
+{
+	width: 180px;
+}
+.IE .lsFastSearchMenuPosition
+{
+	margin-top: -3px;
+}
+.IE6 .lsFastSearchInput, .IE7 .lsFastSearchInput
+{
+	position:relative;
+	top: -2px;
+}
+/**************************/
+.lsFastSearchResult 
+{
+	display: none;
+	position: absolute;
+	right: 12px;
+	top: 29px;
+	width: 420px;
+}
+.lsFastSearchResult .lsFastSearchResultHeader 
+{
+	width: 413px;
+	margin-left: -5px;
+}
+
+.lsFastSearchResultHeader 
+{
+    padding-bottom: 2px;
+}
+
+.lsFastSearchResult .lsFastSearchResultMiddle 
+{
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+}
+.lsFastSearchResult .lsFastSearchResultMiddle .lsFastSearchResultList
+{
+	overflow: auto;
+}	
+.lsFastSearchResult .lsFastSearchResultFooter
+{
+	padding-top: -2px;
+}
+.lsFastSearchResult .lsFastSearchResultFooter a
+{
+	display:block;
+	padding:0px;
+	margin:0px;
+	height:13px;
+	text-decoration: none;
+}
+.lsFastSearchResult .lsFastSearchResultMiddle .lsFastSearchResultList table 
+{
+	width: 98%;
+}
+.lsFastSearchResult .lsFastSearchResultMiddle .lsFastSearchResultList table .col1
+{
+	width: 20px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+.lsFastSearchResult .lsFastSearchResultMiddle .lsFastSearchResultList table .col2
+{
+	width:200px;
+}
+/**************************/
+.rgHeader
+{
+    min-width: 20px !important;
+}
+
+.ArticleGrid .rgHeaderDiv
+{
+    overflow: visible !important;
+}
+.lsContentNoScroll, .lsContentHalfNoScroll, .lsContentNoScrollWithPadding
+{
+	overflow: hidden;
+}
+.lsContentNoScroll, .lsContentHalfNoScroll, .lsContentNoScrollWithPadding, .lsContentHalfNoScrollWithPadding
+{
+	height: 100%;
+}
+.lsContentNoScrollWithPadding, .lsContentHalfNoScrollWithPadding
+{
+	padding: 15px;
+}
+.lsContentHalfNoScroll
+{
+	width: 45%;
+}
+.lsContentScroll
+{
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+.lsContentScroll2
+{
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
+.lsIconContent
+{
+	padding-top: 10px;
+}
+#PageTypeContent td, #PageTypeContent th
+{
+	height: 25px;
+	padding-left: 10px;
+}
+
+.lsSettingTable td
+{
+	height: 25px;
+	padding-left: 10px;
+}
+
+/**************************/
+.lsInformation
+{
+	padding-top: 8px;
+	overflow: hidden;
+	height: 42px;
+	display: none;
+}
+.lsInformationHeading
+{
+	margin-bottom: 3px;
+}
+.lsInformationHeading span
+{
+	margin-left: 29px;
+}
+.lsInformationContent
+{
+	padding-right: 8px;
+	padding-left: 8px;
+}
+.lsInformationClose
+{
+	margin-right: 15px;
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+}
+.lsInformationIconOk, .lsInformationIconInfo, .lsInformationIconError
+{
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+	margin-top: 0px;
+	margin-left: 8px;
+	position: absolute;
+	padding-right: 5px;
+}
+/**************************/
+.lsContentHeader .lsFilterAreaOpen, .lsContentHeader .lsFilterAreaClose
+{
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+	vertical-align: middle;
+	top: 10px;
+	right: 8px;
+	position: absolute;
+}
+.lsContentHeader .lsFilterArea
+{
+	margin: 8px;
+	display: none;
+}
+.lsContentHeader .lsFilterNoMargin
+{
+	margin: 0px;
+}
+/**************************/
+
+.IE8 .NoPaddingGrid td, .IE8 .NoPaddingGrid th
+{
+	padding: 0 !important;
+	border: 0 !important;
+}
+
+/**************************/
+.lsContentTabScroll, .lsContentTabScrollNoBottom
+{
+	padding-top: 8px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 15px;
+}
+.lsContentTabScrollNoBottom
+{
+	overflow: hidden;
+	padding-bottom: 0px;
+}
+.lsTabContainer
+{
+	height: 100%;
+}
+
+.lsTabContainer .lsTabContent
+{
+	padding: 15px;
+	height: 100%;
+}
+
+.lsTabContainer .lsTabGridContent
+{
+	padding: 0px;
+	height: 100%;
+}
+.RadTabStrip
+{
+	border-width: 0px;
+}
+
+/***************** AJAX-GRID (ComponentArt) ********************************/
+.GridHeader
+{
+	border-width: 0 0 1px;
+}
+
+.HeadingCell td
+{
+	width: 16px;
+}
+.HeadingCellActive
+{
+}
+
+.GridFooterTab
+{
+    width: 100%;
+    bottom: 0;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.HeadingCell div
+{
+    width: 100% !important;
+}
+
+
+.RowWithoutLinkSelected td.DataCell 
+{ 
+    padding: 4px;
+	padding-left: 7px;
+	height: 10px;
+}
+
+.Row td.DataCell
+{
+	background-color: #FFFFFF;
+	height: 10px !important;
+}
+
+.OrderGridHeader
+{
+    padding-left: 0px;
+}
+
+/****************Component art combobox*******************/
+.ddn
+{
+	z-index: 20000 !important;
+}
+.ddn-ftr
+{
+	width: 390px;
+	height: 8px;
+	overflow: hidden;
+}
+/* overflow:hidden allows IE6 to render the element's height correctly */
+
+.ddn-con
+{
+	width: 388px;
+	height: auto;
+}
+.ddn-item
+{
+	width: 382px;
+	padding-left: 8px;
+	line-height: 22px;
+}
+.ddn-item-hover
+{
+	vertical-align: middle;
+	width: 382px;
+	padding-left: 8px;
+	line-height: 22px;
+}
+.cmb
+{
+	padding-left: 4px;
+}
+.txt
+{
+	margin: 0;
+	padding: 0;
+}
+.style .ddn-item
+{
+	width: 390px;
+	height: 34px;
+	line-height: 34px;
+}
+.style .ddn-item-hover
+{
+	width: 390px;
+	height: 34px;
+	line-height: 34px;
+}
+.style .brk
+{
+	width: 390px;
+	height: 4px;
+}
+.font .ddn-item
+{
+	width: 390px;
+	height: 22px;
+	line-height: 22px;
+}
+.font .ddn-item-hover
+{
+	width: 390px;
+	height: 22px;
+}
+.font .icon
+{
+	width: 16px;
+	height: 16px;
+	float: left;
+	padding: 5px 16px 0 4px;
+}
+.cmbNew input
+{
+	padding-left: 4px;
+}
+
+.litLoginBgMiddle
+{
+    height: 90px;
+}
+
+.lsLoginTd
+{
+    padding: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px; 
+}
+/* for Modalpopup overlapping combo boxes in ie6 */
+.ie6Overlap3 iframe
+{
+	display: block;
+	z-index: -1;
+	filter: mask();
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 773px;
+	height: 405px;
+}
+
+/*************AlphabetLinkList****************************/
+div.AlphabetLinkList 
+{
+	margin-top: 8px;
+	padding-bottom: 8px;
+}
+.AlphabetLinkList A
+{
+	margin-right: 13px;
+}
+
+.litCheckbox input
+{
+    margin-right: 3px;
+}
+
+/*************RadDatePicker fix****************************/
+.rcRow td 
+{
+	border: 0 !important;
+	border-top-width: 0 !important;
+	border-bottom-width: 0 !important;
+	border-left-width: 0 !important;
+	border-right-width: 0 !important;
+}
+
+
+.lsOrderViewInfoCaption
+{
+    padding-bottom:5px; 
+    white-space:nowrap
+}
+
+.lsOrderViewInfo
+{
+    padding-bottom:5px;
+    padding-left:5px;
+    width:100%;
+}

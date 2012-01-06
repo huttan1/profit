@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Framework.Search.Indexing.Lucene</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter">
+            <summary>
+            File writer with a Lucene file system index as its backing store 
+            and a Lucene.Net.Index.IndexWriter as its underlying writer.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.#ctor(System.String,Litium.Framework.Search.Indexing.Lucene.WriteMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter"/> class. Defaults indexName and languageID to string.Empty
+            </summary>
+            <param name="path">The path.</param>
+            <param name="writeMode">The write mode.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.#ctor(System.String,System.String,System.String,Litium.Framework.Search.Indexing.Lucene.WriteMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter"/> class.
+            </summary>
+            <param name="indexName">Name of the index.</param>
+            <param name="languageId">The language id.</param>
+            <param name="path">The path.</param>
+            <param name="writeMode">The write mode.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Add(Litium.Framework.Search.Indexing.IndexDocument)">
+            <summary>
+            Adds the specified index document.
+            </summary>
+            <param name="indexDocument">The index document.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.ExpungeDeletes">
+            <summary>
+            Expunges the deletes.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Remove(System.String)">
+            <summary>
+            Removes the specified id.
+            </summary>
+            <param name="id">The id.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Update(Litium.Framework.Search.Indexing.IndexDocument)">
+            <summary>
+            Updates the specified index document. Removes and re-adds
+            </summary>
+            <param name="indexDocument">The index document.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Optimize">
+            <summary>
+            Optimizes this instance.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Flush">
+            <summary>
+            Flushes this instance.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Close">
+            <summary>
+            Closes this instance.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.CreateDocument(Litium.Framework.Search.Indexing.IndexDocument)">
+            <summary>
+            Creates the document.
+            </summary>
+            <param name="indexDocument">The index document.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.CreateField(System.String,System.String,Lucene.Net.Documents.Field.Store,Lucene.Net.Documents.Field.Index)">
+            <summary>
+            Creates the field.
+            </summary>
+            <param name="fieldName">Name of the field.</param>
+            <param name="fieldValue">The field value.</param>
+            <param name="storing">The storing.</param>
+            <param name="indexing">The indexing.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.CreateField(System.String,System.String,Lucene.Net.Documents.Field.Store,Lucene.Net.Documents.Field.Index,Lucene.Net.Documents.Field.TermVector)">
+            <summary>
+            Creates the field.
+            </summary>
+            <param name="fieldName">Name of the field.</param>
+            <param name="fieldValue">The field value.</param>
+            <param name="storing">The storing.</param>
+            <param name="indexing">The indexing.</param>
+            <param name="termVector">The term vector.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.CreateIndexWriter(System.String,Litium.Framework.Search.Indexing.Lucene.WriteMode)">
+            <summary>
+            Creates the index writer.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="writeMode">The write mode.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Litium.Framework.Search.Indexing.Lucene.IndexFileWriter.HasDeletions">
+            <summary>
+            Gets a value indicating whether this instance has deletions.
+            </summary>
+            <value>
+            	<c>true</c> if this instance has deletions; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Litium.Framework.Search.Indexing.Lucene.LuceneIndexingService">
+            <summary>
+            A Lucene implementation of an indexing service.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Indexing.Lucene.LuceneIndexingService.#ctor(Litium.Framework.Search.Configuration.IConfigurationService)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Indexing.Lucene.LuceneIndexingService"/>.
+            </summary>
+            <param name="configurationService"></param>
+        </member>
+    </members>
+</doc>

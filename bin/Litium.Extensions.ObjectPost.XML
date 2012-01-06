@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Extensions.ObjectPost</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Extensions.ObjectPost.License">
+            <summary>
+            A class used for determing if there is a valid license dll for ObjectPost in the /Bin/ folder
+            </summary>
+        </member>
+        <member name="M:Litium.Extensions.ObjectPost.License.CheckLicense(System.Object)">
+            <summary>
+            Checks if the license for ObjectPost is valid
+            </summary>
+            <param name="license">License information</param>
+            <returns>True if there is a valid license, otherwise false</returns>
+        </member>
+    </members>
+</doc>

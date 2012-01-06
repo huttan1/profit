@@ -1,0 +1,1342 @@
+﻿/*
+
+border color = #cfcdcc
+black text color = #222222
+heading color = #888888
+disabled text color = Gray
+fast search choice module selected color = #0388d1
+grid filter background color = #fbfbfb
+*/
+
+
+A:link, A:active, A:hover, A:visited
+{
+	color: inherit;
+}
+.borderColor
+{
+	border-color: #cfcdcc;
+	border-top-color: #cfcdcc;
+	border-bottom-color: #cfcdcc;
+	border-left-color: #cfcdcc;
+	border-right-color: #cfcdcc;
+}
+
+.filterBackgroundColor 
+{
+	background-color: #fbfbfb;
+}
+a.blueLink:link, a.blueLink:active, a.blueLink:hover, a.blueLink:visited,
+div.RadGrid_Default .rgRow a:link, div.RadGrid_Default .rgRow a:active, div.RadGrid_Default .rgRow a:hover, div.RadGrid_Default .rgRow a:visited,
+div.RadGrid_Default .rgEditRow a:link, div.RadGrid_Default .rgEditRow a:active, div.RadGrid_Default .rgEditRow a:hover, div.RadGrid_Default .rgEditRow a:visited,
+div.RadGrid_Default .rgAltRow a:link, div.RadGrid_Default .rgAltRow a:active, div.RadGrid_Default .rgAltRow a:hover, div.RadGrid_Default .rgAltRow a:visited
+{
+	color: #0388d1;
+	text-decoration: none;
+}
+div.RadGrid_Default .DataCellTextInCoupleLines
+{
+	border-bottom: 1px solid #FFFFFF;
+	padding: 4px;
+	padding-left: 7px;
+	height: auto !important;
+	white-space: normal !important;
+}
+/*-----------------------------*/
+.lsTop
+{
+	background-image: url(Images/TopBackground.png);
+	background-repeat: repeat-x;
+}
+
+.lsTopHeading
+{
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.lsTop .lsTopHeading,
+.lsFastSearchResult .lsFastSearchResultHeader
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: #888888;
+}
+.lsFastSearchResult .lsFastSearchResultFooter a,
+.lsText, .SelectedLeftLinkReport
+{
+	font-family: Arial;
+	font-size: 11px;
+	color: #333333;
+}
+.lsLink:link, .lsLink:active, .lsLink:hover, .lsLink:visited 
+{
+    color: #000099;
+}
+.lsTextBoxInfoFullWidth, .lsTextBoxValueFullWidth
+{
+    width: 100%;
+    font-family: Arial;
+	font-size: 18px;
+	color: #888888;
+	border: solid 1px #888888;
+	padding-left: 10px;
+}
+.lsFastSearchResult .lsFastSearchResultFooter a:hover, a:hover.SelectedLeftLinkReport 
+{
+	color: #0388d1;
+}
+.SelectedLeftLinkReport 
+{
+    text-decoration: none;
+}
+.lsTopMenu
+{
+	background-image: url(Images/MenuBackground.png);
+	background-repeat: repeat-x;
+	font-size: 11px;
+}
+.lsTopMenu A:link, .lsTopMenu A:active, .lsTopMenu A:hover, .lsTopMenu A:visited
+{
+	color: Black;
+}
+
+.lsListHeader
+{
+	background-color: #FBFBFB;
+	font-size: 11px;
+	border-bottom: solid 1px #CFCDCC;
+}
+
+.lsSeparateArea
+{	
+	border: solid 1px #CFCDCC;
+}
+.lsMainSplsterBar
+{
+	background-color: #cfcdcc;
+}
+.lsFastSearch
+{
+	background-image: url(Images/SearchBox.png);
+	background-repeat: no-repeat;
+}
+.lsFastSearchButton
+{
+	background-image: url(Images/SearchButton.png);
+	background-repeat: no-repeat;
+	background-position: 2px 3px;
+}
+.rspResizeBar
+{
+	border-bottom-width: 0px !important;
+	border-right-width: 0px !important;
+}
+.lsStartMenuTable
+{
+	background-image: url(Images/StartMenuMiddleNarrow.png); /*url(Images/StartMenuMiddle.png);*/
+}
+.lsStartMenuMiddle
+{
+	background-image: url(Images/StartMenuMiddleLine.png);
+	background-repeat: repeat-y;
+}
+.lsStartMenuTop
+{
+	background-image: url(Images/StartMenuTopNarrow.png); /*url(Images/StartMenuTop.png);*/
+	background-repeat: no-repeat;
+}
+.lsStartMenuBottom
+{
+	background-image: url(Images/StartMenuBottomNarrow.png); /*url(Images/StartMenuBottom.png);*/
+	background-repeat: no-repeat;
+	background-position: 0px -2px;
+}
+.lsStartMenuItem, .lsStartMenuItemDisabled
+{
+	font-family: Arial;
+	font-size: 11px;
+	vertical-align: middle;
+	text-decoration: none;
+	background-repeat: no-repeat;
+}
+
+.lsStartMenuItem span
+{
+	padding-left: 33px !important;
+}
+
+.lsStartMenuItem
+{
+	cursor: pointer !important;
+	color: #222222;
+}
+
+.lsStartMenuButtonImage
+{
+    background-image: url(Images/StartButton.png);
+    background-repeat: no-repeat;
+	cursor: default !important;
+	color: #222222;
+}
+.lsStartMenuButtonImage:hover
+{
+    background-image: url(Images/StartButtonHover.png);
+}
+.lsStartMenuExpandedButtonImage
+{
+    background-image: url(Images/StartButtonExpanded.png);
+}
+.lsStartMenuExpandedButtonImage:hover
+{
+    background-image: url(Images/StartButtonExpandedHover.png);
+}
+
+.lsStartMenuItem:hover, .lsStartMeuItemSelected
+{
+	color: White;
+	background-image: url(Images/StartMenuFocusedBackground.png);
+}
+.lsStartMenuItemDisabled
+{
+	cursor: default !important;
+	color: Gray;
+}
+.lsStartMenuItemDisabled:hover
+{
+	color: Gray;
+	background-image: none;
+}
+.lsStartMenuLeftButton, .lsStartMenuRightButton, .lsStartMenuHelpButton
+{
+	font-family: Arial;
+	font-size: 11px;
+	font-weight: bold;
+	vertical-align: middle;
+	text-decoration: none;
+	cursor: pointer !important;
+	background-repeat: no-repeat;
+	color: #222222;
+}
+.lsStartMenuLeftButton
+{
+	background-image: url(Images/StartMenuBottomButtonLeftNarrow.png); /*url(Images/StartMenuBottomButtonLeft.png);*/
+}
+.lsStartMenuRightButton
+{
+	background-image: url(Images/StartMenuBottomButtonRight.png);
+}
+.lsStartMenuHelpButton
+{
+background-image: url(Images/StartMenuBottomButtonHelp.png);	
+}
+
+.lsStartMenuLeftButtonDisabled, .lsStartMenuRightButtonDisabled, .lsStartMenuHelpButtonDisabled
+{
+	color: Gray;
+	cursor: default !important;
+}
+.lsStartMenuRightButtonDisabled
+{
+	background-image: url(Images/StartMenuBottomButtonRightDisabled.png);
+}
+.lsFastSearchModuleButton
+{
+	background-image: url(Images/SearchModuleButton.png);
+	background-repeat: no-repeat;
+	background-position: 0px 7px;
+	cursor: pointer !important;
+}
+.lsFastSearchMenuTable .lsFastSearchMenuItem, 
+.lsFastSearchMenuTable .lsFastSearchMenuItemDisabled
+{
+	font-family: Arial;
+	font-size: 11px;
+	vertical-align: middle;
+	text-decoration: none;
+	cursor: pointer !important;
+	background-repeat: no-repeat;
+}
+.lsFastSearchMenuTable .lsFastSearchMenuItem
+{
+	color: #222222;
+	font-weight: bold;
+}
+.lsFastSearchMenuTable .lsFastSearchMenuItemSelected
+{
+	color: #0388d1;
+}
+.lsFastSearchMenuTable .lsFastSearchMenuItemDisabled
+{
+	color: Gray !important;
+	cursor: default !important;
+}
+.lsFastSearchMenuTable
+{
+	background-image: url(Images/FastSearchMenuMiddle.png);
+	background-repeat: repeat-y;
+}
+.lsFastSearchMenuTop
+{
+	background-image: url(Images/FastSearchMenuTop.png);
+	background-repeat: no-repeat;
+	background-position: 2px;
+}
+.lsFastSearchMenuBottom
+{
+	background-image: url(Images/FastSearchMenuBottom.png);
+	background-repeat: no-repeat;
+	background-position: 0px -2px;
+}
+BODY, FORM, DIV, P, TD, TH, textarea
+{
+	font-family: Arial, Verdana, Helvetica, Sans-Serif;
+	font-size: 100%;
+}
+
+
+/**************************/
+.lsFastSearchResult .lsFastSearchResultHeader 
+{
+	border-bottom: solid 1px #cfcdcc;
+	text-transform: uppercase;
+	text-align: center;
+}
+.lsFastSearchResult .lsFastSearchResultFooter
+{
+	border-top: solid 1px #cfcdcc;
+	margin-left: -5px;
+	padding-left: 5px;
+}
+.lsFastSearchResult .lsFastSearchResultMiddle
+{
+	background-image: url(Images/FastSearchMiddle.png);
+	background-repeat: repeat-y;
+	font-family: Arial;
+	font-size: 11px;
+}
+.lsFastSearchResult .lsFastSearchResultTop
+{
+	height: 2px;
+	background-image: url(Images/FastSearchTop.png);
+	background-repeat: no-repeat;
+}
+.lsFastSearchResult .lsFastSearchResultBottom
+{
+	height: 9px;
+	background-image: url(Images/FastSearchBottom.png);
+	background-repeat: no-repeat;
+}
+
+.lsFastSearchResult .lsFastSearchResultMiddle .lsFastSearchResultList table .col3
+{
+	text-align: right;
+	color: #888888;
+}
+
+.lsFastSearchResult .lsFastSearchResultMiddle .lsFastSearchResultList table tr:hover 
+{
+	background-color: #fbfbfb;
+	color: #0388d1;
+	cursor: pointer;
+}
+
+/**************************/
+.lsContent
+{
+	font-size: 13px;
+}
+.lsContent hr
+{
+	border-top-color: #cfcdcc;
+	border-left-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+}
+/**************************/
+.lsContentHeader
+{
+	/*font-weight: bold;*/
+}
+.lsContentHeader, .lsContentHeaderBackground
+{
+	background-color: #fbfbfb;
+	border-bottom-color: #cfcdcc;
+	font-family: Arial;
+	font-size: 12px;
+	color: #333333;
+}
+.lsContentHeader a:link, .lsContentHeader a:active, .lsContentHeader a:hover, .lsContentHeader a:visited, 
+.litProductListDetails a:link, .litProductListDetails a:active, .litProductListDetails a:hover, .litProductListDetails a:visited
+{
+	color: #0388d1;
+	text-decoration: none;
+}
+
+.lsContentHeaderHeading
+{
+    font-weight: bold;
+}
+
+.lsMailLink
+{
+	color: #0388d1 !important;
+	text-decoration: none !important;
+}
+/**************************/
+.lsContentHeader .lsInformation
+{
+	font-size: 13px;
+	background-color: #A2D9EE;
+	background-image: url(Images/InformationPanelBackGround.png);	
+	color: #333333;
+	
+}
+.lsContentHeader .lsInformationHeading
+{
+	font-size: 93%;
+	line-height: 150%;
+	font-weight:normal;
+}
+.lsContentHeader .lsInformationContent
+{
+	font-size: 85%;
+	font-weight:normal;
+}
+.lsContentHeader .lsInformationClose
+{
+	background-image: url(Images/InformationPanelClose.png);
+}
+.lsContentHeader .lsInformationIconOk
+{
+	background-image: url(Images/InformationPanelOK.png);
+}
+.lsContentHeader .lsInformationIconInfo
+{
+	background-image: url(Images/InformationPanelInfo.png);
+}
+.lsContentHeader .lsInformationIconError
+{
+	background-image: url(Images/InformationPanelError.png);
+}
+/**************************/
+
+.lsFilterArea
+{
+    font-size: 95%;   
+}
+
+.lsContentHeader .lsFilterAreaOpen
+{
+	background-image: url(Images/FilterPanelDown.png);
+}
+.lsContentHeader .lsFilterAreaClose
+{
+	background-image: url(Images/FilterPanelUp.png);
+}
+/**************************/
+.litModalPopupBottom
+{
+	background-color: #FAFAFA;
+	font-size: small;
+}
+.litModalPopupContent
+{
+	border-left: 1px solid #C8C2A8;
+	border-right: 1px solid #C8C2A8;
+	text-align: left;
+	background-color: white;
+	font-size: small;
+}
+.litModalPopupFooter
+{
+	background-color: #e2e2dc;
+}
+
+.litModalPopupBody
+{
+	background-color: #ffffff;
+}
+
+
+/***************** INLOGGING ***************************************************/
+
+.litLoginCopyright
+{
+	/*Fдrg fцr copyrighttexten*/
+	color: #FFFFFF;
+}
+.litLoginContact, .litLoginContactLink
+{
+	/*Kontakttexten*/
+	color: #AAAAAA !important;
+}
+
+/***************** INLOGGING ***************************************************/
+.litLoginBg
+{
+	/*Bakgrundsfдrg i den inre ytan*/
+	background-color: #FFFFFF;
+	
+}
+.litLoginBgTop
+{
+	/*Bakgrundsfдrg i den inre ytan lдngs upp*/
+	background-color: #FFFFFF;
+	
+}
+.litLoginBgBottom
+{
+	/*Bakgrundsfдrg i den inre ytan lдngs ner*/
+	background-color: #FFFFFF;
+	
+}
+.litLoginCopyright
+{
+	/*Fдrg fцr copyrighttexten*/
+	color: #FFFFFF;
+}
+.litLoginContact, .litLoginContactLink
+{
+	/*Kontakttexten*/
+	color: #AAAAAA !important;
+}
+
+
+/* LeftSide NavBar Styles */
+.litNavBar
+{
+	padding: 0px 2px 0px 0px;
+	background-color: #EEEBE1;
+	cursor: default;
+	width: 100%;
+}
+
+
+.litNavBarTopItem
+{
+	background: url(Images/litNavBarArea.png);
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+}
+
+.litNavBarTopItemHover
+{
+	background: url(Images/litNavBarAreaOver.png);
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+	cursor: pointer;
+}
+
+.litNavBarTopItemActive
+{
+	background: url(Images/litNavBarAreaOver.png);
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+}
+.litNavBarSelectedItem
+{
+	/*background: url(litNavBarAreaSelected.png);*/
+	background: url(Images/litNavBarAreaOver.png);
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+}
+
+.litEcomLevel2Item
+{
+	background: url(IImages/subarrow.png);
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+}
+
+.litEcomLevel2ItemHover
+{
+	background: url(Images/subarrowOver.png);
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	font-weight: bold;
+	position: relative;
+	cursor: pointer;
+}
+
+.litLeftMenu
+{
+	cursor: default;
+}
+
+.ToolbarItemLeft, .ToolbarItemRight
+{
+    overflow: hidden;
+    width: 3px;
+    vertical-align: middle;
+    height: 20px;
+}
+.ToolbarItemMain
+{
+    vertical-align: middle;
+    height: 20px;
+}
+.litToolbarItemOnMouseOver .ToolbarItemLeft
+{
+    background:transparent url(Images/LeftButtonHovered.png) no-repeat;
+}
+.litToolbarItemOnMouseOver .ToolbarItemRight
+{
+    background:transparent url(Images/RightButtonHovered.png) no-repeat;
+}
+.litToolbarItemOnMouseOver .ToolbarItemMain
+{
+    background:transparent url(Images/ButtonHoveredBackground.png) repeat-x;
+}
+
+.litToolbarItemOnMouseDown .ToolbarItemLeft
+{
+    background:transparent url(Images/LeftButtonPressed.png) no-repeat;
+}
+.litToolbarItemOnMouseDown .ToolbarItemRight
+{
+    background:transparent url(Images/RightButtonPressed.png) no-repeat;
+}
+.litToolbarItemOnMouseDown .ToolbarItemMain
+{
+    background:transparent url(Images/ButtonPressedBackground.png) repeat-x;
+}
+
+.litNavTopGroup
+{
+	cursor: default;
+}
+.litNavMenuGroup
+{
+	background-image: url(Images/litNavMenuGroup.gif);
+	background-color: white;
+	border: solid 1px #A19E98;
+	cursor: default;
+}
+.litNavTopMenuItem
+{
+	border-top: solid 1px #F4F3EF;
+	cursor: default;
+}
+.litNavTopMenuItem td, .litNavTopMenuItemHover td, .litNavTopMenuItemExpanded td, .litNavTopMenuItemActive td
+{
+	color: black;
+	font-family: tahoma,arial,verdana;
+	font-size: 85%;
+}
+.litNavTopMenuItemHover, .litNavTopMenuItemExpanded, .litNavTopMenuItemActive
+{
+	background-color: #E8E5DB;
+	border: solid 1px #A19E98;
+	cursor: default;
+}
+.litNavMenuItem
+{
+	cursor: default;
+}
+.litNavMenuItem td
+{
+	color: black;
+	font-family: tahoma,arial,verdana;
+	font-size: 85%;
+}
+.litNavMenuItemHover
+{
+	background-image: url(Toolbar-button-pressed.png);
+	border: solid 1px #E8E5DB;
+	cursor: pointer;
+}
+.litNavMenuItemHover td
+{
+	color: black;
+	font-family: tahoma,arial,verdana;
+	font-size: 85%;
+}
+.litNavMenuItemActive
+{
+	cursor: default;
+}
+.litNavMenuItemActive td
+{
+	color: black;
+	font-family: tahoma,arial,verdana;
+	font-size: 85%;
+}
+.litNavMenuItemExpanded
+{
+	cursor: default;
+}
+.litNavMenuItemExpanded td
+{
+	color: black;
+	font-family: tahoma,arial,verdana;
+	font-size: 85%;
+}
+.litNavMenuBreak
+{
+	background-image: url(../../../Images/navigation/break_bg.gif);
+}
+
+.litSubMenu
+{
+	background-color: white;
+	border: solid 1px #A19E98;
+	cursor: default;
+	background: url(litNavArea.gif);
+	height: 22px;
+}
+
+/**************************/
+div.RadPicker .RadInput input.riTextBox
+{
+	font-size: 10px;
+	font-family: Arial;
+}
+
+div.RadTreeView
+{
+	font-size: 11px;
+}
+div.RadTreeView .rtLoadingIcon, div.RadTreeView  .rtLoadingBefore
+{
+    overflow: hidden !important;
+    width: 0px !important;
+	
+}
+div.RadTreeView .rtUL .rtUL .rtSelected .rtIn
+{
+	border: solid 1px #cfcdcc;
+	background-image: url(Images/TreeSelectedBackground.png);
+}
+div.RadTreeView .rtPlus, div.RadTreeView .rtMinus
+{
+	background-image: url(Images/TreePlusMinus.png);
+}
+div.RadTreeView .rtSelected
+{
+	/*background-image: url(Images/StartMenuBottomButtonLeft.png);*/
+}
+div.RadTreeView .rtIn
+{
+	border: none;
+}
+div.RadTreeView .rtHover .rtIn
+{
+	border: none;
+}
+
+div.RadTreeView .destination .rtHover .rtIn
+{
+	border-width: 1px !important;
+	border-style: solid !important;
+	border-color: #cfcdcc !important;
+	background-image: url(Images/TreeSelectedBackground.png) !important;
+}
+
+div.RadTreeView .rtSelected .rtIn
+{
+	border: none;
+	
+}
+div.RadTreeView .rtUL .rtUL .rtSelected .rtIn
+{
+	border-width: 1px !important;
+	border-style: solid !important;
+	border-color: #cfcdcc !important;
+	background-image: url(Images/TreeSelectedBackground.png) !important;
+}
+div.RadTreeView .rtUL SPAN
+{
+	cursor: pointer;
+}
+div.RadTreeView .rtUL .rtLI DIV
+{
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #888888;
+}
+
+.RadTreeView .rtUL ul.rtUL
+{
+}
+
+/*First level nodes:*/
+.RadTreeView .rtUL div
+{
+	padding-left: 20px;
+}
+
+/*Second level nodes:*/
+
+.RadTreeView .rtUL .rtUL div
+{
+	padding-left: 30px;
+}
+
+/*Third level nodes:*/
+
+.RadTreeView .rtUL .rtUL .rtUL div
+{
+	padding-left: 40px;
+}
+
+.RadTreeView .rtUL .rtUL .rtUL .rtUL div
+{
+	padding-left: 50px;
+}
+.RadTreeView .rtUL .rtUL .rtUL .rtUL .rtUL div
+{
+	padding-left: 60px;
+}
+
+
+div.RadTreeView .rtUL .rtLI .rtUL .rtLI DIV
+{
+	font-weight: normal;
+	text-transform: none;
+	color: #000000;
+}
+
+.RadMenu_Default .rmText,.RadMenu_Default .rmLink
+{
+    background-image: url("../../../LitiumStudio/Images/contex_menu_background.png") !important;
+}
+/**************************/
+
+
+
+.RadGrid, .RadGrid .rgMasterTable, .RadGrid .rgDetailTable, .RadGrid .rgGroupPanel table, .RadGrid .rgCommandRow table, .RadGrid .rgEditForm table, .GridToolTip
+{
+    font-size: 90% !important;    
+}
+
+
+/* Slider and counter label */
+.RadGrid .rgWrap
+{
+    color: black !important;   
+    font-size: 95% !important; 
+}
+
+/* Slider and pager background */
+.rgPager
+{
+    background-color: #fbfbfb !important;
+}
+
+
+div.RadGrid_Default
+{
+	white-space: nowrap;
+}
+div.RadGrid_Default
+{
+	border-color: #cfcdcc;
+}
+div.RadGrid_Default .rgPager .rgPagerCell
+{
+	border-top-color: #cfcdcc;
+}
+div.RadGrid_Default div
+{
+	border-color: inherit;
+}
+div.RadGrid_Default TH.rgSorted
+{
+	background: url(Images/GridHeaderSelected.png) 0px 0px;
+}
+div.RadGrid_Default .rgHeader
+{
+	padding-top: 2px;
+	padding-bottom: 1px;
+	border-bottom-width: 0px;
+	border-right: solid 1px #cfcdcc;
+}
+div.RadGrid_Default .rgHeaderDiv .rgMasterTable
+{
+	border-bottom: solid 1px #cfcdcc;
+}
+
+
+div.RadGrid_Default .rgAltRow
+{
+	background-color: White;
+	border-bottom: none;
+}
+div.RadGrid_Default .rgAltRow .rgSorted, div.RadGrid_Default .rgRow .rgSorted
+{
+	background-color: Transparent;
+	border-bottom: none;
+}
+div.RadGrid_Default .rgAltRow TD, div.RadGrid_Default .rgRow TD
+{
+	border-bottom: none;
+}
+div.RadGrid_Default .rgSelectedRow
+{
+	background: url(Images/GridRowSelected.png) repeat-x #cfe4fe;
+	color: Black;
+	border-bottom: none;
+}
+.litListRowSelected
+{
+	background: url(Images/GridRowSelected.png) repeat-x #cfe4fe;
+	color: Black;
+	border-bottom: none;
+}
+div.rgHeaderDiv .rgMasterTable, div.rgDataDiv .rgMasterTable
+{
+	width: 100% !important;
+}
+
+.IE7 div.rgHeaderDiv .rgMasterTable, .IE7 div.rgDataDiv .rgMasterTable
+{
+	width: 98% !important;
+}
+.RadGrid_Default .rgSelectedRow a
+{
+    color: black !important;
+}
+.HeadingCellSorted
+{
+	background: url(../../../LitiumStudio/Images/grid/header.gif) repeat-x scroll;
+}
+
+/**************************/
+/* border for area under tabs in eit variants in variant group page  */
+.rspPaneHorizontal
+{
+    border-bottom-color: #cfcdcc !important;
+}
+/**************************/
+
+
+/**************************/
+.lsTabContainer
+{
+	background: url(Images/TabContainerBackground.png);
+	background-repeat: repeat-x;
+}
+
+.GridFooterTab
+{
+	background: #EEEEEE;
+}
+
+.lsTablePartHalf
+{
+	border-right: #b5b2b6 1px solid;
+	border-bottom: #bfbcc0 1px solid;
+}
+
+.litInputLeftArea
+{
+	border-right: 1px solid #CFCDCC;
+}
+
+
+
+
+.PrintHeadShow
+{
+	display: none;
+	background-color: Aqua;
+}
+
+
+/***************** AJAX-GRID (ComponentArt) ********************************/
+.Grid
+{
+	border-color: #CFCDCC !important;
+}
+.Grid P, .Grid TD, .Grid TR, .Grid DIV, .Grid INPUT, .Grid SELECT, .Grid TEXTAREA
+{
+	color: #000000;
+}
+.GridHeader
+{
+	border-width: 0 0 1px;
+}
+.GridHeaderText
+{
+	color: #FFFFFF;
+}
+.GridFooter
+{
+	background: #EEEEEE;
+}
+.GridFooterText
+{
+	color: #000000;
+}
+.HeadingRow
+{
+	border-bottom-color: #828282;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	padding-bottom: 1px;
+	padding-top: 2px;
+	background: url(../../Images/grid/header.gif) repeat-x scroll;
+}
+.HeadingCell
+{
+	border-bottom: 1px solid #CFCDCC;
+	border-top: 1px solid #CFCDCC;
+}
+#c_gridProductCatalogItems_top_head .undefined
+{
+	border-bottom: 1px solid #CFCDCC;
+	border-top: 1px solid #CFCDCC;
+}
+.HeadingCell td
+{
+	border-right: 1px solid #CFCDCC;
+	width: 16px;
+}
+.HeadingCellActive
+{
+}
+.HeadingCellText
+{
+	color: #000000;
+}
+
+/* Rows without Link*/
+.HoverRow td.DataCell
+{
+	background-color: #FFFFFF;
+	background-color: white;
+}
+.HoverRow a
+{
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 11px;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+	cursor: default;
+}
+
+.RowLink a
+{
+	text-decoration: underline;
+	font-weight: bold;
+	color: #000099;
+	cursor: pointer;
+}
+.RowLinkHover a
+{
+	text-decoration: underline;
+	font-weight: bold;
+	color: #000099;
+	cursor: pointer;
+}
+.RowWithoutLinkSelected td.DataCell
+{
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	background-color: white;
+	padding: 4px;
+	padding-left: 7px;
+	height: 10px;
+}
+.DataCell A:link, .DataCell A:active, .DataCell A:hover, .DataCell A:visited
+{
+    color: #0388d1;
+	text-decoration: none;
+}
+.RowWithoutLinkSelected a
+{
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 11px;
+	color: #000000;
+	font-family: Arial, Verdana, Helvetica;
+	cursor: default;
+}
+.RowLinkSelected a
+{
+	text-decoration: underline;
+	font-weight: bold;
+	color: #000099;
+	cursor: pointer;
+}
+
+.Row td.DataCell
+{
+	background-color: #FFFFFF;
+	height: 10px !important;
+}
+.SortedDataCell
+{
+}
+
+.SelectedRow td.DataCell
+{
+	/*background-color: #E0DCCC; */
+}
+
+.GroupHeading
+{
+	background-color: #FFFFFF;
+	border-bottom: 2px solid #A19E98;
+}
+.SliderBottom
+{
+}
+.SliderPopup
+{
+	border: 1px solid #A19E98;
+}
+
+/***************** COMBOBOX (ComponentArt) **************************************/
+.comboBox
+{
+	border: 1px solid #A6A7AA;
+	background-color: white;
+}
+.comboBoxHover
+{
+	border: 1px solid #555555;
+	background-color: white;
+}
+.comboDropDown
+{
+	border: 1px solid #868686;
+	background-color: white;
+	cursor: default;
+}
+.comboTextBox
+{
+	font-size: 85%;
+}
+.comboTextBoxHover
+{
+	background-color: #B2B4BF;
+}
+.comboItem
+{
+	font-size: 85%;
+}
+.comboItemHover
+{
+	background-color: #B2B4BF;
+	background-image: url(../../Images/combobox/comboItemBg.gif);
+	font-size: 85%;
+	border: 1px solid #DBCE99;
+}
+
+.ddn
+{
+	cursor: default;
+	color: #000000;
+	font-family: Tahoma, "Lucida Grande" ,Verdana,Arial,Helvetica,sans-serif;
+	font-size: 80%;
+	border: 1px solid #000;
+}
+.ddn-ftr
+{
+	background: transparent url("../../Images/combobox/static.png") no-repeat 50% -82px;
+	overflow: hidden;
+}
+/* overflow:hidden allows IE6 to render the element's height correctly */
+
+.ddn-con
+{
+	background-color: #ffffff;
+	font-size: 12px;
+}
+.ddn-item
+{
+	font-size: 80%;
+}
+.ddn-item-hover
+{
+	background: transparent url("../../Images/combobox/static.png") no-repeat;
+	color: #000;
+}
+.cmb
+{
+	background-color: #ffffff;
+	border: 1px solid #a5acb2;
+	border-right-color: #a5acb2;
+	border-bottom-color: #a5acb2;
+}
+.cmb-hover
+{
+	background-color: #ffffff;
+}
+.txt
+{
+	background: none;
+	border: none;
+	font-family: Tahoma, "Lucida Grande" ,Verdana,Arial,Helvetica,sans-serif;
+	font-size: 80%;
+	color: #333;
+}
+.cmb-hover .txt
+{
+	color: #000000;
+}
+.style
+{
+	background: #ffffff url("../../Images/combobox/vertical.png") repeat-y;
+}
+.style .ddn-item-hover
+{
+	color: #333333;
+	background: transparent url("../../Images/combobox/static.png") no-repeat 0 -44px;
+}
+.style .brk
+{
+	background: transparent url("../../Images/combobox/static.png") no-repeat 0 -78px;
+}
+
+.font
+{
+	background: #ffffff url("../../Images/combobox/vertical.png") repeat-y;
+}
+.font .ddn-item-hover
+{
+	color: #333333;
+	background: transparent url("../../Images/combobox/static.png") no-repeat 0 -22px;
+}
+
+.cmbNew
+{
+	font-size: 11px;
+	background-color: #ffffff;
+	border: 1px solid #a5acb2;
+	border-right-color: #a5acb2;
+	border-bottom-color: #a5acb2;
+}
+
+/* for Modalpopup overlapping combo boxes in ie6 */
+.ie6Overlap3 iframe
+{
+	background-color: #000000;
+}
+
+
+
+/* </simplistic sub-item styles> */
+
+
+/*************Product catalog****************************/
+.litProductList th
+{
+	border-bottom: 1px solid #CFCDCC;
+	/*background-color: #E0DCCC;*/
+}
+
+.RadSplitter_Default .rspResizeBar
+{
+	border-color: #cfcdcc !important;
+}
+
+/*************AlphabetLinkList****************************/
+.AlphabetLinkList A.selected
+{
+	color: #0388d1;
+}
+
+
+
+.litNavTopGroup{
+  cursor:default; 
+}
+.litNavMenuGroup{
+  background-image:url(images/litNavMenuGroup.gif);
+  background-color:white;
+  border:solid 1px #A19E98; 
+  cursor:default; 
+}
+.litNavTopMenuItem{
+  border-top:solid 1px #F4F3EF;
+  cursor:default; 
+}
+.litNavTopMenuItem td, .litNavTopMenuItemHover td, .litNavTopMenuItemExpanded td, .litNavTopMenuItemActive td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavTopMenuItem nobr{
+  margin-left:1px;
+  margin-right:1px;
+}
+.litNavTopMenuItemHover, .litNavTopMenuItemExpanded, .litNavTopMenuItemActive{
+  background-color:#E8E5DB; 
+  border:solid 1px #A19E98; 
+  cursor:default; 
+}
+.litNavMenuItem{
+  margin:1px; 
+  cursor:default; 
+}
+.litNavMenuItem td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavMenuItemHover {
+  background-image: url(Images/Toolbar-button-hovered.png); 
+  border:solid 1px #E8E5DB; 
+  cursor:pointer;   
+}
+.litNavMenuItemHover td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%;
+}
+.litNavMenuItemActive{
+  margin:1px; 
+  cursor:default; 
+}
+.litNavMenuItemActive td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavMenuItemExpanded{
+  margin:1px; 
+  cursor:default; 
+}
+.litNavMenuItemExpanded td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavMenuBreak{
+  background-image:url(../../../Images/navigation/break_bg.gif);
+  width:100%;
+  height:1px;
+}
+
+.litSubMenu{
+  background-color:white;
+  border:solid 1px #A19E98; 
+  cursor:default; 
+  background: url(images/litNavArea.gif);
+  height:22px;
+}
+
+.SelectedRow
+{
+    background:url("Images/GridRowSelected.png") repeat-x scroll 0 0 #CFE4FE;   
+}

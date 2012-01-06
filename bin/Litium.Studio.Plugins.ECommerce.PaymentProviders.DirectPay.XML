@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayCompletePaymentArgs">
+            <summary>
+            Base class for arguments passed to <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayCompletePaymentResult">
+            <summary>
+            Result of the operation Complete Payment, <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>    
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider">
+            <summary>
+            Facilitate consumer direct payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ChargeCustomerAccount(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge customer account directly.
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ReserveMoneyFromCustomerAccount(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserves money from customer account.
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CompleteTransaction(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes a transaction started by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ReserveMoneyFromCustomerAccount(Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CancelTransaction(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Cancels a transaction started by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ReserveMoneyFromCustomerAccount(Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CancelPayment(Litium.Foundation.Modules.ECommerce.Plugins.CancelPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Cancels a current Payment. This is only possible in certain scenarios.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ReturnPayment(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user.
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ReturnPayment(Litium.Foundation.Modules.ECommerce.Plugins.ReturnPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.GetPaymentMethods">
+            <summary>
+            Gets a list of Payment methods. Dictionary contains the keys to use in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ReserveMoneyFromCustomerAccount(Litium.Foundation.Security.SecurityToken)"/> or in
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ChargeCustomerAccount(Litium.Foundation.Security.SecurityToken)"/> methods.
+            </summary>
+            <returns>Dictionary of key value pairs containing payment method Id, and payment method description.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.GetPaymentMethodsSupported">
+            <summary>
+            Gets a list of Payment methods.
+            </summary>
+            <returns>List of payment method description.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.GetPaymentMethodsSupported(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentMode)">
+            <summary>
+            Gets the list of payment methods supported, for the given execute payment mode.
+            Note that, some payment providers does not support all the payment methods for reserve mode.
+            </summary>
+            <param name="paymentMode">The payment mode.</param>
+            <returns>List of supported payment methods.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Executes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns>Results of executing payment.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.OnProviderCallback(System.Collections.Specialized.NameValueCollection,System.Boolean,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Method to execute when the Payment provider redirects back into Litium studio after a call to it.
+            </summary>
+            <param name="queryString">The query string.</param>
+            <param name="isSuccess">if the Payment provider result redirected to success, this is true, else false.</param>
+            <param name="token">The token.</param>
+            <remarks>
+            After calling any of the methods on the payment providers external API,
+            usually over a web service, over a HTTP post, remote procedure call or a similar method,
+            the payment provider will redirect the execution control back into Litium Studio.
+            <para>The execution control is given back by the provider by redirecting back to a Litium Studio page
+            or a entry port such as a webhandler, in most cases. </para>
+            	<para>Usually, this redirect location is given to the payment provider when calling the <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/> method.</para>
+            	<para>After getting the execution control back, this method should be called, irrespective of the result of the execution.</para>
+            	<para>In the implementation of this method, any post call back scenarios specific to payment provider should be handled.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.SyncPaymentStatusWithProvider(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Syncs the payment status with provider.
+            </summary>
+            <param name="token">The token.</param>
+            <remarks>On occations where communication line failures or other errors occur during communication with
+            payment provider, the payment status in Litium Studio may remain behind the internal status of the transaction
+            in payment provider.
+            <para>
+            For example, suppose a ExecutePayment is called, which will put the payment status to InitiatedDirectPayment,
+            but lets say the control does not return at all. The Payment status may remain at InitiatedDirectPayment
+            when viewed from Litium Studio. But at the payment providers end, this status can be Failed, Reserved, Paid, etc.        ///
+            </para>
+            	<para>This method should try to see whether a transaction exists in the target payment provider system,
+            and if it exists find out its status and adjust the Payment status accordingly.</para>
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CanReserveMoneyFromCustomerAccount">
+            <summary>
+            Can money be reserved from customer account.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CanChargeCustomerAccountDirectly">
+            <summary>
+            Can money be taken from customer account directly.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CanCompleteCurrentTransaction">
+            <summary>
+            Can complete the transaction.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CanReturnPayment">
+            <summary>
+            Can return payment to the customer.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CanEditPayment">
+            <summary>
+            Whether the payment can be edited to change payment provider, etc.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.CanCancelCurrentTransaction">
+            <summary>
+            Can cancel the current transaction.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets the type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayProvider.AdminPanel">
+            <summary>
+            Gets the payment administratoin panels path.
+            </summary>
+            <value>The payment administration panels path.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentArgs">
+            <summary>
+            Arguments for Execute payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentArgs"/> class.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult">
+            <summary>
+            Result of ExecutePayment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult"/> class.
+            </summary>
+            <param name="success">if set to <c>true</c> [success].</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult.op_Implicit(System.Boolean)~Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Boolean"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.DirectPayPaymentResult"/>.
+            </summary>
+            <param name="success">if set to <c>true</c> [success].</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PaymentMethod">
+            <summary>
+            Payment methods.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PaymentMethod.DirectPayment">
+            <summary>
+            Consumer direct payment.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings">
+            <summary>
+            Provides configuration information about the direct payment provider from configuration file
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings.PAYMENT_MODE">
+            <summary>
+            key for the default payment mode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings.PAYMENT_PROVIDER_ARGS_CREATOR_TYPE">
+            <summary>
+            key for the PaymentProviderArgsCreatorType
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings.LoadConfiguration">
+            <summary>
+            Verifies the configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings.DefaultPaymentMode">
+            <summary>
+            Gets the default payment mode.
+            </summary>
+            <value>The default payment mode.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.PluginSettings.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.DirectPay.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Extensions.SearchStatistics</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Extensions.SearchStatistics.License">
+            <summary>
+            A class used for determing if there is a valid license dll for SearchStatistics in the /Bin/ folder
+            </summary>
+        </member>
+        <member name="M:Litium.Extensions.SearchStatistics.License.CheckLicense(System.Object)">
+            <summary>
+            Checks if the license for SearchStatistics is valid
+            </summary>
+            <param name="license">License information</param>
+            <returns>True if there is a valid license, otherwise false</returns>
+        </member>
+    </members>
+</doc>

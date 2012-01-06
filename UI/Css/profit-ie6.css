@@ -1,0 +1,11 @@
+/*-----------------------------------------------------------------------------
+ie6.css
+-----------------------------------------------------------------------------*/
+* html .container { display: inline-block; overflow: visible; height: 1%; }
+.nav a:link, .nav a:visited, .nav a:hover, .nav a:active { text-decoration: none; }
+ul.plain, ul.plain li, ol.plain, ol.plain li { list-style-type: none !important; margin: 0; padding: 0; }
+/* for modal popup overlapping combo boxes */
+.ddn-ftr { overflow: hidden; }
+.ie6Overlap3 iframe { filter: mask(); display: block; z-index: -1; position: absolute; top: 0; left: 0; height: 405px; width: 773px; background-color: #000000; }
+
+/*---------------------------------------------------------------------------*/

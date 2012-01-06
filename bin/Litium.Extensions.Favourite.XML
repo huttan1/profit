@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Extensions.Favourite</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Extensions.Favourite.License">
+            <summary>
+            A class used for determing if there is a valid license dll for Favourite in the /Bin/ folder
+            </summary>
+        </member>
+        <member name="M:Litium.Extensions.Favourite.License.CheckLicense(System.Object)">
+            <summary>
+            Checks if the license for Favourite is valid
+            </summary>
+            <param name="license">License information</param>
+            <returns>True if there is a valid license, otherwise false</returns>
+        </member>
+    </members>
+</doc>

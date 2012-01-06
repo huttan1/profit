@@ -1,0 +1,103 @@
+﻿.litIconCircularSend {
+    height:16px;
+    margin-right:5px;
+    background-image: url(../Images/send_16px.png);
+}
+.litIconCircularCirculars {
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../Images/circulars_16px.png); 
+}
+.litIconCircularSMS {
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../Images/mobilephone_16px.png); 
+}
+.litIconCircularAddressLists {
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../Images/addresslists_16px.png); 
+}
+
+.litImageList{
+	padding:8px;
+	margin-bottom:5px;
+	margin-right:5px;
+	cursor:pointer;
+    background-color:#F6F6F6;
+    border:1px solid #CCCCCC;
+}
+.litImageListOver{
+    border: 1px solid #7F9DB9;
+    background-image: url(../../Editor/editor/skins/litiumstudio/images/toolbar.imagelistover.gif);
+    background-position: center center;
+}
+.litImageListSelected{
+    border: 1px solid #7F9DB9;
+    background-image: url(../../Editor/editor/skins/litiumstudio/images/toolbar.imageliston.gif);
+    background-position: center center;
+}
+.TreeView{ 
+  padding-top: 10px;
+  padding-left: 5px;
+  bottom:0px;
+  top:0px;
+  left:0px;
+  right:0px;
+  position:absolute;
+  overflow:auto;
+  overflow:-moz-scrollbars-vertical;
+} 
+.TreeNode{ 
+  font-family: arial,verdana; 
+  font-size: 85%; 
+  padding: 1px;
+  padding-left: 3px; 
+  padding-right: 3px; 
+  cursor: pointer;
+  cursor: hand;
+  margin-left: 2px;
+  width:auto!important;
+} 
+.SelectedTreeNode{ 
+  font-family: arial,verdana; 
+  font-size: 85%; 
+  padding: 1px; 
+  padding-left: 3px; 
+  padding-right: 3px; 
+  margin-left:1px;
+  background-color:white; 
+  border: 1px solid gray;
+  cursor: default; 
+  width:auto!important;
+} 
+.HoverTreeNode{
+  font-family: arial,verdana; 
+  font-size: 85%; 
+  padding: 1px; 
+  padding-left: 3px; 
+  padding-right: 3px;
+  margin-left:1px;
+  background-color:#cccccc; 
+  border: 1px solid gray;
+  cursor: pointer;
+  cursor: hand;
+  width:auto!important;
+}
+.TreeNodeEditor{ 
+  font-size: 100%; 
+} 
+.SelectedTreeNodeEditor{ 
+  font-size: 100%; 
+} 
+.HoverTreeNodeEditor{
+  font-size: 100%; 
+}
+.TreeViewPopup{
+  padding-top: 0px;
+  padding-left: 0px;
+  position:relative;
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Newsletter.SMS.EmailMockup</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender">
+            <summary>
+            Sends an email to the senderName (valid email), with the info.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender.SMSPlugin">
+            <summary>
+            SMSplugin for newletter. Sends a circular in a email.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender.SMSPlugin.SendTest(System.String,System.String,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Send a test message.
+            </summary>
+            <param name="senderName">Sender Email address.</param>
+            <param name="receiver">Subject.</param>
+            <param name="message">Message.</param>
+            <param name="token">Security token.</param>
+            <returns>Current time in ticks [DateTime.Now.Ticks.ToString()]if successful, else null.</returns>
+        </member>
+        <member name="M:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender.SMSPlugin.Send(System.String,System.String,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Send single sms method.
+            </summary>
+            <param name="senderName">Name of sender</param>
+            <param name="receiver">Phonenumber of user to recieve test message.</param>
+            <param name="message">The message.</param>
+            <param name="token">Token of user.</param>
+            <returns>returns id of sending.</returns>
+        </member>
+        <member name="M:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender.SMSPlugin.Send(Litium.Foundation.Modules.Newsletter.Circulars.SMSCircular,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Send the circular in a email.
+            </summary>
+            <param name="circular">Circular to send.</param>
+            <param name="token">Security token.</param>
+            <returns>Current time in ticks [DateTime.Now.Ticks.ToString()]if successful, else null.</returns>
+        </member>
+        <member name="M:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender.SMSPlugin.UpdateStatistics(Litium.Foundation.Modules.Newsletter.Circulars.SMSCircular,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Update the <I>ReadDateTime</I> to DateTime.Now for each receiver in <paramref name="circular"/>.
+            </summary>
+            <param name="circular">Circular which contain the Receivers collection.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender.SMSPlugin.IsValidSenderName(System.String)">
+            <summary>
+            Determines whether sender name is valid.
+            </summary>
+            <param name="senderName">Name of the sender.</param>
+            <returns>
+            	<c>true</c> if sms service provider accepts sender name, otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Newsletter.SMS.EmailMockup.EmailSender.SMSPlugin.SendEmail(System.String,System.String,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Sends a email to the provided address.
+            </summary>
+            <param name="toAddress">Recipient address.</param>
+            <param name="subject">Subject.</param>
+            <param name="message">Message.</param>
+            <param name="token">Security Token.</param>
+            <returns>Current time in ticks [DateTime.Now.Ticks.ToString()]if successful, else null.</returns>
+            <remarks>If the return value is null the message sending has failed either due to failier of mail server or invalid email address.</remarks>
+        </member>
+    </members>
+</doc>

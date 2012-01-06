@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Styles>
+  <Style name="Important" element="span">
+    <Attribute name="class" value="ImportantEditor"/>
+  </Style>
+
+  <!-- Syntax example of HTML tags
+  <Style name="Akronym" element="acronym"/>
+  <Style name="Citat" element="cite"/>
+  <Style name="Datorkod" element="code"/>
+  <Style name="Förkortning" element="abbr"/>
+  <Style name="Infogad text" element="ins"/>
+  <Style name="Inlinecitat" element="q"/>
+  <Style name="Raderad text" element="del"/>
+  -->
+
+  <!-- Syntax example of CSS classes
+  <Style name="My Main Header" element="span">
+		<Attribute name="class" value="mymainheader"/>
+	</Style>
+  -->
+</Styles>

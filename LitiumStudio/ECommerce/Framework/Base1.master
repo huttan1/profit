@@ -1,0 +1,152 @@
+﻿<%@ Import Namespace="Telerik.Web.UI" %>
+<%@ Import Namespace="Litium.Foundation.Modules.ECommerce" %>
+
+<%@ master language="C#" autoeventwireup="true" masterpagefile="~/LitiumStudio/Framework/LitiumStudio.master" inherits="LitiumStudio_ECommerce_Base1, Litum.Studio.Web" %>
+
+<%@ MasterType VirtualPath="~/LitiumStudio/Framework/LitiumStudio.master" %>
+<%@ Register TagPrefix="ToolBar" TagName="ToolBarCommon" Src="~/LitiumStudio/WebUserControls/ToolBarCommonButtons.ascx" %>
+<%@ Register TagPrefix="lf" TagName="LeftFilter" Src="~/LitiumStudio/ECommerce/WebUserControls/LeftFilter.ascx" %>
+<%@ Register TagPrefix="rf" TagName="ReportFilter" Src="~/LitiumStudio/ECommerce/WebUserControls/ReportFilter.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="Server">
+	<Telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
+		<asp:ContentPlaceHolder ID="Scripts" runat="Server" />
+		<link href="<%=Page.ResolveUrl("~/LitiumStudio/ECommerce/Styles/ECommerce.css")%>"
+			type="text/css" rel="stylesheet" />
+		<script type="text/javascript">
+			function setECommerceCommonToolbarButtonEnabled(id, enabled) {
+				c_toolbarEcCommon.get_items().getItemById(id).set_enabled(enabled);
+			}
+		</script>
+	</Telerik:RadCodeBlock>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="LitiumStudioTopMenu" runat="Server">
+	<ToolBar:ToolBarCommon ID="c_commonToolBar" runat="server" />
+	<ComponentArt:Menu runat="server" ID="c_menuAdd" DefaultDisabledItemLookId="DisabledItemLook"
+		DefaultSelectedItemLookId="SeledItemLook" OnItemSelected="AddMenu_OnItemSelected"
+		ImagesBaseUrl="~/LitiumStudio/Images/" CssClass="litNavMenuGroup" DefaultItemLookId="DefaultItemLook"
+		DefaultGroupItemSpacing="1" DefaultItemTextAlign="Left" DefaultItemTextWrap="false"
+		DefaultGroupExpandOffsetX="0" DefaultGroupExpandOffsetY="0" DefaultGroupExpandDirection="Auto"
+		TopGroupExpandDirection="BelowLeft" TopGroupExpandOffsetY="0" CollapseDuration="100"
+		CollapseSlide="ExponentialDecelerate" ExpandDuration="100" ExpandSlide="ExponentialDecelerate"
+		ExpandDelay="0" ExpandOnClick="false" CascadeCollapse="true" CollapseDelay="10000"
+		HideSelectElements="false" HighlightExpandedPath="true" KeyboardEnabled="true"
+		OverlayWindowedElements="true" ShadowColor="Gray" ShadowEnabled="true" ShadowOffset="2"
+		Orientation="Vertical" ContextMenu="Custom" ScrollingEnabled="true" ScrollDownLookId="ScrollDownItemLook"
+		ScrollUpLookId="ScrollUpItemLook">
+		<ItemLooks>
+			<ComponentArt:ItemLook LookId="DefaultItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded" ActiveCssClass="litNavMenuItemActive"
+				HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="DisabledItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem litDisabled" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="ExpandableItemLook" RightIconUrl="menu/arrow.gif"
+				RightIconWidth="20" RightIconHeight="15" CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded"
+				ActiveCssClass="litNavMenuItemActive" HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4"
+				LabelPaddingLeft="10" LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="ScrollUpItemLook" ImageUrl="menu/scroll_up.gif" ImageWidth="15"
+				ImageHeight="13" CssClass="litNavMenuItem" HoverCssClass="litNavMenuItemHover"
+				ActiveCssClass="litNavMenuItemActive" />
+			<ComponentArt:ItemLook LookId="ScrollDownItemLook" ImageUrl="menu/scroll_down.gif"
+				ImageWidth="15" ImageHeight="13" CssClass="litNavMenuItem" HoverCssClass="litNavMenuItemHover"
+				ActiveCssClass="litNavMenuItemActive" />
+		</ItemLooks>
+		<Items>
+			<ComponentArt:MenuItem Look-LeftIconUrl="icons_standard/mail2.png" ID="m_AddCircularItem"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem Look-LeftIconUrl="icons_standard/message.png" ID="m_AddSMSItem"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem LookId="BreakItem" />
+			<ComponentArt:MenuItem Look-LeftIconUrl="icons_standard/address_book.png" ID="m_AddAddressListItem"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem Look-LeftIconUrl="icons_standard/address_book.png" ID="m_AddPhoneListItem"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem LookId="BreakItem" />
+			<ComponentArt:MenuItem ID="m_AddRecipientItem" Look-LeftIconUrl="icons_standard/add.png"
+				AutoPostBackOnSelect="true" />
+		</Items>
+	</ComponentArt:Menu>
+	<ComponentArt:ToolBar ID="c_toolbarEcCommon" OnItemCommand="c_toolbarEcCommon_ItemCommand"
+		runat="server" CssClass="litToolbar" DefaultItemCssClass="litToolbarItemNew"
+		DefaultItemHoverCssClass="litToolbarItemOnMouseOver" DefaultItemActiveCssClass="litToolbarItemOnMouseDown"
+		DefaultItemDisabledCssClass="litToolbarItemDisabled" ImagesBaseUrl="~/LitiumStudio/Images/"
+		DefaultItemExpandedCssClass="litToolbarItemOnMouseDown" ItemSpacing="0" UseFadeEffect="false"
+		Orientation="Horizontal" DefaultItemImageWidth="16" DefaultItemImageHeight="16">
+		<Items runat="server">
+			<ComponentArt:ToolBarItem runat="server" ID="c_toolbarItemCopy" ImageUrl="icons_standard/copy.png"
+				CausesValidation="False" AutoPostBackOnSelect="true" ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate" />
+			<ComponentArt:ToolBarItem ID="ToolBarItem1" runat="server" ItemType="Separator" CssClass=""
+				ImageUrl="toolbar/break.gif" ImageHeight="16" ImageWidth="2" />
+		</Items>
+		<ClientTemplates>
+			<ComponentArt:ClientTemplate ID="c_toolbarLeftTreeItemButtonTemplate">
+				<table cellspacing="0" cellpadding="0" border="0" style="margin: 0px; margin-right: auto;">
+					<tbody>
+						<tr>
+							<td class="ToolbarItemLeft">
+								&nbsp;
+							</td>
+							<td class="ca_tb_img ToolbarItemMain">
+								<img height="16" width="16" border="0" src="../Images/## DataItem.get_imageUrl() ##"
+									alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+							</td>
+							<td class="ca_tb_txt ToolbarItemMain">
+								<nobr>## DataItem.get_text() ##</nobr>
+							</td>
+							<td class="ToolbarItemRight">
+								&nbsp;
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</ComponentArt:ClientTemplate>
+			<ComponentArt:ClientTemplate ID="c_toolbarLeftTreeItemButtonDropDownTemplate">
+				<table cellspacing="0" cellpadding="0" border="0" style="margin: 0px; margin-right: auto;">
+					<tbody>
+						<tr>
+							<td class="ToolbarItemLeft">
+								&nbsp;
+							</td>
+							<td class="ca_tb_img ToolbarItemMain">
+								<img height="16" width="16" border="0" src="../Images/## DataItem.get_imageUrl() ##"
+									alt="" style="display: block;" title="## DataItem.get_toolTip() ##" title="## DataItem.get_toolTip() ##" />
+							</td>
+							<td class="ca_tb_txt ToolbarItemMain">
+								<nobr>## DataItem.get_text() ##</nobr>
+							</td>
+							<td rowspan="1" class="ca_tb_ddn ToolbarItemMain">
+								<img height="16" width="16" border="0" src="../Images/## DataItem.get_dropDownImageUrl() ##"
+									alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+							</td>
+							<td class="ToolbarItemRight">
+								&nbsp;
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</ComponentArt:ClientTemplate>
+		</ClientTemplates>
+	</ComponentArt:ToolBar>
+	<asp:ContentPlaceHolder ID="ToolbarRight" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="LitiumStudioMenu" runat="Server">
+	<asp:HiddenField ID="c_hiddenFieldSelectedNavBarItem" runat="server" EnableViewState="true" />
+	<asp:HiddenField ID="c_hiddenFieldStatus" runat="server" Value="-1" />
+	<asp:HiddenField ID="c_hiddenFieldFromDate" runat="server" Value="" />
+	<asp:HiddenField ID="c_hiddenFieldToDate" runat="server" Value="" />
+	<asp:HiddenField ID="c_hiddenFieldOrderIDs" runat="server" Value="" />
+	<asp:HiddenField ID="c_hiddenFieldIsActive" runat="server" Value="0" />
+	<asp:HiddenField ID="c_hiddenFieldClearSelectedOrders" runat="server" Value="1" />
+	<LS:TreeHelper ID="m_treeHelper" runat="server" AssociatedControlID="LeftTree" />
+	<Telerik:RadTreeView ID="LeftTree" runat="server" OnNodeClick="LeftTree_NodeClick" />
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="LitiumStudioContentHeading" runat="Server">
+	<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="Server" />
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="LitiumStudioFilterArea" ID="LitiumStudioFilterArea">
+	<asp:ContentPlaceHolder ID="LitiumStudioFilterArea" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="LitiumStudioContent" runat="Server">
+	<asp:ContentPlaceHolder ID="ContentRight" runat="Server" />
+</asp:Content>

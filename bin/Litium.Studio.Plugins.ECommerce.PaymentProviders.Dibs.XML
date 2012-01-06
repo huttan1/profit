@@ -1,0 +1,1685 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsCompletePaymentArgs">
+            <summary>
+            Base class for arguments passed to <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsCompletePaymentResult">
+            <summary>
+            Result of the operation Complete Payment, <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>    
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI">
+            <summary>
+            Dibs API and support methods.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.GetFormElements(System.Collections.Generic.Dictionary{System.String,System.String},Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams,System.String,System.String,System.String)">
+            <summary>
+            Gets the form elements.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="orderParams">The order params.</param>
+            <param name="responseUrl">The response URL.</param>
+            <param name="cancelUrl">The cancel URL.</param>
+            <param name="personNumber">The person number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.AddHiddenField(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+            <summary>
+            syntax for a hidden field.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="name">name of field</param>
+            <param name="value">value of field.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.GetHash(System.String)">
+            <summary>
+            Compute the MD5 or SHA-1 hash of the message.
+            </summary>
+            <remarks>Whether to use MD5 or SHA-1 is selected by reading
+            'hashAlgorithm' key from web.config file. </remarks>
+            <param name="message">Message to encode</param>
+            <returns>Encoded message.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.MakeHTMLForm(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Makes the HTML form.
+            </summary>
+            <param name="formName">Name of the form.</param>
+            <param name="formElements">The form elements.</param>
+            <param name="formUrl">The form URL.</param>
+            <returns>HTML form</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.VerifyHash(Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response)">
+            <summary>
+            Verifies the hash. Check whether message when hashed matches the <paramref name="response"/> parameter.
+            </summary>
+            <param name="response">Response returned by Dibs</param>
+            <exception cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.SecurityException">Hash code was invalid. 
+            The code sent by Dibs does not match the hash.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.Capture(System.Int64,System.String,System.Int64)">
+            <summary>
+            Captures the specified amount.
+            </summary>
+            <param name="amount">The amount.</param>
+            <param name="externalOrderId">The external order id.</param>
+            <param name="transactionReference">The transaction reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.Refund(System.Int64,System.String,System.Int64)">
+            <summary>
+            Refunds the specified amount.
+            </summary>
+            <param name="amount">The amount.</param>
+            <param name="externalOrderId">The external order id.</param>
+            <param name="transactionReference">The transaction reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.CancelPayment(System.Int64,System.String,System.Int64)">
+            <summary>
+            Cancels the payment.
+            </summary>
+            <param name="amount">The amount.</param>
+            <param name="externalOrderId">The external order id.</param>
+            <param name="transactionReference">The transaction reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsAPI.GetPaymentMethod(Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod)">
+            <summary>
+            Gives a string representation of payment method to be used in communication with Dibs.
+            </summary>
+            <param name="paymentMethod">Payment method.</param>
+            <returns>string representation of payment method.</returns>
+            <remarks> When sending information to Dibs, the payment method enumeration cannot be directly sent.
+            Instead should be converted to the accesptable form. for eg. <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_BABS"/> should be <I>cc.babs</I>
+            </remarks>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs">
+            <summary>
+            Arguments for Execute payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs"/> class.
+            </summary>
+            <param name="personNumber">The person number.</param>
+            <param name="responseUrl">The response URL.</param>
+            <param name="cancelUrl">The cancel URL.</param>
+            <param name="clientLanguage">The client language.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.ExecuteScript">
+            <summary>
+            Gets or sets the execute script that execute the payment provider script that post information to provider site.
+            </summary>
+            <value>The execute script.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.PersonNumber">
+            <summary>
+            Gets or sets the person number.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.ResponseUrl">
+            <summary>
+            Gets or sets the response URL.
+            </summary>
+            <value>The response URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.CancelUrl">
+            <summary>
+            Gets or sets the cancel URL.
+            </summary>
+            <value>The cancel URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.ClientLanguage">
+            <summary>
+            Gets or sets the client language.
+            </summary>
+            <value>The client language.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentArgs.ExecuteScriptHandler">
+            <summary>
+            delegate to execute the payment provider script that post information to provider site, or redirect to provider site.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentResult">
+            <summary>
+            Result of ExecutePayment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsPaymentResult"/> class.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider">
+            <summary>
+            Facilitates payments through DIBS.
+            </summary>
+            <remarks>
+            <list type="number">
+            <listheader>How to configure LitiumStudio for Dibs</listheader>
+            
+            <item><term>Config settings:</term>
+            <description>Makesure the configuration settings in web.config and Litium.Studio.Plugins.config are correct,
+            and the Dibs .dll file is in the bin folder.
+            </description>
+            </item>
+            <item> <term>PageSets:</term>
+            <description>
+            "Page sets" are the set of pages in the check-out flow for a transaction to complete.
+            Login to Dibs admin site at https://secure.incab.se/manager and configure the page sets.
+            You need to set the page sets in service by going to admin site, <i> ../Hosted Pages/Set in Service </i>.
+            </description>
+            </item>
+            
+            <item> <term>Decide PageSet to use for payment method:</term>
+            <description>
+            Modify the PageSet property in the web.config file to specify the PageSet to use for each payment method.
+            </description>
+            </item>
+            
+            <item>
+            <term>Edit PageSet in Dibs Manager:</term>
+            <description>Edit the PageSet in Dibs manager to suite implementation requirements. 
+            <para>Remember to set, <i>"responseUrlOk"</i> in Authorization Ok page, </para> and
+            <para> set, <i>"responseUrlCancel"</i> in Authorization declined page.</para></description>
+            <example> You have to set the additional parameters as well: a complete examples is as follows:
+            <para>
+            <![CDATA[ 
+            [ver location="[ver valueof="responseUrlOk"]&ref=[ver id no]&reply=[ver reply]&sum=[ver sum]&referenceData=[ver valueof="referenceNo"]&currency=[ver valueof="currency"]"]
+            /// ]]>
+            </para>
+            <para> For Authorization declined page:</para>
+            <para>
+            <![CDATA[
+            [ver location="[ver valueof="responseUrlCancel"]&ref=[ver id no]&reply=[ver reply]&sum=[ver sum]&referenceData=[ver valueof="referenceNo"]&currency=[ver valueof="currency"]&replyText=[ver reply text]"]
+            ]]>
+            </para>
+            </example>
+            </item>
+            
+            <item>
+            <term>Dibs API implementation: </term>
+            <description> Change the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams"/> class to include your own parameters passed to Dibs.
+            Also pay attention to implementation of OrderParams.AddOrderData method. This method
+            passes the order data into Dibs, where the information passed will be used to calculate the final total. 
+            If you have changed the Pricing rules plugin, you should change the implementation here accordingly.</description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge money from customer account.
+            </summary>
+            <param name="personNumber">Personal identification number</param>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="clientLanguage">Client language code</param>
+            <param name="formTargetUrl">The form target URL.</param>
+            <param name="formElements">The form elements.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve money from customer account.
+            </summary>
+            <param name="personNumber">Personal identification number</param>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="clientLanguage">Client language code</param>
+            <param name="formTargetUrl">The form target URL.</param>
+            <param name="formElements">The form elements.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CompleteTransaction(System.Collections.Specialized.NameValueCollection,System.String@,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the transaction which started from reserve money.
+            </summary>
+            <param name="queryString">The query string.</param>
+            <param name="formTag">form tag that need to be attached to the page.</param>
+            <param name="js">Java script to do the submit.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ProviderRedirectedToUrlSuccess(System.Collections.Specialized.NameValueCollection,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            The payment provider redirected to the urlSuccess specified in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,Litium.Foundation.Security.SecurityToken)"/> 
+            </summary>
+            <param name="queryString">Query string collection from httpRequest.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ProviderRedirectedToUrlCancel(System.Collections.Specialized.NameValueCollection,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            The payment provider redirected to the urlCancel specified in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,Litium.Foundation.Security.SecurityToken)"/> 
+            </summary>
+            <param name="queryString">Query string collection from httpRequest.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.Litium#Foundation#Modules#ECommerce#Plugins#Interfaces#IPaymentProviderDibs#ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge money from customer account.
+            </summary>
+            <param name="personNumber">Personal identification number</param>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="clientLanguage">Client language code</param>
+            <param name="formTag">form tag that need to be attached to the page.</param>
+            <param name="js">Java script to do the submit.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.Litium#Foundation#Modules#ECommerce#Plugins#Interfaces#IPaymentProviderDibs#ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve money from customer account.
+            </summary>
+            <param name="personNumber">Personal identification number</param>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="clientLanguage">Client language code</param>
+            <param name="formTag">form tag that need to be attached to the page.</param>
+            <param name="js">Java script to do the submit.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CancelPayment(Litium.Foundation.Modules.ECommerce.Plugins.CancelPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Cancels a current Payment. This is only possible in certain scenarios.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ReturnPayment(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user. 
+            For Dibs, return payment is not implemented in default implementation.
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ReturnPayment(Litium.Foundation.Modules.ECommerce.Plugins.ReturnPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.GetPaymentMethods">
+            <summary>
+            Returns the list of payment methods.
+            </summary>
+            <returns>A dictionary containing integer id for each payment method and a payment method name.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.GetPaymentMethodsSupported">
+            <summary>
+            Gets a list of Payment methods.
+            </summary>
+            <returns>List of payment method description.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.GetPaymentMethodsSupported(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentMode)">
+            <summary>
+            Gets the list of payment methods supported, for the given execute payment mode.
+            Note that, some payment providers does not support all the payment methods for reserve mode.
+            </summary>
+            <param name="paymentMode">The payment mode.</param>
+            <returns>List of supported payment methods.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Executes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns>Results of executing payment.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.OnProviderCallback(System.Collections.Specialized.NameValueCollection,System.Boolean,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Method to execute when the Payment provider redirects back into Litium studio after a call to it.
+            </summary>
+            <param name="queryString">The query string.</param>
+            <param name="isSuccess">if the Payment provider result redirected to success, this is true, else false.</param>
+            <param name="token">The token.</param>
+            <remarks>
+            After calling any of the methods on the payment providers external API,
+            usually over a web service, over a HTTP post, remote procedure call or a similar method,
+            the payment provider will redirect the execution control back into Litium Studio.
+            <para>The execution control is given back by the provider by redirecting back to a Litium Studio page
+            or a entry port such as a webhandler, in most cases. </para>
+            	<para>Usually, this redirect location is given to the payment provider when calling the <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/> method.</para>
+            	<para>After getting the execution control back, this method should be called, irrespective of the result of the execution.</para>
+            	<para>In the implementation of this method, any post call back scenarios specific to payment provider should be handled.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.SyncPaymentStatusWithProvider(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Syncs the payment status with provider.
+            </summary>
+            <param name="token">The token.</param>
+            <remarks>On occations where communication line failures or other errors occur during communication with
+            payment provider, the payment status in Litium Studio may remain behind the internal status of the transaction
+            in payment provider.
+            <para>
+            For example, suppose a ExecutePayment is called, which will put the payment status to InitiatedDirectPayment,
+            but lets say the control does not return at all. The Payment status may remain at InitiatedDirectPayment
+            when viewed from Litium Studio. But at the payment providers end, this status can be Failed, Reserved, Paid, etc.        ///
+            </para>
+            	<para>This method should try to see whether a transaction exists in the target payment provider system,
+            and if it exists find out its status and adjust the Payment status accordingly.</para>
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CanReserveMoneyFromCustomerAccount">
+            <summary>
+            Whether money can be reserved from customer account.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CanChargeCustomerAccountDirectly">
+            <summary>
+            Whether customer account can be charged directly.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CanCompleteCurrentTransaction">
+            <summary>
+            Whether current transaction can be completed or not.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CanCancelCurrentTransaction">
+            <summary>
+            Whether current transaction can be cancelled or not.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CanReturnPayment">
+            <summary>
+            Whether payment can be returned via administration.
+            For Dibs this will always return false in default implementation.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.CanEditPayment">
+            <summary>
+            Whether payment can be edited via administration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets the type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider.AdminPanel">
+            <summary>
+            Gets the payment administratoin panels path.
+            </summary>
+            <value>The payment administration panels path.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams">
+            <summary>
+            Memento for order parameters that should be passed to Dibs provider.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.#ctor(Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams"/> class.
+            </summary>
+            <param name="paymentInfo">Payment info.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.AddOrderData(Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Adds the order data.
+            </summary>
+            <param name="paymentInfo">The payment info.</param>
+            <remarks>Order data added should sum upto the order grand total (except delivery cost), and therefore depends on your calculation in the order total calculator plugin.
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.AddOrderData(Litium.Foundation.Modules.ECommerce.Orders.Order,Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Adds the order data.
+            </summary>
+            <param name="order">The order.</param>
+            <param name="paymentInfo">The payment info.</param>
+            <remarks>Order data added should sum upto the order grand total (except delivery cost), and therefore depends on your calculation in the order total calculator plugin.
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.AppendDataParam(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Append the data param.
+            </summary>
+            <param name="itemNumber">The item number.</param>
+            <param name="itemName">Name of the item.</param>
+            <param name="quantity">The quantity.</param>
+            <param name="unitPrice">The unit price.</param>
+            <remarks>Data items are formatted according to dibs string structure as follows:
+            <para>"Stock_item_number:Stock_item_name:Number_of_items:Unit_price_per_item:"</para></remarks>
+            <exception cref="T:System.ArgumentException">A parameter contains the seperator charactor or string.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.AppendVatParam(System.Int32)">
+            <summary>
+            Appends vat amounts.
+            </summary>
+            <remarks>Appended string looks as follows for vat amounts 40,30,180.
+            <para> 40:30:180:</para>
+            </remarks>
+            <param name="vat">vat amount in lowest monetary unit, eg. Pence</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.ValidateForSeperator(System.String,System.String,System.String)">
+            <summary>
+            Validate input parameters by checking whether <see cref="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Separator"/> is included in them.
+            </summary>
+            <param name="itemNumber">The item number.</param>
+            <param name="itemName">Name of the item.</param>
+            <param name="quantity">The quantity.</param>
+            <exception cref="T:System.ArgumentException">A parameter contains the seperator charactor or string.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.EncodeISO_8859_1(System.String)">
+            <summary>
+            Encodes the argument passed into UTF8.
+            </summary>
+            <param name="arg">The arg.</param>
+            <returns>UTF8 encoded string.</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.PageSet">
+            <summary>
+            Gets or sets the page set.
+            </summary>
+            <value>The page set.</value>
+            <remarks>It is possible to set up pages in different languages or for different services that are paid for using
+            DIBS. Each group of pages and reports are called a ”page set”. These are called by entering the name
+            of the page set in the pageSet parameter. Refer to section 5 in Dibs web mannual for more information.
+            <para> On how to configure LitiumStudio, please see remarks on <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider"/></para>
+            </remarks>
+            <seealso cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.DibsProvider"/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.PaymentMethod">
+             <summary>
+             Gets or sets the method of payment.
+             </summary>
+             <remarks>DIBS supports several different payment methods. The parameter method is used to define the
+             payment method to be selected for the current order. If method is not entered or is left empty, the
+             assumption is made that it is an American Express purchase (same as cc.nw).
+            </remarks>
+             <value>The method of payment.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Test">
+            <summary>
+            Gets or sets a value indicating whether this is test mode.
+            </summary>
+            <value><c>true</c> if test; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <remarks>All information applying to the consumer’s order is included in the data parameter. The data
+            parameter is composed of four different items which each terminate with the separator “:” (colon).
+            <para> <b>Note:</b> Data included cannot contain the colon ':' charactor. 
+            Please refer dibs documentation on using <see cref="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Separator"/> if colon need to be in data.</para>
+            </remarks>
+            <value>The data.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <remarks>The value of the currency must be in what is known as the ISO-4217 ISO/SWIFT currency format (e.g.
+            SEK, GBP, USD, NOK, DKK, FIM), and in uppercase letters</remarks>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.ReferenceNo">
+            <summary>
+            Gets or sets the reference no.
+            </summary>
+            <remarks>A merchant reference number on an order in DIBS system which allows 
+            it to be searchable via DIBS Manager</remarks>
+            <value>The reference no.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.OrderNo">
+            <summary>
+            Gets or sets the order no.
+            </summary>
+            <remarks>A order number on an order in DIBS system which allows 
+            it to be searchable via DIBS Manager</remarks>
+            <value>The order no.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.InvoiceNo">
+            <summary>
+            Gets or sets the invoice no.
+            </summary>
+            <remarks>A Invoice number on an order in DIBS system which allows 
+            it to be searchable via DIBS Manager</remarks>
+            <value>The invoice no.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.CustomerNo">
+            <summary>
+            Gets or sets the customer no.
+            </summary>
+            <remarks>A customer reference number on an order in DIBS system which allows 
+            it to be searchable via DIBS Manager</remarks>
+            <value>The customer no.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.ShipmentFee">
+            <summary>
+            Gets or sets the shipment fee. Should be in pense or lowest moneytary unit.
+            </summary>
+            <value>The shipment fee.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Separator">
+            <summary>
+            Gets or sets the separator. Used if order data contains semi colons.
+            Should be a character or a string that is not found in order <see cref="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Data"/>.
+            </summary>
+            <value>The separator.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.BillingFirstName">
+            <summary>
+            Gets or sets the first name of the billing.
+            </summary>
+            <value>The first name of the billing.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.BillingLastName">
+            <summary>
+            Gets or sets the last name of the billing.
+            </summary>
+            <value>The last name of the billing.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.BillingCompany">
+            <summary>
+            Gets or sets the billing company.
+            </summary>
+            <value>The billing company.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.BillingAddress">
+            <summary>
+            Gets or sets the billing address.
+            </summary>
+            <value>The billing address.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.BillingCity">
+            <summary>
+            Gets or sets the billing city.
+            </summary>
+            <value>The billing city.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.BillingZipCode">
+            <summary>
+            Gets or sets the billing zip code.
+            </summary>
+            <value>The billing zip code.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.BillingCountry">
+            <summary>
+            Gets or sets the billing country.
+            </summary>
+            <value>The billing country.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.EMail">
+            <summary>
+            Gets or sets the E mail.
+            </summary>
+            <value>The E mail.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.SocialNo">
+            <summary>
+            Gets or sets the social no.
+            </summary>
+            <value>The social no.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Uses3dsecure">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams"/> is uses3dsecure.
+            </summary>
+            <value><c>true</c> if uses3dsecure; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Vat">
+            <summary>
+            Gets or sets the vat.
+            </summary>
+            <remarks>Appended string looks as follows for vat amounts 40,30,180.
+            <para> 40:30:180:</para>
+            </remarks>
+            <value>The vat.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Telephone">
+            <summary>
+            Gets or sets the telephone.
+            </summary>
+            <value>The telephone.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.MobilePhone">
+            <summary>
+            Gets or sets the mobile phone.
+            </summary>
+            <value>The mobile phone.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.CaptureNow">
+            <summary>
+            Gets or sets a value indicating whether [capture now].
+            If in reserve mode, set this to false, otherwise set to true.
+            </summary>
+            <value><c>true</c> if [capture now]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.OrderParams.Ip">
+            <summary>
+            Gets or sets the ip address of enduser.
+            </summary>
+            <value>The ip.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PageSetMap">
+            <summary>
+            Defines the Pageset to use for a given payment method.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PageSetMap.GetPageSet(System.String)">
+            <summary>
+            Gets the page set.
+            </summary>
+            <param name="paymentMethodString">The payment method.</param>
+            <returns>Pageset for the given payment method.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PageSetMap.FindPageSet(System.String)">
+            <summary>
+            Finds the page set for the given payment method from web.config key Pageset.
+            </summary>
+            <param name="paymentMethodString">The payment method string.</param>
+            <returns>Page set to be used.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod">
+            <summary>
+            Represents Dibs payment methods.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.NONE">
+            <summary>
+            Not specified.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.AT_INTERCARD">
+            <summary>
+            Account to account payment using Intercard (EDE/ELV)
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_CEKAB">
+            <summary>
+            VISA / MasterCard / EuroCard to Cekab
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_BABS">
+            <summary>
+            VISA / MasterCard / EuroCard to Babs
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_INVIK">
+            <summary>
+            VISA / Mastercard / EuroCard via Banque Invik
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_NW">
+            <summary>
+            American Express via TNS/American Express
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_NWDIRECT">
+            <summary>
+            VISA / MasterCard / EuroCard / Switch card / Solo / JCB / VISA Debit via NatWest streamline
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_PAGO">
+            <summary>
+            VISA / MasterCard to Pago
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_PBS">
+            <summary>
+            Dankort via PBS
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_LUOTTOKUNTA">
+            <summary>
+            Credit card payments via Luottokunta
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.CC_TEST">
+            <summary>
+            Test credit card payments_ Used only for testing
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_AKTIA_FI">
+            <summary>
+            Direct payment at Aktia Finland
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_BANKAXESS">
+            <summary>
+            Direct payment with BankAxess in Norway
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_FSB">
+            <summary>
+            Direct payment at Föreningssparbanken
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_HANSA_EE">
+            <summary>
+            Direct payment at Hansa Bank Estonia
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_GIROPAY">
+            <summary>
+            Direct payment at Giropay Germany
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_IDEAL_ABN">
+            <summary>
+            Direct payment with iDeal in the Netherlands using ABN AMRO
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_IDEAL_ING">
+            <summary>
+            Direct payment with iDeal in the Netherlands using ING
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_NB">
+            <summary>
+            Direct payment at Nordea
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_SEBP">
+            <summary>
+            Direct payment at SEB for private customers
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_SEBC">
+            <summary>
+            Direct payment at SEB for companies
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_SEB_EE">
+            <summary>
+            Direct payment at SEB Estonia
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_SHB">
+            <summary>
+            Direct payment at Handelsbanken
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_NORDEA_DK">
+            <summary>
+            Direct payment at Nordea Denmark
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_NORDEA_EE">
+            <summary>
+            Direct payment at Nordea Estonia
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_NORDEA_NO">
+            <summary>
+            Direct payment at Nordea Norway
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_NORDEA_FI">
+            <summary>
+            Direct payment at Nordea Finland
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_BGBANK">
+            <summary>
+            Direct payment at BG Bank, Denmark
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_DANSKEBANK">
+            <summary>
+            Direct payment at Den Danske Bank, Denmark
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_SAMPO">
+            <summary>
+            Direct payment at Sampo Bank, Finland
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_SAMPO_EE">
+            <summary>
+            Direct payment at Sampo Bank, Estonia
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.DIRECT_OKOBANK">
+            <summary>
+            Direct payment at Oko Bank, Finland
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.INVOICE_INTRUM">
+            <summary>
+            Invoicing via Intrum Justitia
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.INVOICE_FAKTAB">
+            <summary>
+            Invoicing via Faktab
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.INVOICE_SVEA">
+            <summary>
+            Invoicing via Svea Ekonomi
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.INVOICE_PBK">
+            <summary>
+            Invoicing via PBK
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.INVOICE_AK">
+            <summary>
+            Customer check and e-invoicing via AK Finans Sweden
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.INVOICE_AKNORWAY">
+            <summary>
+            Customer check and e-invoicing via Aktiv Kapital Norway
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.TA_FC">
+            <summary>
+            Travel Account, First Card
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.NETPAY">
+            <summary>
+            Payment via Handelsbanken, SHB
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PaymentMethod.INVOICE_KREDITOR">
+            <summary>
+            Invoicing via Kreditor
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings">
+            <summary>
+            Provides configuration information about the Dibs payment provider from configuration file
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.WEB_SERVICE_END_POINT">
+            <summary>
+            Service endpoint of webservice.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.API_USER">
+            <summary>
+            API user name.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.API_USER_PWD">
+            <summary>
+            API user password.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.SERVER_URL">
+            <summary>
+            Key for web URL
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.MERCHANT_ACCOUNT">
+            <summary>
+            Key for merchant account
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.ENCRYPTION_KEY">
+            <summary>
+            Key for encryption key
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.HASH_ALGORITHM">
+            <summary>
+            Algorithm for calculating the Hash.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.PAGE_SET">
+            <summary>
+            Pageset.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IS_TEST_MODE">
+            <summary>
+            Testmode. If in test mode the transactions are simulated only.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IS_CC_CEKAB_ENABLED">
+            <summary>
+            key for payment method CC.CEKAB enable or disable in config file.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IS_CC_PAGO_ENABLED">
+            <summary>
+            key for payment method CC.PAGO enable or disable in config file.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IS_CC_TEST_ENABLED">
+            <summary>
+            key for payment method CC.TEST enable or disable in config file.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.PAYMENT_MODE">
+            <summary>
+            key for the default payment mode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.TEST_MODE">
+            <summary>
+            Test mode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.PAYMENT_PROVIDER_ARGS_CREATOR_TYPE">
+            <summary>
+            key for the PaymentProviderArgsCreatorType
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.LoadConfiguration">
+            <summary>
+            Verifies the configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.WebServiceEndPoint">
+            <summary>
+            Gets or sets the web service end point.
+            </summary>
+            <value>The web service end point.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.APIUser">
+            <summary>
+            Gets or sets the API user.
+            </summary>
+            <value>The API user.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.APIUserPwd">
+            <summary>
+            Gets or sets the API user PWD.
+            </summary>
+            <value>The API user PWD.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.WebServerURL">
+            <summary>
+            The web server URL for Dibs
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.WebServiceURL">
+            <summary>
+            Gets or sets the web service URL.
+            </summary>
+            <value>The web service URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.MerchantAccount">
+            <summary>
+            The account we get at Dibs, 
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.EncryptionKey">
+            <summary>
+            Encryption key provided by Dibs
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.HashAlgorithm">
+            <summary>
+            Hash Algorithm
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.PageSet">
+            <summary>
+            Page set.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IsTestMode">
+            <summary>
+            If true system in test mode, transactions are only simulated.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.TestMode">
+            <summary>
+            Gets or sets the test mode. 1 = random, 2 = approved always, 3 = denied always.
+            </summary>
+            <remarks>
+            testMode value will define behaviour in test mode as follows.
+            <para>1 for The result is randomly cleared.</para>
+            <para>2 for  Verification is always approved.</para>   
+            <para>3 for  Verification is always denied.</para>  
+            </remarks>
+            <value>The test mode: 1 = random, 2 = approved always, 3 = denied always.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IsCcCekabEnabled">
+            <summary>
+            Gets or sets a value indicating whether payment method CC.CEKAB is enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is cc cekab enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IsCcPagoEnabled">
+            <summary>
+            Gets or sets a value indicating whether payment method CC.PAGO is enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is cc pago enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.IsCcTestEnabled">
+            <summary>
+            Gets or sets a value indicating whether payment method CC.Test is enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is cc test enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.DefaultPaymentMode">
+            <summary>
+            Gets the default payment mode.
+            </summary>
+            <value>The default payment mode.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.PluginSettings.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response">
+            <summary>
+            Response from Dibs provider.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Creates a instance of response from the Http request query string.
+            </summary>
+            <param name="queryString">Query string name value collection from Http request.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.#ctor(Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response"/> class.
+            </summary>
+            <param name="responseFromWebMethod">The response from web method.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.op_Implicit(System.Collections.Specialized.NameValueCollection)~Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response">
+            <summary>
+            Implicit conversion of a HttpResponse to a Auriga response.
+            </summary>
+            <param name="queryString">Query string name value collection from Http request.</param>
+            <returns>object of Auriga response.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.op_Implicit(Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData)~Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response"/>.
+            </summary>
+            <param name="responseFromWebMethod">The response from web method.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.ResponseCode">
+            <summary>
+            Response code received from Dibs.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.Sum">
+            <summary>
+            Sum of the transaction.
+            </summary>
+            <remarks>Sum value returned by Dibs contains a comma instead of a dot always.</remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.Currency">
+            <summary>
+            Currency of the transaction.
+            </summary>
+            <remarks>This parameter is sent to dibs when placing order.</remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.ExternalOrderID">
+            <summary>
+            External Order Id received from Dibs.
+            </summary>
+            <remarks>This parameter is sent to dibs when placing order.</remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.VerifyId">
+            <summary>
+            Gets or sets Id used by Dibs to verify the transaction.
+            </summary>
+            <value>The verify id.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.ReplyText">
+            <summary>
+            Gets or sets the reply text. This is a more detailed reply from Dibs.
+            </summary>
+            <value>The reply text.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.Response.Mac">
+            <summary>
+            Mac.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode">
+            <summary>
+            Reponse received by Dibs.
+            </summary>
+            <remarks>Response received is either 'A' or 'D', where 'A' for success and 'D' for failure.
+            When using the implicit string conversion, if a response other than 'A' is received, it is regarded as a failure.</remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode"/> class.
+            </summary>
+            <param name="codeFromDibs">code received from Dibs</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.#ctor(Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode"/> class.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.op_Implicit(System.String)~Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion. If 'A' is received the result is a Success = true,
+            otherwise it is a fail: <see cref="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.Success"/> = false.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.op_Explicit(Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData)~Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents status of response.
+            </summary>
+            <returns>
+            Ok if response is a success, and 'Fail' otherwise.
+            </returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.Success">
+            <summary>
+            Whether the operation is a success or not.
+            </summary>
+            <value><c>true</c> if success; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.ResponseCode.Message">
+            <summary>
+            Gets or sets the error message.
+            </summary>
+            <value>The error message.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.SecurityException">
+            <summary>
+            Describes a security exception.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.SecurityException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.SecurityException"/> class.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authReversal(System.String,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authReversalAsync(System.String,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authReversalAsync(System.String,System.String,System.String,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.checkSwedishPersNo(System.String,System.String,System.String,System.String,System.Boolean@,System.Boolean@)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.checkSwedishPersNoAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.checkSwedishPersNoAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.fundsTransfer(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.fundsTransferAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.fundsTransferAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.invoice(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.invoiceAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.invoiceAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.customerCheck(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.customerCheckAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.customerCheckAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettle3DS(System.String,System.String,System.String,System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettle3DSAsync(System.String,System.String,System.String,System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettle3DSAsync(System.String,System.String,System.String,System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.accountTransactionAuthorize(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.accountTransactionAuthorizeAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.accountTransactionAuthorizeAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorize3DS(System.String,System.String,System.String,System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorize3DSAsync(System.String,System.String,System.String,System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorize3DSAsync(System.String,System.String,System.String,System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribeAndSettle(System.String,System.String,System.String,System.Int64,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribeAndSettleAsync(System.String,System.String,System.String,System.Int64,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribeAndSettleAsync(System.String,System.String,System.String,System.Int64,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorize(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.eInvoice(System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.eInvoiceAsync(System.String,System.String,System.String,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.eInvoiceAsync(System.String,System.String,System.String,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribe(System.String,System.String,System.String,System.Int64,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribeAsync(System.String,System.String,System.String,System.Int64,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribeAsync(System.String,System.String,System.String,System.Int64,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.askIf3DSEnrolled(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.askIf3DSEnrolledAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.askIf3DSEnrolledAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettle(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettleAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettleAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.refund(System.String,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.refundAsync(System.String,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.refundAsync(System.String,System.String,System.String,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.settle(System.String,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.settleAsync(System.String,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.settleAsync(System.String,System.String,System.String,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authReversalCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.checkSwedishPersNoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.fundsTransferCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.invoiceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.customerCheckCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettle3DSCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.accountTransactionAuthorizeCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorize3DSCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribeAndSettleCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.eInvoiceCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.subscribeCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.askIf3DSEnrolledCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.authorizeAndSettleCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.refundCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.DTServerModuleService_v1.settleCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.aCSUrl">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerAddress">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerAuthCode">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerAuthResponseCode">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerCity">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerConsumerLimit">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerErrorDescription">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerFirstName">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerLastName">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerMerchantLimit">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.acquirerZipCode">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.amount">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.amountSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.errorMsg">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.infoCode">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.infoDescription">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.pAReqMsg">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.resultCode">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.resultCodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.resultText">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.verifyID">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.ReturnData.verifyIDSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authReversalCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authReversalCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authReversalCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.checkSwedishPersNoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.checkSwedishPersNoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.checkSwedishPersNoCompletedEventArgs.return">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.checkSwedishPersNoCompletedEventArgs.returnSpecified">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.fundsTransferCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.fundsTransferCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.fundsTransferCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.invoiceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.invoiceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.invoiceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.customerCheckCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.customerCheckCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.customerCheckCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeAndSettle3DSCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeAndSettle3DSCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeAndSettle3DSCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.accountTransactionAuthorizeCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.accountTransactionAuthorizeCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.accountTransactionAuthorizeCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorize3DSCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorize3DSCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorize3DSCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.subscribeAndSettleCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.subscribeAndSettleCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.subscribeAndSettleCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.eInvoiceCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.eInvoiceCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.eInvoiceCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.subscribeCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.subscribeCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.subscribeCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.askIf3DSEnrolledCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.askIf3DSEnrolledCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.askIf3DSEnrolledCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeAndSettleCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeAndSettleCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.authorizeAndSettleCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.refundCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.refundCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.refundCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.settleCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.settleCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Dibs.se.incab.secure.settleCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+    </members>
+</doc>

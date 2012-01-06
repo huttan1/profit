@@ -1,0 +1,40 @@
+body.litSpellcheck body, 
+body.litSpellcheck a, 
+body.litSpellcheck input, 
+body.litSpellcheck option, 
+body.litSpellcheck select, 
+body.litSpellcheck table, 
+body.litSpellcheck tr, 
+body.litSpellcheck td, 
+body.litSpellcheck div
+{
+	font-size: 11px;
+	font-family: 'Microsoft Sans Serif' , Tahoma, Arial, Verdana, Sans-Serif;
+}
+
+body.litSpellcheck input.suggestion, 
+body.litSpellcheck select.suggestion, 
+body.litSpellcheck select.suggestion option
+{
+	width: 230px;
+}
+
+body.litSpellcheck input.button
+{
+	width: 100px;
+	cursor: hand;
+}
+
+body.litSpellcheck {
+	background-color: #efefef;
+}
+
+body.litSpellcheck font.misspelled 
+{
+	color: Red;
+}
+
+body.litSpellcheck font.double 
+{
+	color: Blue;
+}

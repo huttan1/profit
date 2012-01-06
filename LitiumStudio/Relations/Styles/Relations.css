@@ -1,0 +1,150 @@
+﻿.litIconRelationsPerson{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/businesswoman.png); 
+}
+.litIconRelationsGroup{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/businesspeople.png); 
+}
+.litIconRelationsOrganization{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/office_building.png); 
+}
+.litIconRefresh2{
+	height:16px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/refresh_16px.png); 
+}
+.litIconRelationsFind{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/find.png);
+}
+.litIconAssignAdd{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../Images/assign_add.png);
+}
+.litIconAdd2_NoText {
+	background-image:url(../../../LitiumStudio/Images/icons_standard/add.png);
+	height:16px;
+}
+.litIconDelete2_NoText {
+	background-image:url(../../../LitiumStudio/Images/icons_standard/delete.png);
+	height:16px;
+}
+.litIconEdit2_NoText {
+	background-image:url(../../../LitiumStudio/Images/icons_standard/pencil_16px.png);
+	height:16px;
+}
+.litIconView2_NoText {
+	background-image:url(../../../LitiumStudio/Images/icons_standard/view.png);
+	height:16px;
+}
+.litHoverTreeNode{
+  margin-left: 1px;
+  margin-right: 0px;
+}
+.litUnderTreeView{
+    padding-top:10px;
+    padding-left:10px;
+    padding-right:10px;
+    height:24px;
+    width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 267 + 'px');
+}
+.litTreeViewList{
+  padding-top: 0px;
+  padding-left: 0px;
+  overflow: visible!important;
+} 
+.litSelectedTreeNodeRowList{
+  font-family: arial,verdana; 
+  font-size: 85%;
+  padding-left:5px;
+  height: 25px;
+  cursor: pointer;
+  cursor: hand;
+  width:auto!important;
+}
+.litHoverTreeNodeRowList{
+  font-family: arial,verdana; 
+  font-size: 85%;
+  height: 25px;
+  cursor: pointer;
+  cursor: hand;
+  width:auto!important;
+  padding-left:5px;
+  background-color :white;
+  border-bottom:1px solid white;
+}
+.litTreeNodeRowList{
+  height: 25px;
+  padding-left:5px;
+  border-bottom:1px solid white;
+  /*width:auto;*/
+}
+.litTreeNodeRowList td,
+.litHoverTreeNodeRowList td,
+.litSelectedTreeNodeRowList td,
+.litTreeNodeHeader td,
+.litHoverTreeNodeHeader td{
+    width:auto;
+}
+.litTreeNodeHeaderRowList{
+  border-bottom:1px solid white;
+  height: 25px;
+  padding-left:5px;
+  cursor:default;
+}
+.litTreeNodeTable{
+    width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 285 + 'px');
+}
+.litTreeNodeVariantsTable{
+    width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 260 + 'px');
+}
+.litTreeNodeHeader,
+.litHoverTreeNodeHeader{
+    border-bottom:1px solid white;
+    height: 25px;
+    padding-left:5px;
+}
+.litTreeNodeHeader input,
+.litHoverTreeNodeHeader input{
+    visibility:hidden;
+}
+.litTreeNodeTop{
+    visibility:hidden;
+}
+input.RelationsPersonsTogglePersonItems {
+    z-index: 100;
+    position: absolute;
+    left: 7px;
+    top: 42px;
+}
+.litRelationsModuleContent
+{
+	position:inherit;
+	border-bottom:1px solid #A19E98;
+	height:25px;
+	left:0;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:9px;
+	right:0;
+	top:0;
+	z-index:10;
+}
+.litRelationsModuleContentWithTreeMainAreaV2
+{
+	position:inherit;
+	bottom:0;
+	left:0;
+	overflow:auto;
+	right:0;
+	top:35px;
+	}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration>
+      <appSettings>      
+		<add key="isTestMode" value="true"/>
+		<add key="feeVatPercentageTestAmount" value ="0.1"/>
+		<add key="feeTestAmount" value ="100"/>
+
+		<add key="addOrderDiscountTest" value="true"/>
+		<add key="orderDiscountPercentageTestAmount" value="0.20"/>
+		<add key="orderDiscountTestEntries" value="2"/>
+
+
+		<add key="feeTestEntries" value="2"/>
+
+		<add key="addAdditionalDeliveryInfoTest" value="true"/>
+		<add key="additionalDeliveryInfoTestKey" value="WarehouseID"/>
+		<add key="additionalDeliveryInfoTestValue" value="XPQ12"/>
+
+    	<add key="currencyUnitPrecision" value="2"/>
+      </appSettings>
+</configuration>

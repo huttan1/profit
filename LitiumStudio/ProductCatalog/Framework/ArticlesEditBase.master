@@ -1,0 +1,87 @@
+<%@ master language="C#" autoeventwireup="true" masterpagefile="Base.master" inherits="LitiumStudio_ProductCatalog_ArticlesEditBase, Litum.Studio.Web" %>
+<%@ MasterType VirtualPath="Base.master" %>
+
+<asp:content ID="MenuButtons" ContentPlaceHolderID="ToolbarRight" runat="Server">
+
+  <ComponentArt:ToolBar ID="mc_toolbarRight" AutoPostBackOnSelect="true" OnItemCommand="ToolBar_ItemCommand"
+        runat="server" CssClass="litToolbar" DefaultItemCssClass="litToolbarItemNew"
+        DefaultItemHoverCssClass="litToolbarItemOnMouseOver" DefaultItemActiveCssClass="litToolbarItemOnMouseDown"
+        DefaultItemDisabledCssClass="litToolbarItemDisabled" ImagesBaseUrl="~/LitiumStudio/Images/"
+        ItemSpacing="0" UseFadeEffect="false" Orientation="Horizontal" DefaultItemImageWidth="16"
+        DefaultItemImageHeight="16">
+        <Items runat="server">
+            <ComponentArt:ToolBarItem ID="mc_toolbarItemCancel" runat="server" ImageUrl="icons_standard/sign_stop.png" CausesValidation="False"
+                KeyboardShortcut="Esc" ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate"/>
+            <ComponentArt:ToolBarItem ID="mc_toolbarItemSave" runat="server" ImageUrl="icons_standard/floppy_disk_blue.png"
+                KeyboardShortcut="Enter"  ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate"/>
+            <ComponentArt:ToolBarItem ItemType="Separator" CssClass="" ImageUrl="toolbar/break.gif" ImageHeight="16" ImageWidth="1" />
+            <ComponentArt:ToolBarItem ID="mc_toolbarItemBatch" runat="server" ImageUrl="icons_standard/edit_16px.png"
+                 ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate"/>
+        </Items>
+        <ClientTemplates>
+		    <ComponentArt:ClientTemplate ID="c_toolbarLeftTreeItemButtonTemplate">
+		        <table cellspacing="0" cellpadding="0" border="0" style="margin: 0px; margin-right: auto;">
+		            <tbody>
+		                <tr>
+		                    <td class="ToolbarItemLeft">
+		                        &nbsp;
+		                    </td>
+		                    <td class="ca_tb_img ToolbarItemMain">
+		                        <img height="16" width="16" border="0" src="../Images/## DataItem.get_imageUrl() ##" alt="" style="display: block;" title="## DataItem.get_toolTip() ##"/>
+		                    </td>
+		                    <td class="ca_tb_txt ToolbarItemMain">
+		                        <nobr>## DataItem.get_text() ##</nobr>
+		                    </td>
+		                    <td class="ToolbarItemRight">
+		                        &nbsp;
+		                    </td>
+		                </tr>
+		            </tbody>
+		         </table>			       
+		    </ComponentArt:ClientTemplate>
+		</ClientTemplates>
+    </ComponentArt:ToolBar>
+</asp:content>
+<asp:Content ID="Content3" ContentPlaceHolderID="LitiumStudioContentHeading" Runat="Server">
+    <asp:ContentPlaceHolder ID="PageHeader" runat="Server" />
+ </asp:Content> 
+
+<asp:Content ID="AdminPageContent" ContentPlaceHolderID="ContentRight" runat="Server">
+    <link href="<%=Page.ResolveUrl("~/LitiumStudio/ProductCatalog/Styles/ProductCatalog.css")%>" type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+	    function progressActivate(){
+		    progressDisableTags("INPUT");
+		    progressDisableTags("TEXTAREA");
+		    progressDisableTags("SELECT");
+		    var img = document.getElementById('imageProgress');
+		    if(img){
+			    img.src = 'Images/progress.gif';
+			    img.style.display = 'inline';
+		    }
+		    if(document.getElementById('textProgress'))
+			    document.getElementById('textProgress').style.display = 'inline';
+	    }
+	    function progressDisableTags(tagName){
+		    var tag = document.getElementsByTagName(tagName);
+		    for(i=0;i<tag.length;i++)
+			    tag[i].disabled = true;
+	    }
+    </script> 
+    <div>
+		<!--Flikar-->
+		<div class="lsContentScroll">
+			<div class="litTabTopItemV2">
+				<ul class="litTabItemUL">
+				<WebControls:TabListItem CausesValidation="true" ID="mc_tabListItemGeneral" LinkClass="litTabItemLink" LinkSelectedClass="litTabItemLink litTabItemCurrentLink" ListClass="litTabItemLI" ListSelectedClass="litTabItemLI litTabItemLICurrent" runat="server" CommandArgument="" CommandName="General" OnCommand="TabClick"/>
+				<asp:Repeater runat="server" id="c_langtabReperater" OnItemDataBound="langTabRepeater_OnItemDataBound">
+				<ItemTemplate>
+					<WebControls:TabListItem CausesValidation="true" ID="mc_tabListItemLanguage" LinkClass="litTabItemLink" LinkSelectedClass="litTabItemLink litTabItemCurrentLink" ListClass="litTabItemLI" ListSelectedClass="litTabItemLI litTabItemLICurrent" runat="server" CommandArgument="" CommandName="Language" OnCommand="TabClick"/>
+				</ItemTemplate>
+				</asp:Repeater>
+				<WebControls:TabListItem CausesValidation="true" ID="mc_tabListItemSettings" LinkClass="litTabItemLink" LinkSelectedClass="litTabItemLink litTabItemCurrentLink" ListClass="litTabItemLI" ListSelectedClass="litTabItemLI litTabItemLICurrent" runat="server" CommandArgument="" CommandName="Settings" OnCommand="TabClick"/>
+				</ul><div style="clear:both;"></div>
+			</div>
+			<asp:ContentPlaceHolder ID="MainContent" runat="Server" />
+		</div>
+	</div>
+</asp:Content>

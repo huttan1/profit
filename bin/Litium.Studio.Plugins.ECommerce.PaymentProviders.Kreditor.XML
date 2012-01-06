@@ -1,0 +1,1683 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddInvoice">
+            <summary>
+            Enum of invoice types.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddInvoice.AUTO_ACTIVATE">
+            <summary>
+            Auto activate.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddInvoice.MANUAL_AUTO_ACTIVATE">
+            <summary>
+            Manual activate.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddInvoice.PRE_PAY">
+            <summary>
+            Pre paid.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddInvoice.SMS_PASSWD">
+            <summary>
+            SMS Password.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag">
+            <summary>
+            Transaction flag enum.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.None">
+            <summary>
+            No flags specified.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.AutoActivate">
+            <summary>
+            If you designate this flag an invoice is created directly in the ’active’ state, 
+            i.e. Kreditor will buy the invoice immediately. For this flag to work properly 
+            the online configuration for your store must be updated by Kreditor.
+            </summary>
+            <remarks>When auto activation is used the invoice is created as both a .pdf and a .jpg file, 
+            available to you at https://www.kreditor.se/invoices/ under the filename {invoice_number}.jpg and
+            {invoice_number}.pdf. These invoices are automatically deleted after 30 days. 
+            Nb! If a Ready_date is specified the invoice will not be auto-activated until this date
+            </remarks>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.TestMode">
+            <summary>
+            If you designate this flag an invoice is created in test mode, 
+            even if your store is fully operational.
+            Recommended for testing without disrupting regular invoicing
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.ManualAutoActivate">
+            <summary>
+            Invoice should be activated after creating. 
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.PrePay">
+            <summary>
+            Invoice is a 'Pay in advance' invoice.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorCompletePaymentArgs">
+            <summary>
+            Base class for arguments passed to <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorCompletePaymentResult">
+            <summary>
+            Result of the operation Complete Payment, <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>    
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode">
+            <summary>
+            When casted to a integer, give the ISO3166 country codes. 
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode.Denmark">
+            <summary>
+            ISO3166 code for Denmark
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode.Finland">
+            <summary>
+            ISO3166 code for Finland.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode.Norway">
+            <summary>
+            ISO3166 code for Norway.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode.Sweden">
+            <summary>
+            ISO3166 code for Sweden.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode.UnitedKindom">
+            <summary>
+            ISO3166 code for United Kindom
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode.UnitedStates">
+            <summary>
+            ISO3166 code for United States.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode.UnKnown">
+            <summary>
+            Country is not known.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode">
+            <summary>
+            Currency Code used by Kreditor.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode.SEK">
+            <summary>
+            Swedish Kroner.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode.NOK">
+            <summary>
+            Norwegian Kroner.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode.EUR">
+            <summary>
+            Euro.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode.DKK">
+            <summary>
+            Danish Kroner
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs">
+            <summary>
+            Arguments for Execute payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs.#ctor(System.String,System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs"/> class.
+            </summary>
+            <param name="customerPersonalNumber">The customer personal number.</param>
+            <param name="annualIncome">The annual income.</param>
+            <param name="kreditorCampaignCode">The kreditor campaign code.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs.CustomerPersonalNumber">
+            <summary>
+            Gets or sets the customer personal number.
+            </summary>
+            <value>The customer personal number.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs.AnnualIncome">
+            <summary>
+            Gets or sets the annual income.
+            </summary>
+            <value>The annual income.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentArgs.KreditorCampaignCode">
+            <summary>
+            Gets or sets the kreditor campaign code.
+            </summary>
+            <value>The kreditor campaign code.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorPaymentResult">
+            <summary>
+            Result of ExecutePayment.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI">
+            <summary>
+            Public API of Kreditor wrapped to provide ease of access.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.#ctor">
+            <summary>
+            Singleton constructor.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ActivateInvoice(System.String)">
+            <summary>
+            Activates a passive invoice.
+            </summary> 
+            <param name="invoiceNo">Invoice number to activate.</param>
+            <returns>Status of the operation.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,System.Int32,System.Int32,System.String@)">
+            <summary>
+            Obsolete, please use method AddTransaction(string estoreUser, string orderNo, InvoiceRow[] invoiceRows, int shipmentfee, ShipmentType shipmenttype, int handlingfee, string pno, string firstName, string lastName, Address customerAddress, string password, AddTransactionFlag flags, string comment, string readyDateString, string randomString, CurrencyCode currency, CountryCode country, LanguageCode language, PersonalNumberCountry personalNumberCountry, int campaignCode, int salary, string clientIp, out string trasactionNumber)
+            Adds a transaction to the Kreditor system.
+            </summary>
+            <param name="estoreUser">The customers name in your store. 
+            Good to pass if you want to perform searches with it at www.kreditor.se</param>
+            <param name="orderNo">Your order number associated with the invoice. Good to pass if you want to perform searches with it at www.kreditor.se </param>
+            <param name="invoiceRows">A list of invoice rows. Create invoice rows using MakeInvoiceRow method.</param>
+            <param name="shipmentfee">Shipment fee in lowest monetary unit.</param>
+            <param name="shipmenttype">Shipment type, determines when the invoice is activated.</param>
+            <param name="handlingfee">Handling fee in lowest monetary unit.</param>
+            <param name="pno">Personal number or register no.</param>
+            <param name="firstName">First Name.</param>
+            <param name="lastName">Last Name.</param>
+            <param name="customerAddress">Customer Address. This is the registered address with personal number.</param>
+            <param name="password">Password to protect the personal number.</param>
+            <param name="flags">Flags to determine when the invoice is activated.
+            If an invoice is mannualy activated via a <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ActivateInvoice(System.String)"/> call, then set this parameter to <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.None"/></param>
+            <param name="comment">Comments</param>
+            <param name="readyDateString">Date from which the invoice will be activated. Date should be in formate YYYY-MM-DD 
+            when auto activate mode is set in <paramref name="flags"/> invoice is activated in this date.</param>
+            <param name="randomString">Random string, for verification of the 'Get Request' when notified of the 'pay in advance' invoice.</param>
+            <param name="currency">Currency.</param>
+            <param name="country">Country.</param>
+            <param name="language">Language.</param>
+            <param name="personalNumberCountry">County to which personal number belongs to.</param>
+            <param name="campaignCode">Campaign code. If not used, pass -1.</param>
+            <param name="salary">Salary of customer if payment amount is larger than 6000SEK</param>
+            <param name="trasactionNumber">Invoice number of the created invoice.</param>
+            <returns>Status of the transaction.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.Int32,System.Int32,System.String@)">
+            <summary>
+            Obsolete, please use method AddTransaction(string estoreUser, string orderNo, InvoiceRow[] invoiceRows, int shipmentfee, ShipmentType shipmenttype, int handlingfee, string pno, string firstName, string lastName, Address customerAddress, string password, AddTransactionFlag flags, string comment, string readyDateString, string randomString, CurrencyCode currency, CountryCode country, LanguageCode language, PersonalNumberCountry personalNumberCountry, int campaignCode, int salary, string clientIp, out string trasactionNumber)
+            Adds a transaction to the Kreditor system.
+            </summary>
+            <remarks>Language, currency and personalNumberCountry is determined by the country.
+            Only currencies, Swedish Kroner, Norwegian Kroner and Denmark Kroner are handled. </remarks>
+            <param name="estoreUser">The customers name in your store. 
+            Good to pass if you want to perform searches with it at www.kreditor.se</param>
+            <param name="orderNo">Your order number associated with the invoice. Good to pass if you want to perform searches with it at www.kreditor.se </param>
+            <param name="invoiceRows">A list of invoice rows. Create invoice rows using MakeInvoiceRow method.</param>
+            <param name="shipmentfee">Shipment fee in lowest monetary unit.</param>
+            <param name="shipmenttype">Shipment type, determines when the invoice is activated.</param>
+            <param name="handlingfee">Handling fee in lowest monetary unit.</param>
+            <param name="pno">Personal number or register no.</param>
+            <param name="firstName">First Name.</param>
+            <param name="lastName">Last Name.</param>
+            <param name="customerAddress">Customer Address. This is the registered address with personal number.</param>
+            <param name="password">Password to protect the personal number.</param>
+            <param name="flags">Flags to determine when the invoice is activated.
+            If an invoice is mannualy activated via a <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ActivateInvoice(System.String)"/> call, then set this parameter to <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.None"/></param>
+            <param name="comment">Comments</param>
+            <param name="readyDateString">Date from which the invoice will be activated. Date should be in formate YYYY-MM-DD 
+            when auto activate mode is set in <paramref name="flags"/> invoice is activated in this date.</param>
+            <param name="randomString">Random string, for verification of the 'Get Request' when notified of the 'pay in advance' invoice.</param>
+            <param name="country">Country code.</param>
+            <param name="campaignCode">Campaign code. If not used, pass -1.</param>
+            <param name="salary">Salary of customer if payment amount is larger than 6000SEK</param>
+            <param name="trasactionNumber">Invoice number of the created invoice.</param>
+            <returns>Status of the transaction.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,System.Int32,System.Int32,System.String,System.String@)">
+            <summary>
+            Adds a transaction to the Kreditor system.
+            </summary>
+            <param name="estoreUser">The customers name in your store.
+            Good to pass if you want to perform searches with it at www.kreditor.se</param>
+            <param name="orderNo">Your order number associated with the invoice. Good to pass if you want to perform searches with it at www.kreditor.se</param>
+            <param name="invoiceRows">A list of invoice rows. Create invoice rows using MakeInvoiceRow method.</param>
+            <param name="shipmentfee">Shipment fee in lowest monetary unit.</param>
+            <param name="shipmenttype">Shipment type, determines when the invoice is activated.</param>
+            <param name="handlingfee">Handling fee in lowest monetary unit.</param>
+            <param name="pno">Personal number or register no.</param>
+            <param name="firstName">First Name.</param>
+            <param name="lastName">Last Name.</param>
+            <param name="customerAddress">Customer Address. This is the registered address with personal number.</param>
+            <param name="password">Password to protect the personal number.</param>
+            <param name="flags">Flags to determine when the invoice is activated.
+            If an invoice is mannualy activated via a <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ActivateInvoice(System.String)"/> call, then set this parameter to <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.None"/></param>
+            <param name="comment">Comments</param>
+            <param name="readyDateString">Date from which the invoice will be activated. Date should be in formate YYYY-MM-DD
+            when auto activate mode is set in <paramref name="flags"/> invoice is activated in this date.</param>
+            <param name="randomString">Random string, for verification of the 'Get Request' when notified of the 'pay in advance' invoice.</param>
+            <param name="currency">Currency.</param>
+            <param name="country">Country.</param>
+            <param name="language">Language.</param>
+            <param name="personalNumberCountry">County to which personal number belongs to.</param>
+            <param name="campaignCode">Campaign code. If not used, pass -1.</param>
+            <param name="salary">Salary of customer if payment amount is larger than 6000SEK</param>
+            <param name="clientIp">The client ip.</param>
+            <param name="trasactionNumber">Invoice number of the created invoice.</param>
+            <returns>Status of the transaction.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.Int32,System.Int32,System.String,System.String@)">
+            <summary>
+            Obsolete, please use method AddTransaction(string estoreUser, string orderNo, InvoiceRow[] invoiceRows, int shipmentfee, ShipmentType shipmenttype, int handlingfee, string pno, string firstName, string lastName, Address customerAddress, string password, AddTransactionFlag flags, string comment, string readyDateString, string randomString, CurrencyCode currency, CountryCode country, LanguageCode language, PersonalNumberCountry personalNumberCountry, int campaignCode, int salary, string clientIp, out string trasactionNumber)
+            Adds a transaction to the Kreditor system.
+            </summary>
+            <param name="estoreUser">The customers name in your store.
+            Good to pass if you want to perform searches with it at www.kreditor.se</param>
+            <param name="orderNo">Your order number associated with the invoice. Good to pass if you want to perform searches with it at www.kreditor.se</param>
+            <param name="invoiceRows">A list of invoice rows. Create invoice rows using MakeInvoiceRow method.</param>
+            <param name="shipmentfee">Shipment fee in lowest monetary unit.</param>
+            <param name="shipmenttype">Shipment type, determines when the invoice is activated.</param>
+            <param name="handlingfee">Handling fee in lowest monetary unit.</param>
+            <param name="pno">Personal number or register no.</param>
+            <param name="firstName">First Name.</param>
+            <param name="lastName">Last Name.</param>
+            <param name="customerAddress">Customer Address. This is the registered address with personal number.</param>
+            <param name="password">Password to protect the personal number.</param>
+            <param name="flags">Flags to determine when the invoice is activated.
+            If an invoice is mannualy activated via a <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ActivateInvoice(System.String)"/> call, then set this parameter to <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag.None"/></param>
+            <param name="comment">Comments</param>
+            <param name="readyDateString">Date from which the invoice will be activated. Date should be in formate YYYY-MM-DD
+            when auto activate mode is set in <paramref name="flags"/> invoice is activated in this date.</param>
+            <param name="randomString">Random string, for verification of the 'Get Request' when notified of the 'pay in advance' invoice.</param>
+            <param name="country">Country code.</param>
+            <param name="campaignCode">Campaign code. If not used, pass -1.</param>
+            <param name="salary">Salary of customer if payment amount is larger than 6000SEK</param>
+            <param name="clientIp">The client ip.</param>
+            <param name="trasactionNumber">Invoice number of the created invoice.</param>
+            <returns>Status of the transaction.</returns>
+            <remarks>Language, currency and personalNumberCountry is determined by the country.
+            Only currencies, Swedish Kroner, Norwegian Kroner and Denmark Kroner are handled. </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.DeleteInvoice(System.String)">
+            <summary>
+            Deletes a passive invoice.
+            </summary> 
+            <param name="invoiceNo">Invoice number to delete.</param>
+            <returns>Status of the operation.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.GetAddresses(System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress[]@)">
+            <summary>
+            Creates a address that can be used in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.Int32,System.Int32,System.String@)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,System.Int32,System.Int32,System.String@)"/> method.
+            </summary>
+            <param name="personalNo">Personal Number.</param>
+            <param name="personalNumberCountry">Country to which personal number belongs.</param>
+            <param name="addresses">An array of addresses, registered to this personalNumber.</param>
+            <returns> StatusCode.Ok if successful. StatusCode.Error if not.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeInvoiceRow(System.Int32,System.String,System.String,System.Int32,System.Double,System.Double)">
+            <summary>
+            Makes a Invoice Row.
+            </summary>
+            <param name="quantity">Quantity.</param>
+            <param name="articleNo">Article No.</param>
+            <param name="title">Title.</param>
+            <param name="price">Price, excluding VAT in lowest monetary unit</param>
+            <param name="vat">VAT percentage.</param>
+            <param name="discount">Discount percentage.</param>
+            <returns>An invoice row object.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeInvoiceRow(System.Decimal,System.String,System.String,System.Int32,System.Double,System.Double)">
+            <summary>
+            Makes a Invoice Row.
+            </summary>
+            <remarks>Use this when quantity contains fractions. In the invoice it will be printed with two decimal places.</remarks>
+            <param name="quantity">Quantity.</param>
+            <param name="articleNo">Article No.</param>
+            <param name="title">Title.</param>
+            <param name="price">Price, excluding VAT in lowest moneytary unit.</param>
+            <param name="vat">VAT percentage.</param>
+            <param name="discount">Discount percentage.</param>
+            <returns>An invoice row object.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeShippingFeeRow(System.String,System.Int32,System.Double,System.Double)">
+            <summary>
+            Makes a invoice row that represent a shipping fee.
+            </summary>
+            <param name="title">Title.</param>
+            <param name="price">Price, excluding VAT, in lowest monetary unit.</param>
+            <param name="vat">VAT percentage.</param>
+            <param name="discount">Discount percentage.</param>
+            <returns>An invoice row object.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeHandlingFeeRow(System.String,System.Int32,System.Double,System.Double)">
+            <summary>
+            Makes a handling fees row.
+            </summary>
+            <param name="title">Title.</param>
+            <param name="price">Price, excluding VAT in lowest monetary unit.</param>
+            <param name="vat">VAT percentage.</param>
+            <param name="discount">Discount percentage.</param>
+            <returns>An invoice row object.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeAddress(System.String,System.String,System.Int32,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.String,System.String,System.String)">
+            <summary>
+            Creates a address that can be used in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.Int32,System.Int32,System.String@)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,System.Int32,System.Int32,System.String@)"/> method.
+            </summary>
+            <param name="careof">Care of.</param>
+            <param name="street">Stree name.</param>
+            <param name="zipCode">Post number.</param>
+            <param name="city">City.</param>
+            <param name="country">Country Code.</param>
+            <param name="telephone">Telephone.</param>
+            <param name="mobile">Mobile phone.</param>
+            <param name="email">E-mail.</param>
+            <returns>an instance of <typeparamref cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address"/></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeAddress(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress,System.String,System.String,System.String)">
+            <summary>
+            Creates a KreditorAPI.Address which is needed when calling <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.Int32,System.Int32,System.String@)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,System.Int32,System.Int32,System.String@)"/> method.
+            </summary>
+            <param name="address">A registered address.</param>
+            <param name="telephone">Telephone.</param>
+            <param name="mobile">Mobile.</param>
+            <param name="email">Email.</param>
+            <returns>An instance of KreditorAPI.Address. If <paramref name="address"/> is null, returns null.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.SendInvoiceToCustomerViaPost(System.String)">
+            <summary>
+            Request Kreditor to send the invoice via post to the customer.
+            </summary> 
+            <param name="invoiceNo">Invoice number of the invoice to send.</param>
+            <returns>Status of the operation.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.SendInvoiceToCustomerViaEmail(System.String)">
+            <summary>
+            Request Kreditor to send the invoice via email to the customer.
+            If customers e-mail address was blank, invoice will be sent over normal post.
+            </summary> 
+            <param name="invoiceNo">Invoice number of the invoice to send.</param>
+            <returns>Status of the operation.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.GetError">
+            <summary>
+            Obtain the error string set by the API of a previous error.
+            </summary>
+            <returns>Error string.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.PeriodicCost(System.Int32,System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode)">
+            <summary>
+            Periodics the cost.
+            </summary>
+            <param name="sum">The sum.</param>
+            <param name="kreditorCampaignCode">The kreditor campaign code.</param>
+            <param name="country">The country.</param>
+            <returns>Amount to be displayed to user</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.PeriodicCost(System.Int32,System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode)">
+            <summary>
+            Periodics the cost.
+            </summary>
+            <param name="sum">The sum.</param>
+            <param name="kreditorCampaignCode">The kreditor campaign code.</param>
+            <param name="language">The language.</param>
+            <param name="country">The country.</param>
+            <param name="currency">The currency.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.GetCampaignCodes(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode)">
+            <summary>
+            Gets the campaign codes. The campaign codes returned depends on the 
+            current language, currency and country.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ConvertToCountryCode(System.String)">
+            <summary>
+            Convert the ISO 3166 code to country code enum.
+            </summary>
+            <example> Example country codes are:
+            <para>Denmark = "DK"</para>
+            <para>Finland = "FI"</para>
+            <para>Norway = "NO" </para>
+            <para>Sweden = "SE" </para>
+            </example>
+            <remarks>Only Denmark, Finland, Norway, Sweden supported by Kreditor.</remarks>
+            <param name="countryCode">String containing ISO 3166 code</param>
+            <returns>Converted enum.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ConvertToPersonalNumberCountry(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode)">
+            <summary>
+            Convert the country code to personal number country.
+            </summary>
+            <param name="countryCode">Country code.</param>
+            <returns>A PersonalNumberCountry</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ConvertToPersonalNumberCountry(System.String)">
+            <summary>
+            Convert the ISO 3166 code to PersonalNumberCountry enum.
+            </summary>
+            <remarks>Only Denmark, Finland, Norway, Sweden supported by Kreditor.</remarks>
+            <example> Example country codes are:
+            <para>Denmark = "DK"</para>
+            <para>Finland = "FI"</para>
+            <para>Norway = "NO" </para>
+            <para>Sweden = "SE" </para>
+            </example>
+            <param name="countryCode">Country code in ISO3166.</param>
+            <returns>A PersonalNumberCountry</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.FindLanguageAndCurrencyCodes(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode@,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode@,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry@)">
+            <summary>
+            Finds the corresponding language, currency and personalNumberCountry codes based on the country.
+            </summary>
+            <param name="currency">Currency.</param>
+            <param name="language">Language.</param>
+            <param name="country">Country.</param>
+            <param name="personalNumberCountry">PersonalNumberCountry.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.GetLanguageCodeByCountry(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode)">
+            <summary>
+            Gets the language code by country.
+            </summary>
+            <param name="country">The country.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ConvertToStatusCode(System.Int32)">
+            <summary>
+            Converts the <paramref name="code"/> to a <typeparamref cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StatusCode"/>
+            </summary>
+            <param name="code">code to convert.</param>
+            <returns><typeparamref cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StatusCode"/> if successful. <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StatusCode.Unknown"/> if not found.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.ConvertToGoodsList(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[])">
+            <summary>
+            Converts a list of invoice rows to a object array list.
+            This is required to call the Kreditor method call add_transaction.
+            </summary>
+            <param name="invoiceRows">Array of invoice rows.</param>
+            <returns>Object array containing internal XmlRpcStruct rows.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Validate(System.String,System.String)">
+            <summary>
+            Validates whether string value is not null or empty.
+            </summary>
+            <param name="name">Parameter name.</param>
+            <param name="value">Parameter value.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.GetPClass(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode)">
+            <summary>
+            Gets the P class.
+            </summary>
+            <param name="currency">The currency.</param>
+            <param name="country">The country.</param>
+            <param name="language">The language.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.KreditorClient">
+            <summary>
+            API instance.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address">
+            <summary>
+            Represent an address created by Kreditor function mk_addr.
+            Do not create an instance of this class directly, instead use <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeAddress(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress,System.String,System.String,System.String)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.MakeAddress(System.String,System.String,System.Int32,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.String,System.String,System.String)"/>
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address.#ctor(CookComputing.XmlRpc.XmlRpcStruct)">
+            <summary>
+            Creates an instance of the class.
+            </summary>
+            <param name="row">Row representing the invoice row. This row should have being created using the
+            kreditor function mk_goods</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address.Row">
+            <summary>
+            internal representation of the Invoice row
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow">
+            <summary>
+            Wraps a XmlRpcStruct that represents a row in the invoice of Kreditor system.
+            Do not directly create an instance of this class. Instead use KreditorAPI.MakeGoods method.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow.#ctor(CookComputing.XmlRpc.XmlRpcStruct,System.Int32,System.Int32,System.Double,System.Double)">
+            <summary>
+            Creates an instance of the class.
+            </summary>
+            <param name="row">Row representing the invoice row. This row should have being created using the
+            kreditor function mk_goods</param>
+            <param name="price">The price.</param>
+            <param name="quantity">The quantity.</param>
+            <param name="vatPercentage">The vat percentage.</param>
+            <param name="discountPercentage">The discount percentage.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow.Row">
+            <summary>
+            internal representation of the Invoice row
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow.Price">
+            <summary>
+            Gets or sets the price.
+            </summary>
+            <value>The price.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow.VatPercentage">
+            <summary>
+            Gets or sets the vat percentage
+            </summary>
+            <value>The vat percentage.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow.DiscountPercentage">
+            <summary>
+            Gets or sets the discount percentage.
+            </summary>
+            <value>The discount percentage.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>The quantity.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider">
+            <summary>
+            Facilitates payment through Kreditor payment provider.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.PERSONAL_NUMBER">
+            <summary>
+            Personal number for kreditor
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CAMPAIGN_CODE">
+            <summary>
+            Campaign code constant for kreditor
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.#ctor">
+            <summary>
+            Creates an instance of KreditorProvider
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetMonthlyAmount(System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the monthly amount.
+            </summary>
+            <param name="campaignCode">The campaign code. Campaign codes can be btained by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetCampaignCodes"/> method.</param>
+            <param name="token">The token.</param>
+            <returns>Amount the user has to pay each month</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetCampaignCodes">
+            <summary>
+            Gets the campaign codes. The campaign codes returned depends on the 
+            current language, currency and country.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetCampaignCodes(System.String,System.String,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the campaign codes.
+            </summary>
+            <param name="languageCode">The language code.</param>
+            <param name="countryCode">The country code.</param>
+            <param name="currencyCode">The currency code.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetMonthlyAmount(System.Decimal,System.String,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the monthly amount.
+            </summary>
+            <param name="orderGrandTotal">The order grand total.</param>
+            <param name="countryCode">The country code.</param>
+            <param name="campaignCode">The campaign code.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetMonthlyAmount(System.Decimal,System.String,System.String,System.String,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the monthly amount.
+            </summary>
+            <param name="orderGrandTotal">The order grand total.</param>
+            <param name="languageCode">The language code.</param>
+            <param name="countryCode">The country code. eg: SE, DK, FI, NO</param>
+            <param name="currencyCode">The currency code. eg: SEK, USD, EUR</param>
+            <param name="campaignCode">The campaign code. Campaign codes can be obtained by 
+            KreditorProvider.GetCampaignCodes(string languageCode, string countryCode, string currencyCode, SecurityToken token) static method. </param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.Double,System.Int32,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge the customer account directly.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethods"/></param>
+            <param name="clientLanguage">Language for printed invoice. Supported languages: nb-NO,da-DK,sv-SE,fi-FI
+            If the client language is empty, sv-SE swedish will be selected.</param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="countryCode">Country code to which personal number belongs to, as per ISO 3166 Code.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="clientIp">The client ip.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <example> Example country codes are:
+            <para>Denmark = "DK"</para>
+            	<para>Finland = "FI"</para>
+            	<para>Norway = "NO" </para>
+            	<para>Sweden = "SE" </para>
+            </example>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error. Check exception title and message information for more details.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String,System.Double,System.Int32,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve the money from customer account. You need to call, <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CompleteTransaction(Litium.Foundation.Security.SecurityToken)"/> or
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CancelTransaction(Litium.Foundation.Security.SecurityToken)"/> in order to complete the transaction or cancel it.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethods"/></param>
+            <param name="clientLanguage">Language for printed invoice. Supported languages: nb-NO,da-DK,sv-SE,fi-FI</param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="countryCode">Country code to which personal number belongs to, as per ISO 3166 Code.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="clientIp">The client ip.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ChargeCustomerAccount(System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge the customer account directly. The customer personal number should belong to the 
+            country where currency for the order is defined. And language will also be the main language in the
+            country to that currency belongs.
+            </summary>
+            <example>If the order currency is SEK, customer should be registered in Sweden, and language is Swedish.</example>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethods"/></param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <remarks> <paramref name="campaignCode"/> should be used to define part payments.
+            for this implementation, following are the codes:
+            <br/>115     6-month part payment
+            <br/>116     12-month part payment 
+            <br/>117     3-month part payment
+            </remarks>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge the customer account directly.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.GetPaymentMethods"/></param>
+            <param name="clientLanguage">Language for printed invoice. Supported languages: nb-NO,da-DK,sv-SE,fi-FI</param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="countryCode">Country code to which personal number belongs to, as per ISO 3166 Code.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ChargeCustomerAccount(System.Int16,System.String,System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge the customer account directly.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethods"/></param>
+            <param name="clientLanguage">Language for printed invoice. Supported languages: nb-NO,da-DK,sv-SE,fi-FI
+            If the client language is empty, sv-SE swedish will be selected.</param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="countryCode">Country code to which personal number belongs to, as per ISO 3166 Code.</param>
+            <example> Example country codes are:
+            <para>Denmark = "DK"</para>
+            <para>Finland = "FI"</para>
+            <para>Norway = "NO" </para>
+            <para>Sweden = "SE" </para>
+            </example>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error. Check exception title and message information for more details.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ChargeCustomerAccount(System.Int16,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge the customer account directly. The customer personal number should belong to the
+            country where currency for the order is defined. And language will also be the main language in the
+            country to that currency belongs.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.GetPaymentMethods"/></param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <example>If the order currency is SEK, customer should be registered in Sweden, and language is Swedish.</example>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.Int16,System.String,System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve the money from customer account. You need to call, <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CompleteTransaction(Litium.Foundation.Security.SecurityToken)"/> or
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CancelTransaction(Litium.Foundation.Security.SecurityToken)"/> in order to complete the transaction or cancel it.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethods"/></param>
+            <param name="clientLanguage">Language for printed invoice. Supported languages: nb-NO,da-DK,sv-SE,fi-FI</param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="countryCode">Country code to which personal number belongs to, as per ISO 3166 Code.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve the money from customer account. You need to call, <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CompleteTransaction(Litium.Foundation.Security.SecurityToken)"/> or
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CancelTransaction(Litium.Foundation.Security.SecurityToken)"/> in order to complete the transaction or cancel it.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by
+            <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.GetPaymentMethods"/></param>
+            <param name="clientLanguage">Language for printed invoice.
+            Supported languages: nb-NO,da-DK,sv-SE,fi-FI</param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="countryCode">Country code to which personal number belongs to, as per ISO 3166 Code.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve the money from customer account. You need to call, <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CompleteTransaction(Litium.Foundation.Security.SecurityToken)"/> or
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CancelTransaction(Litium.Foundation.Security.SecurityToken)"/> in order to complete the transaction or cancel it.
+            The customer personal number should belong to the 
+            country where currency for the order is defined. And language will also be the main language in the
+            country to that currency belongs.
+            </summary>
+            <example>If the order currency is SEK, customer should be registered in Sweden, and language is Swedish.</example>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethods"/></param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.Int16,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve the money from customer account. You need to call, <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CompleteTransaction(Litium.Foundation.Security.SecurityToken)"/> or
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CancelTransaction(Litium.Foundation.Security.SecurityToken)"/> in order to complete the transaction or cancel it.
+            The customer personal number should belong to the
+            country where currency for the order is defined. And language will also be the main language in the
+            country to that currency belongs.
+            </summary>
+            <param name="paymentMethod">Payment method Id. This is one of the keys returned by <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.GetPaymentMethods"/></param>
+            <param name="customerPersonalNumber">Social security number of customer.</param>
+            <param name="annualIncome">Annual income of the buyer. Not needed if total transaction amount is less than 6000SEK</param>
+            <param name="campaignCode">Campaing code specified by Kreditor. If no code specified, pass -1.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, false otherwise.</returns>
+            <example>If the order currency is SEK, customer should be registered in Sweden, and language is Swedish.</example>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CompleteTransaction(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes a transaction started by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.Int16,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.Int16,System.String,System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CancelTransaction(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Cancels a transaction started by <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.Int16,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReserveMoneyFromCustomerAccount(System.Int16,System.String,System.String,System.String,System.Double,System.Int32,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CancelPayment(Litium.Foundation.Modules.ECommerce.Plugins.CancelPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Cancels a current Payment. This is only possible in certain scenarios.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReturnPayment(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user. For Kreditor payment returns cannot be done.
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReturnPayment(Litium.Foundation.Modules.ECommerce.Plugins.ReturnPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethods">
+            <summary>
+            Gets a list of Payment methods. Dictionary contains the keys to use in ReserveMoneyFromCustomerAccount or in
+            ChargeCustomerAccount methods.
+            </summary>
+            <returns>Dictionary of key value pairs containing payment method Id, and payment method description.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethodsSupported">
+            <summary>
+            Gets a list of Payment methods.
+            </summary>
+            <returns>List of payment method description.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetPaymentMethodsSupported(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentMode)">
+            <summary>
+            Gets the list of payment methods supported, for the given execute payment mode.
+            Note that, some payment providers does not support all the payment methods for reserve mode.
+            </summary>
+            <param name="paymentMode">The payment mode.</param>
+            <returns>List of supported payment methods.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetAddresses(System.String,System.String)">
+            <summary>
+            Returns the set of addresses registered to the customers personal number.
+            </summary>
+            <remarks>Only Denmark, Norway, Sweden supported by Kreditor.</remarks>
+            <example> Example country codes are:
+            <para>Denmark = "DK"</para>
+            <para>Finland = "FI"</para>
+            <para>Norway = "NO" </para>
+            <para>Sweden = "SE" </para>
+            </example>
+            <param name="customerPersonalNumber">Customers personal number.</param>
+            <param name="countryCode">Country code to which personal number belongs to, as per ISO 3166 Code.</param>
+            <returns>List of addresses.</returns>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.SetBillingAddress(System.String,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Set the billing address information to the registered address information of customers personal security number.
+            </summary>
+            <param name="customerPersonalNumber">Personal security number, or company registration number.</param>
+            <param name="countryCode">Country code, as per ISO 3166 Code.</param>
+            <param name="token">Security token.</param>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeAddress(Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier)">
+            <summary>
+            Makes an address that can be passed to <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.Int32,System.Int32,System.String@)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,System.Int32,System.Int32,System.String@)"/> method.
+            </summary>
+            <param name="carrier"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRow(System.String,Litium.Foundation.Modules.ECommerce.Carriers.PaymentInfoRowCarrier)">
+            <summary>
+            Makes a KreditorAPI.InvoiceRow from a PaymetnInfoRowCarrier
+            </summary>
+            <param name="carrier">Order Row carrier.</param>
+            <param name="itemNo">The index no.</param>
+            <returns>An instance of KreditorAPI.InvoiceRow</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier)">
+            <summary>
+            Makes a KreditorAPI.InvoiceRow from a OrderRowCarrier
+            </summary>
+            <param name="carrier">Order Row carrier.</param>
+            <returns>An instance of KreditorAPI.InvoiceRow</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRow(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier)">
+            <summary>
+            Makes a delivery invoice row.
+            </summary>
+            <param name="carrier">delivery carrier</param>
+            <returns>A invoice row</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderCampaignCarrier)">
+            <summary>
+            Adds a campaign level discount row.
+            </summary>
+            <param name="carrier">Carrier.</param>
+            <returns>Invoice row.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderDiscountCarrier)">
+            <summary>
+            Adds a order level discount row.
+            </summary>
+            <param name="carrier">carrier.</param>
+            <returns>Invoice row.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRow(Litium.Foundation.Modules.ECommerce.Carriers.FeeCarrier)">
+            <summary>
+            Makes a KreditorAPI.InvoiceRow from a FeeCarrier
+            </summary>
+            <param name="carrier">Fee carrier.</param>
+            <returns>An instance of KreditorAPI.InvoiceRow</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ConvertToAddressCarrier(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress)">
+            <summary>
+            Converts the registered address to a address carrier.
+            </summary>
+            <remarks>First name of the returned address carrier is blank, since it is not provided by the 
+            kreditor API function.</remarks>
+            <param name="registeredAddress">Registered address.</param>
+            <returns>Address carrier, which contains data frm <paramref name="registeredAddress"/></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ConvertToRegisteredAddress(Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier)">
+            <summary>
+            Converts the address carrier to a registered address.
+            </summary>
+            <param name="carrier">Carrier to convert to a registered address.</param>
+            <returns>The registered address. If zip code is not correct, returns null.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.GetShipmentFee(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Calculate the shipment fee in lowest monetary unit based on deliveries in the order carrier.
+            </summary>
+            <param name="orderCarrier">Order carrier with complete information.</param>
+            <returns>Shipment fee in lowest monetary unit. If <paramref name="orderCarrier"/> is null, 0 is returned.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Executes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns>Results of executing payment.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.OnProviderCallback(System.Collections.Specialized.NameValueCollection,System.Boolean,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Method to execute when the Payment provider redirects back into Litium studio after a call to it.
+            </summary>
+            <param name="queryString">The query string.</param>
+            <param name="isSuccess">if the Payment provider result redirected to success, this is true, else false.</param>
+            <param name="token">The token.</param>
+            <remarks>
+            After calling any of the methods on the payment providers external API,
+            usually over a web service, over a HTTP post, remote procedure call or a similar method,
+            the payment provider will redirect the execution control back into Litium Studio.
+            <para>The execution control is given back by the provider by redirecting back to a Litium Studio page
+            or a entry port such as a webhandler, in most cases. </para>
+            	<para>Usually, this redirect location is given to the payment provider when calling the <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/> method.</para>
+            	<para>After getting the execution control back, this method should be called, irrespective of the result of the execution.</para>
+            	<para>In the implementation of this method, any post call back scenarios specific to payment provider should be handled.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.SyncPaymentStatusWithProvider(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Syncs the payment status with provider.
+            </summary>
+            <param name="token">The token.</param>
+            <remarks>On occations where communication line failures or other errors occur during communication with
+            payment provider, the payment status in Litium Studio may remain behind the internal status of the transaction
+            in payment provider.
+            <para>
+            For example, suppose a ExecutePayment is called, which will put the payment status to InitiatedDirectPayment,
+            but lets say the control does not return at all. The Payment status may remain at InitiatedDirectPayment
+            when viewed from Litium Studio. But at the payment providers end, this status can be Failed, Reserved, Paid, etc.        ///
+            </para>
+            	<para>This method should try to see whether a transaction exists in the target payment provider system,
+            and if it exists find out its status and adjust the Payment status accordingly.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRows(Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Makes invoice rows to be used in KreditorAPI.AddTransaction method.
+            </summary>
+            <param name="paymentInfo">PaymentInfo with complete information.</param>
+            <returns>Array of KreditorAPI.InvoiceRow</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.MakeInvoiceRows(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Makes invoice rows to be used in KreditorAPI.AddTransaction method.
+            </summary>
+            <param name="orderCarrier">Order carrier with complete information.</param>
+            <returns>Array of KreditorAPI.InvoiceRow</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ReconsileTotalAmounts(System.String,System.Collections.Generic.List{Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow})">
+            <summary>
+            Match the invoice total to the payment info total to weed out the rounding off error.
+            </summary>
+            <param name="itemNo">The index no.</param>
+            <param name="invoiceRows">The invoice rows.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.ValidateProvider">
+            <summary>
+            Check whether payment provider is valid.
+            </summary>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">For more details, check the error status properties in the exception object.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.PopulateOrderViewRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderViewRowCarrier)">
+            <summary>
+            Set the paymentmethod url to the pdf.
+            </summary>
+            <param name="orderViewRowCarrier"></param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.EncodeISO_8859_1(System.String)">
+            <summary>
+            Encodes the argument passed into UTF8.
+            </summary>
+            <param name="arg">The arg.</param>
+            <returns>UTF8 encoded string.</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CanReserveMoneyFromCustomerAccount">
+            <summary>
+            Can money be reserved from customer account.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CanChargeCustomerAccountDirectly">
+            <summary>
+            Can money be taken from customer account directly.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CanCompleteCurrentTransaction">
+            <summary>
+            Can complete the transaction.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CanCancelCurrentTransaction">
+            <summary>
+            Can cancel the current transaction.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CanReturnPayment">
+            <summary>
+            Can return payment to the customer. For Kreditor payment returns cannot be done in default implementation.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets the type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.CanEditPayment">
+            <summary>
+            Whether the payment can be edited to change payment provider, etc.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorProvider.AdminPanel">
+            <summary>
+            Gets the payment administratoin panels path.
+            </summary>
+            <value>The payment administration panels path.</value>
+        </member>
+        <member name="T:Kreditor.client">
+            <summary>
+            partial kreditor client to introduce pclass params.
+            </summary>
+        </member>
+        <member name="M:Kreditor.client.#ctor(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kreditor.client"/> class.
+            </summary>
+            <param name="language">The language.</param>
+            <param name="country">The country.</param>
+            <param name="currency">The currency.</param>
+        </member>
+        <member name="P:Kreditor.client.CurrentCurrency">
+            <summary>
+            Gets or sets the current currency. pClass values are returned for this currency.
+            </summary>
+            <value>The current currency.</value>
+        </member>
+        <member name="P:Kreditor.client.CurrentLanguage">
+            <summary>
+            Gets or sets the current language.
+            </summary>
+            <value>The current language.</value>
+        </member>
+        <member name="P:Kreditor.client.CurrentCountry">
+            <summary>
+            Gets or sets the current country.
+            </summary>
+            <value>The current country.</value>
+        </member>
+        <member name="T:Kreditor.pclass">
+            <summary>
+            Kreditor pClass modified to read from the PClass provider.
+            </summary>
+        </member>
+        <member name="M:Kreditor.pclass.get_months(System.Int32)">
+            <summary>
+            Get_monthses the specified pclass.
+            </summary>
+            <param name="pclass">The pclass.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kreditor.pclass.get_month_fee(System.Int32)">
+            <summary>
+            Get_month_fees the specified pclass.
+            </summary>
+            <param name="pclass">The pclass.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kreditor.pclass.get_start_fee(System.Int32)">
+            <summary>
+            Get_start_fees the specified pclass.
+            </summary>
+            <param name="pclass">The pclass.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kreditor.pclass.get_rate(System.Int32)">
+            <summary>
+            Get_rates the specified pclass.
+            </summary>
+            <param name="pclass">The pclass.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kreditor.pclass.get_type(System.Int32)">
+            <summary>
+            Get_types the specified pclass.
+            </summary>
+            <param name="pclass">The pclass.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kreditor.pclass.get_min_sum(System.Int32)">
+            <summary>
+            Get_min_sums the specified pclass.
+            </summary>
+            <param name="pclass">The pclass.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kreditor.pclass.get_pclass_ids">
+            <summary>
+            Get_pclass_ids
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kreditor.pclass.CurrentPClass">
+            <summary>
+            Gets the current P class.
+            </summary>
+            <value>The current P class.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider">
+            <summary>
+            Fetches the PClass parameters when used for first time from Kreditor,
+            and stores it locally to be reused.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider.GetPClass(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode)">
+            <summary>
+            Gets the P class.
+            </summary>
+            <param name="language">The language.</param>
+            <param name="country">The country.</param>
+            <param name="currency">The currency.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider.FetchPClassInstance(Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode)">
+            <summary>
+            Fetches the P class instance.
+            </summary>
+            <param name="currency">The currency.</param>
+            <param name="country">The country.</param>
+            <param name="language">The language.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider"/> class.
+            </summary>
+            <remarks>Private constructor for singleton.</remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+            <value>The instance.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider.PClassesByLanguage">
+            <summary>
+            Collection of StudioPClass based on language code.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PClassProvider.PClassesByLanguageByCountry">
+            <summary>
+            Collection of PClassesByLanguage based on country code.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode">
+            <summary>
+            ISO0639 language code.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode.Danish">
+            <summary>
+            ISO0639 language code for Danish
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode.English">
+            <summary>
+            ISO0639 language code for English
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode.Finnish">
+            <summary>
+            ISO0639 language code for Finnish
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode.Swedish">
+            <summary>
+            ISO0639 language code for Swedish
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode.Norwegian">
+            <summary>
+            ISO0639 language code for Norwegian
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PaymentMethod">
+            <summary>
+            Payment methods of Kreditor
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PaymentMethod.INVOICE">
+            <summary>
+            Invoice Payment.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PaymentMethod.PART_PAYMENT">
+            <summary>
+            Klarna invoice with campaign
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry">
+            <summary>
+            Country to which the personal number belongs to.
+            Personal number need to be specified in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,System.Int32,System.Int32,System.String@)"/> or <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.AddTransaction(System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.InvoiceRow[],System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType,System.Int32,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.KreditorAPI.Address,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.AddTransactionFlag,System.String,System.String,System.String,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CurrencyCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.CountryCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.LanguageCode,Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry,System.Int32,System.Int32,System.String@)"/>
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry.Fake">
+            <summary>
+            Fake country, used for testing.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry.Swedish">
+            <summary>
+            Person registered number is Swedish.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry.Norwegian">
+            <summary>
+            Person registered number is Norwegian.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry.Finnish">
+            <summary>
+            Person registered number is Finnish.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PersonalNumberCountry.Danish">
+            <summary>
+            Person registered number is Danish.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings">
+            <summary>
+            Provides configuration information about the kreditor payment provider from configuration file
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.STORE_ID">
+            <summary>
+            Key for store Id assigned by kreditor to merchant.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.SHARED_SECRET">
+            <summary>
+            Key for shared secret provided by creditor.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.XMLRPC_URL">
+            <summary>
+            Key for XMLRPC URL.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.CLIENT_IP_ADDRESS">
+            <summary>
+            Key for client IP address.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.IS_TEST_MODE">
+            <summary>
+            Key for isTestMode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.KREDITOR_INVOICE_URL">
+            <summary>
+            Key for invoice url, url where invoice pdf files are created.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.IS_INVOICE_ENABLED">
+            <summary>
+            Key for invoice enabled payment method.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.PAYMENT_MODE">
+            <summary>
+            key for the default payment mode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.PAYMENT_PROVIDER_ARGS_CREATOR_TYPE">
+            <summary>
+            key for the PaymentProviderArgsCreatorType
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.IS_PARTIAL_PAYMENT_ENABLED">
+            <summary>
+            Key for invoice partial payment enabled method.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.LoadConfiguration">
+            <summary>
+            Verifies the configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.StoreId">
+            <summary>
+            Store Id assigned by Kreditor.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.SharedSecret">
+            <summary>
+            Shared secret given by Kreditor.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.Url">
+            <summary>
+            Url of the XmlRpc server.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.InvoiceUrl">
+            <summary>
+            Gets or sets the invoice URL. This is the Url where invoice pdf files will be created in Kreditor.
+            </summary>
+            <value>The invoice URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.ClientIpAddress">
+            <summary>
+            IP address of client.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.IsTestMode">
+            <summary>
+            True if test mode, false otherwise.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.IsInvoiceEnabled">
+            <summary>
+            True if invoice payment method is enabled.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.DefaultPaymentMode">
+            <summary>
+            Gets the default payment mode.
+            </summary>
+            <value>The default payment mode.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.PluginSettings.IsPartialPaymentEnabled">
+            <summary>
+            True if invoice partial payment method is enabled.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress">
+            <summary>
+            Registered address.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.#ctor(System.String,System.String,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of RegisteredAddress
+            </summary>
+            <param name="careof">Care of.</param>
+            <param name="street">Street.</param>
+            <param name="zipCode">Post number.</param>
+            <param name="city">City.</param>
+            <param name="country">Country.</param>
+            <param name="email">Email.</param>
+            <param name="mobile">Mobile.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.Careof">
+            <summary>
+            Care Of.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.Street">
+            <summary>
+            Street.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.ZipCode">
+            <summary>
+            Post No.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.City">
+            <summary>
+            City.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.Country">
+            <summary>
+            Country.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.Mobile">
+            <summary>
+            Mobile.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.RegisteredAddress.Email">
+            <summary>
+            Email.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType">
+            <summary>
+            Shipment types used by Kreditor.Determines how long after
+            invoice activation Kreditor starts countdown to expiration date.
+            This can be negotiated with Kreditor.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType.Normal">
+            <summary>
+            Invoice activation in 3 days.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.ShipmentType.Express">
+            <summary>
+            Invoice activation immediately.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StatusCode">
+            <summary>
+            Status returned by API
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StatusCode.Unknown">
+            <summary>
+            Status unknown.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StatusCode.ERROR">
+            <summary>
+            Error.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StatusCode.OK">
+            <summary>
+            Ok.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass">
+            <summary>
+            A representation of Klarna pClass, for multi currency and multi language scenarios.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.#ctor(System.Object[])">
+             <summary>
+             Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass"/> class.
+             </summary>
+             <remarks>
+             Args is an array of arrays with strings containing the pclass values
+             0 = Pclass id number
+             1 = Description
+             2 = Amount of months for part payment
+             3 = Start fee
+             4 = Invoice fee
+             5 = Interest rate
+             6 = Minimum purchase amount for pclass
+             7 = Country
+             8 = Type (This is used to determine which pclass-id is an account and a campaign, 0 = campaign, 1 = account, 2 = special campaign i.e. x-mas campaign)
+            </remarks>
+             <param name="args">The args.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.GetValue(System.Object)">
+            <summary>
+            Read the value from string as a string, or get zero if not args param is not a int.
+            </summary>
+            <param name="args">argument to be converted to int.</param>
+            <returns>arg converted to int or 0 if not a int.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.Populate(System.Collections.Generic.Dictionary{System.Int32,System.Int32},System.String[],System.String[])">
+            <summary>
+            Populates the specified property.
+            </summary>
+            <param name="property">The property.</param>
+            <param name="keys">The keys.</param>
+            <param name="values">The values.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.Populate(System.Collections.Generic.List{System.Int32},System.String[])">
+            <summary>
+            Populates the specified property.
+            </summary>
+            <param name="property">The property.</param>
+            <param name="keys">The keys.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.CurrencyCode">
+            <summary>
+            Gets or sets the currency code.
+            </summary>
+            <value>The currency ID.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.LanguageCode">
+            <summary>
+            Gets or sets the LanguageCode.
+            </summary>
+            <value>The language code.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.MinSum">
+            <summary>
+            Gets or sets the min sum. original pclass function: public static int get_min_sum(int pclass)
+            </summary>
+            <value>The min sum.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.ClassType">
+            <summary>
+            Gets or sets the type of the class. original pclass function: public static int get_type(int pclass)
+            </summary>
+            <value>The type of the class.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.Rate">
+            <summary>
+            Gets or sets the rate. original pclass function: public static int get_rate(int pclass)
+            </summary>
+            <value>The rate.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.StartFee">
+            <summary>
+            Gets or sets the start fee. original pclass function: public static int get_start_fee(int pclass)
+            </summary>
+            <value>The start fee.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.MonthFee">
+            <summary>
+            Gets or sets the month fee. original pclass function: public static int get_month_fee(int pclass)
+            </summary>
+            <value>The month fee.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.Months">
+            <summary>
+            Gets or sets the months. original pclass function:  public static int get_months(int pclass)
+            </summary>
+            <value>The months.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>The country.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Kreditor.StudioPClass.PClassIds">
+            <summary>
+            Gets or sets the pc class ids.
+            </summary>
+            <value>The pc class ids.</value>
+        </member>
+    </members>
+</doc>

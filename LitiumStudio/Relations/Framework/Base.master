@@ -1,0 +1,239 @@
+<%@ Import Namespace="Litium.Foundation.Modules.Relations.FieldTemplates" %>
+<%@ Import Namespace="Litium.Studio.UI.Relations.Common.Constants" %>
+
+<%@ master language="C#" autoeventwireup="true" masterpagefile="~/LitiumStudio/Framework/LitiumStudio.master" inherits="LitiumStudio_Relations_Base, Litum.Studio.Web" %>
+
+<%@ MasterType VirtualPath="~/LitiumStudio/Framework/LitiumStudio.master" %>
+<%@ Register TagPrefix="ToolBar" TagName="ToolBarCommon" Src="~/LitiumStudio/WebUserControls/ToolBarCommonButtons.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="Server">
+	<link href="<%=Page.ResolveUrl("~/LitiumStudio/Relations/Styles/Relations.css")%>"
+		type="text/css" rel="stylesheet" />
+	<script language="javascript" type="text/javascript">
+	    function progressActivate(){
+		    progressDisableTags("INPUT");
+		    progressDisableTags("TEXTAREA");
+		    progressDisableTags("SELECT");
+		    var img = document.getElementById('imageProgress');
+		    if(img){
+			    img.src = 'Images/progress.gif';
+			    img.style.display = 'inline';
+		    }
+		    if(document.getElementById('textProgress'))
+			    document.getElementById('textProgress').style.display = 'inline';
+	    }
+	    function progressDisableTags(tagName){
+		    var tag = document.getElementsByTagName(tagName);
+		    for(i=0;i<tag.length;i++)
+			    tag[i].disabled = true;
+	    }
+	    
+	    var treeHasCopy = <%=LiteralHasCopy%>;
+	    function disableTreeToolbar(t,id,message)
+        {
+			if(document.getElementById(id))
+			    document.getElementById(id).lastChild.nodeValue = message;
+            // Check permission
+            var hasContentAll = <%=m_currentModule.PermissionManager.UserHasContentAllPermission(FoundationContext.User.ID, true, true).ToString().ToLower() %>;
+            toolbarItemAction('disable','0_0,0_1,0_2,0_3,0_4');
+            if (hasContentAll)
+                toolbarItemAction('activate','0_0');
+             
+            if(treeHasCopy == t)
+            {
+				toolbarItemAction('activate','0_6');
+				toolbarItemAction('disable','0_5');
+            }
+            else
+            {
+				toolbarItemAction('disable','0_5,0_6');
+            }
+           
+        }
+        ////////////////////////////
+        var maskpanel = function() {
+            this.divobj;
+            this.show = function(divId) {
+                var currentDiv = document.getElementById(divId);
+                currentDiv.style.overflow = "hidden";
+
+                if (!document.getElementById("xdivmasking")) {
+                    var divEle = document.createElement('div');
+                    divEle.setAttribute("id", "xdivmasking");
+
+                    currentDiv.appendChild(divEle);
+                    var divSty = document.getElementById("xdivmasking").style;
+                    divSty.position = "absolute"; divSty.top = "0px"; divSty.left = "0px";
+                    divSty.zIndex = "46"; divSty.opacity = "0"; divSty.backgroundColor = "#000";
+                    divSty.filter = "alpha(opacity=0)";
+                }
+
+                this.divobj = document.getElementById("xdivmasking");
+                this.divobj.style.height = currentDiv.clientHeight + 'px';
+                this.divobj.style.width = currentDiv.clientWidth + 'px';
+                this.divobj.style.display = "block";
+
+            };
+            this.hide = function() {
+                this.divobj.style.display = "none";
+            };
+        }
+
+        function hide_mask() {
+            divmask.hide();
+            var currentDiv = document.getElementById('LeftTreeDiv');
+            currentDiv.style.overflow = "auto";
+        }
+
+       function NodeBeforeSelect(sender, eventArgs) {
+            divmask = new maskpanel();
+            divmask.show('LeftTreeDiv');
+            setTimeout('hide_mask()', 300);
+           
+           }    
+           
+       function onClientContextMenuShowing(sender, args) {
+			var treeNode = args.get_node();
+			 if (treeNode == null) {
+					return;
+				}
+			treeNode.set_selected(true);
+			//change status of items enable/disable/hide/visible
+			var nodeValue = treeNode.get_value();
+			var userHasPermission = '<%=UserHasContentPermission%>' == 'True';
+			
+		    for (var i = 0; i < args.get_menu().get_items().get_count(); i++) {
+			var menuItem = args.get_menu().get_items().getItem(i);
+			switch (menuItem.get_value()) {
+			  case "ToolbarItemNew" :
+			        if(nodeValue.startsWith('<%=StringConstants.CHILD_GROUPS_NAME %>')){
+			            menuItem.set_text('<%=m_currentModule.Strings["ToolbarAddGroup", FoundationContext.LanguageID] %>');
+    			        menuItem.set_imageUrl('../../LitiumStudio/Images/icons_standard/businesspeople.png');
+			        }
+			        else{
+			            menuItem.set_text('<%=m_currentModule.Strings["ToolbarAddOrganization", FoundationContext.LanguageID] %>');
+			            menuItem.set_imageUrl('../../LitiumStudio/Images/icons_standard/office_building.png');
+			        }
+			        menuItem.set_enabled(userHasPermission);
+			    break;
+			  case "ToolbarItemManagePerson":
+			         menuItem.set_enabled(userHasPermission);break;
+			  case "ToolbarItemEdit" : menuItem.set_enabled(userHasPermission);break;
+			  case "ToolbarItemDelete" : menuItem.set_enabled(userHasPermission);break;
+			  case "ToolbarItemCut" :
+			  
+			    if(nodeValue.startsWith('<%=StringConstants.CHILD_GROUPS_NAME %>')){
+			        menuItem.set_enabled(false);
+			    }
+			    else{
+			        menuItem.set_enabled(userHasPermission);
+			    }
+			  break;
+			  case "ToolbarItemCopy" :  menuItem.set_enabled(userHasPermission);break;
+			  case "ToolbarItemPaste" :
+			  
+			        menuItem.set_enabled(false);
+			        var clipBoardValue = $get('<%= c_clipboardObjectValue.ClientID %>').value;
+			        if(clipBoardValue != '' && userHasPermission)
+			        {
+			            if((clipBoardValue.startsWith('<%=StringConstants.CHILD_GROUPS_NAME %>') && nodeValue.startsWith('<%=StringConstants.CHILD_GROUPS_NAME %>'))
+			                || (clipBoardValue.startsWith('<%=StringConstants.CHILD_ORGANIZATION_NAME %>') && nodeValue.startsWith('<%=StringConstants.CHILD_ORGANIZATION_NAME %>')))
+			              menuItem.set_enabled(true);
+			        }
+			  break;
+		    } 
+		    //PageMethods.GetSelectedItemInfo(callMethod_Success, callMethod_Failure); 
+		} 
+		}
+		
+		function onClientContextMenuItemClicking(sender, args) {
+			var menuItem = args.get_menuItem();
+			var treeNode = args.get_node();
+			var nodeValue = treeNode.get_value();
+			menuItem.get_menu().hide();			
+			
+			
+			switch (menuItem.get_value()) {
+				case "ToolbarItemDelete":
+			       
+			            var result = confirm('<%= m_currentModule.Strings["ConfirmDeleteOrganization", FoundationContext.LanguageID] %>');
+					    args.set_cancel(!result);
+			    break;
+			}
+		}
+		
+		
+		
+        ////////////////////////////
+	</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="LitiumStudioTopMenu" runat="Server">
+	<ToolBar:ToolBarCommon ID="c_commonToolBar" runat="server" />
+	<ComponentArt:Menu runat="server" ID="c_menuAdd" DefaultDisabledItemLookId="DisabledItemLook"
+		ImagesBaseUrl="~/LitiumStudio/Images/" CssClass="litNavMenuGroup" DefaultItemLookId="DefaultItemLook"
+		DefaultGroupItemSpacing="1" DefaultItemTextAlign="Left" DefaultItemTextWrap="false"
+		DefaultGroupExpandOffsetX="0" DefaultGroupExpandOffsetY="0" DefaultGroupExpandDirection="Auto"
+		TopGroupExpandDirection="BelowLeft" TopGroupExpandOffsetY="0" CollapseDuration="100"
+		CollapseSlide="ExponentialDecelerate" ExpandDuration="100" ExpandSlide="ExponentialDecelerate"
+		ExpandDelay="0" ExpandOnClick="false" CascadeCollapse="true" CollapseDelay="10000"
+		HideSelectElements="false" HighlightExpandedPath="true" KeyboardEnabled="true"
+		OverlayWindowedElements="true" ShadowColor="Gray" ShadowEnabled="true" ShadowOffset="2"
+		Orientation="Vertical" ContextMenu="Custom" ScrollingEnabled="true" ScrollDownLookId="ScrollDownItemLook"
+		ScrollUpLookId="ScrollUpItemLook" OnItemSelected="AddMenu_OnItemSelected">
+		<ItemLooks>
+			<ComponentArt:ItemLook LookId="DefaultItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded" ActiveCssClass="litNavMenuItemActive"
+				HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="DisabledItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem litDisabled" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+		</ItemLooks>
+	</ComponentArt:Menu>
+	<ToolBar:HorizontalToolbar ToolbarIndex="0" id="mc_toolbarRight" runat="server">
+		<ToolBar:ToolbarItem DisabledClass="litToolbarItem litToolbarItemDisabled" Class="litToolbarItem"
+			LinkClass="litToolbarLink" ImageClass="litIconCut" SelectedClass="litToolbarItem litToolbarItemSelected"
+			ImageURL="Images/transparent.gif" ID="c_toolbarItemCut" runat="server" />
+		<ToolBar:ToolbarItem DisabledClass="litToolbarItem litToolbarItemDisabled" Class="litToolbarItem"
+			LinkClass="litToolbarLink" ImageClass="litIconCopy" SelectedClass="litToolbarItem litToolbarItemSelected"
+			ImageURL="Images/transparent.gif" ID="c_toolbarItemCopy" runat="server" />
+		<ToolBar:ToolbarItem DisabledClass="litToolbarItem litToolbarItemDisabled" Class="litToolbarItem"
+			LinkClass="litToolbarLink" ImageClass="litIconPaste" SelectedClass="litToolbarItem litToolbarItemSelected"
+			ImageURL="Images/transparent.gif" ID="c_toolbarItemPaste" runat="server" />
+	</ToolBar:HorizontalToolbar>
+	<asp:ContentPlaceHolder ID="ToolbarRight" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="LitiumStudioMenu" runat="Server">
+	<LS:TreeHelper runat="server" ID="m_treeHelper" AssociatedControlID="LeftTree" />
+	<LS:ContextMenuHelper ID="ContextMenuHelper1" runat="server" AssociatedControlID="LeftTree" />
+	<Telerik:RadTreeView ID="LeftTree" runat="server" EnableViewState="false" PersistLoadOnDemandNodes="false"
+		OnNodeExpand="LeftTree_NodeExpand" OnNodeClick="Tree_NodeClick" OnClientContextMenuItemClicking="onClientContextMenuItemClicking"
+		OnClientContextMenuShowing="onClientContextMenuShowing" OnContextMenuItemClick="LeftTree_ContextMenuItemClick">
+		<ContextMenus>
+			<Telerik:RadTreeViewContextMenu ID="TreeContextMenu" runat="server" ExpandAnimation-Type="None"
+				ExpandDelay="0" CollapseAnimation-Type="None" CollapseDelay="0">
+				<Items>
+					<Telerik:RadMenuItem Value="ToolbarItemManagePerson" Text="Manage" ImageUrl="../../Images/icons_standard/businesswoman.png" />
+					<Telerik:RadMenuItem Value="AddSeparator" IsSeparator="true" />
+					<Telerik:RadMenuItem Value="ToolbarItemNew" Text="New Group" ImageUrl="../../Images/icons_standard/add.png" />
+					<Telerik:RadMenuItem Value="ToolbarItemView" Text="View" ImageUrl="../../Images/icons_standard/view.png" />
+					<Telerik:RadMenuItem Value="ToolbarItemEdit" Text="Edit" ImageUrl="../../Images/icons_standard/pencil.png" />
+					<Telerik:RadMenuItem Value="ToolbarItemDelete" Text="Delete" ImageUrl="../../Images/icons_standard/delete.png" />
+					<Telerik:RadMenuItem Value="AddSeparator" IsSeparator="true" />
+					<Telerik:RadMenuItem Value="ToolbarItemCut" Text="Cut" ImageUrl="../../Images/icons_standard/cut.png" />
+					<Telerik:RadMenuItem Value="ToolbarItemCopy" Text="Copy" ImageUrl="../../Images/icons_standard/copy.png" />
+					<Telerik:RadMenuItem Value="ToolbarItemPaste" Text="Paste" ImageUrl="../../Images/icons_standard/clipboard.png" />
+				</Items>
+			</Telerik:RadTreeViewContextMenu>
+		</ContextMenus>
+	</Telerik:RadTreeView>
+	<asp:HiddenField ID="c_clipboardObjectValue" runat="server" />
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="LitiumStudioContentHeading" runat="Server">
+	<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="LitiumStudioContent" runat="Server">
+	<asp:ContentPlaceHolder ID="ContentRight" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content6" ContentPlaceHolderID="LitiumStudioFilterArea" runat="Server">
+	<asp:ContentPlaceHolder ID="LitiumStudioFilterArea" runat="Server" />
+</asp:Content>

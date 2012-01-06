@@ -1,0 +1,1220 @@
+/***************** Nya klasser för version 4.1 ********************************/
+.litBodyAreaV2{margin:0px; padding:0px; overflow:hidden;}
+.litLogoAreaV2{right:0px; left:0px; top:0px; position:absolute; height:30px; padding:0px; padding-right:10px; background-color:#CEC7B0; background-image:url(litLogoArea.gif); background-repeat:no-repeat;}
+.litLogoutAreaV2{padding-top:7px;}
+.litNavAreaV2{right:0px; left:0px; top:30px; height:22px; width:100%; position:absolute; padding-left:0px; border-top:1px solid #A19E98; border-bottom:1px solid #A19E98; background-color:#E0DCCC; background:url(litNavArea.gif);}
+.litModuleAreaV2{right:0px; bottom:0px; top:54px; left:0px; position:absolute; width:100%; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 54 + 'px');}
+.litModuleTopAreaV2{height:28px; top:0px; left:0px; right:0px; position:absolute; padding-left:10px; padding-right:6px; padding-top:6px; padding-bottom:2px; background-color:#EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='1');}
+.litModuleMainAreaV2{overflow:auto; right:0px; bottom:0px; top:0px; left:0px; position:absolute; width:100%; height:100%;}
+.litModuleSearchAndStatusAreaV2{left:0; bottom:0px; position:absolute; width:229px; z-index:10;}
+.litModuleSearchAndStatusHeaderAreaV2{padding-left:5px; font-size:85%; font-weight:bold; color:#444444; height:18px; padding-top:4px; border-top:1px solid #A19E98; border-right:1px solid #A19E98; border-bottom:1px solid #A19E98; background-color:#E0DCCC;}
+.litModuleSearchAreaV2{padding:5px; height:22px; border-right:1px solid #A19E98; background-color: #EEEBE1;}
+.litModuleStatusAreaV2{height:68px; border-right:1px solid #A19E98; background-color: #EEEBE1;}
+.litModuleStatusTextV2{font-size:85%; padding-top:5px; padding-left:5px;}
+.litModuleTreeToolbarAreaV2{left:0px; top:36px; width:228px; padding-top:2px; height:20px; position:absolute; border-right:1px solid #A19E98; background: url(litToolbarArea.gif); border-top: 1px solid #A19E98; border-bottom: 1px solid #A19E98;}
+.litModuleTreeAreaV2{left:0px; top:60px; bottom:148px; width:228px; overflow:auto; position:absolute; border-right:1px solid #A19E98; background-color: #EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0'); height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 262 + 'px');}
+.litModuleContentWithTreeToolbarAreaV2{left:229px; top:36px; right:0px; padding-top:2px; height:20px; position:absolute; border-top: 1px solid #A19E98; border-bottom: 1px solid #A19E98; background: url(litToolbarArea.gif); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+.litModuleContentWithTreeAreaV2{right:0px; bottom:0px; top:60px; left:229px; position:absolute;}
+.litModuleContentWithTreeTopAreaV2{z-index:10; top:0px; right:0px; left:0px; position:absolute; height:34px; padding-left:10px; padding-right:10px; background-color:#E0DCCC; border-bottom:1px solid #A19E98; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 249 + 'px');}
+.litModuleContentWithTreeTopAreaSingleRowV2{z-index:10; top:0px; right:0px; left:0px; position:absolute; height:25px; padding-left:10px; padding-right:10px; padding-top:9px; background-color:#E0DCCC; border-bottom:1px solid #A19E98; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 249 + 'px');}
+.litModuleContentWithTreeMainAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:0px; right:0px; left:0px; position:absolute; background-color: #EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0'); height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 149 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+.litModuleContentWithTreeNoTopMainAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:0px; bottom:0px; right:0px; left:0px; position:absolute; background-color: #EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0'); height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 114 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+.litModuleContentWithTreeMainIframeAreaV2{overflow:hidden; top:35px; bottom:0px; right:0px; left:0px; position:absolute; background-color: #EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0'); height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 149 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+.litModuleContentWithTreeMainTabAreaV2{background-color:#F9F8F5; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%;}
+.litModuleContentWithTreeMainUnderTabAreaV2{background-color: #E0DCCC; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%;}
+.litModuleEditAreaV2{background-color: #E0DCCC; height:100%;}
+.litModuleContentWithTreeMainTabSizeV2{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 180 + 'px'); height:100%;}
+.litModuleContentWithTreeMainSizeV2{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 149 + 'px'); height:100%;}
+.litModuleContentWithTreeNoTopMainSizeV2{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 114 + 'px'); height:100%;}
+.litModuleIframeWithTreeAreaV2{background-color: #FFFFFF; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 149 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+.litModuleContentToolbarAreaV2{left:0px; top:36px; right:0px; padding-top:2px; width:100%; height:20px; position:absolute; border-top: 1px solid #A19E98; border-bottom: 1px solid #A19E98; background: url(litToolbarArea.gif);}
+.litModuleContentToolbarTabAreaV2{left:0px; top:76px; right:0px; padding-top:2px; width:100%; height:20px; position:absolute; border-top: 1px solid #A19E98; border-bottom: 1px solid #A19E98; background: url(litToolbarArea.gif);}
+.litModuleContentAreaV2{right:0px; bottom:0px; top:60px; left:0px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 114 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) + 'px'); width:100%;}
+.litModuleContentTabAreaV2{right:0px; bottom:0px; top:100px; left:0px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 154 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) + 'px'); width:100%;}
+.litModuleContentTopAreaV2{z-index:10; top:0px; padding-top:8px; right:0px; left:0px; position:absolute; height:26px; padding-left:10px; padding-right:10px; border-bottom:1px solid #A19E98; width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 20 + 'px'); background-color:#E0DCCC; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1');}
+.litModuleContentBottomAreaV2{z-index:10; bottom:0px; padding-top:10px; right:0px; left:0px; position:absolute; height:24px; padding-left:10px; padding-right:10px; background-color:#F9F8F5; border-top:1px solid #A19E98; width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 20 + 'px'); background-color:#E0DCCC; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1');}
+.litModuleContentMainAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:35px; right:0px; left:0px; position:absolute; width:100%; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 185 + 'px');}
+.litModuleContentMainWithPaddingAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:0px; padding:10px; right:0px; left:0px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 170 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 20 + 'px'); background-color:#EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0');}
+.litModuleContentMainWithPaddingTabAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:0px; padding:10px; right:0px; left:0px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 210 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 20 + 'px'); background-color:#EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0');}
+.litModuleContentMainTabAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:0px; right:0px; left:0px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 149 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) + 'px'); background-color:#E0DCCC; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0');}
+.litModuleContentMainTab2AreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:35px; right:0px; left:0px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 225 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) + 'px'); background-color:#E0DCCC; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0');}
+.litModuleContentMainTab3AreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:0px; right:0px; left:0px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 190 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) + 'px'); background-color:#E0DCCC; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0');}
+.litModuleContentMainTabTopAreaV2{top:36px; height:40px; bottom:0px; right:0px; left:0px; position:absolute; border-top:1px solid #A19E98; width:expression((document.documentElement.clientWidth || document.body.clientWidth) + 'px'); background-color:#E0DCCC;}
+.litListAreaV2{filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0'); background-color: #F4F2E9;}
+.litListAreaV2 table{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 17 + 'px'); width:100%; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');}
+.litListWithTreeAreaV2 table{width:100%; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');}
+.litListAreaV2 td, .litListWithTreeAreaV2 td, .litListWithTreeWithTabAreaV2 td{height:25px; border-bottom: 1px solid #FFFFFF; padding-left:10px;}
+.litListAreaV2 th, .litListWithTreeAreaV2 th, .litListWithTreeWithTabAreaV2 th{height:25px; border-bottom: 1px solid #FFFFFF; padding-left:10px; background-color:#E0DCCC;}
+.litPageStatusHeaderV2{font-weight:bold; font-size:100%;}
+.litGuideStarsV2{background: url(/LitiumStudio/Images/guide_bg.gif) no-repeat left bottom; z-index:-1; position:absolute; left:0px; bottom:0px; height:150px; width:200px;}
+.litTabAreaV2{padding:10px;}
+.litTabItemV2{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 17 + 'px'); width:100%; background-color: #FFFFFF;}
+.litTabTopItemV2{width:expression((document.documentElement.clientWidth || document.body.clientWidth) + 'px'); width:100%; background-color: #FFFFFF;}
+/*Nya för bl.a. Bildbanken*/
+.litModuleSearch2AreaV2{padding:5px; padding-bottom:0px; border-right:1px solid #A19E98; background-color: #EEEBE1;}
+/*.litModuleTreeWithTabToolbarAreaV2{left:0px; top:77px; width:228px; padding-top:2px; height:20px; position:absolute; border-right:1px solid #A19E98; background: url(litToolbarArea.gif); border-top: 1px solid #A19E98; border-bottom: 1px solid #A19E98;}
+.litModuleTreeWithTabAreaV2{left:0px; top:101px; bottom:80px; width:228px; overflow:auto; position:absolute; border-right:1px solid #A19E98; background-color: #EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='0'); height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 237 + 'px');}
+.litModuleContentWithTreeWithTabToolbarAreaV2{left:229px; top:77px; right:0px; padding-top:2px; height:20px; position:absolute; border-top: 1px solid #A19E98; border-bottom: 1px solid #A19E98; background: url(litToolbarArea.gif); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+.litModuleContentWithTreeWithTabAreaV2{right:0px; bottom:0px; top:101px; left:229px; position:absolute; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 155 + 'px');}
+.litModuleContentWithTreeWithTabTopAreaV2{z-index:10; top:0px; padding-top:9px; right:0px; left:0px; position:absolute; height:25px; padding-left:10px; padding-right:10px; background-color:#E0DCCC; border-bottom:1px solid #A19E98; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 249 + 'px');}*/
+.litModuleContentWithTreeWithPagerTopAreaV2{z-index:10; top:0px; padding-top:7px; right:0px; left:0px; position:absolute; height:27px; padding-left:10px; padding-right:10px; background-color:#E0DCCC; border-bottom:1px solid #A19E98; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 249 + 'px');}
+.litModuleContentWithTreeWithPagerMainAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:35px; right:0px; left:0px; position:absolute; background-color: #EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0'); height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 185 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+/*.litModuleContentWithTreeWithTabMainAreaV2{overflow-y:scroll; overflow:auto; overflow:-moz-scrollbars-vertical; top:35px; bottom:0px; right:0px; left:0px; position:absolute; background-color: #EEEBE1; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0'); height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 190 + 'px'); width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 229 + 'px');}
+.litModuleContentWithTreeWithTabMainTabSizeV2{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 221 + 'px'); height:100%;}
+.litModuleContentWithTreeWithTabMainSizeV2{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%; height:expression((document.documentElement.clientHeight || document.body.clientHeight) - 190 + 'px'); height:100%;}*/
+.litModuleContentWithTreeWithPagerBottomAreaV2{z-index:10; bottom:0px; padding-top:10px; right:0px; left:0px; position:absolute; height:24px; padding-left:10px; padding-right:10px; border-top:1px solid #A19E98; width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 249 + 'px'); background-color:#E0DCCC; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1');}
+.litListWithTreeWithTabAreaV2 table{width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 246 + 'px'); width:100%; filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');}
+
+
+/***************** DIVVAR ***************************************************/
+.litBorderOutArea{/*Den yttre ramen kring vyn*/
+/*	border: 1px solid #808080;
+	background-color:#F6F5F4;*/
+}
+.litBorderMidArea{/*Området mellan den yttre och innre ramen*/
+/*	border: 4px solid #F6F5F4;*/
+}
+.litBorderInArea{/*Den innre ramen kring vyn*/
+	border-left: 1px solid #A19E98;
+	border-right: 1px solid #A19E98;
+	border-bottom: 1px solid #A19E98;
+	background-color: #FFFFFF;
+}
+.litTopArea{/*Yta för toppen med huvudrubrik och hjälpikon*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='1');
+	height:32px;
+ 	padding-left:10px;
+	padding-right:6px;
+ 	padding-top:2px;
+ 	padding-bottom:2px;
+	background-color: #EEEBE1;
+}
+.litTopAreaBorder{/*Yta för toppen med huvudrubrik och hjälpikon*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='1');
+	height:32px;
+ 	padding-left:10px;
+	padding-right:6px;
+ 	padding-top:2px;
+ 	padding-bottom:2px;
+	background-color: #EEEBE1;
+	border-bottom: 1px solid #A19E98;
+	border-top: 1px solid #A19E98;
+}
+.litSearchArea{/*Yta för sökning*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FBFAF7', endColorstr='#EEEBE1', gradientType='1');
+	height:20px;
+ 	padding-left:10px;
+	padding-right:10px;
+ 	padding-top:5px;
+ 	padding-bottom:5px;
+	background-color: #F9F8F5;
+}
+.litSearchAdvArea{/*Yta för sökning*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FBFAF7', endColorstr='#EEEBE1', gradientType='1');
+	height:75px;
+ 	padding-left:10px;
+	padding-right:10px;
+ 	padding-top:5px;
+ 	padding-bottom:5px;
+	background-color: #F9F8F5;
+	display:none;
+}
+.litToolbarArea{/*Yta för Toolbar*/
+	width:100%;
+	height:19px;
+	background: url(litToolbarArea.gif);
+ 	padding-top:3px;
+	padding-bottom:2px;
+	border-top: 1px solid #A19E98;
+	border-bottom: 1px solid #A19E98;
+}
+.litContentTopArea{/*Yta för huvudet av listningen*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FBFAF7', endColorstr='#EEEBE1', gradientType='1');
+	height:16px;
+ 	padding-left:10px;
+	padding-right:10px;	
+ 	padding-top:9px;
+ 	padding-bottom:9px;
+	background-color: #F9F8F5;
+	border-bottom: 1px solid #A19E98;
+}
+.litContentTopAreaBorder{/*Yta för huvudet av listningen*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FBFAF7', endColorstr='#EEEBE1', gradientType='1');
+	height:16px;
+ 	padding-left:10px;
+	padding-right:10px;	
+ 	padding-top:9px;
+ 	padding-bottom:9px;
+	background-color: #F9F8F5;
+	border-bottom: 1px solid #A19E98;
+	border-top: 1px solid #A19E98;
+}
+.litContentArea{/*Yta för vanligt innehåll, inte lista eller flikvy*/
+	padding:10px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+	min-height:200px;
+	background-color: #EEEBE1;
+}
+.litFullContentArea{/*Yta för vanligt innehåll, inte lista eller flikvy*/
+	padding:10px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+	background-color: #EEEBE1;
+}
+.litListArea{/*Yta för innehållet av listningen*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+	background-color: #F4F2E9;
+	width:100%;
+}
+.litListAreaTable, .litListArea table{/*Tabellen i listningen*/
+	width:100%;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+}
+.litListAreaTd, .litListArea td{/*Celler i listningen*/
+	height:25px;
+	border-bottom: 1px solid #FFFFFF;
+	padding-left:10px;
+}
+.litListAreaTh, .litListArea th{/*Rubrikceller i listningen*/
+	height:25px;
+	border-bottom: 1px solid #FFFFFF;
+	padding-left:10px;
+	background-color:#E0DCCC;
+}
+.litListNoPaddingArea{/*Yta för innehållet av listningen*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+	background-color: #F9F8F5;
+	width:100%;
+}
+.litListNoPaddingArea table{/*Tabellen i listningen*/
+	width:100%;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+}
+.litListNoPaddingArea td{/*Celler i listningen*/
+	height:25px;
+	border-bottom: 1px solid #FFFFFF;
+}
+.litListNoPaddingArea th{/*Rubrikceller i listningen*/
+	height:25px;
+	border-bottom: 1px solid #FFFFFF;
+	background-color:#E0DCCC;
+}
+.litListHeaderRow{
+	background-color:#E0DCCC;
+	padding:5px;
+}
+.litListRowSelected{
+	background-color: #E0DCCC;
+}
+.litTabArea{/*Yta för innehåll i en flikvy*/
+	padding:10px;
+	padding-top:15px;
+	min-height:200px;
+}
+.litTabBackground{/*Bakgrundsyta för innehåll i en flikvy*/
+	background-color: #EEEBE1;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+}
+.litBehindTabsArea{
+	background-color:#F4F2E9;
+}
+.litContentBottomArea{/*Yta för foten av listningen*/
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='1');
+	height:16px;
+ 	padding-left:10px;
+	padding-right:10px;
+ 	padding-top:9px;
+ 	padding-bottom:9px;
+	background-color: #EEEBE1;
+	border-top: 1px #A19E98 solid;
+}
+.litContentBottomIconsArea{/*Yta för foten av listningen, används med ikoner av höjden 24px*/
+/*	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='1');
+	height:24px;
+ 	padding-left:10px;
+	padding-right:10px;
+ 	padding-top:9px;
+ 	padding-bottom:9px;
+	background-color: #EEEBE1;
+	border-top: 1px #A19E98 solid;*/
+}
+.litHeaderArea{/*Yta för sidhuvud och meny*/
+	width:100%;
+}
+.litLogoArea{/*Yta för sidhuvud med logga och texten "Inloggad:"*/
+	height:30px;
+	padding:0px;
+	padding-right:10px;
+	background-color:#E0DCCC;
+	background: url(litLogoArea.gif);
+	background-repeat: no-repeat;
+}
+.litLogoImage{
+	display:none;
+}
+.litNavArea{/*Yta för navigering*/
+	height:22px;
+	background: url(litNavArea.gif);
+	padding-left:0px;
+	border: 1px solid #A19E98;
+}
+.litNavBackArea{/*Understa bakgrund för navigering, tonade i vertikal-led*/
+/*	z-index:1;
+	position:absolute;
+	left:0px;
+	top:41px;
+	width:100%;
+	height:11px;
+	background-color:#FFFFFF;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FFFFFF', endColorstr='#B1B1B1', gradientType='0');*/
+}
+.litNavFrontArea{/*Översta bakgrund för navigering, dimmad yta för att visa den undre bakgrunden (litNavBackArea)*/
+/*	z-index:2;
+	position:absolute;
+	left:0px;
+	top:30px;
+	width:100%;
+	height:22px;
+	background-color:#D6D0BA;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#A9934A', endColorstr='#A9934A', gradientType='1')progid:DXImageTransform.Microsoft.Alpha(opacity=30);*/
+}
+.litModuleArea{/*Bakgrundsyta för allt innehåll under menyn*/
+	height:auto;
+}
+.litLeftArea{/**/
+	float: left;
+/*	width: 50%;*/
+}
+.litRightArea{/**/
+	float: right;
+/*	width: 250px;*/
+}
+.litPageStatusHelpArea{/*Yta som visas innan förklaringen av sidikonerna i Publiceringsverktyget*/
+	border-top:1px solid #A19E98;
+	border-right:1px solid #A19E98;
+	border-bottom:1px solid #A19E98;
+	background-color:#E0DCCC;
+	padding-left:8px;
+	font-size:85%;
+	font-weight:bold;
+	color:#444444;
+}
+.litPageStatusArea{/*Yta som visas ovanför sidan vid redigering i Publiceringsverktyget*/
+	border-bottom:1px solid #A19E98;
+	background-color:#E0DCCC;
+	padding:5px;
+}
+.litEditStatusArea{/*Yta som visas ovanför sidan vid redigering i Publiceringsverktyget, under redigering eller arbetskopia*/
+	border-bottom:1px solid #A19E98;
+	background:url(litEditStatusArea.gif);
+	background-repeat: no-repeat;
+	background-color:#E0DCCC;
+	padding:5px;
+}
+.litTreeArea{/*Yta som visar sidträdet i Publiceringsverktyget*/
+	border-right:1px solid #A19E98;
+	padding-top:15px;
+	padding:10px;
+}
+.litBorderRight{/*Ram som används i Publiceringsverktyget*/
+	border-right:1px solid #A19E98;
+}
+.litEditArea{
+	/*background:url(litEditArea.gif);*/
+}
+.litEditArea td{
+	padding:5px;
+	padding-top:0px;	
+}
+.litInputLeftArea{
+	padding-left:9px!important;
+	padding-right:9px!important;
+	padding-top:8px!important;
+	border-right:1px solid #A19E98;
+}
+.litInputRightArea{
+    padding-left:8px!important;
+    padding-top:6px!important;
+}
+/*ny*/
+.litInputArea{
+    padding-left:9px!important;
+    padding-right:9px!important;
+    padding-top:10px!important;
+}
+.litDisabled{
+  filter:alpha(opacity=50) gray!important;
+  -moz-opacity:0.4;
+  opacity: 0.4;
+}
+
+
+/***************** FLIKAR ***************************************************/
+.litTabItem{
+	background-color: #FFFFFF;
+}
+.litTabItemLI{
+	background:url("litTabItemLI.gif") no-repeat left top;
+}
+.litTabItemLICurrent{
+	background:url("litTabItemLI.gif") no-repeat left -150px;
+}
+.litTabItemLink{
+	background:url("litTabItemA.gif") no-repeat right top;
+	color:black! important;
+}
+a.litTabItemLink:link, a.litTabItemLink:hover, a.litTabItemLink:active, a.litTabItemLink:visited, a.litTabItemLinkLarge, a.litTabItemLinkLarge:link, a.litTabItemLinkLarge:hover, a.litTabItemLinkLarge:active, a.litTabItemLinkLarge:visited, a.litTabItemCurrentLink, a.litTabItemCurrentLink:link, a.litTabItemCurrentLink:hover, a.litTabItemCurrentLink:active, a.litTabItemCurrentLink:visited{
+    color:black! important;
+}
+.litTabItemLinkDisabled{
+	background:url("litTabItemA.gif") no-repeat right top;
+	color:gray!important;
+}
+.litTabItemLinkLarge{
+	background:url("litTabItemA.gif") no-repeat right top;
+}
+
+
+/***************** MENY ***************************************************/
+.litNavTopGroup{
+  cursor:default; 
+}
+.litNavMenuGroup{
+  background-image:url(litNavMenuGroup.gif);
+  background-color:white;
+  border:solid 1px #A19E98; 
+  cursor:default; 
+}
+.litNavTopMenuItem{
+  border-top:solid 1px #F4F3EF;
+  cursor:default; 
+}
+.litNavTopMenuItem td, .litNavTopMenuItemHover td, .litNavTopMenuItemExpanded td, .litNavTopMenuItemActive td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavTopMenuItem nobr{
+  margin-left:1px;
+  margin-right:1px;
+}
+.litNavTopMenuItemHover, .litNavTopMenuItemExpanded, .litNavTopMenuItemActive{
+  background-color:#E8E5DB; 
+  border:solid 1px #A19E98; 
+  cursor:default; 
+}
+.litNavMenuItem{
+  margin:1px; 
+  cursor:default; 
+}
+.litNavMenuItem td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavMenuItemHover {
+  background-color:#E8E5DB; 
+  border:solid 1px #E8E5DB; 
+  cursor:default; 
+}
+.litNavMenuItemHover td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavMenuItemActive{
+  margin:1px; 
+  cursor:default; 
+}
+.litNavMenuItemActive td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavMenuItemExpanded{
+  margin:1px; 
+  cursor:default; 
+}
+.litNavMenuItemExpanded td{
+  color:black; 
+  font-family:tahoma,arial,verdana; 
+  font-size:85%; 
+}
+.litNavMenuBreak{
+  background-image:url(/LitiumStudio/Images/navigation/break_bg.gif);
+  width:100%;
+  height:1px;
+}
+
+
+/***************** INLOGGING ***************************************************/
+.litLoginBg{/*Bakgrundsfärg i den inre ytan*/
+	background-color:#E8E5DB;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FFFFFF', endColorstr='#E0DCCC', gradientType='0');
+}
+.litLoginBgTop{/*Bakgrundsfärg i den inre ytan längs upp*/
+	background-color:#E8E5DB;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FFFFFF', endColorstr='#FFFFFF', gradientType='0');
+}
+.litLoginBgBottom{/*Bakgrundsfärg i den inre ytan längs ner*/
+	background-color:#E8E5DB;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#E0DCCC', gradientType='0');
+}
+.litLoginCopyright{/*Färg för copyrighttexten*/
+	COLOR:#FFFFFF;
+}
+.litLoginContact, .litLoginContactLink{/*Kontakttexten*/
+	COLOR:#AAAAAA!important;
+}
+
+
+/***************** MODULVAL & KONTROLLPANEL **********************************/
+.litBoxBg{/*Bakgrundsfärg i den inre ytan*/
+
+}
+.litBoxBgBottom{/*Bakgrundsfärg i den inre ytan längs ner*/
+	background-color:#E8E5DB;
+}
+.litBoxBgTop{/*Bakgrundsfärg i den inre ytan längs upp*/
+	background-color:#E8E5DB;
+}
+.litBoxName{/*Den horisontella strimman*/
+    font-size:90%;
+	height:20px;
+	padding:3px;
+	padding-top:0px;
+	font-weight:bold;
+	color:#666666;
+	background-color:#E8E5DB;
+}
+.litBoxIcon{/*Bakgrundsfärg i ytan för ikonen*/
+	background-color:#F9F8F5;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FFFFFF', endColorstr='#E8E5DB', gradientType='0');
+	height:50px;
+	COLOR:#AAAAAA;
+}
+.litBoxVersion{/*Bakgrundsfärg i ytan för versionsnummer*/
+	COLOR:#AAAAAA;
+}
+
+
+/***************** FÄRG PÅ TEXTER OCH LINJER ********************************/
+.litPageTitle{/*Rubrik för en sida, ex. Kontrollpanelen*/
+	color:#666666;
+}
+.litPageSubTitle{/*Underrubrik för en sida, ex. Kontrollpanelen*/
+	color:#666666;
+}
+.litTitleUnderLine{/*Linje under rubrik för en sida, ex. Kontrollpanelen*/
+	border-bottom:1px solid #AAAAAA;
+}
+.litHeader{/*Vyrubrik*/
+	color:#444444;
+}
+.litPageStatus{/*Vyrubrik*/
+	color:#555555;
+}
+
+
+/***************** GUIDE ********************************/
+.litGuideBox{/*Kvadraten med modulikon*/
+	width:58px;
+	height:59px;
+	border:2px solid white;
+	padding-top:24px;
+	padding-right:25px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#FFFFFF', endColorstr='#EEEBE1', gradientType='0');
+}
+.litGuideBoxIcon{/*Modulikonen i kvadraten*/
+/*	filter:progid:DXImageTransform.Microsoft.MotionBlur(Strength=15,Direction=270);*/
+}
+.litGuideStars{/*Stjärnorna under kvadraten*/
+	background: url(/LitiumStudio/Images/guide_bg.gif) no-repeat left bottom;
+	height:111px;
+ }
+.litGuideStars2{/*Stjärnor i botten, används i fullhöjdsvy*/
+	background: url(/LitiumStudio/Images/guide_bg.gif) no-repeat left bottom;
+}
+
+
+/***************** TOOLBARKNAPPAR ********************************/
+.litToolbarItemOnMouseDown, .litToolbarItemSelected{
+	background-color: #E8E5DB;
+}
+.litToolbarLink, a.litToolbarLink:link, a.litToolbarLink:active, a.litToolbarLink:hover, a.litToolbarLink:visited{
+    COLOR: #000000! important;
+    Font-WEIGHT: normal! important;
+}
+
+
+/***************** AJAX-GRID (ComponentArt) ********************************/
+.Grid{ 
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#EEEBE1', endColorstr='#FBFAF7', gradientType='0');
+    background-color: #EEEBE1;
+    border-bottom: 1px solid #A19E98; 
+}
+.Grid P, .Grid TD, .Grid TR, .Grid DIV, .Grid INPUT, .Grid SELECT, .Grid TEXTAREA{
+    COLOR: #000000;
+}
+.GridHeader{
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1');
+    background-color:#E0DCCC;
+    border-bottom:1px solid #A19E98;
+}
+.GridHeaderText{
+    color: #FFFFFF;
+}
+.GridFooter{
+    filter:progid:DXImageTransform.Microsoft.Gradient(startColorstr='#E0DCCC', endColorstr='#FBFAF7', gradientType='1');
+    background-color:#E0DCCC;
+    border-top: 1px solid #A19E98; 
+}
+.GridFooterText{
+    color: #000000;  
+}
+.HeadingRow{ 
+    background-color: #E0DCCC; 
+}
+.HeadingCell{ 
+    background-color:#E0DCCC;
+    border-bottom: 1px solid #FFFFFF;
+}
+.HeadingCellActive{ 
+    background-color: #E0DCCC; 
+}
+.HeadingCellText{
+    color: #000000;
+}
+.Row td.DataCell{ 
+    border-bottom: 1px solid #FFFFFF;
+}
+.SortedDataCell{ 
+    background-color: #E0DCCC; 
+} 
+.SelectedRow td.DataCell{ 
+    background-color: #E0DCCC; 
+    border-bottom: 1px solid #FFFFFF;
+}
+.HoverRow td.DataCell{
+    background-color:#FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+}
+.GroupHeading{
+    background-color: #FFFFFF; 
+    border-bottom: 2px solid #A19E98; 
+}
+.SliderBottom{
+    background-color:#D6D0BC;
+}
+.SliderPopup{
+    background-color: #EEEBE1; 
+    border: 1px solid #A19E98; 
+}
+
+
+/***************** IKONER ***************************************************/
+.litIconUpDown{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/up_down_16px.png); 
+}
+.litIconArrowLeft{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/arrow_left_blue_16px.png); 
+}
+.litIconArrowRight{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/arrow_right_blue_16px.png); 
+}
+.litIconSortDescending{
+	height:16px;
+	margin-left: 4px;
+	background-image: url(/LitiumStudio/Images/icons_standard/sort_descending_16px.png); 
+}
+.litIconSortAscending{
+	height:16px;
+	margin-left: 4px;
+	background-image: url(/LitiumStudio/Images/icons_standard/sort_ascending_16px.png); 
+}
+.litIconView{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/view_16px.png); 
+}
+.litIconDelete2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/delete2_16px.png); 
+}
+.litIconRefresh{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/refresh_16px.png); 
+}
+.litIconAdd2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/add2_16px.png); 
+}
+.litIconAdd2_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/add2_16px.png); 
+}
+.litIconPencil{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/pencil_16px.png); 
+}
+.litIconExport2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/export2_16px.png);
+}
+.litIconImport2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/import2_16px.png);
+}
+.litIconError{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/error_16px.png);
+}
+.litIconOk{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/check2_16px.png);
+}
+.litIconWarning{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/warning_16px.png);
+}
+.litIconFind{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/find_16px.png);
+}
+.litIconKeys{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/keys_16px.png);
+}
+.litIconArrowDownBlue{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/arrow_down_blue_16px.png); 
+}
+.litIconArrowDownBlue_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/arrow_down_blue_16px.png); 
+}
+.litIconArrowUpBlue{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/arrow_up_blue_16px.png); 
+}
+.litIconArrowUpBlue_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/arrow_up_blue_16px.png); 
+}
+.litIconTextBold{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_bold_16px.png); 
+}
+.litIconTextItalics{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_italics_16px.png); 
+}
+.litIconTextUnderlined{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_underlined_16px.png); 
+}
+.litIconTextAlignLeft{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_align_left_16px.png); 
+}
+.litIconTextAlignRight{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_align_right_16px.png); 
+}
+.litIconTextAlignCenter{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_align_center_16px.png); 
+}
+.litIconTextAlignJustified{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_align_justified_16px.png); 
+}
+.litIconCopy{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/copy_16px.png); 
+}
+.litIconCopy_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/copy_16px.png); 
+}
+.litIconCut{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/cut_16px.png); 
+}
+.litIconCut_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/cut_16px.png); 
+}
+.litIconPaste{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/paste_16px.png); 
+}
+.litIconPaste_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/paste_16px.png); 
+}
+.litIconEnvironment{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/environment_16px.png); 
+}
+.litIconTextRichColored{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/text_rich_colored_16px.png); 
+}
+.litIconGear{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/gear_16px.png); 
+}
+.litIconColumnAddAfter{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/column_add_after_16px.png); 
+}
+.litIconColumnAddBefore{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/column_add_before_16px.png); 
+}
+.litIconColumnDelete{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/column_delete_16px.png); 
+}
+.litIconRowAddAfter{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/row_add_after_16px.png); 
+}
+.litIconRowAddBefore{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/row_add_before_16px.png); 
+}
+.litIconRowDelete{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/row_delete_16px.png); 
+}
+.litIconTableAdd{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/table_add_16px.png); 
+}
+.litIconTableDelete{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/table_delete_16px.png); 
+}
+.litIconDocumentOk{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_ok_16px.png);
+}
+.litIconDocumentPulse{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_pulse_16px.png);
+}
+.litIconAbout{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/about_16px.png);
+}
+.litIconDiskBlue{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/disk_blue_16px.png); 
+}
+.litIconDiskBlue2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/disk_blue_24px.png); 
+}
+.litIconHelp2{
+	height:24px;
+	margin-top: 4px;
+	background-image: url(/LitiumStudio/Images/icons_standard/help2_24px.png); 
+}
+.litIconStop{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/stop_16px.png); 
+}
+.litIconArrowLeftBlue{
+	height:24px;
+	background-image: url(/LitiumStudio/Images/icons_standard/arrow_left_blue_24px.png); 
+}
+.litIconUser3{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/user3_16px.png);
+}
+.litIconDoor2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/door2_16px.png);
+}
+.litIconLogout{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/logout_16px.png);
+}
+.litIconCheck{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/check_16px.png); 
+}
+.litIconLock{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/lock_16px.png); 
+}
+.litIconLockOpen{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/lock_open_16px.png); 
+}
+.litIconGarbageFull{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/garbage_full_16px.png); 
+}
+.litIconGarbageEmpty{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/garbage_empty_16px.png); 
+}
+.litIconGarbageEmpty_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/garbage_empty_16px.png); 
+}
+.litIconGarbageEmpty2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/garbage_empty_24px.png); 
+}
+.litIconArchive{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/archive_16px.png); 
+}
+.litIconArchive_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/archive_16px.png); 
+}
+.litIconArchive2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/archive_24px.png); 
+}
+.litIconDocumentExchange{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_exchange_16px.png); 
+}
+.litIconDocumentExchange2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_exchange_24px.png);
+}
+.litIconDocumentView{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_view_16px.png); 
+}
+.litIconDocumentView2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_view_24px.png); 
+}
+.litIconDocumentPreferences{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_preferences_24px.png); 
+}
+.litIconDocumentTime{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_time_24px.png); 
+}
+.litIconDocumentChart{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_chart_24px.png); 
+}
+.litIconEarthPreferences{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/earth_preferences_16px.png); 
+}
+.litIconEarthPreferences2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/earth_preferences_24px.png); 
+}
+.litIconRecycle{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/recycle_16px.png); 
+}
+.litIconGarbageDelete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/garbage_delete_16px.png); 
+}
+.litIconArchiveDelete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/archive_delete_16px.png); 
+}
+.litIconDocumentExchangeDelete{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_exchange_delete_16px.png); 
+}
+.litIconTemplate{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/template_16px.png); 
+}
+.litIconTemplate2{
+	height:32px;
+	background-image: url(/LitiumStudio/Images/icons_standard/template_32px.png); 
+}
+.litIconPageType{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/pagetype_16px.png); 
+}
+.litIconPageType2{
+	height:32px;
+	background-image: url(/LitiumStudio/Images/icons_standard/pagetype_32px.png); 
+}
+.litIconRequired{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/required.png); 
+}
+.litIconNavRightBlue{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/nav_right_blue_16px.png); 
+}
+.litIconDocumentFind{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_find_24px.png); 
+}
+.litIconDocumentFind2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_find_16px.png);
+}
+.litIconDocumentAdd{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_add_24px.png); 
+}
+.litIconDocumentAdd2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_add_16px.png); 
+}
+.litIconReplace2{
+	height:16px;
+	margin:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/replace2_16px.png); 
+}
+.litIconAdd{
+	height:16px;
+	margin-left:5px;
+	margin-top:3px;
+	background-image: url(/LitiumStudio/Images/icons_standard/add_16px.png);
+}
+.litIconDelete{
+	height:16px;
+	margin-left:5px;
+	margin-top:3px;
+	background-image: url(/LitiumStudio/Images/icons_standard/delete_16px.png);
+}
+.litIconDocumentGear{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_gear_16px.png);
+}
+.litIconDocumentGear2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/document_gear_24px.png);
+}
+.litIconGear2{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/gear_24px.png);
+}
+.litIconDocuments{
+	height:24px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/documents_24px.png);
+}
+.litIconBookOpen{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/book_open_16px.png);
+}
+.litIconGauge{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/gauge_16px.png); 
+}
+.litIconNootbookPreferences{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/notebook_preferences_16px.png); 
+}
+.litIconEdit{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/edit_16px.png); 
+}
+.litIconNootbookAdd{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/notebook_add_16px.png); 
+}
+.litIconCopyRecursively_NoText{
+	height:16px;
+	background-image: url(/LitiumStudio/Images/icons_standard/copy_recursively_16px.png); 
+}
+.litIconPresentationChart{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/presentation_chart_16px.png); 
+}
+.litIconLineChart{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/line_chart_16px.png);
+}
+.litIconDownload{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/import1_16px.png);
+}
+.litIconRemoveFromCategory{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/branch_delete_16px.png);
+}
+
+
+/***************** IKONER FÖR SIDSTATUS *******************/
+.litIconPSPubl{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_publ_16px.png);
+}
+.litIconPSPubl2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_publ2_16px.png);
+}
+.litIconPSPublWork{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_publ_work_16px.png);
+}
+.litIconPSPublHide{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_publ_hide_16px.png);
+}
+.litIconPSPublWorkHide{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_publ_work_hide_16px.png);
+}
+.litIconPSUnpubl{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_unpubl_16px.png);
+}
+.litIconPSUnpubl2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_unpubl2_16px.png);
+}
+.litIconPSUnpublWork{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_unpubl_work_16px.png);
+}
+.litIconPSUnpublHide{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_unpubl_hide_16px.png);
+}
+.litIconPSUnpublWorkHide{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_unpubl_work_hide_16px.png);
+}
+.litIconPSTimepubl{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_timepubl_16px.png);
+}
+.litIconPSTimepubl2{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_timepubl2_16px.png);
+}
+.litIconPSTimepublWork{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_timepubl_work_16px.png);
+}
+.litIconPSTimepublHide{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_timepubl_hide_16px.png);
+}
+.litIconPSTimepublWorkHide{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_timepubl_work_hide_16px.png);
+}
+.litIconPSWork{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_work_16px.png);
+}
+.litIconPSHide{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_hide_16px.png);
+}
+.litIconPSShow{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_show_16px.png);
+}
+.litIconPSApprove{
+	height:16px;
+	margin-right:5px;
+	background-image: url(/LitiumStudio/Images/icons_standard/ps_appr_16px.png);
+}
+
+
+/***************** HUVUDIKONER FÖR VYER *******************/
+.litIconMainError{
+	height:24px;
+	background-image: url(/LitiumStudio/Images/icons_standard/main_error_24px.png);
+}
+

@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Framework.Search.Lucene</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Framework.Search.Lucene.Querying.SearchQuery">
+            <summary>
+            Constructs and executes a query with optional filter, sorting and range, 
+            using the underlying Lucene search engine.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.SearchQuery.#ctor(Litium.Framework.Search.Lucene.SortFactory,Litium.Framework.Search.Lucene.FilterFactory,Litium.Framework.Search.Lucene.RangeQueryFactory,Litium.Framework.Search.Lucene.DocumentReader)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Lucene.Querying.SearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.SearchQuery.Execute(System.String,Lucene.Net.Search.Searcher)">
+            <summary>
+            Executes a free-text query using the supplied <see cref="T:Lucene.Net.Search.Searcher"/> instance.
+            </summary>
+            <param name="text">The free-text seach query.</param>
+            <param name="searcher">The <see cref="T:Lucene.Net.Search.Searcher"/> instance to be used when performing the search.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.SearchQuery.Execute(Litium.Framework.Search.SearchRequest,Lucene.Net.Search.Searcher)">
+            <summary>
+            Executes a query using the supplied <see cref="T:Lucene.Net.Search.Searcher"/> instance.
+            The query to be executed will be constructed from the information
+            supplied in the <see cref="T:Litium.Framework.Search.SearchRequest"/> parameter. 
+            </summary>
+            <param name="request">The information that will be used to construct a query.</param>
+            <param name="searcher">The <see cref="T:Lucene.Net.Search.Searcher"/> instance to be used when performing the search.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.SearchQuery.ExecuteFilterQuery(Litium.Framework.Search.SearchRequest,Lucene.Net.Search.Searcher)">
+            <summary>
+            Executes a filter query, which is faster than a standard query, aimed towards
+            one or more tags (<see cref="T:Litium.Framework.Search.Tag"/>) that were added at indexing time.
+            The filter will be constructed from the information supplied in <see cref="P:Litium.Framework.Search.SearchRequest.FilterTags"/>
+            and any information supplied in <see cref="P:Litium.Framework.Search.SearchRequest.Text"/> will be disregarded..
+            </summary>
+            <param name="request"></param>
+            <param name="searcher"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.SearchQuery.CompileQuery(Lucene.Net.Search.Query,Lucene.Net.Search.Query,System.Collections.ObjectModel.Collection{Litium.Framework.Search.Tag})">
+            <summary>
+            Constructs a <see cref="T:Lucene.Net.Search.Query"/> using the supplied base query 
+            (which was constructed using the information in <see cref="P:Litium.Framework.Search.SearchRequest.Text"/>),
+            a range query (constructed from <see cref="P:Litium.Framework.Search.SearchRequest.Ranges"/>) and
+            a collection of tags which values should be excluded from the result. 
+            </summary>
+            <param name="baseQuery">A query constructed using the information in <see cref="P:Litium.Framework.Search.SearchRequest.Text"/>.</param>
+            <param name="rangeQuery">Nullable range query constructed from <see cref="P:Litium.Framework.Search.SearchRequest.Ranges"/>.</param>
+            <param name="excludes">Nullable tag collection representing tag values to exclude from the result.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.SearchQuery.Parse(Litium.Framework.Search.SearchRequest)">
+            <summary>
+            Constructs a base query that will be used when querying an index.
+            This query which might be appended to if there are ranges, filters or excludes to consider.
+            </summary>
+            <param name="request">The search request.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.LiteralSearchQuery.#ctor(Litium.Framework.Search.Lucene.SortFactory,Litium.Framework.Search.Lucene.FilterFactory,Litium.Framework.Search.Lucene.RangeQueryFactory,Litium.Framework.Search.Lucene.DocumentReader)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Lucene.Querying.LiteralSearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.LiteralSearchQuery.Parse(Litium.Framework.Search.SearchRequest)">
+            <summary>
+            Constructs a <see cref="T:Lucene.Net.Search.Query"/> using <see cref="T:Lucene.Net.QueryParsers.MultiFieldQueryParser"/>, 
+            interpreting spaces in the search phrase as "AND". In other words, all terms in the 
+            phrase may create a match.
+            Before parsing all operators in the phrase will be escaped, which means the text
+            is interpreted literaly and operators are not allowed as means to configure the query.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Litium.Framework.Search.Lucene.LuceneSearchService">
+            <summary>
+            Search service
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.LuceneSearchService.CurrentVersion">
+            <summary>
+            Current search version
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.LuceneSearchService.#ctor(Litium.Framework.Search.Configuration.IConfigurationService,Litium.Framework.Search.Lucene.IQueryLocator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Lucene.LuceneSearchService"/> class.
+            </summary>
+            <param name="configurationService">The configuration service.</param>
+            <param name="queryLocator">The query locator.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.StopWordEvaluator.LoadStopWords">
+            <summary>
+            Loads the stop words.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.StopWordEvaluator.IsStopWord(System.String)">
+            <summary>
+            Determines whether [is stop word] [the specified token].
+            </summary>
+            <param name="token">The token.</param>
+            <returns>
+            	<c>true</c> if [is stop word] [the specified token]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.Identifier">
+            <summary>
+            The indentifyer for an entity. Should be unique within an index.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.Title">
+            <summary>
+            Tokenized title field.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.TitleReversed">
+            <summary>
+            Tokenized, reversed title field. Useful for leading wildcard searches.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.TitleTerm">
+            <summary>
+            Title stored as a single term. Useful for trailing wildcard searches.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.TitleUntouched">
+            <summary>
+            Non-searchable title field. Used when returning a document from an index.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.Body">
+            <summary>
+            Tokenized body field.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.IndexName">
+            <summary>
+            Identifies the index where the document is stored. 
+            Used to determin a document's origin when performing multi-index searching.
+            </summary>
+        </member>
+        <member name="F:Litium.Framework.Search.Lucene.FieldNames.LanguageId">
+            <summary>
+            Identifies the index where the document is stored. 
+            Used to determin a document's origin when performing multi-index searching.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.FilterFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Lucene.FilterFactory"/> class. Default MinimumSimilarity to 0.5
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.FilterFactory.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Lucene.FilterFactory"/> class.
+            </summary>
+            <param name="minimumSimilarity">The minimum similarity.</param>
+        </member>
+        <member name="P:Litium.Framework.Search.Lucene.FilterFactory.MinimumSimilarity">
+            <summary>
+            <para>A positive number between 0 and 1 that regulates the "fuzzyness" of a fuzzy query.</para>
+            <para>In order to generate a hit, the distance between an indexed term X 
+            and a search term Y must be less than:</para>
+            <para>lenght(Y)*MinimumSimilarity</para>
+            <para>The distance is measured in the number of additions, deletions or modifications 
+            needed for the terms X and Y to be identical.</para>
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.FuzzySearchQuery.#ctor(Litium.Framework.Search.Lucene.SortFactory,Litium.Framework.Search.Lucene.FilterFactory,Litium.Framework.Search.Lucene.RangeQueryFactory,Litium.Framework.Search.Lucene.DocumentReader)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Lucene.Querying.FuzzySearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.FuzzySearchQuery.Parse(Litium.Framework.Search.SearchRequest)">
+            <summary>
+            Constructs a <see cref="T:Lucene.Net.Search.FuzzyQuery"/>.
+            The supplied text parameter will be split into terms, where each term will be 
+            made fuzzy and will each target the fields in <see cref="P:Litium.Framework.Search.Lucene.Querying.SearchQuery.DefaultTargetFields"/>.
+            Only hits if all terms are matched.
+            </summary>
+            <example>
+            <para>Given the search text "john rambo", 
+            the default target fields "Title" and "Body", 
+            and a <see cref="P:Litium.Framework.Search.Lucene.Querying.FuzzySearchQuery.MinimumSimilarity"/> or 0.5f, the following query will be constructed:</para>
+            <para>(Title:john~0.5 OR Body:john~0.5) AND (Title:rambo~0.5 OR Body:rambo~0.5)</para>
+            </example>
+        </member>
+        <member name="P:Litium.Framework.Search.Lucene.Querying.FuzzySearchQuery.MinimumSimilarity">
+            <summary>
+            <para>A positive number between 0 and 1 that regulates the "fuzzyness" of a fuzzy query.</para>
+            <para>In order to generate a hit, the distance between an indexed term X 
+            and a search term Y must be less than:</para>
+            <para>lenght(Y)*MinimumSimilarity</para>
+            <para>The distance is measured in the number of additions, deletions or modifications 
+            needed for the terms X and Y to be identical.</para>
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Lucene.Querying.FuzzySearchQuery.MinimumPrefixLength">
+            <summary>
+            A positive number between 0 and int.MaxValue that regulates how many starting
+            characters that needs to be identical when comparing an indexed term with a search term.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.OperatorSearchQuery.#ctor(Litium.Framework.Search.Lucene.SortFactory,Litium.Framework.Search.Lucene.FilterFactory,Litium.Framework.Search.Lucene.RangeQueryFactory,Litium.Framework.Search.Lucene.DocumentReader)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Lucene.Querying.OperatorSearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.OperatorSearchQuery.Parse(Litium.Framework.Search.SearchRequest)">
+            <summary>
+            Tries to construct a <see cref="T:Lucene.Net.Search.Query"/> using <see cref="T:Lucene.Net.QueryParsers.MultiFieldQueryParser"/>, 
+            interpreting spaces in the search phrase as "AND". In other words, all terms in the 
+            phrase are required for a match to occur.
+            Operators in the phrase are allowed and no characters will be escaped prior to
+            parsing, which means the parsing operation might fail.
+            If it fails the text is escaped (all operators will be interpreted literaly) and
+            the parsing will be done on the escaped text instead of the original text.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.TitlePrefixSearchQuery.#ctor(Litium.Framework.Search.Lucene.SortFactory,Litium.Framework.Search.Lucene.FilterFactory,Litium.Framework.Search.Lucene.RangeQueryFactory,Litium.Framework.Search.Lucene.DocumentReader)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Lucene.Querying.TitlePrefixSearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.TitlePrefixSearchQuery.Parse(Litium.Framework.Search.SearchRequest)">
+            <summary>
+            Constructs a <see cref="T:Lucene.Net.Search.WildcardQuery"/> that targets only the 
+            <see cref="F:Litium.Framework.Search.Lucene.FieldNames.TitleTerm"/> field.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.IndexSearcherCache.InvalidateIndexSearcher(System.String)">
+            <summary>
+            Invalidates the index searcher to trigger system to reload the file.
+            </summary>
+            <param name="indexPath">The index path.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.StringHelper.IsEnclosedInQuotation(System.String)">
+            <summary>
+            Determine whether or not a string is enclosed in quotations. 
+            Evaluates to false if the text is not enclosed in quotaions or 
+            if the enclosed text is empty.
+            </summary>
+            <param name="text">The string to evaluate.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.StringHelper.ContainsOperators(System.String)">
+            <summary>
+            Determine whether or not a string contains one of the following characters: 
+            * + -
+            </summary>
+            <param name="text">The string to evaluate.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.StringHelper.ContainsWildCard(System.String)">
+            <summary>
+            Determine whether or not a string contains one of the following characters: 
+            * % ~
+            </summary>
+            <param name="text">The string to evaluate.</param>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.StringHelper.ExtractTerms(System.String)">
+            <summary>
+            Extracts the terms.
+            </summary>
+            <param name="text">The text.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Litium.Framework.Search.Lucene.LuceneHit">
+            <summary>
+            An item fetched from a search index as a result of a query, including lucene document number.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.LuceneHit.#ctor(System.String,System.String,System.String,System.String,System.Single,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Lucene.LuceneHit"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.LuceneHit.#ctor(System.String,System.String,System.String,System.String,System.Single,System.Collections.ObjectModel.Collection{Litium.Framework.Search.Tag},System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Framework.Search.Lucene.LuceneHit"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Framework.Search.Lucene.LuceneHit.DocumentNumber">
+            <summary>
+            Gets or document number in the lucene index.
+            </summary>
+            <value>The document number.</value>
+        </member>
+        <member name="T:Litium.Framework.Search.Lucene.FuzzyFilterFactory">
+            <summary>
+            Fuzzy filter factory
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.TermSearchQuery.#ctor(Litium.Framework.Search.Lucene.SortFactory,Litium.Framework.Search.Lucene.FilterFactory,Litium.Framework.Search.Lucene.RangeQueryFactory,Litium.Framework.Search.Lucene.DocumentReader)">
+            <summary>
+            Creates a new instance of <see cref="T:Litium.Framework.Search.Lucene.Querying.TermSearchQuery"/>.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.Querying.TermSearchQuery.Parse(Litium.Framework.Search.SearchRequest)">
+            <summary>
+            Constructs a <see cref="T:Lucene.Net.Search.BooleanQuery"/> by splitting all words on the search phrase
+            into terms, where each term will target the fields in <see cref="P:Litium.Framework.Search.Lucene.Querying.SearchQuery.DefaultTargetFields"/>.
+            Exact match of each term is needed in order to generate a hit.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Litium.Framework.Search.Lucene.IQueryLocator">
+            <summary>
+            Locates <see cref="T:Litium.Framework.Search.Lucene.Querying.SearchQuery"/> derivatives by evaluating the search text 
+            and the component ID.
+            </summary>
+        </member>
+        <member name="M:Litium.Framework.Search.Lucene.IQueryLocator.Locate(System.String,System.String)">
+            <summary>
+            Locate <see cref="T:Litium.Framework.Search.Lucene.Querying.SearchQuery"/> derivatives by evaluating the search text 
+            and the component ID.
+            </summary>
+            <param name="text">The free-text search string.</param>
+            <param name="componentId">The component ID of the type.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

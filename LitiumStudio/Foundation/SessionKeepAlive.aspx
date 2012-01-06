@@ -1,0 +1,1 @@
+﻿<%@ page language="C#" autoeventwireup="true" inherits="LitiumStudio_Foundation_SessionKeepAlive, Litum.Studio.Web" %>

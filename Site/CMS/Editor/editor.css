@@ -1,0 +1,38 @@
+/*-----------------------------------------------------------------------------
+editor.css
+Used in: CMS
+Configuration: editorConfig.js
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+01. [HTML]
+02. [ADAPTED STYLES]
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+01. [HTML]
+-----------------------------------------------------------------------------*/
+body { color: #000; font: 75% Arial, verdana, sans-serif; }
+h1, h2, h3, h4, h5, h6 { margin-bottom: 1em; color: #333; }
+h2, h3, h4, h5, h6 { margin-top: 1em; margin-bottom: .5em; }
+h1 { font-size: 2em; margin-bottom: .5em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1em; font-weight: bold; }
+h4 { font-size: 1em; font-weight: bold; font-style: italic; }
+h5 { font-size: 1em; font-weight: normal; font-style: italic; }
+h6 { font-size: 1em; font-weight: normal; }
+
+/*-----------------------------------------------------------------------------
+02 [ADAPTED STYLE] Styles for editor drop down list
+-----------------------------------------------------------------------------*/
+.ImportantEditor{background-color:#808080; color:#FFFFFF;}
+
+
+div.padding { padding: 30px 10px 20px 20px; overflow: hidden; background-color: #510706;}
+div.foodmenupadding {padding:0 18px;}
+div.foodmenutop{}
+div.foodmenu { background-color: #fffee2; color: #413c29; font-family: Georgia, Arial, Sans-Serif; width:450px; }
+div.foodmenu div.foodmenupadding { padding: 0 18px; }
+div.foodmenu table { width: 100%; }
+div.foodmenu table tr td { padding-bottom: 20px; vertical-align: top; }
+div.foodmenu table tr td.price { text-align: right; width: 70px; }

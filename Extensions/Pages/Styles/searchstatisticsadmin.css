@@ -1,0 +1,19 @@
+.SectionContainer { overflow:scroll; }
+.Section { padding:15px; width:700px; }
+.SectionHeader { padding:5px; }
+.SectionContent { padding:10px; border-left:1px solid #AAAAAA; border-right:1px solid #AAAAAA; border-bottom:1px solid #AAAAAA; }
+
+.DateIntervalDatePickers { float:left; margin-left:10px; }
+.DateIntervalDateLinks { float:left; width:200px; margin-left:10px; }
+.DateIntervalDateLinks a { margin-left:2px; }
+.DateIntervalLabel { float:left; }
+
+.DeletehistoryDialog { display:none; }
+.DeletehistoryDialog select { width:100%; }
+
+.ChoosenSearchWordHitsList { }
+
+table.SearchedWords { width:100%; }
+table.SearchedWords tr th { padding:2px; text-align:left; }
+table.SearchedWords tr td { border:1px solid transparent; padding:2px; }
+table.SearchedWords tr .center { text-align:center!important; }

@@ -1,0 +1,2842 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Foundation.GUI</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Foundation.GUI.Constants.AccountTypeConstants">
+            <summary>
+            Account type constants used in Web.Config
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.AccountTypeConstants.AD">
+            <summary>
+            Account type is Active Directory.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.AccountTypeConstants.NOVELL">
+            <summary>
+            Account type is Novell.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.GlobalApplication">
+            <summary>
+            Global.asax should extend <see cref="T:Litium.Foundation.GUI.GlobalApplication"/> to startup application correctly.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.Application_Start(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Start event of the Application control.
+            </summary>
+            <remarks>Creates a Solution instance for the application domain.</remarks>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.Application_End(System.Object,System.EventArgs)">
+            <summary>
+            Handles the End event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            Handles the BeginRequest event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.Application_Error(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Error event of the Application control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.Session_OnStart(System.Object,System.EventArgs)">
+            <summary>
+            Handles the OnStart event of the Session control.
+            </summary>
+            <remarks>
+            Create FoundationContext object in Session, set default language and authenticate Active Directory users.
+            </remarks>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.Session_OnEnd(System.Object,System.EventArgs)">
+            <summary>
+            Handles the OnEnd event of the Session control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.CreateInstance">
+            <summary>
+            Creates a Solution instance for the application domain and stores it in Solution.Instance.
+            Also creates inits FoundationContext.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.GetSystemToken(Litium.Foundation.Solution,System.String,System.String)">
+            <summary>
+            Creates an internal system token from settings in Web.Config.
+            </summary>
+            <param name="solution">Solution.</param>
+            <param name="login">Login.</param>
+            <param name="password">Password.</param>
+            <returns>The system token.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.PrintApplicationError(System.Exception)">
+            <summary>
+            Prints the application error.
+            </summary>
+            <param name="e">Exception.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.GlobalApplication.PrintApplicationStartError(System.Exception)">
+            <summary>
+            Prints the application start error.
+            </summary>
+            <param name="e">Exception.</param>
+        </member>
+        <member name="T:Litium.Foundation.GUI.FoundationState">
+            <summary>
+            Foundation controls state.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationState.#ctor(Litium.Foundation.GUI.WebControlState)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Foundation.GUI.FoundationState"/> class.
+            </summary>
+            <param name="state">The web control state.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationState.CurrentCurrency">
+            <summary>
+            Gets the current currency.
+            </summary>
+            <value>The current currency.</value>
+        </member>
+        <member name="T:Litium.Foundation.GUI.ICurrencyIntroducer">
+            <summary>
+            Interface for currency introducer.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.ICurrencyIntroducer.CurrentCurrency">
+            <summary>
+            Gets the current currency.
+            </summary>
+            <value>The current currency.</value>
+        </member>
+        <member name="T:Litium.Foundation.GUI.AuthorizeUserFailedException">
+            <summary>
+            AuthorizeUserFailedException - exception sent to the error page when authorization failed.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.AuthorizeUserFailedException.m_title">
+            <summary>
+            Title.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.AuthorizeUserFailedException.m_url">
+            <summary>
+            Url where authorize failed.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.AuthorizeUserFailedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Foundation.GUI.AuthorizeUserFailedException"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.AuthorizeUserFailedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Foundation.GUI.AuthorizeUserFailedException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.AuthorizeUserFailedException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            When overridden in a derived class, sets the <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with information about the exception.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is a null reference (Nothing in Visual Basic).
+            </exception>
+            <PermissionSet>
+            	<IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Read="*AllFiles*" PathDiscovery="*AllFiles*"/>
+            	<IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="SerializationFormatter"/>
+            </PermissionSet>
+        </member>
+        <member name="M:Litium.Foundation.GUI.AuthorizeUserFailedException.#ctor(Litium.Foundation.GUI.FoundationContext,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="context">Foundation context.</param>
+            <param name="url">Raw Url.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.AuthorizeUserFailedException.Message">
+            <summary>
+            Exception message.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.AuthorizeUserFailedException.Url">
+            <summary>
+            The Url.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Constants.ContextConstants">
+            <summary>
+            Context constants.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ContextConstants.CURRENT_ERROR">
+            <summary>
+            Context constant for current error.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ContextConstants.CURRENT_URL">
+            <summary>
+            Context constant for current URL.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ContextConstants.ERROR_RETURN_URL">
+            <summary>
+            Context constant for error return url.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ContextConstants.MENU">
+            <summary>
+            Context constant for menu.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Constants.ParameterConstants">
+            <summary>
+            Parameter constants used in GET/POST.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.ERROR_MESSAGE">
+            <summary>
+            Error meaasge.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.ERROR_RETURN_URL">
+            <summary>
+            Return to url.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.ERROR_TITLE">
+            <summary>
+            Error title.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.MODULE_ID">
+            <summary>
+            Module
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.REDIRECT_URL">
+            <summary>
+            Redirect URL
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.SELECTED_ITEM_ID">
+            <summary>
+            Selected item.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.SELECTED_TAB_CONTENT_ALIAS">
+            <summary>
+            Selected tab alias.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.SELECTED_TAB_CONTENT_PATH">
+            <summary>
+            Selected tab path.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.SELECTED_TAB_INDEX">
+            <summary>
+            Selected tab index.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.USER_ID">
+            <summary>
+            User ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.PRICE_LIST_IN_EDIT_PRICE">
+            <summary>
+            Session value for price list in edit price page.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.ParameterConstants.MODULE_PANEL_ID">
+            <summary>
+            Panels Id.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Constants.SessionConstants">
+            <summary>
+            Session constants.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.CURRENT_USER_ID">
+            <summary>
+            Current user id
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.CURRENT_ERROR">
+            <summary>
+            Current error constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.CURRENT_SCREEN_HEIGHT">
+            <summary>
+            Current screen height constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.CURRENT_SCREEN_WIDTH">
+            <summary>
+            Current screen width constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.CURRENT_URL">
+            <summary>
+            Current url constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.ERROR_MESSAGE">
+            <summary>
+            Error message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.ERROR_RETURN_URL">
+            <summary>
+            Error return url constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.HORIZONTAL_MENU">
+            <summary>
+            Horizontal menu constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.SUB_PAGES">
+            <summary>
+            Sub pages constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.VERTICAL_MENU">
+            <summary>
+            Vertical menu constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SessionConstants.CONTROL_PANEL_SELECTED_NODE">
+            <summary>
+            Control Panel Selected Node
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Constants.SystemStringConstants">
+            <summary>
+            Constants for the system strings. These constants are used to get corresponding string 
+            from the system string collection.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_ADD">
+            <summary>
+            Add button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_BACK">
+            <summary>
+            Back button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_CANCEL">
+            <summary>
+            Cancel button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_CHANGE">
+            <summary>
+            Change button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_EXPORT">
+            <summary>
+            Export button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_FINISH">
+            <summary>
+            Finish button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_IMPORT">
+            <summary>
+            Import button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_LOGIN">
+            <summary>
+            Login button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_NEXT">
+            <summary>
+            Next button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_NEW">
+            <summary>
+            New button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_PREVIOUS">
+            <summary>
+            Previous button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_REMOVE">
+            <summary>
+            Remove button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_SAVE">
+            <summary>
+            Save button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_SELECT">
+            <summary>
+            Select button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.BUTTON_VIEW">
+            <summary>
+            View button constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_FEATURE_NOT_AVAILABLE_FOR_LICENSE">
+            <summary>
+            Feature not available for license error constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_FILE_UPLOAD">
+            <summary>
+            File upload failed.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_AUTHORIZE_USER_FAILED">
+            <summary>
+            Authorize user failed error constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_REQUIRED_MODULE_DOES_NOT_EXIST">
+            <summary>
+            Required module does not exist error constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_MODULE_PERMISSIONS_TITLE">
+            <summary>
+            Module license required error title constant.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_MODULE_LICENSE_PRODUCT_CATALOG">
+            <summary>
+            module license required error message constant.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_MODULE_LICENSE_MEDIA_ARCHIEVE">
+            <summary>
+            module license required error message constant.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_MODULE_LICENSE_ECOMMERCE">
+            <summary>
+            module license required error message constant.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ERROR_MODULE_LICENSE_RELATIONS">
+            <summary>
+            module license required error message constant.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_EMPTY">
+            <summary>
+            Grid empty constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_LOADING">
+            <summary>
+            Grid loading constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_OF">
+            <summary>
+            Grid of constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_PAGE">
+            <summary>
+            Grid page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_PAGES">
+            <summary>
+            Grid pages constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_RECORD">
+            <summary>
+            Grid record constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_RECORDS">
+            <summary>
+            Grid records constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.GRID_SEARCH">
+            <summary>
+            Grid search constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.ICONS">
+            <summary>
+            Icons name string constants
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.LABEL_PERMISSION_REQUIRED_EXCEPTION">
+            <summary>
+            Permission required exception label
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.LABEL_CONFIRMATION_DELETE">
+            <summary>
+            Confirmation delete label
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.LABEL_LANGUAGE_CONFIRMATION_DELETE">
+            <summary>
+            Confirmation language delete label
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.MESSAGE_ENTER_SEARCH_PHRASE">
+            <summary>
+            Toolbar cancel constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.SEARCH_ADVANCED">
+            <summary>
+            SearchAdvanced name string constants
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_BACK_TO_CONTROL_PANEL">
+            <summary>
+            Toolbar back to controlpanel constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_CHANGE">
+            <summary>
+            Toolbar change constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_DELETE">
+            <summary>
+            Toolbar delete constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_DELETE_ALL">
+            <summary>
+            Toolbar delete all constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_EDIT">
+            <summary>
+            Toolbar edit constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_EXPORT">
+            <summary>
+            Toolbar export constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_IMPORT">
+            <summary>
+            Toolbar import constnat
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_UPDATE">
+            <summary>
+            Toolbar update constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_NEW">
+            <summary>
+            Toolbar view constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_VIEW">
+            <summary>
+            Toolbar view constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_VIEW_DELIVERIES">
+            <summary>
+            Toolbar view deliveries constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_VIEW_ORDERS">
+            <summary>
+            Toolbar view orders constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_VIEW_PAYMENTS">
+            <summary>
+            Toolbar view payments constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_STRINGS">
+            <summary>
+            Toolbar strings constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_MODULE_PANELS">
+            <summary>
+            Toolbar module panels
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_BACK_TO_MODULES">
+            <summary>
+            Toolbar back to modules constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_BACK">
+            <summary>
+            Toolbar back constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_NEXT">
+            <summary>
+            Toolbar next constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_PREVIOUS">
+            <summary>
+            Toolbar previous constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_CANCEL">
+            <summary>
+            Toolbar cancel constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_FINISH">
+            <summary>
+            Toolbar finish constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_SAVE">
+            <summary>
+            Toolbar save constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_SAVE_AND_EXIT">
+            <summary>
+            Toolbar save and exit constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_SAVE_AND_CLOSE">
+            <summary>
+            Toolbar save and close constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_ADD">
+            <summary>
+            Toolbar add constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_PRINT">
+            <summary>
+            Toolbar print constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_NAVIGATION">
+            <summary>
+            Toolbar navigation constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_MALFORMED_DECIMAL_VALUE">
+            <summary>
+            Malformet decimal value validation message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_MALFORMED_EMAIL">
+            <summary>
+            Malformet email validation message cosntant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_PASSWORD_NOT_CONFIRMED">
+            <summary>
+            Password not confirmed validation méssage constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_REQUIRED_FIELD">
+            <summary>
+            Required field validation message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_PASSWORD_RULES">
+            <summary>
+            Password roles validation message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_VALUE_OUT_OF_RANGE">
+            <summary>
+            Value out of range validation message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_MALFORMED_VALUE">
+            <summary>
+            Malformed value validation message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_DUPLICATE_VALUE">
+            <summary>
+            Duplicated value validation message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.VALIDATION_MESSAGE_INVALID_INPUT">
+            <summary>
+            Invalid validation message constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.UTILITIES">
+            <summary>
+            Utilities name string constants
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_COPY">
+            <summary>
+            Toolbar to copy constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.SystemStringConstants.TOOLBAR_PASTE">
+            <summary>
+            Toolbar to paste constant
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Constants.UrlConstants">
+            <summary>
+            URL Constants.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.ERROR_PAGE">
+            <summary>
+            Error page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.LOGIN_PAGE">
+            <summary>
+            Login page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.CONTROL_PANEL_PAGE">
+            <summary>
+            Control panel page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.MY_SETTINGS_PAGE">
+            <summary>
+            My settings page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.VIEW_LICENSE">
+            <summary>
+            View license apge constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.SELECT_MODULE_PAGE">
+            <summary>
+            Select module page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.STURT_UP">
+            <summary>
+            Select module page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.STARTUP_INFO_PAGE">
+            <summary>
+            Starutp infopage constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.UrlConstants.IMAGE_SELECT_MODULE">
+            <summary>
+            Select module image constant
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Constants.WebConfigConstants">
+            <summary>
+            Constants used in Web.Config.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.ACCOUNT_TYPE">
+            <summary>
+            Account type constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.COMMAND_TIMEOUT">
+            <summary>
+            Command time out for sql commands.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.CONNECTION_STRING">
+            <summary>
+            Connection strings connstant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.CONTROL_PANEL_PAGES">
+            <summary>
+            Control panel pages constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DATA_SETTINGS">
+            <summary>
+            Data settings constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DIRECTORY_ENABLE_AUTOMATIC_ACCOUNT_CREATION">
+            <summary>
+            Direcotry enabled automatic account creation constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DIRECTORY_ENFORCE_MINIMUM_ONE_GROUP_MEMBERSHIP">
+            <summary>
+            Directory enforce minimum one group membership constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DIRECTORY_HIERARCHICAL_GROUP_MEMBERSHIP">
+            <summary>
+            Directory hierarchical froup membership constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DIRECTORY_SERVER_NAME">
+            <summary>
+            Direcotry servername constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DIRECTORY_SYNC_ACCOUNT_NAME">
+            <summary>
+            Directory sync account name constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DIRECTORY_SYNC_ACCOUNT_PASSWORD">
+            <summary>
+            Direcotry sync account password constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DIRECTORY_SYNC_INTERVAL">
+            <summary>
+            Directory sync interval constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.FILES_DIRECTORY">
+            <summary>
+            Files directory constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.SKINS">
+            <summary>
+            Skins constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.SCHEDULED_TASKS">
+            <summary>
+            Scheduled tasks constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.SMTP_SERVER">
+            <summary>
+            SMTP server constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.STARTUP_INFO_AUTOREDIRECT">
+            <summary>
+            Startup info autoredirect constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.STARTUP_INFO_PAGE">
+            <summary>
+            Startup info page constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.STARTUP_TASKS">
+            <summary>
+            Startup tasks constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.SYSTEM_LOGIN_GUI">
+            <summary>
+            System login gui constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.SYSTEM_USER_PASSWORD">
+            <summary>
+            System user password constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.PASSWORD_LOCKOUT_COUNT">
+            <summary>
+            Password lockout count constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.PASSWORD_EXPIRE_DAYS">
+            <summary>
+            Password expire days constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.PASSWORD_COMPLEXITY_RULE">
+            <summary>
+            Password complexity rule constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.PASSWORD_LENGTH_RULE">
+            <summary>
+            Password length role constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DATA_SETTING_EVENT_DELETE_AGE">
+            <summary>
+            Event delete age data setting constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DATA_SETTING_EVENT_DELETE_INTERVAL">
+            <summary>
+            Event delete interval data setting constant
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.Constants.WebConfigConstants.DATA_SETTING_EVENT_POLL_INTERVAL">
+            <summary>
+            Event poll interval data setting constant
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.FoundationContext">
+            <summary>
+            Context and state information.
+            An instance is stored in the users Session.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.FoundationContext.SESSION_KEY">
+            <summary>
+            Constant.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.GetContextItem(System.String)">
+            <summary>
+            Gets the context item.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            If sessionstate is InProc return the Session-collection, oterwise return the httpContext.Items-collection.
+            </returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.SetContextItem(System.String,System.Object)">
+            <summary>
+            Sets the context item.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.Init(Litium.Foundation.Security.SecurityToken,Litium.Foundation.Security.SecurityToken,System.String,Litium.Foundation.Configuration.ControlPanelPage[],System.String[])">
+            <summary>
+            Init on startup.
+            </summary>
+            <param name="systemToken">The system user token.</param>
+            <param name="anonymousToken">The anonymous user token.</param>
+            <param name="smtpServer">Address of smtp server.</param>
+            <param name="systemControlPanelPages">The system control panel pages.</param>
+            <param name="skins">Avilable skins.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.Init(Litium.Foundation.Security.SecurityToken,Litium.Foundation.Security.SecurityToken,System.String,Litium.Foundation.Configuration.ControlPanelPage[],Litium.Foundation.Configuration.ControlPanelPage[],System.String[])">
+            <summary>
+            Init on startup.
+            </summary>
+            <param name="systemToken">The system user token.</param>
+            <param name="anonymousToken">The anonymous user token.</param>
+            <param name="smtpServer">Address of smtp server.</param>
+            <param name="systemControlPanelPages">The system control panel pages.</param>
+            <param name="myControlPanelPages">My control panel pages.</param>
+            <param name="skins">Avilable skins.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.GetSecurityToken(System.Web.HttpCookieCollection)">
+            <summary>
+            Gets the security token.
+            </summary>
+            <param name="cookies">The cookies.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.OnSessionEnd">
+            <summary>
+            Called when the session ends.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.OnSessionStart(System.Web.SessionState.HttpSessionState)">
+            <summary>
+            Save Session on Session start.
+            </summary>
+            <param name="session">Http Session</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.RedirectToErrorPage(Litium.Foundation.Modules.Module,System.Web.HttpContext,System.Exception)">
+            <summary>
+            Redirect to the a module's error page.
+            </summary>
+            <remarks>Does not end the response.</remarks>
+            <param name="module">Module whose error page to display.</param>
+            <param name="httpContext">The current HTTP Context.</param>
+            <param name="e">Exception.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.RedirectToErrorPage(System.Web.HttpContext,System.String,System.String,System.String)">
+            <summary>
+            Redirect to Foundation common error page.
+            </summary>
+            <remarks>Does not end the response.</remarks>
+            <param name="httpContext">The current HTTP Context.</param>
+            <param name="title">Error title.</param>
+            <param name="text">Error text.</param>
+            <param name="redirectURL">Redirect URL.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.FoundationContext.RedirectToErrorPage(System.Web.HttpContext,System.String,System.String,System.String,System.String)">
+            <summary>
+            Redirect to common error page.
+            </summary>
+            <remarks>Does not end the response.</remarks>
+            <param name="httpContext">The current HTTP Context.</param>
+            <param name="title">Error title.</param>
+            <param name="text">Error text.</param>
+            <param name="redirectURL">Redirect URL.</param>
+            <param name="errorPage">Custom error page, if null use foundation error page.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Current">
+            <summary>
+            Gets the current <see cref="T:Litium.Foundation.GUI.FoundationContext"/>.
+            </summary>
+            <value>The current.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Exists">
+            <summary>
+            Check if the current <see cref="T:Litium.Foundation.GUI.FoundationContext"/> exists.
+            </summary>
+            <value>The current.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.ActiveModuleID">
+            <summary>
+            Get/Set the Module that is used.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.AvailableSkins">
+            <summary>
+            The available skins.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.AnonymousToken">
+            <summary>
+            Token used for anonymous access.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.ControlPanelPages">
+            <summary>
+            Control panel pages.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Culture">
+            <summary>
+            The current culture.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.DefaultLanguage">
+            <summary>
+            Default language.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.DefaultLanguageID">
+            <summary>
+            Default language.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.LanguageID">
+            <summary>
+            The current language.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Language">
+            <summary>
+            The current language.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Module">
+            <summary>
+            The current module or null if no module is selected.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.ModuleID">
+            <summary>
+            The ID of last called moduleinstance by the user.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.MyControlPanelPages">
+            <summary>
+            Gets my control panel pages.
+            </summary>
+            <value>My control panel pages.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Skin">
+            <summary>
+            The current skin.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.SkinPath">
+            <summary>
+            Gets the skin path.
+            </summary>
+            <value>The skin path.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.SMTPServer">
+            <summary>
+            SMTP server address.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Solution">
+            <summary>
+            Returns the solution.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.SystemControlPanelPages">
+            <summary>
+            Gets the system control panel pages.
+            </summary>
+            <value>The system control panel pages.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.SystemStrings">
+            <summary>
+            The solutions collection of system strings.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.SystemToken">
+            <summary>
+            The system token.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.Token">
+            <summary>
+            The current logged in token.
+            Calls the LoginManager.GetLoggedInToken().
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.UserID">
+            <summary>
+            The currently logged in userID.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.FoundationContext.User">
+            <summary>
+            The currently logged in user.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Pages.BasePage">
+            <summary>
+            BasePage - base class for all Litium Foundation GUI pages.
+            Inherit from this class when creating pages to use in the Litium Foundation GUI.
+            Inherited classes should call base.OnInit() first in their OnInit() function.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.Pages.BasePage.#ctor">
+            <summary>
+            Cnstructor 
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.Pages.BasePage.SetActiveModule">
+            <summary>
+            Set module page uses, default do not change, to change method must be override.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.Pages.BasePage.AuthorizeUser">
+            <summary>
+            Authorizes the user for the current page.
+            </summary>
+            <returns>True if authorization succedded, otherwise false.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.Pages.BasePage.OnInit(System.EventArgs)">
+            <summary>
+            Controller: checks permissions etc.
+            </summary>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.Pages.BasePage.FoundationContext">
+            <summary>
+            Returns the Foundation Context.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.Pages.BasePage.SystemStrings">
+            <summary>
+            Returns the system strings collection.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.Pages.BaseMasterPage">
+            <summary>
+            BaseMasterPage - base class for all master pages used in the Litium Foundation GUI.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.Pages.BaseMasterPage.IsIE6">
+            <summary>
+            Returns trur if requesting browser indicates IE6.
+            </summary>
+            <returns>Returns trur if requesting browser indicates IE6.</returns>
+        </member>
+        <member name="P:Litium.Foundation.GUI.Pages.BaseMasterPage.FoundationContext">
+            <summary>
+            Returns the Foundation Context.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.Pages.BaseMasterPage.SystemStrings">
+            <summary>
+            Returns the system strings collection.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.Pages.BaseMasterPage.Skin">
+            <summary>
+            Selected skin for User.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.StateBagExtension">
+            <summary>
+            Extend statebag class using extension methods to introduce GetValue{T}(string key).
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.StateBagExtension.GetValue``1(System.Web.UI.StateBag,System.String)">
+            <summary>
+            Gets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="stateBag">The state bag.</param>
+            <param name="key">The key.</param>
+            <returns>
+            value of property if found, default value of T if property not found.
+            </returns>
+        </member>
+        <member name="M:Litium.Foundation.StateBagExtension.GetValue``1(System.Web.UI.StateBag,System.String,``0)">
+            <summary>
+            Gets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="stateBag">The state bag.</param>
+            <param name="key">The key.</param>
+            <param name="defaultValue">The default value expected if key is not found.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.StateBagExtension.SetValue``1(System.Web.UI.StateBag,System.String,``0)">
+            <summary>
+            Sets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="stateBag">The state bag.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Foundation.StateBagExtension.SetValue``1(System.Web.UI.StateBag,System.String,``0,``0)">
+            <summary>
+            Sets the value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="stateBag">The state bag.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="nullValue">The null value.</param>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControlState">
+            <summary>
+            Web control state.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.#ctor(System.Web.UI.Control)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Foundation.GUI.WebControlState"/> class.
+            </summary>
+            <param name="control">The control.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.IsInsideControl``1">
+            <summary>
+            Determines whether [is inside control].
+            </summary>
+            <typeparam name="TControl">The type of the control.</typeparam>
+            <returns>
+            	<c>true</c> if [is inside control]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.IsInsideControl``2">
+            <summary>
+            Determines whether [is inside control].
+            </summary>
+            <typeparam name="TControl">The type of the control.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <returns>
+            	<c>true</c> if [is inside control]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.PrintError(System.Exception)">
+            <summary>
+            Prints the error.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.PrintError(System.String)">
+            <summary>
+            Prints the error.
+            </summary>
+            <param name="message">The message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.PrintError(System.Exception,System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Prints the error.
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="output">The output.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.PrintError(System.String,System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Prints the error.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="output">The output.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindControl``1">
+            <summary>
+            Finds the control.
+            </summary>
+            <typeparam name="TControl">The type of the control.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindControl``1(System.Boolean)">
+            <summary>
+            Finds the control.
+            </summary>
+            <typeparam name="TControl">The type of the control.</typeparam>
+            <param name="throwException">if set to <c>true</c> [throw exception].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``2">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``3">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``4">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``5">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <typeparam name="TControl5">The type of the control5.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``6">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <typeparam name="TControl5">The type of the control5.</typeparam>
+            <typeparam name="TControl6">The type of the control6.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``7">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <typeparam name="TControl5">The type of the control5.</typeparam>
+            <typeparam name="TControl6">The type of the control6.</typeparam>
+            <typeparam name="TControl7">The type of the control7.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``2(System.Boolean)">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``3(System.Boolean)">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``4(System.Boolean)">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``5(System.Boolean)">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <typeparam name="TControl5">The type of the control5.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``6(System.Boolean)">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <typeparam name="TControl5">The type of the control5.</typeparam>
+            <typeparam name="TControl6">The type of the control6.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControlState.FindFirstControl``7(System.Boolean)">
+            <summary>
+            Finds the first control.
+            </summary>
+            <typeparam name="TControl1">The type of the control1.</typeparam>
+            <typeparam name="TControl2">The type of the control2.</typeparam>
+            <typeparam name="TControl3">The type of the control3.</typeparam>
+            <typeparam name="TControl4">The type of the control4.</typeparam>
+            <typeparam name="TControl5">The type of the control5.</typeparam>
+            <typeparam name="TControl6">The type of the control6.</typeparam>
+            <typeparam name="TControl7">The type of the control7.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControlState.Foundation">
+            <summary>
+            Gets or sets the foundation.
+            </summary>
+            <value>The foundation.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControlState.FoundationContext">
+            <summary>
+            Gets the foundation context.
+            </summary>
+            <value>The foundation context.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControlState.Token">
+            <summary>
+            The current logged in token.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.BaseUserControl">
+            <summary>
+            Base class for the user controls used in Foundation GUI.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseUserControl.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseUserControl.SetActiveModule">
+            <summary>
+            Set Active module, default does not change, overide to change.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseUserControl.PrintError(System.String,System.Exception,System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Prints an error.
+            </summary>
+            <param name="controlName">Name of web control.</param>
+            <param name="e">Exception.</param>
+            <param name="output">Output.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseUserControl.PrintError(System.String,System.String,System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Prints an error.
+            </summary>
+            <param name="controlName">Name of web control.</param>
+            <param name="message">Error message.</param>
+            <param name="output">Output.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.BaseUserControl.FoundationContext">
+            <summary>
+            Returns the Foundation Context.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.BaseUserControl.SystemStrings">
+            <summary>
+            Returns the system strings collection.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.BaseWebControl">
+            <summary>
+            Base class for the web controls used in the Foundation GUI.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseWebControl.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseWebControl.#ctor(System.Web.UI.HtmlTextWriterTag)">
+            <summary>
+            Constructor.
+            <param name="tag">Tag name.</param>
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseWebControl.PrintError(System.String,System.Exception,System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Prints an error.
+            </summary>
+            <param name="controllName">Name of web control.</param>
+            <param name="e">Exception.</param>
+            <param name="output">Output.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.BaseWebControl.PrintError(System.String,System.String,System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Prints an error.
+            </summary>
+            <param name="controllName">Name of web control.</param>
+            <param name="message">Error message.</param>
+            <param name="output">Output.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.BaseWebControl.FoundationContext">
+            <summary>
+            Returns the Foundation Context.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.BaseWebControl.Solution">
+            <summary>
+            The Solution.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.BaseWebControl.SystemStrings">
+            <summary>
+            Returns the system strings collection.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.CurrentUserDisplayName">
+            <summary>
+            Control to show the current user's display name.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.CurrentUserDisplayName.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Render the value of the given module string in the current language.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.CurrentUserLoginName">
+            <summary>
+            Control to show the current user's login name.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.CurrentUserLoginName.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Render the value of the given module string in the current language.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.InformationGroup">
+            <summary>
+            Information group for information
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.InformationGroup.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Sends server control content to a provided <see cref="T:System.Web.UI.HtmlTextWriter"/> object, which writes the content to be rendered on the client.
+            </summary>
+            <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter"/> object that receives the server control content.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.InformationGroup.CssClass">
+            <summary>
+            Gets or sets the CSS class.
+            </summary>
+            <value>The CSS class.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.InformationGroup.HeaderText">
+            <summary>
+            Gets or sets the header text.
+            </summary>
+            <value>The header text.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.InformationGroup.HeaderTextName">
+            <summary>
+            Gets or sets the name of the header text.
+            The system auto take the right value (in order) 
+            from ModuleStrings or SystemStrings. If not found, 
+            then the HeaderText is used.
+            </summary>
+            <value>The name of the header text.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.InformationGroup.Height">
+            <summary>
+            Gets or sets the height.
+            </summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.InformationGroup.Width">
+            <summary>
+            Gets or sets the width.
+            </summary>
+            <value>The width.</value>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.LogInOutButton">
+            <summary>
+            Shows the log out button.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.LogInOutButton.m_imageClass">
+            <summary>
+            Image style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.LogInOutButton.m_loginURL">
+            <summary>
+            Login url
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.LogInOutButton.m_logoutURL">
+            <summary>
+            Logout url
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.LogInOutButton.m_systemStringLogInKey">
+            <summary>
+            Login system string
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.LogInOutButton.m_systemStringLogOutKey">
+            <summary>
+            Logout system string
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.LogInOutButton.On_Click(System.Object,System.EventArgs)">
+            <summary>
+            Log out action
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.LogInOutButton.ClearSession(System.Web.SessionState.HttpSessionState)">
+            <summary>
+            Clears the session except the FoundationContext
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.LogInOutButton.CreateChildControls">
+            <summary>
+            Initiates the button
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.LogInOutButton.Class">
+            <summary>
+            Gets or sets the Cascading Style Sheet (CSS) class rendered by the Web server control on the client.
+            </summary>
+            <value></value>
+            <returns>The CSS class rendered by the Web server control on the client. The default is <see cref="F:System.String.Empty"/>.</returns>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.LogInOutButton.ImageClass">
+            <summary>
+            Image css class (leave out for no image)
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.LogInOutButton.ImageCssClass">
+            <summary>
+            Image css class (leave out for no image)
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.LogInOutButton.LogInText">
+            <summary>
+            Text key for login text (default: LogInButton)
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.LogInOutButton.LogInURL">
+            <summary>
+            URL for login (default: ~/LitiumStudio/)
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.LogInOutButton.LogOutText">
+            <summary>
+            Text key for login text (default: LogOutButton)
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.LogInOutButton.LogOutURL">
+            <summary>
+            URL for logout (default: ~/default.aspx)
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.Menu.HorizontalMenu">
+            <summary>
+            HorizontalMenu.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.Menu.Menu">
+            <summary>
+            Base menu class.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultItemLook">
+            <summary>
+            Default item look
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_dividerLook">
+            <summary>
+            Divider look
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemLook">
+            <summary>
+            Top item look
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_items">
+            <summary>
+            Menu items
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_menuControl">
+            <summary>
+            Menu control
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_cssClass">
+            <summary>
+            Style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_dividerCssClass">
+            <summary>
+            Divider style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemActiveCssClass">
+            <summary>
+            Item acative style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemCssClass">
+            <summary>
+            Item style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemExpandedCssClass">
+            <summary>
+            Item expanded style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemIconHeight">
+            <summary>
+            Item ivon height
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemIconWidth">
+            <summary>
+            Item ivon width
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemLabelPaddingBottom">
+            <summary>
+            Item label padding bottom
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemLabelPaddingLeft">
+            <summary>
+            ITem label padding left
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemLabelPaddingRight">
+            <summary>
+            Item label padding right
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemLabelPaddingTop">
+            <summary>
+            Item label padding top
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_itemHoverCssClass">
+            <summary>
+            Item hover style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_maxDepth">
+            <summary>
+            Max depth
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemActiveCssClass">
+            <summary>
+            Top active item style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemCssClass">
+            <summary>
+            Top item style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemExpandedCssClass">
+            <summary>
+            Top item expanded style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemHoverCssClass">
+            <summary>
+            Top item hover style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemIconHeight">
+            <summary>
+            Top item icon height
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemIconWidth">
+            <summary>
+            Top item icon width
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemLabelPaddingBottom">
+            <summary>
+            Top item label padding bottom
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemLabelPaddingLeft">
+            <summary>
+            Top item label padding left
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemLabelPaddingRight">
+            <summary>
+            Top item label padding right
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topItemLabelPaddingTop">
+            <summary>
+            Top item label padding top
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_collapseDuration">
+            <summary>
+            Collapse duration
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_collapseSlide">
+            <summary>
+            Collapse slide
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_collapseTransition">
+            <summary>
+            Collapse transition
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_collapseTransitionCustomFilter">
+            <summary>
+            Collapse transition custom filer
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultChildSelectedItemLookId">
+            <summary>
+            Default child selected item look ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultDisabledItemLookId">
+            <summary>
+            Default disabled item look ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_groupCssClass">
+            <summary>
+            Group style class
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultItemLookId">
+            <summary>
+            Default item look ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultItemTextAlign">
+            <summary>
+            Default item text align
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultItemTextWrap">
+            <summary>
+            Default item text wrap
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultSelectedItemLookId">
+            <summary>
+            Default selected item look ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_expandDuration">
+            <summary>
+            Expand duration
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_expandSlide">
+            <summary>
+            Expand slite
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_expandTransition">
+            <summary>
+            Expand transition
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_expandTransitionCustomFilter">
+            <summary>
+            Expand transition custom filter
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_forceHighlightedItemID">
+            <summary>
+            Force highlighted item ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_renderRootItemId">
+            <summary>
+            Render root item ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_renderRootItemInclude">
+            <summary>
+            Render root item included
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_cascadeCollapse">
+            <summary>
+            Cascade collapse
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_clientSideOnItemMouseOut">
+            <summary>
+            Client side on item mouse out
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_clientSideOnItemMouseOver">
+            <summary>
+            Client side on item mouse over
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_clientSideOnItemSelect">
+            <summary>
+            Client side on item select
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_collapseDelay">
+            <summary>
+            Collapse delay
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_contextControlId">
+            <summary>
+            Context controll ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_contextMenu">
+            <summary>
+            Context menu
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultGroupExpandDirection">
+            <summary>
+            Default group expand direction
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultGroupExpandOffsetX">
+            <summary>
+            Default group expand offset x
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultGroupExpandOffsetY">
+            <summary>
+            Default group expand offset y
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultGroupHeight">
+            <summary>
+            Default group height
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultGroupItemSpacing">
+            <summary>
+            Default froup item spacing
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultGroupOrientation">
+            <summary>
+            Default group orientation
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_defaultGroupWidth">
+            <summary>
+            Default group width
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_expandDelay">
+            <summary>
+            Expand delay
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_expandOnClick">
+            <summary>
+            Expand on click
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_hideSelectElements">
+            <summary>
+            Hide selected elements
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_highlightExpandedPath">
+            <summary>
+            Highlight expanded path
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_keyboardEnabled">
+            <summary>
+            Keyboard enabled
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_orientation">
+            <summary>
+            Orientation
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_overlayWindowedElements">
+            <summary>
+            Overlay windows elements
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_scrollDownLookId">
+            <summary>
+            Scrolldown look ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_scrollingEnabled">
+            <summary>
+            Scrolling enabled
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_scrollUpLookId">
+            <summary>
+            Scrollup look ID
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_shadowColor">
+            <summary>
+            Shadow color
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_shadowEnabled">
+            <summary>
+            Shadow enabled
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_shadowOffset">
+            <summary>
+            Shadow offset
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.Menu.m_topGroupItemSpacing">
+            <summary>
+            Top group item spacing
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Foundation.GUI.WebControls.Menu.Menu"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the control to the specified HTML writer.
+            </summary>
+            <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter"/> object that receives the control content.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.OnInit(System.EventArgs)">
+            <summary>
+            On init
+            </summary>
+            <param name="e">.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.GetAsXml">
+            <summary>
+            Gets menu structure from Xml.
+            </summary>
+            <returns>Menu structure as Xml.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.LoadFromXml(System.String)">
+            <summary>
+            Load content from Xml document.
+            </summary>
+            <param name="xml">Xml document.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.LoadFromXml(System.Xml.XmlDocument)">
+            <summary>
+            Load content from Xml document.
+            </summary>
+            <param name="doc">Xml document.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.SetStylesRecursive(Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection)">
+            <summary>
+            Sets styles recursivly.
+            </summary>
+            <param name="items">Items to set.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.RemoveFromLevel(System.Int32)">
+            <summary>
+            Removes all items from the specified level and downwards (not including the specified level).
+            </summary>
+            <param name="level">Level 0..n-1.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.RemoveFromRecursive(Litium.Foundation.GUI.WebControls.Menu.MenuItem,System.Int32,System.Int32)">
+            <summary>
+            Removes all items from the specified level and downwards (recursive).
+            </summary>
+            <param name="item">Menu item.</param>
+            <param name="currentLevel">Current level in reursion (0..n-1).</param>
+            <param name="level">Level 0..n-1.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.Menu.InitMenuLayout">
+            <summary>
+            Init menu layout.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.CssClass">
+            <summary>
+            Css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DividerCssClass">
+            <summary>
+            Divider Css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.EnableViewState">
+            <summary>
+            EnableViewState.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemActiveCssClass">
+            <summary>
+            Item active css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemCssClass">
+            <summary>
+            Item css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemExpandedCssClass">
+            <summary>
+            Item expanded css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemHoverCssClass">
+            <summary>
+            Item hover css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemIconHeight">
+            <summary>
+            Item icon height.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemIconWidth">
+            <summary>
+            Item icon width.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemLabelPaddingBottom">
+            <summary>
+            Item bottom label padding height.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemLabelPaddingLeft">
+            <summary>
+            Item left label padding width.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemLabelPaddingRight">
+            <summary>
+            Item right label padding width.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ItemLabelPaddingTop">
+            <summary>
+            Item top label padding height.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.Items">
+            <summary>
+            A collection of the menu's top level items.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.MaxDepth">
+            <summary>
+            Maximun menu depth, -1: unlimited (default: -1)).
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemActiveCssClass">
+            <summary>
+            Top item active css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemCssClass">
+            <summary>
+            Top item css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemExpandedCssClass">
+            <summary>
+            Top item expanded css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemHoverCssClass">
+            <summary>
+            Top item hover css class.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemIconHeight">
+            <summary>
+            Top item icon height.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemIconWidth">
+            <summary>
+            Top item icon width.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemLabelPaddingBottom">
+            <summary>
+            Top item bottom label padding height.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemLabelPaddingLeft">
+            <summary>
+            Top item left label padding width.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemLabelPaddingRight">
+            <summary>
+            Top item right label padding width.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemLabelPaddingTop">
+            <summary>
+            Top item top label padding height.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultItemLook">
+            <summary>
+            Returns the default item look.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DividerLook">
+            <summary>
+            Returns the divider look.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopItemLook">
+            <summary>
+            Returns the top item look.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.WrappedMenuControl">
+            <summary>
+            Returns the menu control.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.CollapseDuration">
+            <summary>
+            The duration of the collapse animation, in milliseconds.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.CollapseSlide">
+            <summary>
+            The slide type to use for the collapse animation.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.CollapseTransition">
+            <summary>
+            The transition effect to use for the collapse animation.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.CollapseTransitionCustomFilter">
+            <summary>
+            The custom transition filter to use for the collapse animation.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultChildSelectedItemLookId">
+            <summary>
+            The ID of the default look to apply to ancestors of the selected item.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultDisabledItemLookId">
+            <summary>
+            The ID of the default look to apply to disabled items. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.GroupCssClass">
+            <summary>
+            The default CSS class to apply to groups 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultItemLookId">
+            <summary>
+            The ID of the default look to apply to items. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultItemTextAlign">
+            <summary>
+            Whether to permit text wrapping in labels by default. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultItemTextWrap">
+            <summary>
+            Whether to permit text wrapping in labels by default. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultSelectedItemLookId">
+            <summary>
+            The ID of the default look to apply to the selected items. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ExpandDuration">
+            <summary>
+            The duration of the expand animation, in milliseconds. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ExpandSlide">
+            <summary>
+            The slide type to use for the expand animation. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ExpandTransition">
+            <summary>
+            The transition effect to use for the expand animation. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ExpandTransitionCustomFilter">
+            <summary>
+            The custom transition filter to use for the expand animation. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ForceHighlightedItemID">
+            <summary>
+            ID of item to forcefully highlight. This will make it appear as it would when selected. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.RenderRootItemId">
+            <summary>
+            ID of item to begin rendering down from. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.RenderRootItemInclude">
+            <summary>
+            Whether to include the RenderRootItem when rendering, instead of only its children. Default: false. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.CascadeCollapse">
+            <summary>
+            Whether to collapse the groups in order, starting a parent group's collapse only after its child group has completed its. Default is true. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ClientSideOnItemMouseOut">
+            <summary>
+            Client-side command to call when the mouse pointer leaves a menu item. This can be any valid client script. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ClientSideOnItemMouseOver">
+            <summary>
+            Client-side command to call when the mouse pointer enters a menu item. This can be any valid client script. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ClientSideOnItemSelect">
+            <summary>
+            Client-side function to call when a menu item is selected. This can be any valid client script. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.CollapseDelay">
+            <summary>
+            Delay in milliseconds between the mouse leaving the menu and the menu starting to collapse. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ContextControlId">
+            <summary>
+            Client-side ID of the element to which this context menu is bound. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ContextMenu">
+            <summary>
+            Determines whether this menu control is a context menu. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultGroupExpandDirection">
+            <summary>
+            Direction in which the groups expand. Default is Auto.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultGroupExpandOffsetX">
+            <summary>
+            Offset along x-axis from groups' normal expand positions. Default is zero.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultGroupExpandOffsetY">
+            <summary>
+            Offset along y-axis from groups' normal expand positions. Default is zero.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultGroupHeight">
+            <summary>
+            Height of groups. Default is Unit.Empty.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultGroupItemSpacing">
+            <summary>
+            Spacing between group items. Default is Unit.Empty.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultGroupOrientation">
+            <summary>
+            Orientation of subgroups. Default is Vertical.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.DefaultGroupWidth">
+            <summary>
+            Width of groups. Default is Unit.Empty.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ExpandDelay">
+            <summary>
+            Delay in milliseconds between the mouse entering a MenuItem and its subgroup starting to expand. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ExpandOnClick">
+            <summary>
+            Whether to expand the menu only after a click on it and to collapse it only after a click away from of it. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.HideSelectElements">
+            <summary>
+            Whether to hide the select elements that would obscure the menu. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.HighlightExpandedPath">
+            <summary>
+            Whether to default to Hover look for the items whose child groups are expanded. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.KeyboardEnabled">
+            <summary>
+            Whether to enable keyboard control of the Menu. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.Orientation">
+            <summary>
+            Orientation of the top group. Default is Horizontal. 
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.OverlayWindowedElements">
+            <summary>
+            Whether to overlay windowed elements (including select boxes) that would obscure the menu.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ScrollDownLookId">
+            <summary>
+            The ID of the look for down scroller.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ScrollingEnabled">
+            <summary>
+            Whether scrolling is enabled.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ScrollUpLookId">
+            <summary>
+            The ID of the look for up scroller.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ShadowColor">
+            <summary>
+            Color of the pop-up groups' shadows.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ShadowEnabled">
+            <summary>
+            Whether menu's pop-up groups drop shadows.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.ShadowOffset">
+            <summary>
+            Whether menu's pop-up groups drop shadows.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.Menu.TopGroupItemSpacing">
+            <summary>
+            Spacing between top group's items. Default is Unit.Empty.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.Menu.MenuItem">
+            <summary>
+            Wrapper class for a menu item.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.MenuItem.m_menu">
+            <summary>
+            Menu control
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItem.#ctor(Litium.Foundation.GUI.WebControls.Menu.Menu,ComponentArt.Web.UI.MenuItem)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="menu">Menu.</param>
+            <param name="item">Menu item to wrapp.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItem.Remove">
+            <summary>
+            Removes the group from the menu.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.Caption">
+            <summary>
+            Item caption.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.Enabled">
+            <summary>
+            Whether the menu item is enabled or not.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.IconURL">
+            <summary>
+            Item icon URL.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.IsDivider">
+            <summary>
+            Returns whether the menu item is a divider menu item.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.IsTopLevel">
+            <summary>
+            Returns whether the menu item is a top level menu item.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.Metadata">
+            <summary>
+            Item metadata.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.Items">
+            <summary>
+            Menu items.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItem.WrappedMenuItem">
+            <summary>
+            Returns the wrapped menu item.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection">
+            <summary>
+            A collection of menu items.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.m_items">
+            <summary>
+            Menu item collection
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.m_menu">
+            <summary>
+            Menu
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.m_parentItem">
+            <summary>
+            Parent menu item
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.#ctor(Litium.Foundation.GUI.WebControls.Menu.Menu,ComponentArt.Web.UI.MenuItemCollection,ComponentArt.Web.UI.MenuItem)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="menu">Menu.</param>
+            <param name="items">Collection to wrapp.</param>
+            <param name="parent">Parent item.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.AddItem(System.String,System.Boolean,System.String,System.String,System.String)">
+            <summary>
+            Adds an item.
+            </summary>
+            <param name="caption">Caption.</param>
+            <param name="enabled">Whether the item is enabled or not.</param>
+            <param name="targetURL">Target URL.</param>
+            <param name="iconURL">Icon URL.</param>
+            <param name="metadata">Metadata.</param>
+            <returns>The new item.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.AddItem(System.String,System.Boolean,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Adds an item.
+            </summary>
+            <param name="caption">Caption.</param>
+            <param name="enabled">Whether the item is enabled or not.</param>
+            <param name="targetURL">Target URL.</param>
+            <param name="iconURL">Icon URL.</param>
+            <param name="metadata">Metadata.</param>
+            <param name="newWindow">Whether to open in a new window or not.</param>
+            <returns>The new item.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.AddItem(System.String,System.Boolean,System.String,System.String,System.String,System.Boolean,ComponentArt.Web.UI.ItemLook)">
+            <summary>
+            Adds an item.
+            </summary>
+            <param name="caption">Caption.</param>
+            <param name="enabled">Whether the item is enabled or not.</param>
+            <param name="targetURL">Target URL.</param>
+            <param name="iconURL">Icon URL.</param>
+            <param name="metadata">Metadata.</param>
+            <param name="newWindow">Whether to open in a new window or not.</param>
+            <param name="itemLook">Item look.</param>
+            <returns>The new item.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.AddDivider">
+            <summary>
+            Adds a divider.
+            </summary>
+            <returns>The new item.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.Clear">
+            <summary>
+            Clear all items.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.GetEnumerator">
+            <summary>
+            Returns an Enumerator of all the items in the group.
+            </summary>
+            <returns>The Enumerator of the collection.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.Remove(Litium.Foundation.GUI.WebControls.Menu.MenuItem)">
+            <summary>
+            Removes an item.
+            </summary>
+            <param name="item">Item to remove.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.Item(System.Int32)">
+            <summary>
+            Returns an item.
+            </summary>
+            <returns>The requested item at index (0..n-1).</returns>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItemCollection.Count">
+            <summary>
+            Returns the number of items in the collection.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.Menu.MenuItemEnumerator">
+            <summary>
+            The MenuItemEnumerator enumerates over menu items.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.MenuItemEnumerator.m_enumerator">
+            <summary>
+            The enumerator
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.Menu.MenuItemEnumerator.m_menu">
+            <summary>
+            Menu control
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemEnumerator.#ctor(Litium.Foundation.GUI.WebControls.Menu.Menu,ComponentArt.Web.UI.MenuItemCollection)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="menu">Menu.</param>
+            <param name="itemsCollection">Items collection.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemEnumerator.MoveNext">
+            <summary>
+            Moves to the next item.
+            </summary>
+            <returns>True if successfull, otherwise false.</returns>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.MenuItemEnumerator.Reset">
+            <summary>
+            Resets the enumerator.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.Menu.MenuItemEnumerator.Current">
+            <summary>
+            Returns the current item.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.Menu.PopUpMenu">
+            <summary>
+            PopUpMenu.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.PopUpMenu.InitMenuLayout">
+            <summary>
+            Init menu layout.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.PopUpMenu.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Render the control.
+            </summary>
+            <param name="writer">Html text writer.</param>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.Menu.VerticalMenu">
+            <summary>
+            VerticalMenu.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.Menu.VerticalMenu.InitMenuLayout">
+            <summary>
+            Init menu layout.
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.ModuleString">
+            <summary>
+            Control to show the value of the given module string.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.ModuleString.m_name">
+            <summary>
+            Name on modulestring
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.ModuleString.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Render the value of the given module string in the current language.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.ModuleString.Class">
+            <summary>
+            Gets or sets the Cascading Style Sheet (CSS) class rendered by the Web server control on the client.
+            </summary>
+            <value></value>
+            <returns>The CSS class rendered by the Web server control on the client. The default is <see cref="F:System.String.Empty"/>.</returns>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.ModuleString.Name">
+            <summary>
+            Property to get/set name of the module string
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebControls.SystemString">
+            <summary>
+            Control to show the value of the given system string.
+            </summary>
+        </member>
+        <member name="F:Litium.Foundation.GUI.WebControls.SystemString.m_name">
+            <summary>
+            System string name
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebControls.SystemString.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Render the value of the given system string in the current language.
+            </summary>
+            <param name="output">.</param>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.SystemString.Class">
+            <summary>
+            Gets or sets the Cascading Style Sheet (CSS) class rendered by the Web server control on the client.
+            </summary>
+            <value></value>
+            <returns>The CSS class rendered by the Web server control on the client. The default is <see cref="F:System.String.Empty"/>.</returns>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebControls.SystemString.Name">
+            <summary>
+            Property to get/set name of the system string
+            </summary>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebServices.AuthenticationException">
+            <summary>
+            Authentication exception thrown when using WebServices.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebServices.AuthenticationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Foundation.GUI.WebServices.AuthenticationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebServices.AuthenticationException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="title">Exception title.</param>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebServices.AuthenticationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Foundation.GUI.WebServices.AuthenticationException"/> class.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Litium.Foundation.GUI.WebServices.BaseWebService">
+            <summary>
+            Abstract base class for web services.
+            </summary>
+        </member>
+        <member name="M:Litium.Foundation.GUI.WebServices.BaseWebService.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebServices.BaseWebService.FoundationContext">
+            <summary>
+            Returns the Foundation Context.
+            </summary>
+        </member>
+        <member name="P:Litium.Foundation.GUI.WebServices.BaseWebService.SystemStrings">
+            <summary>
+            Returns the system strings collection.
+            </summary>
+        </member>
+    </members>
+</doc>

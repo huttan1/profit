@@ -1,0 +1,660 @@
+<%@ Import Namespace="Litium.Studio.UI.CMS.Pages.Constants" %>
+<%@ Import Namespace="Litium.Foundation.Modules.CMS.Pages" %>
+
+<%@ master language="C#" autoeventwireup="true" masterpagefile="~/LitiumStudio/Framework/LitiumStudio.master" inherits="LitiumStudio_CMS_Base1, Litum.Studio.Web" %>
+
+<%@ MasterType VirtualPath="~/LitiumStudio/Framework/LitiumStudio.master" %>
+<%@ Import Namespace="Telerik.Web.UI" %>
+<%@ Import Namespace="Litium.Foundation.Modules.CMS" %>
+<%@ Register TagPrefix="TreeView" Namespace="Litium.Foundation.Modules.CMS.WebControls.TreeView"
+	Assembly="Litium.Studio.WebControls" %>
+<asp:Content runat="server" ContentPlaceHolderID="LitiumStudioFilterArea">
+	<asp:ContentPlaceHolder runat="server" ID="LitiumStudioFilterArea" />
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeaderContent" runat="Server">
+	<link href="<%=Page.ResolveUrl("~/LitiumStudio/CMS/Styles/CMS.css")%>" type="text/css"
+		rel="stylesheet" />
+	<link href="<%=Page.ResolveUrl("~/LitiumStudio/CMS/Styles/treeStyle.css")%>" type="text/css"
+		rel="stylesheet" />
+	<script type="text/javascript" src="<%= Page.ResolveUrl("~/LitiumStudio/CMS/Scripts/swfobject.js")%>"></script>
+	<script language="javascript" type="text/javascript">
+		var c_treeViewLoaded = false;
+
+		function c_treeView_loadComplete(sender, eventArgs) {
+			c_treeViewLoaded = true;
+		}
+
+		function progressActivate() {
+			progressDisableTags("INPUT");
+			progressDisableTags("TEXTAREA");
+			progressDisableTags("SELECT");
+			var img = document.getElementById('imageProgress');
+			if (img) {
+				img.src = 'Images/progress.gif';
+				img.style.display = 'inline';
+			}
+			if (document.getElementById('textProgress'))
+				document.getElementById('textProgress').style.display = 'inline';
+		}
+
+		function progressDisableTags(tagName) {
+			var tag = document.getElementsByTagName(tagName);
+			for (i = 0; i < tag.length; i++)
+				tag[i].disabled = true;
+		}
+
+		//------------------------------------------------------------------------------------------------------------
+		var currentNode = null;
+		var oldNodeClassName = null;
+
+		function onNodeMouseOver(sender, args) {
+			//gets the node upon mousing over the node
+			currentNode = args.get_node();
+			oldNodeClassName = currentNode._element.className;
+			if (sender._dragging) {
+				currentNode._element.className += ' destination';
+			}
+		}
+
+		function onNodeMouseOut(sender, args) {
+			//resets the currentNode value upon mousing out    	   
+			currentNode._element.className = oldNodeClassName;
+			oldNodeClassName = null;
+			currentNode = null;
+		}
+
+		function PublishMenu_ItemSelect(sender, eventArgs) {
+			if (eventArgs.get_item().get_id() == "PublishNow" || eventArgs.get_item().get_id() == "PublishApproval" || eventArgs.get_item().get_id() == "CancelPublishApproval" || eventArgs.get_item().get_id() == "CancelTimePublish") {
+				setTimeout('progressActivate();', 100);
+				SetOnBeforeUnload();
+			}
+			else if (eventArgs.get_item().get_id() == "TimePublish" || eventArgs.get_item().get_id() == "TimePublishCalendar" || eventArgs.get_item().get_id() == "TimePublishButton") {
+				eventArgs.set_cancel(true);
+			}
+		}
+
+		// Shows confirmation dialogs and progress bar for actions of toolbar belonging to edit area.
+		function Toolbar_onItemBeforeSelect(sender, eventArgs) {
+			SetOnBeforeUnload();
+			if (eventArgs.get_item().get_id() == "Garbage") {
+				if (!confirm('<%= ConfirmationMessageMoveToTrashcan %>'))
+					eventArgs.set_cancel(true);
+			}
+			if (eventArgs.get_item().get_id() == "Save" || eventArgs.get_item().get_id() == "Publish") {
+				setTimeout('progressActivate();', 100);
+			}
+		}
+
+		//------------------------------------------------------------------------------------------------------------
+		var contextMenuNode = null;
+
+		function onItemPopulating(sender, eventArgs) {
+			var item = eventArgs.get_item();
+			var context = eventArgs.get_context();
+			context["PageID"] = contextMenuNode._attributes.getAttribute('PageID');
+		}
+
+
+		function onClientContextMenuShowing(sender, args) {
+			var treeNode = args.get_node();
+			contextMenuNode = treeNode;
+			setMenuItemsState(args.get_menu().get_items(), treeNode);
+			var frame = document.getElementById('iframeTest');
+			if (frame != null) {
+				document.getElementById('iframeTest').contentWindow.document.body.onmousedown = function () {
+					var menu = $find("<%=TreeContextMenu.ClientID %>");
+					menu.hide();
+					contextMenuNode = null;
+				}
+			};
+		}
+
+		//this method disables the appropriate context menu items
+		function setMenuItemsState(menuItems, treeNode) {
+			if (treeNode._attributes != null) {
+				var buttonsEnabled = treeNode._attributes.getAttribute('<%=NodeAttributeConstants.IS_BUTTON_ENABLED%>');
+				var arrayButtonsEnabled = buttonsEnabled.split(",");
+
+				var buttonsVisible = treeNode._attributes.getAttribute('<%=NodeAttributeConstants.IS_BUTTON_VISIBLE%>');
+				var arrayButtonsVisible = buttonsVisible.split(",");
+
+				for (var i = 0; i < menuItems.get_count(); i++) {
+					var menuItem = menuItems.getItem(i);
+					switch (menuItem.get_value()) {
+						case '<%=TreeContextMenuButtonsEnum.ToolbarNew%>':
+							menuItem.get_items().clear();
+							break;
+
+						case '<%=TreeContextMenuButtonsEnum.ButtonMoveToTrashcan %>':
+							menuItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonMoveToTrashcan %>'] == '1');
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ButtonMoveToArchive %>':
+							menuItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonMoveToArchive %>'] == '1');
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ButtonCut %>':
+							menuItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonCut %>'] == '1');
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ButtonCopy %>':
+							menuItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonCopy %>'] == '1');
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ButtonCopyRecursively %>':
+							menuItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonCopyRecursively %>'] == '1');
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ButtonPaste %>':
+							menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonPaste %>'] == '1'));
+							break;
+						case "ButtonMove":
+							for (var j = 0; j < menuItem.get_items().get_count(); j++) {
+								var menuSubItem = menuItem.get_items().getItem(j);
+								switch (menuSubItem.get_value()) {
+									case '<%=TreeContextMenuButtonsEnum.ButtonMoveUp %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonMoveUp %>'] == '1');
+										break;
+									case '<%=TreeContextMenuButtonsEnum.ButtonMoveDown %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonMoveDown %>'] == '1');
+										break;
+									case '<%=TreeContextMenuButtonsEnum.ButtonMoveToTop %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonMoveToTop %>'] == '1');
+										break;
+									case '<%=TreeContextMenuButtonsEnum.ButtonMoveToBottom %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ButtonMoveToBottom %>'] == '1');
+										break;
+								}
+							}
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ToolbarEdit %>':
+							menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarEdit %>'] == '1'));
+							break;
+						case '<%=PagesModuleStringConstants.TOOLBAR_STATISTIC %>':
+							for (var j = 0; j < menuItem.get_items().get_count(); j++) {
+								var menuSubItem = menuItem.get_items().getItem(j);
+								switch (menuSubItem.get_value()) {
+									case '<%=TreeContextMenuButtonsEnum.ToolbarStatisticVisitor %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarStatisticVisitor %>'] == '1');
+										break;
+									case '<%=TreeContextMenuButtonsEnum.ToolbarStatisticProspectFinder %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarStatisticProspectFinder %>'] == '1');
+										break;
+								}
+							}
+							break;
+						case '<%=PagesModuleStringConstants.TOOLBAR_SETTINGS %>':
+							for (var j = 0; j < menuItem.get_items().get_count(); j++) {
+								var menuSubItem = menuItem.get_items().getItem(j);
+								switch (menuSubItem.get_value()) {
+									case '<%=TreeContextMenuButtonsEnum.ToolbarPermissions %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarPermissions %>'] == '1');
+										break;
+									case '<%=TreeContextMenuButtonsEnum.ToolbarResponsible %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarResponsible %>'] == '1');
+										break;
+									case '<%=TreeContextMenuButtonsEnum.ToolbarVersions %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarVersions %>'] == '1');
+										break;
+									case '<%=TreeContextMenuButtonsEnum.ToolbarAdvanced %>':
+										menuSubItem.set_enabled(arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarAdvanced %>'] == '1');
+										break;
+								}
+							}
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ToolbarPublish %>':
+							menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarPublish %>'] == '1'));
+							menuItem.set_visible((arrayButtonsVisible['<%= (int)TreeContextMenuButtonsEnum.ToolbarPublish %>'] == '1'));
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ToolbarUnpublish %>':
+							menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarUnpublish %>'] == '1'));
+							menuItem.set_visible((arrayButtonsVisible['<%= (int)TreeContextMenuButtonsEnum.ToolbarUnpublish %>'] == '1'));
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ToolbarReadyForPublishing %>':
+							menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarReadyForPublishing %>'] == '1'));
+							menuItem.set_visible((arrayButtonsVisible['<%= (int)TreeContextMenuButtonsEnum.ToolbarReadyForPublishing %>'] == '1'));
+							break;
+						case '<%=TreeContextMenuButtonsEnum.ToolbarCancelReadyForPublishing %>':
+							menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarCancelReadyForPublishing %>'] == '1'));
+							menuItem.set_visible((arrayButtonsVisible['<%= (int)TreeContextMenuButtonsEnum.ToolbarCancelReadyForPublishing %>'] == '1'));
+							break;
+
+						case "ToolbarSubpages":
+							menuItem.set_enabled(true);
+							menuItem.set_visible((arrayButtonsVisible['<%= (int)TreeContextMenuButtonsEnum.ToolbarSubPagesPublish %>'] == '1')
+    	                || (arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarSubPagesUnpublish %>'] == '1'));
+							//    	                for (var j = 0; j < menuItem.get_items().get_count(); j++) {
+							//    	                    var menuSubItem = menuItem.get_items().getItem(j);
+							//    	                    switch (menuSubItem.get_value()) {
+							//    	                        case '<%=TreeContextMenuButtonsEnum.ToolbarSubPagesPublish %>':
+							//    	                            menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarSubPagesPublish %>'] == '1'));
+							//    	                            menuItem.set_visible((arrayButtonsVisible['<%= (int)TreeContextMenuButtonsEnum.ToolbarSubPagesPublish %>'] == '1'));
+							//    	                            break;
+							//    	                        case '<%=TreeContextMenuButtonsEnum.ToolbarSubPagesUnpublish %>':
+							//    	                            menuItem.set_enabled((arrayButtonsEnabled['<%= (int)TreeContextMenuButtonsEnum.ToolbarSubPagesUnpublish %>'] == '1'));
+							//    	                            menuItem.set_visible((arrayButtonsVisible['<%= (int)TreeContextMenuButtonsEnum.ToolbarSubPagesUnpublish %>'] == '1'));
+							//    	                            break;
+							//    	                    }
+							//    	                }
+							break;
+					}
+				}
+			}
+		}
+
+		function onClientContextMenuItemClicking(sender, args) {
+			var menuItem = args.get_menuItem();
+			switch (menuItem.get_value()) {
+				case "ButtonMove":
+				case '<%=PagesModuleStringConstants.TOOLBAR_STATISTIC %>':
+				case '<%=PagesModuleStringConstants.TOOLBAR_SETTINGS %>':
+				case "ToolbarSubpages":
+				case "ToolbarProductCatalogPage":
+				case "ToolbarFunctionPage":
+					args.set_cancel(true);
+					break;
+			}
+			if (menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonMoveToTrashcan %>') {
+				if (!confirm('<%= ConfirmationMessageMoveToTrashcan %>'))
+					args.set_cancel(true);
+			}
+			else if (menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonMoveToArchive %>') {
+				if (!confirm('<%= ConfirmationMessageMoveToArchive %>'))
+					args.set_cancel(true);
+			}
+			else if (menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarEdit %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonCut %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonCopy %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonCopyRecursively %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonPaste %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonMoveUp %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonMoveDown %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonMoveToTop %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ButtonMoveToBottom %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarStatisticVisitor %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarStatisticProspectFinder %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarPermissions %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarResponsible %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarVersions %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarAdvanced %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarPublish %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarUnpublish %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarReadyForPublishing %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarCancelReadyForPublishing %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarSubPagesPublish %>'
+				|| menuItem.get_value() == '<%=TreeContextMenuButtonsEnum.ToolbarSubPagesUnpublish %>') {
+				setTimeout('progressActivate();', 100);
+			}
+
+		}
+	</script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="LitiumStudioTopMenu" runat="Server">
+	<ComponentArt:ToolBar ID="c_toolbarLeftTree" AutoPostBackOnSelect="true" runat="server"
+		CssClass="litToolbar" DefaultItemCssClass="litToolbarItemNew" DefaultItemHoverCssClass="litToolbarItemOnMouseOver"
+		DefaultItemActiveCssClass="litToolbarItemOnMouseDown" DefaultItemDisabledCssClass="litToolbarItemDisabled"
+		DefaultItemExpandedCssClass="litToolbarItemOnMouseDown" ImagesBaseUrl="~/LitiumStudio/Images/"
+		ItemSpacing="0" UseFadeEffect="false" Orientation="Horizontal" DefaultItemImageWidth="16"
+		DefaultItemImageHeight="16" EnableViewState="false" OnItemCommand="ToolBarLeftTree_ItemCommand">
+		<Items>
+			<ComponentArt:ToolBarItem ID="Add" ImageUrl="icons_standard/add.png" ItemType="DropDown"
+				DropDownId="c_menuAddPage" DropDownImageUrl="toolbar/dropdown.gif" DropDownImageWidth="16"
+				DropDownImageHeight="16" ClientTemplateId="c_toolbarLeftTreeItemDropDownTemplate" />
+			<ComponentArt:ToolBarItem ID="Edit" ImageUrl="icons_standard/pencil.png" ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate" />
+			<ComponentArt:ToolBarItem ID="Garbage" ImageUrl="icons_standard/garbage_empty.png"
+				ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate" />
+			<ComponentArt:ToolBarItem ItemType="Separator" ImageUrl="toolbar/break.gif" ImageHeight="16"
+				ImageWidth="1" CssClass="" />
+			<ComponentArt:ToolBarItem ID="Cut" ImageUrl="icons_standard/cut.png" ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate" />
+			<ComponentArt:ToolBarItem ID="Copy" ImageUrl="icons_standard/copy.png" ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate" />
+			<ComponentArt:ToolBarItem ID="CopyRecursively" ImageUrl="icons_standard/copy_recursively_16px.png"
+				ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate" />
+			<ComponentArt:ToolBarItem ID="Paste" ImageUrl="icons_standard/clipboard.png" ClientTemplateId="c_toolbarLeftTreeItemButtonTemplate" />
+		</Items>
+		<ClientEvents>
+			<ItemBeforeSelect EventHandler="Toolbar_onItemBeforeSelect" />
+		</ClientEvents>
+		<ClientTemplates>
+			<ComponentArt:ClientTemplate ID="c_toolbarLeftTreeItemButtonTemplate">
+				<table cellspacing="0" cellpadding="0" border="0" style="margin: 0px; margin-right: auto;">
+					<tbody>
+						<tr>
+							<td class="ToolbarItemLeft">
+								&nbsp;
+							</td>
+							<td class="ca_tb_img ToolbarItemMain">
+								<img height="16" width="16" border="0" src="../Images/## DataItem.get_imageUrl() ##"
+									alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+							</td>
+							<td class="ca_tb_txt ToolbarItemMain">
+								<nobr>## DataItem.get_text() ##</nobr>
+							</td>
+							<td class="ToolbarItemRight">
+								&nbsp;
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</ComponentArt:ClientTemplate>
+			<ComponentArt:ClientTemplate ID="c_toolbarLeftTreeItemDropDownTemplate">
+				<table cellspacing="0" cellpadding="0" border="0" style="margin: 0px; margin-right: auto;"
+					title="## DataItem.get_toolTip() ##">
+					<tbody>
+						<tr>
+							<td class="ToolbarItemLeft">
+								&nbsp;
+							</td>
+							<td class="ca_tb_img ToolbarItemMain">
+								<img height="16" width="16" border="0" src="../Images/## DataItem.get_imageUrl() ##"
+									alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+							</td>
+							<td class="ca_tb_txt ToolbarItemMain">
+								<nobr>## DataItem.get_text() ##</nobr>
+							</td>
+							<td rowspan="1" class="ca_tb_ddn ToolbarItemMain">
+								<img height="16" width="16" border="0" src="../Images/## DataItem.get_dropDownImageUrl() ##"
+									alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+							</td>
+							<td class="ToolbarItemRight">
+								&nbsp;
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</ComponentArt:ClientTemplate>
+		</ClientTemplates>
+	</ComponentArt:ToolBar>
+	<ComponentArt:Menu runat="server" EnableViewState="false" ID="c_menuAddPage" DefaultDisabledItemLookId="DisabledItemLook"
+		DefaultSelectedItemLookId="SeledItemLook" OnItemSelected="AddPageMenu_OnItemSelected"
+		ImagesBaseUrl="~/LitiumStudio/Images/" CssClass="litNavMenuGroup" DefaultItemLookId="DefaultItemLook"
+		DefaultGroupItemSpacing="1" DefaultItemTextAlign="Left" DefaultItemTextWrap="false"
+		DefaultGroupExpandOffsetX="0" DefaultGroupExpandOffsetY="0" DefaultGroupExpandDirection="Auto"
+		TopGroupExpandDirection="BelowLeft" TopGroupExpandOffsetY="0" CollapseDuration="100"
+		CollapseSlide="ExponentialDecelerate" ExpandDuration="100" ExpandSlide="ExponentialDecelerate"
+		ExpandDelay="0" ExpandOnClick="false" CascadeCollapse="true" CollapseDelay="10000"
+		HideSelectElements="false" HighlightExpandedPath="true" KeyboardEnabled="true"
+		OverlayWindowedElements="true" ShadowColor="Gray" ShadowEnabled="true" ShadowOffset="2"
+		Orientation="Vertical" ContextMenu="Custom" ScrollingEnabled="true" ScrollDownLookId="ScrollDownItemLook"
+		ScrollUpLookId="ScrollUpItemLook">
+		<ItemLooks>
+			<ComponentArt:ItemLook LookId="DefaultItemLook" RightIconWidth="20" RightIconHeight="15"
+				LeftIconHeight="16" LeftIconWidth="16" CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded"
+				ActiveCssClass="litNavMenuItemActive" HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4"
+				LabelPaddingLeft="10" LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="DisabledItemLook" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem litDisabled" LabelPaddingBottom="4" LabelPaddingLeft="10"
+				LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="DisabledExpandableItemLook" RightIconUrl="menu/arrow.gif"
+				RightIconWidth="20" RightIconHeight="15" LeftIconHeight="16" LeftIconWidth="16"
+				CssClass="litNavMenuItem litDisabled" LabelPaddingBottom="4" ExpandedCssClass="litNavMenuItemExpanded"
+				LabelPaddingLeft="10" LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="ExpandableItemLook" RightIconUrl="menu/arrow.gif"
+				RightIconWidth="20" RightIconHeight="15" CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded"
+				ActiveCssClass="litNavMenuItemActive" HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4"
+				LabelPaddingLeft="10" LabelPaddingRight="10" LabelPaddingTop="3" />
+			<ComponentArt:ItemLook LookId="ScrollUpItemLook" ImageUrl="menu/scroll_up.gif" ImageWidth="15"
+				ImageHeight="13" CssClass="litNavMenuItem" HoverCssClass="litNavMenuItemHover"
+				ActiveCssClass="litNavMenuItemActive" />
+			<ComponentArt:ItemLook LookId="ScrollDownItemLook" ImageUrl="menu/scroll_down.gif"
+				ImageWidth="15" ImageHeight="13" CssClass="litNavMenuItem" HoverCssClass="litNavMenuItemHover"
+				ActiveCssClass="litNavMenuItemActive" />
+		</ItemLooks>
+		<Items>
+			<ComponentArt:MenuItem ID="NormalPage" Look-LeftIconUrl="icons_standard/document.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem ID="ProductPage" Look-LeftIconUrl="icons_standard/earth2.png"
+				DisabledLookId="DisabledExpandableItemLook" LookId="ExpandableItemLook" AutoPostBackOnSelect="false"
+				DefaultSubGroupCssClass="litNavMenuGroup" />
+			<ComponentArt:MenuItem ID="FunctionPage" Look-LeftIconUrl="icons_standard/document_gear.png"
+				LookId="ExpandableItemLook" AutoPostBackOnSelect="false" DefaultSubGroupCssClass="litNavMenuGroup" />
+			<ComponentArt:MenuItem ID="SharedPage" Look-LeftIconUrl="icons_standard/page_shared.png"
+				AutoPostBackOnSelect="true" />
+			<ComponentArt:MenuItem ID="TranslationPage" Look-LeftIconUrl="icons_standard/translation_16px.png"
+				AutoPostBackOnSelect="true" />
+		</Items>
+	</ComponentArt:Menu>
+	<asp:ContentPlaceHolder ID="ToolbarRight" runat="Server" />
+	<asp:PlaceHolder ID="c_placeHolderEditToolbar" runat="server">
+		<ComponentArt:ToolBar ID="ToolBar1" AutoPostBackOnSelect="true" OnItemCommand="ToolBar_ItemCommand"
+			runat="server" CssClass="litToolbar" DefaultItemCssClass="litToolbarItemNew"
+			DefaultItemHoverCssClass="litToolbarItemOnMouseOver" DefaultItemActiveCssClass="litToolbarItemOnMouseDown"
+			DefaultItemDisabledCssClass="litToolbarItemDisabled" ImagesBaseUrl="~/LitiumStudio/Images/"
+			DefaultItemExpandedCssClass="litToolbarItemOnMouseDown" EnableViewState="false"
+			ItemSpacing="0" UseFadeEffect="false" Orientation="Horizontal" DefaultItemImageWidth="16"
+			DefaultItemImageHeight="16">
+			<Items>
+				<ComponentArt:ToolBarItem ID="Cancel" ImageUrl="icons_standard/sign_stop.png" ClientTemplateId="c_toolbarLeftTreeItemButtonsTemplate" />
+				<ComponentArt:ToolBarItem ID="Delete" ImageUrl="icons_standard/delete.png" ClientTemplateId="c_toolbarLeftTreeItemButtonsTemplate" />
+				<ComponentArt:ToolBarItem ID="View" ImageUrl="icons_standard/view.png" ClientTemplateId="c_toolbarLeftTreeItemButtonsTemplate" />
+				<ComponentArt:ToolBarItem ID="Save" ImageUrl="icons_standard/floppy_disk_blue.png"
+					ClientTemplateId="c_toolbarLeftTreeItemButtonsTemplate" />
+				<ComponentArt:ToolBarItem ID="Publish" ImageUrl="icons_standard/ok.png" ItemType="DropDown"
+					DropDownId="PublishMenu" DropDownImageUrl="toolbar/dropdown.gif" DropDownImageWidth="16"
+					DropDownImageHeight="16" ClientTemplateId="c_toolbarLeftTreeItemButtonsDropDownTemplate" />
+			</Items>
+			<ClientEvents>
+				<ItemBeforeSelect EventHandler="Toolbar_onItemBeforeSelect" />
+			</ClientEvents>
+			<ClientTemplates>
+				<ComponentArt:ClientTemplate ID="c_toolbarLeftTreeItemButtonsTemplate">
+					<table cellspacing="0" cellpadding="0" border="0" style="margin: 0px; margin-right: auto;">
+						<tbody>
+							<tr>
+								<td class="ToolbarItemLeft">
+									&nbsp;
+								</td>
+								<td class="ca_tb_img ToolbarItemMain">
+									<img height="16" width="16" border="0" src="../Images/## DataItem.get_imageUrl() ##"
+										alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+								</td>
+								<td class="ca_tb_txt ToolbarItemMain">
+									<nobr>## DataItem.get_text() ##</nobr>
+								</td>
+								<td class="ToolbarItemRight">
+									&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</ComponentArt:ClientTemplate>
+				<ComponentArt:ClientTemplate ID="c_toolbarLeftTreeItemButtonsDropDownTemplate">
+					<table cellspacing="0" cellpadding="0" border="0" style="margin: 0px; margin-right: auto;">
+						<tbody>
+							<tr>
+								<td class="ToolbarItemLeft">
+									&nbsp;
+								</td>
+								<td class="ca_tb_img ToolbarItemMain">
+									<img height="16" width="16" border="0" src="../Images/## DataItem.get_imageUrl() ##"
+										alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+								</td>
+								<td class="ca_tb_txt ToolbarItemMain">
+									<nobr>## DataItem.get_text() ##</nobr>
+								</td>
+								<td rowspan="1" class="ca_tb_ddn ToolbarItemMain">
+									<img height="16" width="16" border="0" src="../Images/## DataItem.get_dropDownImageUrl() ##"
+										alt="" style="display: block;" title="## DataItem.get_toolTip() ##" />
+								</td>
+								<td class="ToolbarItemRight">
+									&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</ComponentArt:ClientTemplate>
+			</ClientTemplates>
+		</ComponentArt:ToolBar>
+		<ComponentArt:Menu EnableViewState="false" runat="server" ID="PublishMenu" OnItemSelected="PublishMenu_OnItemSelected"
+			ImagesBaseUrl="~/LitiumStudio/Images/" CssClass="litNavMenuGroup" DefaultItemLookId="DefaultItemLook"
+			DefaultGroupItemSpacing="1" DefaultItemTextAlign="Left" DefaultItemTextWrap="false"
+			DefaultGroupExpandOffsetX="0" DefaultGroupExpandOffsetY="0" DefaultGroupExpandDirection="Auto"
+			TopGroupExpandDirection="BelowLeft" TopGroupExpandOffsetY="0" CollapseDuration="100"
+			CollapseSlide="ExponentialDecelerate" ExpandDuration="100" ExpandSlide="ExponentialDecelerate"
+			ExpandDelay="0" ExpandOnClick="false" CascadeCollapse="true" CollapseDelay="10000"
+			HideSelectElements="false" HighlightExpandedPath="true" KeyboardEnabled="true"
+			OverlayWindowedElements="true" ShadowColor="Gray" ShadowEnabled="true" ShadowOffset="2"
+			Orientation="Vertical" ContextMenu="Custom">
+			<ItemLooks>
+				<ComponentArt:ItemLook LookId="DefaultItemLook" LeftIconHeight="16" LeftIconWidth="16"
+					CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded" ActiveCssClass="litNavMenuItemActive"
+					HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4" LabelPaddingLeft="10"
+					LabelPaddingRight="10" LabelPaddingTop="3" />
+				<ComponentArt:ItemLook LookId="ExpandableItemLook" RightIconUrl="menu/arrow.gif"
+					RightIconWidth="20" RightIconHeight="15" CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded"
+					ActiveCssClass="litNavMenuItemActive" HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="4"
+					LabelPaddingLeft="10" LabelPaddingRight="10" LabelPaddingTop="3" />
+				<ComponentArt:ItemLook LookId="CalendarItemLook" CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded"
+					ActiveCssClass="litNavMenuItemActive" LabelPaddingBottom="0" LabelPaddingLeft="0"
+					LabelPaddingRight="0" LabelPaddingTop="0" />
+				<ComponentArt:ItemLook LookId="CalendarTextItemLook" CssClass="litNavMenuItem" ExpandedCssClass="litNavMenuItemExpanded"
+					ActiveCssClass="litNavMenuItemActive" HoverCssClass="litNavMenuItemHover" LabelPaddingBottom="0"
+					LabelPaddingLeft="0" LabelPaddingRight="0" LabelPaddingTop="0" />
+			</ItemLooks>
+			<Items>
+				<ComponentArt:MenuItem ID="PublishNow" Look-LeftIconUrl="icons_standard/ok.png" AutoPostBackOnSelect="true" />
+				<ComponentArt:MenuItem ID="PublishApproval" Look-LeftIconUrl="icons_standard/hand_green_card.png"
+					AutoPostBackOnSelect="true" />
+				<ComponentArt:MenuItem ID="CancelPublishApproval" Look-LeftIconUrl="icons_standard/hand_green_card.png"
+					AutoPostBackOnSelect="true" />
+				<ComponentArt:MenuItem ID="TimePublish" LookId="ExpandableItemLook" DefaultSubGroupCssClass="litNavMenuGroup"
+					Look-LeftIconUrl="icons_standard/clock.png">
+					<ComponentArt:MenuItem ID="TimePublishCalendar" LookId="CalendarItemLook" ServerTemplateId="CalendarTemplate" />
+					<ComponentArt:MenuItem ID="TimePublishButton" LookId="CalendarItemLook" ServerTemplateId="TimeTemplate" />
+				</ComponentArt:MenuItem>
+				<ComponentArt:MenuItem ID="CancelTimePublish" Look-LeftIconUrl="icons_standard/clock.png"
+					AutoPostBackOnSelect="true" />
+			</Items>
+			<ClientEvents>
+				<ItemSelect EventHandler="PublishMenu_ItemSelect" />
+			</ClientEvents>
+			<ServerTemplates>
+				<ComponentArt:NavigationCustomTemplate ID="CalendarTemplate">
+					<Template>
+						<ComponentArt:Calendar runat="server" SelectedDate="<%#TimePublishDate%>" ID="c_calendarTimePublish"
+							AllowMonthSelection="false" AllowMultipleSelection="false" AllowWeekSelection="false"
+							ControlType="Calendar" DayNameFormat="FirstTwoLetters" ImagesBaseUrl="~/LitiumStudio/Images/calendar/"
+							NextImageUrl="cal_nextMonth.gif" PrevImageUrl="cal_prevMonth.gif" SelectMonthText=""
+							SelectWeekText="&raquo;" SwapDuration="300" SwapSlide="Linear" CalendarCssClass="litCalendar"
+							TitleCssClass="litCalendarTitle" DayCssClass="litCalendarDay" DayHeaderCssClass="litCalendarDayHeader"
+							DayHoverCssClass="litCalendarDayHover" MonthCssClass="litCalendarMonthBig" TodayDayCssClass="litCalendarToday"
+							NextPrevCssClass="litCalendarNextPrev" OtherMonthDayCssClass="litCalendarOtherMonthDay"
+							SelectedDayCssClass="litCalendarSelectedDay" SelectMonthCssClass="litCalendarSelector"
+							SelectWeekCssClass="litCalendarSelector">
+						</ComponentArt:Calendar>
+					</Template>
+				</ComponentArt:NavigationCustomTemplate>
+				<ComponentArt:NavigationCustomTemplate ID="TimeTemplate">
+					<Template>
+						<span class="litBoldText">&nbsp;<Foundation:ModuleString ID="ModuleString1" Name="Time"
+							runat="server" />
+							&nbsp;</span>
+						<asp:DropDownList runat="server" ID="c_dropDownListTimePublish" SelectedValue="<%#TimePublishTime%>"
+							CssClass="litInputSelect" Style="width: auto;">
+							<asp:ListItem Text="00:00" Value="0" />
+							<asp:ListItem Text="01:00" Value="1" />
+							<asp:ListItem Text="02:00" Value="2" />
+							<asp:ListItem Text="03:00" Value="3" />
+							<asp:ListItem Text="04:00" Value="4" />
+							<asp:ListItem Text="05:00" Value="5" />
+							<asp:ListItem Text="06:00" Value="6" />
+							<asp:ListItem Text="07:00" Value="7" />
+							<asp:ListItem Text="08:00" Value="8" />
+							<asp:ListItem Text="09:00" Value="9" />
+							<asp:ListItem Text="10:00" Value="10" />
+							<asp:ListItem Text="11:00" Value="11" />
+							<asp:ListItem Text="12:00" Value="12" />
+							<asp:ListItem Text="13:00" Value="13" />
+							<asp:ListItem Text="14:00" Value="14" />
+							<asp:ListItem Text="15:00" Value="15" />
+							<asp:ListItem Text="16:00" Value="16" />
+							<asp:ListItem Text="17:00" Value="17" />
+							<asp:ListItem Text="18:00" Value="18" />
+							<asp:ListItem Text="19:00" Value="19" />
+							<asp:ListItem Text="20:00" Value="20" />
+							<asp:ListItem Text="21:00" Value="21" />
+							<asp:ListItem Text="22:00" Value="22" />
+							<asp:ListItem Text="23:00" Value="23" />
+						</asp:DropDownList>
+						<asp:Button runat="server" ID="c_buttonTimePublish" OnClientClick="SetOnBeforeUnload();setTimeout('progressActivate();',100);"
+							OnClick="ButtonTimePublish_Click" CssClass="litInputButton" Style="width: auto;" />
+					</Template>
+				</ComponentArt:NavigationCustomTemplate>
+			</ServerTemplates>
+		</ComponentArt:Menu>
+	</asp:PlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="LitiumStudioMenu" runat="Server">
+	<LS:TreeHelper runat="server" ID="m_treeHelper" AssociatedControlID="m_tree" />
+	<TreeView:TreeViewRad ID="m_tree" OnLoadComplete="c_treeView_loadComplete" OnClientContextMenuShowing="onClientContextMenuShowing"
+		runat="server" EnableViewState="false" ForceWritePermissionCheck="true" ContextMenuEnable="true"
+		OnDemandLoading="true" ShowUtilities="true" ImagesBaseUrl="~/LitiumStudio/Images/icons_standard/"
+		OnClientMouseOut="onNodeMouseOut" OnClientMouseOver="onNodeMouseOver" EnableDragAndDropBetweenNodes="true" />
+	<LS:ContextMenuHelper runat="server" AssociatedControlID="TreeContextMenu" />
+	<Telerik:RadTreeViewContextMenu ID="TreeContextMenu" runat="server" ExpandAnimation-Type="None"
+		ExpandDelay="0" CollapseAnimation-Type="None" EnableViewState="false" CollapseDelay="0"
+		OnClientItemPopulating="onItemPopulating">
+		<items>
+                <Telerik:RadMenuItem Value="ToolbarNew" ImageUrl="../Images/icons_standard/add.png">
+                    <GroupSettings ExpandDirection="Right" />
+                </Telerik:RadMenuItem>
+				<Telerik:RadMenuItem Value="ToolbarEdit" ImageUrl="../Images/icons_standard/pencil.png" />
+                <Telerik:RadMenuItem Value="ButtonMoveToTrashcan" ImageUrl="../Images/icons_standard/garbage_empty.png" />
+                <Telerik:RadMenuItem Value="ButtonMoveToArchive" ImageUrl="../Images/icons_standard/folder_document.png" />
+                <Telerik:RadMenuItem IsSeparator="true" />
+                <Telerik:RadMenuItem Value="ButtonCut" ImageUrl="../Images/icons_standard/cut.png"  />
+				<Telerik:RadMenuItem Value="ButtonCopy" ImageUrl="../Images/icons_standard/copy.png" />
+				<Telerik:RadMenuItem Value="ButtonCopyRecursively" ImageUrl="../Images/icons_standard/copy_recursively_16px.png" />
+				<Telerik:RadMenuItem Value="ButtonPaste" ImageUrl="../Images/icons_standard/clipboard.png" />
+				<Telerik:RadMenuItem IsSeparator="true" />
+				<Telerik:RadMenuItem Value="ButtonMove">
+                    <Items>
+                        <Telerik:RadMenuItem Value="ButtonMoveUp" ImageUrl="../Images/icons_standard/arrow_up_blue.png" />
+						<Telerik:RadMenuItem Value="ButtonMoveDown" ImageUrl="../Images/icons_standard/arrow_down_blue.png" />
+						<Telerik:RadMenuItem Value="ButtonMoveToTop" ImageUrl="../Images/icons_standard/arrow_up_blue_top_16px.png" />
+						<Telerik:RadMenuItem Value="ButtonMoveToBottom" ImageUrl="../Images/icons_standard/arrow_down_blue_bottom_16px.png" />
+                    </Items>
+                </Telerik:RadMenuItem>
+                <Telerik:RadMenuItem IsSeparator="true" />
+                <Telerik:RadMenuItem Value="ToolbarPublish" ImageUrl="../Images/icons_standard/ok.png" />
+                <Telerik:RadMenuItem Value="ToolbarUnpublish" ImageUrl="../Images/icons_standard/ps_unpubl2_16px.png" />
+                <Telerik:RadMenuItem Value="ToolbarReadyForPublishing" ImageUrl="../Images/icons_standard/hand_green_card.png" />
+                <Telerik:RadMenuItem Value="ToolbarCancelReadyForPublishing" ImageUrl="../Images/icons_standard/hand_green_card.png" />
+                <Telerik:RadMenuItem IsSeparator="true" />
+                <Telerik:RadMenuItem Value="ToolbarStatistic" ImageUrl="../Images/icons_standard/chart_line.png">
+					<Items>
+						<Telerik:RadMenuItem Value="ToolbarStatisticVisitor" ImageUrl="../Images/icons_standard/chart_line.png" />
+						<Telerik:RadMenuItem Value="ToolbarStatisticProspectFinder" ImageUrl="../Images/icons_standard/enecto_16px.png" />
+					</Items>
+                </Telerik:RadMenuItem>
+                <Telerik:RadMenuItem IsSeparator="true" />
+                <Telerik:RadMenuItem Value="ToolbarSettings" ImageUrl="../Images/icons_standard/document_preferences.png">
+					<Items>
+						<Telerik:RadMenuItem Value="ToolbarPermissions" ImageUrl="../Images/icons_standard/earth_preferences_16px.png" />
+						<Telerik:RadMenuItem Value="ToolbarResponsible" ImageUrl="../Images/icons_standard/document_pinned_16px.png" />
+						<Telerik:RadMenuItem Value="ToolbarVersions" ImageUrl="../Images/icons_standard/document_exchange_16px.png" />
+						<Telerik:RadMenuItem Value="ToolbarAdvanced" ImageUrl="../Images/icons_standard/gear.png" />
+					</Items>
+                </Telerik:RadMenuItem>
+                  <Telerik:RadMenuItem Value="ToolbarSubpages">
+					<Items>
+						<Telerik:RadMenuItem Value="ToolbarSubPagesPublish" ImageUrl="../Images/icons_standard/ok.png" />
+						<Telerik:RadMenuItem Value="ToolbarSubPagesUnpublish" ImageUrl="../Images/icons_standard/ps_unpubl2_16px.png" />
+					</Items>
+                </Telerik:RadMenuItem>
+            </items>
+	</Telerik:RadTreeViewContextMenu>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="LitiumStudioContentHeading" runat="Server">
+	<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="Server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="LitiumStudioContent" runat="Server">
+	<div style="height: 100%;">
+		<div id="c_statusAreaDiv" runat="server">
+			<asp:ContentPlaceHolder ID="StatusArea" runat="Server" />
+		</div>
+		<%if (IsEditPage)
+	{%>
+		<div style="height: auto;">
+			<%} %>
+			<asp:ContentPlaceHolder ID="ContentRight" runat="Server" />
+			<%if (IsEditPage)
+	 {%>
+		</div>
+		<%} %>
+	</div>
+</asp:Content>

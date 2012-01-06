@@ -1,0 +1,2132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI">
+             <summary>
+             Auriga payment provider API
+             </summary>
+            <remarks>
+      Auriga payment provider API is the implementation of Auriga API in .net
+      This class is intended to be used only inside Litium Studio framework.
+      Please use the <see ref="Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider"></see> for implementation of payment provider.
+    </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetFormElements(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.Int32,System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Gets the form elements.
+            This method is obsolete, please use non-obsolete overload with same name
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="orderRef">The order ref.</param>
+            <param name="currency">The currency.</param>
+            <param name="amount">The amount.</param>
+            <param name="vat">The vat.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="responseUrl">The response URL.</param>
+            <param name="description">The description.</param>
+            <param name="language">The language.</param>
+            <param name="comment">The comment.</param>
+            <param name="country">The country.</param>
+            <param name="cancelUrl">The cancel URL.</param>
+            <param name="personNumber">The person number.</param>
+            <param name="lastDayOfPayment">The last day of payment.</param>
+            <param name="name">The name.</param>
+            <param name="address">The address.</param>
+            <param name="complementaryAddress">The complementary address.</param>
+            <param name="city">The city.</param>
+            <param name="postCode">The post code.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetFormElements(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.Int32,System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Gets the form elements.
+            This method is obsolete, please use non-obsolete overload with same name
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="orderRef">The order ref.</param>
+            <param name="currency">The currency.</param>
+            <param name="amount">The amount.</param>
+            <param name="vat">The vat.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="responseUrl">The response URL.</param>
+            <param name="description">The description.</param>
+            <param name="language">The language.</param>
+            <param name="comment">The comment.</param>
+            <param name="country">The country.</param>
+            <param name="cancelUrl">The cancel URL.</param>
+            <param name="personNumber">The person number.</param>
+            <param name="lastDayOfPayment">The last day of payment.</param>
+            <param name="name">The name.</param>
+            <param name="address">The address.</param>
+            <param name="complementaryAddress">The complementary address.</param>
+            <param name="city">The city.</param>
+            <param name="postCode">The post code.</param>
+            <param name="reserve">if set to <c>true</c> [reserve].</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetFormElements(System.Collections.Generic.Dictionary{System.String,System.String},Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams)">
+            <summary>
+            Gets the form elements.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="args">The form element arguments.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.AddFormElementComment(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String@)">
+            <summary>
+            Adds the form element comment.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="comment">The comment.</param>
+            <param name="macInput">The mac input.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.TestMac">
+            <summary>
+            Tests the MAC generation.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.TestFromTag">
+            <summary>
+            Tests from tag.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetCancelTransactionElements(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+            <summary>
+            Gets the cancel transaction elements. This should be posted to admin url to cancel the transaction.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="orderRef">The order ref.</param>
+            <param name="responseUrl">The response URL.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.CancelTransaction(System.String)">
+            <summary>
+            Cancels the transaction.
+            </summary>
+            <param name="transactionRef">The transaction ref.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.ReturnPayment(System.String,System.Int64,System.Int64)">
+            <summary>
+            Return the payment back to customer.
+            </summary>
+            <param name="transactionRef">The transaction ref.</param>
+            <param name="amount">The amount.</param>
+            <param name="vat">The vat.</param>
+            <returns>Response from return payment.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.ReturnPaymentUsingCreditAnnul(System.String)">
+            <summary>
+            Returns the payment using credit annul.
+            </summary>
+            <param name="transactionRef">The transaction ref.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.CaptureTransaction(System.String)">
+            <summary>
+            Captures the transaction.
+            </summary>
+            <param name="transactionRef">The transaction ref.</param>
+            <returns>Response.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.Confirm(System.String,System.DateTime)">
+            <summary>
+            Confirms the specified transaction id.
+            </summary>
+            <param name="transactionRef">The transaction ref.</param>
+            <param name="deliveryDate">The delivery date.</param>
+            <returns>Response received from the confirm call.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.Query(System.String)">
+            <summary>
+            Queries the specified customer ref.
+            </summary>
+            <param name="customerRef">The customer ref.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.AddCommonFields(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.Int32,System.Int32,Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod,System.String,System.String,System.String@)">
+            <summary>
+            Adds the common fields.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="orderRef">The order ref.</param>
+            <param name="currency">The currency.</param>
+            <param name="amount">The amount.</param>
+            <param name="vat">The vat.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="responseUrl">The response URL.</param>
+            <param name="description">The description.</param>
+            <param name="macInput">The mac input.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.AddHiddenField(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.String@)">
+            <summary>
+            Adds the hidden field.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <param name="macInput">The mac input.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.AddHiddenField(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+            <summary>
+            Adds the hidden field.
+            </summary>
+            <param name="formElements">The form elements.</param>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetMD5(System.String)">
+            <summary>
+            Compute the MD5 hash of the message.
+            </summary>
+            <param name="message">Message to encode</param>
+            <returns>Encoded message.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.ToHex(System.Byte[])">
+            <summary>
+            Converts byte array to hexadecimal string.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>hex string</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetOCR(System.String)">
+            <summary>
+            Gets the OCR number of a integer.
+            </summary>
+            <param name="value">Integer to calculate OCR</param>
+            <returns>OCR number</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetWeights(System.Int32)">
+            <summary>
+            Get the weights to calculate control digit.
+            </summary>
+            <param name="noOfDigits">no of digits in original number of which OCR is calcualted.</param>
+            <returns>Array of weights.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetDigits(System.Int64)">
+            <summary>
+            Get the digits of the value.
+            </summary>
+            <param name="value">Value to break into digits.</param>
+            <returns>array of digits, zero'th element contains the least significant digit.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetDigits(System.String)">
+            <summary>
+            Get the digits of the value.
+            </summary>
+            <param name="value">Value to break into digits.</param>
+            <returns>array of digits, zero'th element contains the least significant digit.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaAPI.GetStringAsNumber(System.String)">
+            <summary>
+            Converts the string to a number
+            </summary>
+            <param name="value">string to convert to.</param>
+            <returns>String as a number</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider">
+            <summary>
+            Auriga payment provider.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Boolean,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge customer account
+            </summary>
+            <param name="personNumber">Person number.</param>
+            <param name="responseUrl">Response Url.</param>
+            <param name="cancelUrl">Cancel Url.</param>
+            <param name="clientLanguage">Client language.</param>
+            <param name="formTargetUrl">The form target URL.</param>
+            <param name="formElements">The form elements.</param>
+            <param name="reserve">if set to <c>true</c> [reserve].</param>
+            <param name="token">Security token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ProviderRedirectedToUrlSuccess(System.Collections.Specialized.NameValueCollection,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            The payment provider redirected to the urlSuccess specified in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Boolean,Litium.Foundation.Security.SecurityToken)"/> or 
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Boolean,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+            <param name="queryString">HttpRequest query string collection.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.OnCapture(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Capture transaction in auriga system. This is confirmaiton of a reserved transaction.
+            </summary>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ProviderRedirectedToUrlCancel(System.Collections.Specialized.NameValueCollection,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            The payment provider redirected to the urlCancel specified in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Boolean,Litium.Foundation.Security.SecurityToken)"/> or 
+            <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Boolean,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+            <param name="queryString">HttpRequest query string collection.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve money from customer account.
+            This method is obsolete, and only provided for backward compatibility, Please use IPaymentProvider.ExecutePayment
+            </summary>
+            <param name="personNumber">Personal identification number</param>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="clientLanguage">Client language code</param>
+            <param name="formTargetUrl">The form target URL.</param>
+            <param name="formElements">The form elements.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CompleteTransaction(System.Collections.Specialized.NameValueCollection,System.String@,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the transaction started from <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,Litium.Foundation.Security.SecurityToken)"/>
+            This method is obsolete. Please use CompletePayment method in IPaymentProvider.
+            </summary>
+            <param name="queryString">Query string collection from httpRequest.</param>
+            <param name="formTag">form tag that need to be attached to the page.</param>
+            <param name="js">Java script to do the submit.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.Litium#Foundation#Modules#ECommerce#Plugins#Interfaces#IPaymentProviderAuriga#ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Charge money from customer account.
+            This method is obsolete, and only provided for backward compatibility, Please use IPaymentProvider.ExecutePayment
+            </summary>
+            <param name="personNumber">Personal identification number</param>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="clientLanguage">Client language code</param>
+            <param name="formTag">form tag that need to be attached to the page.</param>
+            <param name="js">Java script to do the submit.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.Litium#Foundation#Modules#ECommerce#Plugins#Interfaces#IPaymentProviderAuriga#ReserveMoneyFromCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.String@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Reserve money from customer account.
+            </summary>
+            <param name="personNumber">Personal identification number</param>
+            <param name="responseUrl">Response Url</param>
+            <param name="cancelUrl">Cancel Url</param>
+            <param name="clientLanguage">Client language code</param>
+            <param name="formTag">form tag that need to be attached to the page.</param>
+            <param name="js">Java script to do the submit.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.GetPaymentMethods">
+            <summary>
+            Gets a list of Payment methods. Dictionary contains the keys to use in <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ChargeCustomerAccount(System.String,System.String,System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String}@,System.Boolean,Litium.Foundation.Security.SecurityToken)"/> method.
+            </summary>
+            <returns>Dictionary of key value pairs containing payment method Id, and payment method description.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.GetPaymentMethodsSupported">
+            <summary>
+            Gets a list of Payment methods.
+            </summary>
+            <returns>List of payment method description.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.GetPaymentMethodsSupported(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentMode)">
+            <summary>
+            Gets the list of payment methods supported, for the given execute payment mode.
+            Note that, some payment providers does not support all the payment methods for reserve mode.
+            </summary>
+            <param name="paymentMode">The payment mode.</param>
+            <returns>List of supported payment methods.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ReturnPayment(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user.
+            Auriga return payment is not implemented in default implementation.
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CancelPayment(Litium.Foundation.Modules.ECommerce.Plugins.CancelPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Cancels a current Payment. This is only possible in certain scenarios.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security Token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+            <exception cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderException">Thrown when API generates an error.</exception>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ReturnPayment(Litium.Foundation.Modules.ECommerce.Plugins.ReturnPaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Returns payments back to the user.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">Security token.</param>
+            <returns>True if successful, False otherwise.</returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ReturnPaymentUsingCreditAnnul(Litium.Foundation.Security.SecurityToken,System.Int64,System.Int64,Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response@)">
+            <summary>
+            Returns the payment using credit annul.
+            </summary>
+            <param name="token">The token.</param>
+            <param name="amount">The amount.</param>
+            <param name="vat">The vat.</param>
+            <param name="response">The response.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Executes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns>Results of executing payment.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Completes the payment.
+            </summary>
+            <param name="args">The args.</param>
+            <param name="token">The token.</param>
+            <returns>
+            Default implementation will alwasy return a result as false.
+            </returns>
+            <remarks>Please see remarks under <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.OnProviderCallback(System.Collections.Specialized.NameValueCollection,System.Boolean,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Method to execute when the Payment provider redirects back into Litium studio after a call to it.
+            </summary>
+            <param name="queryString">The query string.</param>
+            <param name="isSuccess">if the Payment provider result redirected to success, this is true, else false.</param>
+            <param name="token">The token.</param>
+            <remarks>
+            After calling any of the methods on the payment providers external API,
+            usually over a web service, over a HTTP post, remote procedure call or a similar method,
+            the payment provider will redirect the execution control back into Litium Studio.
+            <para>The execution control is given back by the provider by redirecting back to a Litium Studio page
+            or a entry port such as a webhandler, in most cases. </para>
+            	<para>Usually, this redirect location is given to the payment provider when calling the <see cref="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.ExecutePayment(Litium.Foundation.Modules.ECommerce.Plugins.ExecutePaymentArgs,Litium.Foundation.Security.SecurityToken)"/> method.</para>
+            	<para>After getting the execution control back, this method should be called, irrespective of the result of the execution.</para>
+            	<para>In the implementation of this method, any post call back scenarios specific to payment provider should be handled.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.SyncPaymentStatusWithProvider(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Syncs the payment status with provider.
+            </summary>
+            <param name="token">The token.</param>
+            <remarks>On occations where communication line failures or other errors occur during communication with
+            payment provider, the payment status in Litium Studio may remain behind the internal status of the transaction
+            in payment provider.
+            <para>
+            For example, suppose a ExecutePayment is called, which will put the payment status to InitiatedDirectPayment,
+            but lets say the control does not return at all. The Payment status may remain at InitiatedDirectPayment
+            when viewed from Litium Studio. But at the payment providers end, this status can be Failed, Reserved, Paid, etc.        ///
+            </para>
+            	<para>This method should try to see whether a transaction exists in the target payment provider system,
+            and if it exists find out its status and adjust the Payment status accordingly.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.GetInvoiceDueDate(Litium.Foundation.Modules.ECommerce.Orders.Order)">
+            <summary>
+            Returns the invoice due date.
+            </summary>
+            <param name="order">Order to check.</param>
+            <returns>Due date for Invoice.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.OnTransactionExists(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Called when transaction exists in the auriga system.
+            </summary>
+            <param name="token">The token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CanReserveMoneyFromCustomerAccount">
+            <summary>
+            Can money be reserved from customer account.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CanChargeCustomerAccountDirectly">
+            <summary>
+            Can money be taken from customer account directly.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CanCompleteCurrentTransaction">
+            <summary>
+            Can complete the transaction.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CanCancelCurrentTransaction">
+            <summary>
+            Can cancel the current transaction. In Auriga only valid for certain payment methods.
+            </summary>
+            <remarks>
+            This implementation should be adjuted to allow the latest methods allowed from Auriga,
+            at the time of implementation.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CanReturnPayment">
+            <summary>
+            Can return payment to the customer. For Auriga, only some methods are supported.        /// 
+            as it is not supported.
+            </summary>
+            <remarks>
+            Default implementation only allows INVOICE, KORTABSE,  KORTINDK,  KORTINFI,  KORTINNO,  KORTINSE,  PAYSONSE.
+            This implementation should be adjuted to allow the latest methods allowed from Auriga,
+            at the time of implementation.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.CanEditPayment">
+            <summary>
+            Whether the payment can be edited to change payment provider, etc.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.AdminPanel">
+            <summary>
+            Gets the payment administratoin panels path.
+            </summary>
+            <value>The payment administration panels path.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaProvider.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets the type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaCompletePaymentArgs">
+            <summary>
+            Base class for arguments passed to <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaCompletePaymentResult">
+            <summary>
+            Result of the operation Complete Payment, <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.IPaymentProvider.CompletePayment(Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentArgs,Litium.Foundation.Security.SecurityToken)"/>
+            </summary>    
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaCompletePaymentResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaCompletePaymentResult"/> class.
+            The <see cref="P:Litium.Foundation.Modules.ECommerce.Plugins.CompletePaymentResult.Success"/> will be set to false by default.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaCompletePaymentResult.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaCompletePaymentResult"/> class.
+            </summary>
+            <param name="isSucceeded">if set to <c>true</c> result is successful, else false.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency">
+            <summary>
+            ISO 4217 currency codes. Use string representation in API call.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.UNDEFINED">
+            <summary>
+            Currency is not defined.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.CAD">
+            <summary>
+            Canadian dollars.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.CHF">
+            <summary>
+            Swiss Franc.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.GBP">
+            <summary>
+            Great Britain Pounds.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.SEK">
+            <summary>
+            Swedish Kroner.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.EUR">
+            <summary>
+            European Union Euro.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.DKK">
+            <summary>
+            Danish Kroner.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.NOK">
+            <summary>
+            Nowegian Kroner.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Currency.USD">
+            <summary>
+            US dollars.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs">
+            <summary>
+            Arguments for Execute payment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs"/> class.
+            </summary>
+            <param name="personNumber">The person number.</param>
+            <param name="responseUrl">The response URL.</param>
+            <param name="cancelUrl">The cancel URL.</param>
+            <param name="clientLanguage">The client language.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.ExecuteScript">
+            <summary>
+            Gets or sets the execute script that execute the payment provider script that post information to provider site.
+            </summary>
+            <value>The execute script.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.PersonNumber">
+            <summary>
+            Gets or sets the person number.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.ResponseUrl">
+            <summary>
+            Gets or sets the response URL.
+            </summary>
+            <value>The response URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.CancelUrl">
+            <summary>
+            Gets or sets the cancel URL.
+            </summary>
+            <value>The cancel URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.ClientLanguage">
+            <summary>
+            Gets or sets the client language.
+            </summary>
+            <value>The client language.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentArgs.ExecuteScriptHandler">
+            <summary>
+            delegate to execute the payment provider script that post information to provider site, or redirect to provider site.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentResult">
+            <summary>
+            Result of ExecutePayment.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.AurigaPaymentResult"/> class.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language">
+            <summary>
+            ISO 639-2 valid language codes for Auriga. 
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.SWE">
+            <summary>
+            Swedish
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.FIN">
+            <summary>
+            Finnish
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.DAN">
+            <summary>
+            Danish
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.NOR">
+            <summary>
+            Norwegian
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.ENG">
+            <summary>
+            English
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.ESP">
+            <summary>
+            Esperanto
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.FRA">
+            <summary>
+            French
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.ITA">
+            <summary>
+            Italian
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Language.DEU">
+            <summary>
+            German
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams">
+            <summary>
+            Order parameters for Auriga order.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.FormatPersonNumnber(System.String)">
+            <summary>
+            Formats the person numnber.
+            </summary>
+            <param name="personNumber">The person number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.CreateInvoiceRowStrings(Litium.Foundation.Modules.ECommerce.Payments.PaymentInfo)">
+            <summary>
+            Creates the invoice row strings.
+            </summary>
+            <param name="paymentInfo">The payment info.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.GetFormattedDescription(Litium.Foundation.Modules.ECommerce.Payments.PaymentInfoRow)">
+            <summary>
+            Gets the formatted description.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.GetInvoiceDueDate(Litium.Foundation.Modules.ECommerce.Orders.Order)">
+            <summary>
+            Returns the invoice due date.
+            </summary>
+            <param name="order">Order to check.</param>
+            <returns>Due date for Invoice.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.GetVATCode(System.Decimal)">
+            <summary>
+            Gets the VAT code. return value is 0, if 0%
+            1 if 6%,
+            2 if 12%,
+            3 if 25%,
+            0 if anything else.
+            </summary>
+            <param name="vatPercentage">The vat percentage.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.OrderRef">
+            <summary>
+            Gets or sets the order ref.
+            </summary>
+            <value>The order ref.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Amount">
+            <summary>
+            Gets or sets the amount.
+            </summary>
+            <value>The amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.TotalVAT">
+            <summary>
+            Gets or sets the total VAT.
+            </summary>
+            <value>The total VAT.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.PaymentMethod">
+            <summary>
+            Gets or sets the payment method.
+            </summary>
+            <value>The payment method.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.ResponseUrl">
+            <summary>
+            Gets or sets the response URL.
+            </summary>
+            <value>The response URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Language">
+            <summary>
+            Gets or sets the language.
+            </summary>
+            <value>The language.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Comment">
+            <summary>
+            Gets or sets the comment.
+            </summary>
+            <value>The comment.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>The country.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.CancelUrl">
+            <summary>
+            Gets or sets the cancel URL.
+            </summary>
+            <value>The cancel URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.PersonNumber">
+            <summary>
+            Gets or sets the person number.
+            </summary>
+            <value>The person number.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.LastDayOfPayment">
+            <summary>
+            Gets or sets the last day of payment.
+            </summary>
+            <value>The last day of payment.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.ComplementaryAddress">
+            <summary>
+            Gets or sets the complementary address.
+            </summary>
+            <value>The complementary address.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.City">
+            <summary>
+            Gets or sets the city.
+            </summary>
+            <value>The city.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.PostCode">
+            <summary>
+            Gets or sets the post code.
+            </summary>
+            <value>The post code.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.IsReserveMode">
+            <summary>
+            Gets or sets a value indicating whether [payment mode].
+            </summary>
+            <value><c>true</c> if [payment mode]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.ArticleIDs">
+            <summary>
+            Gets or sets the articl I ds.
+            </summary>
+            <value>The articl I ds.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.ArticleDescriptions">
+            <summary>
+            Gets or sets the article descriptions.
+            </summary>
+            <value>The article descriptions.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.PricePerUnit">
+            <summary>
+            Gets or sets the price per unit.
+            </summary>
+            <value>The price per unit.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.NumberOfUnits">
+            <summary>
+            Gets or sets the number of units.
+            </summary>
+            <value>The number of units.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.VATPercent">
+            <summary>
+            Gets or sets the VAT percent.
+            </summary>
+            <value>The VAT percent.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.VATCode">
+            <summary>
+            Gets or sets the VAT code.
+            </summary>
+            <value>The VAT code.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.DiscountPercentage">
+            <summary>
+            Gets or sets the discount percentage.
+            </summary>
+            <value>The discount percentage.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.OrderParams.DiscountWithVAT">
+            <summary>
+            Gets or sets the discount with VAT.
+            </summary>
+            <value>The discount.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod">
+            <summary>
+            Payment methods of Auriga.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.NONE">
+            <summary>
+            Not specified.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.INVOICE">
+            <summary>
+            Invoice Payment.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KORTABSE">
+            <summary>
+            Card payment Subscriptions Sweden
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KORTINDK">
+            <summary>
+            Card payment Denmark PBS
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KORTINFI">
+            <summary>
+            Card payment Finland Luottokunta
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KORTINNO">
+            <summary>
+            Card payment Norway BBS
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KORTINSE">
+            <summary>
+            Card payment Sweden
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.NETELLER">
+            <summary>
+            NETELLER Wallet
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.PAYSONSE">
+            <summary>
+            Payson in Sweden
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.PAYPAGE">
+            <summary>
+            Payment Selection Page Auriga ePayment
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.SVEAWPSE">
+            <summary>
+            Svea WebPay
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.SVEADBSE">
+            <summary>
+            SVEADBSE payment method.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KLARNASE">
+            <summary>
+            Invoice using Klarna
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.SHBPFINFA">
+            <summary>
+            Invoice using Handelsbanken
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.EKOP">
+            <summary>
+            Payment method EKOP
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.TAPIOLA">
+            <summary>
+            TAPIOLA payment method
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.MBOOKERS">
+            <summary>
+            Money bookers payment method.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings">
+            <summary>
+            Provides configuration information about the auriga payment provider from configuration file
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.WEB_SERVER_URL">
+            <summary>
+            Web server Url
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.WEB_SERVICE_URL">
+            <summary>
+            Key for web URL
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.ADMIN_URL">
+            <summary>
+            Administration url, such as cancel transaction.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.MERCHANT_ACCOUNT">
+            <summary>
+            Key for merchant account
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.ENCRYPTION_KEY">
+            <summary>
+            Key for encryption key
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.API_VERSION">
+            <summary>
+            Key for api version.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.INVOICE_DUE_AFTER_DAYS">
+            <summary>
+            Key for Invoice due after days
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IS_CARD_PAYMENT_SWEDEN_ENABLED">
+            <summary>
+            Key for Payment method card payment sweden.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IS_SVEA_WEB_PAY_ENABLED">
+            <summary>
+            Key for payment method svea web pay
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IS_KLARNA_INVOICE_ENABLED">
+            <summary>
+            Key for klarna invoice
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IS_HANDELSBANKEN_INVOICE_ENABLED">
+            <summary>
+            Key for handelsbanken invoice
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.PAYMENT_MODE">
+            <summary>
+            key for the default payment mode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.PAYMENT_PROVIDER_ARGS_CREATOR_TYPE">
+            <summary>
+            key for the PaymentProviderArgsCreatorType
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.INCLUDE_DISCOUNT_ROWS">
+            <summary>
+            key for the include discount rows.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.LoadConfiguration">
+            <summary>
+            Verifies the configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.WebServerURL">
+            <summary>
+            Gets or sets the web server URL.
+            </summary>
+            <value>The web server URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.WebServiceURL">
+            <summary>
+            The web service URL for Auriga
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.AdminUrl">
+            <summary>
+            Gets or sets the admin URL.
+            </summary>
+            <value>The admin URL.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.MerchantAccount">
+            <summary>
+            The account number we get at Auriga, 
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.EncryptionKey">
+            <summary>
+            Encryption key provided by Auriga
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.PaymentProviderArgsCreatorType">
+            <summary>
+            Gets type of the payment provider args creator.
+            </summary>
+            <value>The type of the payment provider args creator.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.ApiVersion">
+            <summary>
+            ApiVersion
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.InvoiceDueAfterDays">
+            <summary>
+            Invoice is due after number of days after invoice is placed.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IsInvoiceEnabled">
+            <summary>
+            True if invoice payment method, <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.INVOICE"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IsCardPaymentSwedenEnabled">
+            <summary>
+            True if payment method Card Payment Sweden, <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KORTINSE"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IsSveaWebPayEnabled">
+            <summary>
+            True if payment method Svea webpay, <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.SVEAWPSE"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IsKlarnanvoiceEnabled">
+            <summary>
+            True if payment method Klarna invoice, <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.KLARNASE"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IsHandelsbankenInvoiceEnabled">
+            <summary>
+            True if payment method Handelsbanken invoice, <see cref="F:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PaymentMethod.SHBPFINFA"/> is enabled.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.IncludeDiscountRows">
+            <summary>
+            True if Discount rows can be allowed. As at 2010-Dec-05, only Auriga Test Sandbox supported this functionality
+            Production will throw an error until they fix this in production. Date for fix is not given as at 2010-Dec-05
+            </summary>
+            <value><c>true</c> if [include discount rows]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.PluginSettings.DefaultPaymentMode">
+            <summary>
+            Gets the default payment mode.
+            </summary>
+            <value>The default payment mode.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString">
+            <summary>
+            Query string helper class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.#ctor">
+            <summary>
+            Empty constructor.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.#ctor(System.String)">
+            <summary>
+            Constructs a querystring from a query string.
+            </summary>
+            <param name="queryString">QueryString to construct new query string.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.ExtractQuerystring(System.String)">
+            <summary>
+            extracts a querystring from a full URL
+            </summary>
+            <param name="s">the string to extract the querystring from</param>
+            <returns>a string representing only the querystring</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.ReplaceQueryString(System.String)">
+            <summary>
+            Replaces the query string in the url with current queryString and return the new url.
+            </summary>
+            <param name="url">Url in which query string need be replaced.</param>
+            <returns>New url with new query string.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.FillFromString(System.String)">
+            <summary>
+            returns a querystring object based on a string
+            </summary>
+            <param name="s">the string to parse</param>
+            <returns>the QueryString object </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.FromCurrent">
+            <summary>
+            returns a QueryString object based on the current querystring of the request
+            </summary>
+            <returns>the QueryString object </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Add(System.String,System.String)">
+            <summary>
+            add a name value pair to the collection
+            </summary>
+            <param name="name">the name</param>
+            <param name="value">the value associated to the name</param>
+            <returns>the QueryString object </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Add(System.String,System.String,System.Boolean)">
+            <summary>
+            adds a name value pair to the collection
+            </summary>
+            <param name="name">the name</param>
+            <param name="value">the value associated to the name</param>
+            <param name="isUnique">true if the name is unique within the querystring. This allows us to override existing values</param>
+            <returns>the QueryString object </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Remove(System.String)">
+            <summary>
+            removes a name value pair from the querystring collection
+            </summary>
+            <param name="name">name of the querystring value to remove</param>
+            <returns>the QueryString object</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Reset">
+            <summary>
+            clears the collection
+            </summary>
+            <returns>the QueryString object </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Contains(System.String)">
+            <summary>
+            checks if a name already exists within the query string collection
+            </summary>
+            <param name="name">the name to check</param>
+            <returns>a boolean if the name exists</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.ToString">
+            <summary>
+            outputs the querystring object to a string
+            </summary>
+            <returns>the encoded querystring as it would appear in a browser</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Current">
+            <summary>
+            Current instance.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Item(System.String)">
+            <summary>
+            overrides the default
+            </summary>
+            <param name="name"></param>
+            <returns>the associated decoded value for the specified name</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.QueryString.Item(System.Int32)">
+            <summary>
+            overrides the default indexer
+            </summary>
+            <param name="index"></param>
+            <returns>the associated decoded value for the specified index</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response">
+            <summary>
+            Response from Auriga provider.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.#ctor(Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response"/> class.
+            </summary>
+            <param name="adminResponse">The admin response.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.#ctor(Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response"/> class.
+            </summary>
+            <param name="adminResponse">The admin response.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Creates a instance of response from the Http request query string.
+            </summary>
+            <param name="queryString">Query string name value collection from Http request.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.GetCustomerRefno(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Extracts customer ref number from query string.
+            </summary>
+            <param name="queryString">Query string.</param>
+            <returns>Customer ref number.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.GetMerchantId(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Extract merchant Id from query string.
+            </summary>
+            <param name="queryString">Query string.</param>
+            <returns>Merchant Id</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.GetPaymentMethod(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Extract the payment method from query string. If not found, returns PaymentMethod.None
+            </summary>
+            <param name="queryString">Query string.</param>
+            <returns>Instance of PaymentMethod if found, PaymentMethod.NONE if not found.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.GetResponseCode(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Gets the responseCode from query string.
+            </summary>
+            <param name="queryString">Query string.</param>
+            <returns>Instance of ResponseCode with details of response.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.GetResponseCode(Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse)">
+            <summary>
+            Gets the responseCode from query string.
+            </summary>
+            <param name="adminResponse">The admin response.</param>
+            <returns>
+            Instance of ResponseCode with details of response.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.op_Implicit(System.Collections.Specialized.NameValueCollection)~Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response">
+            <summary>
+            Implicit conversion of a HttpResponse to a Auriga response.
+            </summary>
+            <param name="queryString">Query string name value collection from Http request.</param>
+            <returns>object of Auriga response.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.op_Implicit(Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse)~Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse"/> to <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response"/>.
+            </summary>
+            <param name="adminResponse">The admin response.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.MerchantId">
+            <summary>
+            Merchant Id.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.Version">
+            <summary>
+            API Version.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.CustomerRefno">
+            <summary>
+            Customer reference number.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.ResponseCode">
+            <summary>
+            Reponse code.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.TransactionId">
+            <summary>
+            Transaction Id.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.AuthCode">
+            <summary>
+            Auth Code.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.ThreeDSec">
+            <summary>
+            3D secure code.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.BatchId">
+            <summary>
+            Batch Id.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.PaymentMethod">
+            <summary>
+            Payment Method.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.RiskScore">
+            <summary>
+            Score for Risk.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.CardType">
+            <summary>
+            Card type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.Mac">
+            <summary>
+            MD5 Hash.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.Response.Comment">
+            <summary>
+            Gets or sets the comment.
+            </summary>
+            <value>The comment.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates an instance of response code.
+            </summary>
+            <param name="status">Status.</param>
+            <param name="statusCode">Status score.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.GetStatusMessage(System.String,System.Int32)">
+            <summary>
+            Get the message for status in english.
+            </summary>
+            <param name="status">status</param>
+            <param name="statusCode">statusCode</param>
+            <returns>Message with details about status.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.ToString">
+            <summary>
+            To string method.
+            </summary>
+            <returns>Status+StatusCode: Message</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.PaidOrOk">
+            <summary>
+            The payment/order placement has been carried out: Paid. or The Order Administration's Request_type has been carried out: OK.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.TransactionStateDoesNotPermitOperation">
+            <summary>
+            Gets a value indicating whether [transaction state does not permit operation].
+            </summary>
+            <value>
+            	<c>true</c> if [transaction state does not permit operation]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.DeniedOrDiscontinued">
+            <summary>
+            Denied/Discontinued. The payment has been denied or discontinued.
+            </summary>
+            <value>
+            	<c>true</c> if [denied or discontinued]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.Pending">
+            <summary>
+            Gets a value indicating whether Pending. The payment is awaiting response from the bank
+            </summary>
+            <value><c>true</c> if pending; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.Cancelled">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode"/> is cancelled.
+            </summary>
+            <value><c>true</c> if cancelled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.Initiated">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode"/> is initiated by the purchaser.
+            </summary>
+            <value><c>true</c> if initiated; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.Authorized">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode"/> is authorized and awaiting confirmation and Acquisition..
+            </summary>
+            <value><c>true</c> if authorized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.AcquiringUnsuccessful">
+            <summary>
+            Gets a value indicating whether [acquiring unsuccessful]. It was not possible to acquire the payment.
+            </summary>
+            <value>
+            	<c>true</c> if [acquiring unsuccessful]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.AcquiringPending">
+            <summary>
+            Gets a value indicating whether [acquiring pending]. Card payment is now being acquired.
+            </summary>
+            <value><c>true</c> if [acquiring pending]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.Confirmed">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode"/> is confirmed. The payment is confirmed and will be acquired.
+            </summary>
+            <value><c>true</c> if confirmed; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.SentToBank">
+            <summary>
+            Gets a value indicating whether [sent to bank]. Applies only to the Payment Method INVOICE
+            </summary>
+            <value><c>true</c> if [sent to bank]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.TransactionExists">
+            <summary>
+            Gets a value indicating whether transaction already exists in the Auriga system.
+            </summary>
+            <value><c>true</c> if [transaction exists]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.Status">
+            <summary>
+            Status.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.StatusCode">
+            <summary>
+            Status code.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.ResponseCode.Message">
+            <summary>
+            Status message.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.balanceInquiry(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.balanceInquiryAsync(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.balanceInquiryAsync(System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.creditAnnul(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.creditAnnulAsync(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.creditAnnulAsync(System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPay(System.Int64,System.Int64,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPayAsync(System.Int64,System.Int64,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPayAsync(System.Int64,System.Int64,System.String,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.uccheck(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.uccheckAsync(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.uccheckAsync(System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.capture(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.captureAsync(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.captureAsync(System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.annul(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.annulAsync(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.annulAsync(System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.getBatch(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.getBatchAsync(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.getBatchAsync(System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.query(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.queryAsync(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.queryAsync(System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.confirm(System.Int64,System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.confirmAsync(System.Int64,System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.confirmAsync(System.Int64,System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.transactionList(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.transactionListAsync(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.transactionListAsync(System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.query2(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.query2Async(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.query2Async(System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.authRev(System.Int64,System.Int64,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.authRevAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.authRevAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.batchList(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.batchListAsync(System.Int64,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.batchListAsync(System.Int64,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.supAuth(System.Int64,System.Int64,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.supAuthAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.supAuthAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPay2(System.Int64,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPay2Async(System.Int64,System.String,System.String,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPay2Async(System.Int64,System.String,System.String,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.prepaidQuery(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.prepaidQueryAsync(System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.prepaidQueryAsync(System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiquery2(System.Int64,System.Int64[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiquery2Async(System.Int64,System.Int64[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiquery2Async(System.Int64,System.Int64[],System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiquery(System.Int64,System.String[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiqueryAsync(System.Int64,System.String[],System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiqueryAsync(System.Int64,System.String[],System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.ping">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.pingAsync">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.pingAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.credit(System.Int64,System.Int64,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.creditAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.creditAsync(System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.balanceInquiryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.creditAnnulCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPayCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.uccheckCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.captureCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.annulCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.getBatchCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.queryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.confirmCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.transactionListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.query2Completed">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.authRevCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.batchListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.supAuthCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.recurPay2Completed">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.prepaidQueryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiquery2Completed">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.multiqueryCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.pingCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminService.creditCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminBalanceResponse">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse.Status">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse.StatusCode">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse.Customerrefno">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse.Comment">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse.TransactionId">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminResponse.Mac">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminBalanceResponse.BalanceInquiry">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BalanceInquiry">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BalanceInquiry.ResultValue">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BalanceInquiry.CardStatus">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BalanceInquiry.Balance">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BalanceInquiry.ExpiryDate">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1.Id">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1.Ordernumber">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1.Purchasedate">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1.Captureamount">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1.Currency">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1.Capturedate">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem1.Type">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem.Aurigabatchid">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem.Batchid">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem.Cardbrand">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem.Currency">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem.Date">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem.Amount">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.BatchItem.AmountCredit">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.TransactionID">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.Date">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.Time">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.PosID">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.TransactionType">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.TransactionResult">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.Store">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.Currency">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.TransactionItem.Amount">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminBatchListResponse">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminBatchListResponse.BatchList">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminBatchResponse">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminBatchResponse.BatchItem">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminBatchResponse.TransactionList">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminTransactionListResponse">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminTransactionListResponse.TransactionList">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminPingResponse">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminPingResponse.DateTime">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminPrepaidQueryResponse">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminPrepaidQueryResponse.PrepaidStatus">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.AuthCode">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.PaymentMethod">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.CardType">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.AuthorizedAmount">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.FeeAmount">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.RiskScore">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.ThreeDSecure">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.AdminExtendedResponse.BatchId">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.balanceInquiryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.balanceInquiryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.balanceInquiryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.creditAnnulCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.creditAnnulCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.creditAnnulCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.recurPayCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.recurPayCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.recurPayCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.uccheckCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.uccheckCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.uccheckCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.captureCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.captureCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.captureCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.annulCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.annulCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.annulCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.getBatchCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.getBatchCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.getBatchCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.queryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.queryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.queryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.confirmCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.confirmCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.confirmCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.transactionListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.transactionListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.transactionListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.query2CompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.query2CompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.query2CompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.authRevCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.authRevCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.authRevCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.batchListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.batchListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.batchListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.supAuthCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.supAuthCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.supAuthCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.recurPay2CompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.recurPay2CompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.recurPay2CompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.prepaidQueryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.prepaidQueryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.prepaidQueryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.multiquery2CompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.multiquery2CompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.multiquery2CompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.multiqueryCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.multiqueryCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.multiqueryCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.pingCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.pingCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.pingCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.creditCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.creditCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PaymentProviders.Auriga.eu.auriganet.epayment.creditCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+    </members>
+</doc>

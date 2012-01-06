@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="false" Inherits="Site.CMS.Templates.Base" CodeFile="~/Site/CMS/Templates/Framework/ProfIT.Master.cs" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" OnPreRender="HtmlHtmlOnPreRender" runat="server" lang="<%= CurrentState.WebSite.Culture.Name %>">
+<head>
+    <title><web:SearchEngineTitle runat="server" /></title>
+    <web:SearchEngineDescription runat="server" />
+    <web:SearchEngineKeywords runat="server" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="<%= Page.ResolveUrl("~/ui/css/base-profit.ashx") %>" />
+    <!--[if (lte IE 6)]><link rel="stylesheet" type="text/css" href="/ui/css/ie6.css" /><![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    <script type="text/javascript" src="<%= Page.ResolveUrl("~/ui/js/litium.js") %>"></script>
+    <asp:ContentPlaceHolder ID="Head" runat="server" />
+</head>
+<body class="site" OnPreRender="HtmlBodyOnPreRender" runat="server">
+<form method="post" runat="server">
+
+	<div id="page" class="container_12">
+		<div id="header">
+			<web:UsePage runat="server" StructureLevel="1">
+				<a class="grid_5" id="home" href="<web:PageURL runat=server />" title="<web:WebSiteString runat=server Name=FrameworkLogotypeTitle />">
+					<img src="<%= Page.ResolveUrl("~/ui/img/framework/logo_profit.png") %>" alt="<web:WebSiteString runat=server Name=FrameworkLogotypeAlternative height="40" width="116" />" />
+				</a>
+                
+                <div id="search" class="grid_3">
+					<web:ValueExists ID="ValueExists1" Name="SearchResultsPage" runat="server">
+						<OnTrue>
+							<fieldset>
+								<legend><web:WebSiteString ID="WebSiteString1" Name="FrameworkSearchFormHeading" runat="server" /></legend>
+								<web:SearchField ID="SearchField1" Name="SearchResultsPage" ButtonTextKey="FrameworkSearchButton" runat="server">
+									<LayoutTemplate>
+										<asp:TextBox ID="SearchField" CssClass="SearchField" Width="125" runat="server" />
+										<asp:Button ID="SearchButton" runat="server" />
+									</LayoutTemplate>
+								</web:SearchField>
+							</fieldset>
+						</OnTrue>
+					</web:ValueExists>
+				</div>	
+				
+			</web:UsePage>	
+
+				
+		</div>
+	
+	
+		<web:PageList
+			AddClassOnLink="true"
+			AddClassOnListItem="true"
+			ClassList="nav container grid_12"
+			ClassSelected="selected"
+			ClassSelectedParent="selectedparent"
+			ListID="nav"
+			MaxDepth="1"
+			ShowStartPage="true"
+			StartLevel="1"
+			runat="server"
+            OnInit="InitTopMenuList"  />
+		<div id="body" class="grid_12">
+		<%--	<div id="subnav" class="grid_3 alpha">
+				<web:PageList
+					ID="m_pageListSubnav"
+					AddClassOnLink="true"
+					ClassList="nav grid_3 alpha"
+					ClassSelected="selected"
+					ClassSelectedParent="selectedparent"
+					StartLevel="2"
+					runat="server" />
+			</div>--%>
+			<div id="content" class="grid_9 omega">
+				<%--<site:LinkChain runat="server" />--%>
+				<div id="article">
+					<asp:ContentPlaceHolder ID="Content" runat="server" />
+				</div>
+			</div> <!-- #content -->
+		</div> <!-- #body -->
+
+       <site:Footer runat="server" />
+
+		
+	</div> <!-- #page -->
+	<web:IsInAdministrationMode runat="server">
+		<OnFalse>
+			<web:GoogleAnalyticsScript runat="server" />
+			<web:ProspectFinderScript runat="server" />
+		</OnFalse>
+	</web:IsInAdministrationMode>
+</form>
+</body>
+</html>

@@ -1,0 +1,553 @@
+/***************** ALLMÄNNA HTML-TAGGAR ***************************************************/
+
+/***************** RUBRIKER ***************************************************/
+.litPageTitle{/*Rubrik för en sida, ex. Kontrollpanelen*/
+	/*Denna klass finns även i skinfilen!*/
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 130%;
+}
+.litPageSubTitle{/*Underrubrik för en sida, ex. Kontrollpanelen*/
+	/*Denna klass finns även i skinfilen!*/
+	FONT-WEIGHT: bold; 
+}
+.litHeader{/*Rubrik som visas längst upp till vänster i en vy, till höger om ikonen.*/
+	/*Denna klass finns även i skinfilen!*/
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 130%;
+}
+.litHeader img {margin-bottom:1px;}
+.litHeader2{/*Rubrik som har en mellanstorlek, exempelvis välkomsttexten till Publiceringsverktyget*/
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 105%;
+}
+.litHeader3{
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 95%;
+}
+
+#xEditingArea { font-size:150%; }
+/***************** TEXT ***************************************************/
+.litText{/*Vanlig text*/
+	
+}
+.litBoldText{/*Fet text*/
+	FONT-WEIGHT: bold; 
+	
+}
+.litSmallText{/*Liten text*/
+	FONT-SIZE: 82%;
+}
+.litSmallItalicText{/*Liten kursiv text*/
+	FONT-SIZE: 82%;
+	FONT-STYLE:italic;
+}
+.litPageStatusHelp{/*Förklaring av ikoner för sidstatus i publiceringsverktyget*/
+	FONT-SIZE: 82%;
+}
+.litPageStatus{/*Statusrad för aktuell sida i publiceringsverktyget*/
+	FONT-SIZE: 82%;
+}
+.litPageStatusHeader{/*Sidans namn i statusraden för aktuell sida i publiceringsverktyget*/
+	FONT-WEIGHT: bold;
+}
+.litTextNormalWeight{
+    FONT-WEIGHT: normal;
+}
+.litFixedTextWidth600{
+    WIDTH:600px;
+}
+.litDescriptionText{
+    WIDTH:600px;
+    
+    margin-bottom:5px;
+}
+.litBoldHeader{
+	FONT-WEIGHT: bold; 
+	
+	margin-top:15px;
+}
+.litParagraphText{
+	
+	margin-top:5px;
+}
+.litRequiredStar{
+    font-family:Verdana;
+}
+
+
+/***************** SIDHUVUD ***************************************************/
+.litLoggedIn{/*Texten som visar vem som är inloggad*/
+	
+}
+.litLogOut{/*Länken för "Logga ut"*/
+	
+}
+.litBreadcrumb{/*Brödsmula som visar vilken sida man visar i publiceringsverktyget*/
+	padding-right:4px;
+	padding-bottom:4px;
+}
+
+
+/***************** LISTNING ***************************************************/
+.litContentTopHeader{/*Innehållsrubrik för en listvy*/
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 100%;
+}
+.litContentTopGuide{/*Text som visar vilket steg man befinner sig i guiden, ex: steg 1 av 6. Visas efter innehållsrubriken.*/
+	FONT-SIZE: 100%;
+}
+.litContentPager{/*Länkarna i sidväxlingen för en lista*/
+	
+}
+A.litContentPager:link{
+	FONT-WEIGHT: bold;
+	COLOR: #000099;
+}
+A.litContentPager:active{
+	FONT-WEIGHT: bold;
+	COLOR: #000099;
+}
+A.litContentPager:hover{
+	FONT-WEIGHT: bold;
+	COLOR: #000099;
+}
+A.litContentPager:visited{
+	FONT-WEIGHT: bold;
+	COLOR: #000099;
+}
+.litContentPagerDisabled{/*Länkarna i sidväxlingen för en lista*/
+	
+	filter:alpha(opacity=50) gray;
+	-moz-opacity:0.4;
+	opacity: 0.4;
+}
+A.litContentPagerDisabled:link{
+	filter:alpha(opacity=50) gray;
+	FONT-WEIGHT: normal;
+	COLOR: black;
+}
+A.litContentPagerDisabled:active{
+	filter:alpha(opacity=50) gray;
+	FONT-WEIGHT: normal;
+	COLOR: black;
+}
+A.litContentPagerDisabled:hover{
+	filter:alpha(opacity=50) gray;
+	FONT-WEIGHT: normal;
+	COLOR: black;
+}
+A.litContentPagerDisabled:visited{
+	filter:alpha(opacity=50) gray;
+	FONT-WEIGHT: normal;
+	COLOR: black;
+}
+.litContentInfo{/*Informationstext för en listning, ex: Nu visas sida...*/
+	
+}
+.litListHeader{/*Rubrikceller i en listtabell*/
+	
+	Font-WEIGHT: bold! important;
+}
+.litListHeaderLeft{/*Rubrikceller i en listtabell*/
+	
+	Font-WEIGHT: bold! important;
+	border-right:1px solid white;
+	padding-right:10px;
+}
+.litListContent{/*Innehåll i en listtabell*/
+	
+}
+.litListContentSmall{/*Innehåll i en listtabell, liten text*/
+	FONT-SIZE: 82%;
+}
+.litImageList{
+	padding:8px;
+	border:1px solid white;
+}
+.litImageListSelected{
+	border: 1px solid #808080;
+}
+.litDivider{/*Avdelare som exempelvis används vid sidväxling*/
+  	border-left: 1px #808080 solid;
+	background-color: white;
+}
+
+
+/***************** FORMULÄROBJEKT ***************************************************/
+.litInputButton{
+	width:120px;
+	margin-left:5px;
+	
+}
+
+.litInputButtonBack{
+	width:150px;
+	margin-left:5px;
+	
+}
+.litInputButtonSearch{
+	width:70px;
+	
+}
+.litInputButtonCancel{}
+.litInputButtonSave{}
+.litInputButtonNext{}
+.litInputButtonPrev{}
+.litInputButtonAdd{
+	width:80px;
+	margin-right:5px;
+	
+}
+.litInputButtonRemove{
+	width:80px;
+	margin-right:5px;
+	
+}
+.litInputRadio{}
+.litInputCheckbox{}
+.litInputFile{
+	width:400px;
+	padding:2px;
+	
+	height:20px;
+}
+.litInputText{
+	width:400px;
+	
+}
+.litInputText30{
+	width:30px;
+	
+}
+.litInputText100{
+	width:100px;
+	
+}
+.litInputText200{
+	width:200px;
+	
+}
+.litInputTextArea{
+	width:400px;
+	
+}
+.litInputSelect{
+	width:200px;
+	
+}
+.litInputSelectSearch{
+	width:200px;
+	margin-left:5px;
+	
+}
+.litInputSelectSort{
+	width:100px;
+	margin-right:5px;
+}
+.litInputFullWidth{
+	width:100%;
+}
+
+
+/***************** FELMEDDELANDE ***************************************************/
+.litErrorMsg{/*Felmeddelande som exempelvis används vid validering*/
+	COLOR: #FF0000! important;
+	FONT-SIZE:85%;
+}
+.litErrorFieldset{/*Fieldset för felmeddelande*/
+	COLOR: #FF0000! important;
+	border: 1px solid #FF0000;
+	FONT-SIZE:85%;
+}
+.litErrorFieldsetMsg{/*Felmeddelande, används innuti ett fieldset*/
+	COLOR: #FF0000! important;
+	FONT-SIZE:100%;
+}
+
+
+/***************** OK-MEDDELANDE ***************************************************/
+.litOkMsg{/*Ok-meddelande som exempelvis används vid spara*/
+	COLOR: #00AA00! important;
+	FONT-SIZE:85%;
+}
+.litOkFieldset{/*Fieldset för Ok-meddelande*/
+	COLOR: #00AA00! important;
+	border: 1px solid #00AA00;
+	FONT-SIZE:85%;
+}
+.litOkFieldsetMsg{/*Ok-meddelande, används innuti ett fieldset*/
+	COLOR: #00AA00! important;
+	FONT-SIZE:100%;
+}
+
+/***************** CALENDAR ***************************************************/
+.litCalendar{
+    border-style:solid;
+    border-width:1px;
+    border-color:#7F9DB9;
+    border-collapse:collapse;
+    background-color:#EFF5F9;
+    cursor:default;
+}
+.litCalendar td{
+    font-size:11px;
+}
+.litCalendarTitle{
+    font-weight:bold;
+    background-image:url(../../Pages/Images/calendar/cal_titleBg.gif);
+    background-repeat:repeat-x;
+    border-bottom:1px solid #7F9DB9;
+}
+.litCalendarDay{
+    padding:5px!important;
+    padding-top:2px!important;
+    padding-bottom:2px!important;
+    cursor:pointer;
+    text-align:center;
+    border-width:1px;
+    border-color:#FFFFFF;
+    border-style:solid;
+}
+.litCalendarDayHeader{
+    padding:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    text-align:center;
+    font-weight:bold;
+    background-color:#EFF5F9;
+}
+.litCalendarDayHover{
+    padding:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    cursor:pointer;
+    text-align:center;
+    border-width:1px;
+    border-color:#7F9DB9 !important;
+    border-style:solid;
+    background-image:url(../../Pages/Images/calendar/cal_dayOverBg.gif);
+    background-repeat:repeat-x;
+}
+.litCalendarToday
+{
+    padding: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    cursor: pointer;
+    text-align: center;
+    border-width:1px;
+    border-color:#7F9DB9 !important;
+    border-style:solid;
+}
+.litCalendarMonth{
+    background-color:#FFFFFF;
+    margin-left:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+    margin-top:0px;
+}
+.litCalendarNextPrev{
+    cursor:pointer;
+    height:25px;
+    vertical-align: middle;
+    padding:0px 5px 0px 5px!important;
+}
+.litCalendarOtherMonthDay{
+    color:#999999;
+}
+.litCalendarSelectedDay{
+    padding:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    color:#000000;
+    border-width:1px;
+    border-color:#7F9DB9 !important;
+    border-style:solid;
+    font-weight:bold;
+    background-image:url(../../Pages/Images/calendar/cal_daySelectedBg.gif);
+    background-repeat:repeat-x;
+}
+.litCalendarSelector{
+    width:14px;
+    cursor:pointer;
+    text-align:left;
+    vertical-align: middle;
+    background-color:#EFF5F9;
+}
+.litCalendarButton{
+    border:none;
+    cursor:pointer;
+}
+.litCalendarPicker{
+    background-color: #FFFFFF;
+    border: 1px #7F9DB9 solid;
+    padding: 2px;
+    cursor: pointer;
+}
+.litCalendarOutOfRangeDay{
+    visibility:hidden;
+}
+
+/***************** AJAX-COMBOBOX (ComponentArt) **************************************/
+.comboBox{ 
+    border: 1px solid #A6A7AA; 
+    background-color: white; 
+}
+.comboBox table, .comboBoxHover table, .comboDropDown table{
+    width:auto!important;
+    filter:none!important;
+}
+.comboBox td, .comboBoxHover td, .comboDropDown td{
+    height:auto!important;
+    border:none!important;
+    padding:0px!important;
+}
+.comboBoxHover{ 
+    border: 1px solid #555555; 
+    background-color: white; 
+}
+.comboDropDown{ 
+    border: 1px solid #868686;
+    background-color: white; 
+    padding: 1px;
+    padding-right: 0px;
+    width: 500px;
+    cursor: default;
+}
+.comboTextBox{
+    
+    border: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.comboTextBoxHover{
+    background-color: #B2B4BF; 
+}
+.comboItem{
+     
+    padding: 3px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.comboItemHover{
+    background-color: #B2B4BF; 
+    background-image: url(../Images/combobox/comboItemBg.gif);
+     
+    border: 1px solid #DBCE99;
+    padding: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/***************** ÖVRIGT ***************************************************/
+.litSelectedItem{/*Markerad mall i publiceringsverktyget*/
+	border:2px solid darkblue!important;
+}
+.litUnSelectedItem{/*Omarkerad mall i publiceringsverktyget*/
+	padding:2px;
+}
+.litInputTable{/**/
+	margin-bottom:3px;
+}
+.litInputTable td{/**/
+	padding:0px;
+}
+.litBlankAddDelete{/*Blank div som täcker lika stor yta som en plus- eller minusknapp*/
+	width:21px;
+}
+.litProgressArea{
+	background-color:#FFFFFF;
+	border:1px solid #A19E98;
+	width:300px;
+}
+.litProgressbar{
+	background-image:url(images/progressbar_bg.gif);
+	height:16px;
+}
+.litFieldset{
+    width:550px;
+}
+
+/*********************** Alternating table rows ***************************************/
+.litTableHeader1
+{
+	
+	font-weight: bold !important;
+	background-color: #edeae0;
+	border-bottom: silver 1px solid;
+}
+.litRow1
+{
+	background-color: #f1efe8;
+	border-bottom: blue 1px solid;
+}
+.litRow2
+{
+	background-color: #ffffff;
+	border-bottom: #d3cebc 1px solid;
+}
+
+
+.DirectEditToolBarBackGround {
+	height:23px;
+	width: 100%;
+	font-size: 11px;
+}
+
+.DirectEditToolbar
+{
+	margin-left: 2px;
+}
+.DirectEditToolbar1Borders
+{
+	padding-top:3px;
+	background:transparent url(/LitiumStudio/Stylesheets/DefaultSkin/Images/MenuBackground.png) repeat-x 0 0;
+}
+
+.DirectEditToolbar2Borders
+{
+	padding-top:2px;
+	background:transparent url(/LitiumStudio/Stylesheets/DefaultSkin/Images/MenuBackground.png) repeat-x 0 -1px;
+}
+.DirectEditToolbar table tr td.ca_tb_txt
+{
+	padding-left: 5px;
+	padding-right: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 100%;
+	cursor:pointer;
+}
+.DirectEditToolbar table tr td.ca_tb_img
+{
+	padding-left: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	cursor:pointer;
+	
+}
+.ca_tb_ddn { cursor:pointer; }
+
+.DirectEditToolbarItemOnMouseOver
+{
+}
+
+.DirectEditToolbarItemOnMouseOver table {
+	padding: 2px;
+	background: transparent url(/LitiumStudio/Stylesheets/DefaultSkin/Images/ButtonHoveredBackground.png) repeat-x 0 0; 
+}
+
+.DirectEditToolbarItemOnMouseOver table tr td.ca_tb_img {
+	padding-left: 5px;
+	background: transparent url(/LitiumStudio/Stylesheets/DefaultSkin/Images/LeftButtonHovered.png) no-repeat 0 0; 
+}
+
+.DirectEditToolbarItemOnMouseOver table tr td.ca_tb_txt {
+	padding-right: 4px;
+	background: transparent url(/LitiumStudio/Stylesheets/DefaultSkin/Images/RightButtonHovered.png) no-repeat right 0; 
+}
+
+.DirectEditToolbarItemNew {
+height:17px;
+padding: 0 3px;
+}

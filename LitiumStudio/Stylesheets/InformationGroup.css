@@ -1,0 +1,76 @@
+﻿/*********************** INFORMATION GROUP ***************************************/
+.litInformationGroup
+{
+	display: block;
+}
+.litInformationGroup .litInformationGroupHeader
+{
+	font-weight: bold;
+	color: #333333;
+	padding-top: 8px;
+	padding-left: 5px;
+}
+
+.litInformationGroup .litInformationGroupTop
+{
+	background-image:url(../../LitiumStudio/Images/information_group/bg_top.png);
+	width: 100%;
+	height: 5px;
+}
+
+.litInformationGroup .litInformationGroupTopLeft
+{
+	background-image:url(../../LitiumStudio/Images/information_group/top_left.png);
+	width: 6px; 
+	height: 5px;
+}
+
+.litInformationGroup .litInformationGroupTopRight
+{
+	background-image:url(../../LitiumStudio/Images/information_group/top_right.png);
+	width: 6px; 
+	height: 5px;
+}
+
+.litInformationGroup .litInformationGroupBottom
+{
+	background-image:url(../../LitiumStudio/Images/information_group/bg_bottom.png);
+	width: 100%;
+	height: 6px;
+}
+
+.litInformationGroup .litInformationGroupBottomLeft
+{
+	background-image:url(../../LitiumStudio/Images/information_group/bottom_left.png);
+	width: 6px;
+	height: 6px;
+}
+
+.litInformationGroup .litInformationGroupBottomRight
+{
+	background-image:url(../../LitiumStudio/Images/information_group/bottom_right.png);
+	width: 6px;
+	height: 6px;
+}
+
+.litInformationGroup .litInformationGroupLeft
+{
+	background-image:url(../../LitiumStudio/Images/information_group/bg_left.png);
+}
+
+.litInformationGroup .litInformationGroupRight
+{
+	background-image:url(../../LitiumStudio/Images/information_group/bg_right.png);
+}
+
+.litInformationGroup .litInformationGroupContent
+{
+	 background-color: #fbfbf8;
+	 padding-bottom: 5px;
+	 padding-left: 5px;
+}
+
+.litInformationGroup .litInformationGroupContent .litBoldText, .litInformationGroup .litInformationGroupContent .litBoldHeader 
+{
+	 color:#333333;
+}

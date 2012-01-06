@@ -1,0 +1,46 @@
+<%@ master language="C#" autoeventwireup="true" masterpagefile="~/LitiumStudio/CMS/Framework/Base1.master" inherits="LitiumStudio_CMS_DefaultEditBase1, Litum.Studio.Web" %>
+<%@ MasterType VirtualPath="~/LitiumStudio/CMS/Framework/Base1.master" %>
+<%@ Register TagPrefix="Status" TagName="StatusArea" Src="~/LitiumStudio/CMS/WebUserControls/StatusArea.ascx" %>
+<%@ Register TagPrefix="Status" TagName="StatusAreaInfo" Src="~/LitiumStudio/CMS/WebUserControls/StatusAreaInfo.ascx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="LitiumStudioFilterArea" runat="server">
+	<LS:FilterAreaSetting ID="FilterAreaSetting1" runat="server" FilterAreaState="Closed" />
+	<Status:StatusAreaInfo runat="server" ID="c_statusArea2" />
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="LitiumStudioContentHeading" runat="Server">
+	 <Status:StatusArea runat="server" ID="c_statusArea" IsWorkingCopy="true" />
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentRight" Runat="Server">
+<div class="lsContentTabScroll">
+     <div class="lsTabContainer">
+         
+        <WebControls:TabListContainer ID="m_tabs" runat="server" >
+            <TabItems>
+                <WebControls:TabListItem CausesValidation="true" ID="c_tabListItemText" OnClick="TabText_Click" runat="server"/>
+                <WebControls:TabListItem CausesValidation="true" ID="c_tabListItemImage" OnClick="TabImage_Click"  runat="server" />
+                <WebControls:TabListItem CausesValidation="true" ID="c_tabListItemFile" OnClick="TabFile_Click" runat="server" />
+                <WebControls:TabListItem CausesValidation="true" ID="c_tabListItemSetting" OnClick="TabSetting_Click" runat="server" />
+                <WebControls:TabListItem CausesValidation="true" ID="c_tabListItemMetaData" OnClick="TabMetaData_Click" runat="server" />
+                <WebControls:TabListItem CausesValidation="true" ID="c_tabListItemTemplate" OnClick="TabTemplate_Click" runat="server"/>
+            </TabItems>                    
+       </WebControls:TabListContainer>
+        <asp:ContentPlaceHolder ID="ContentEdit" runat="Server" />
+        <script type="text/javascript">
+                var __oldDoPostBack = __doPostBack;
+                __doPostBack = CatchExplorerError;
+
+                function CatchExplorerError(eventTarget, eventArgument) {
+                    try {
+                        return __oldDoPostBack(eventTarget, eventArgument);
+                    }
+                    catch (ex) {                           
+                        if (ex.message.indexOf('Unspecified') == -1) {
+                            throw ex;
+                        }
+                    }
+                }
+        </script>
+    </div>
+</div>
+</asp:Content>

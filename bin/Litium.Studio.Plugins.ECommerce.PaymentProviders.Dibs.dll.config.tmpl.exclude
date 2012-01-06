@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<configuration>
+	<appSettings>
+		<add key="webServiceEndPoint" value="https://secure.incab.se/axis2/services/DTServerModuleService_v1"/>
+		<!--API user name and password is generated from the Dibs manager, user accounts section.
+                This account is needed to use the webservice API of Dibs. 
+                Note that, the user name and password is different from what you would use to login to admin website in Dibs.
+                In the manager website, as at 2010-May-18th, use the Blue arrow next to user account see this hidden user name and password values!!!-->
+		<add key="apiUser" value =""/>
+		<add key="apiUserPassword" value =""/>
+
+		<!-- service url for a store called TestStore is  https://secure.incab.se/verify/bin/TestStore/index .
+      		This url is provided by Dibs.-->
+		<add key="serverURL" value=""/>
+
+		<add key="storeName" value =""/>
+		<add key="secretWord" value=""/>
+
+		<!-- MAC Algorithm can be either SHA-1 or MD5. This should match the MAC algorithm selected in DIBS admin site. -->
+		<add key="hashAlgorithm" value="SHA-1"/>
+
+		<!--
+		Specify which pageSet to use after redirecting to Dibs server. 
+		Following example specifies
+		a) if payment method is cc.nwdirect use pageset called 'ccnwdirect'
+		b) if payment method starts with cc. use pageset called 'CreditCard'
+		c) For all other payment methods (all, *.*) use pageset 'standard'.
+    
+		<add key="pageSet" value="cc.nwdirect:ccnwdirect; cc.*:CreditCard; *.*:standard; "/>
+    
+		Note: Pagesets need to be configured in Dibs admin system by implementation project.
+		-->
+		<add key="pageSet" value="*.*:standard; invoice.*:GSDDP"/>
+
+		<!--distributionType is used when Klarna is used for invoicing through Dibs,
+            Possible values: email, paper and notset. Default value is notset. If sent Klarna will
+            send the invoice to the customer via post or email accordingly. The default value
+            means that Klarna will not send any invoice and the merchant needs to deliver the
+            invoie. (optional) -->
+		<add key="distributionType" value="paper"/>
+
+		<add key="isTestMode" value="true"/>
+		<!-- 
+    Test mode value will define behaviour in test mode as follows.
+    1 for The result is randomly cleared.
+    2 for  Verification is always approved.
+    3 for  Verification is always denied.
+		-->
+		<add key="testMode" value="2"/>
+		<add key="uses3DSecure" value="true" />
+
+		<add key="DefaultPaymentMode" value="Charge" />
+
+		<!-- Enable or disable payment methods. -->
+		<!--Credit cards, note: Dibs support all credit card testing through CC_TEST, 
+        so enable isCcTestEnabled when testing any of the credit cards.-->
+		<add key="isCcCekabEnabled" value="false"/>
+		<add key="isCcBabsEnabled" value="false"/>
+		<add key="isCcEurolineEnabled" value="false"/>
+		<add key="isCcInvikEnabled" value="false"/>
+		<add key="isCcLuottokuntaEnabled" value="false"/>
+		<add key="isCcValitorEnabled" value="false"/>
+		<add key="isCcNwEnabled" value="false"/>
+		<add key="isCcNwdirectEnabled" value="false"/>
+		<add key="isCcPbsEnabled" value="false"/>
+
+		<add key="isCcTestEnabled" value="true"/>
+
+		<!--Invoices-->
+		<add key="isInvoiceKlarnaEnabled" value="true"/>
+		<add key="isInvoiceShbEnabled" value="true"/>
+
+
+		<!-- Fully qualified type of the creator class that will create the Payment Args for this payment provider.
+				 This creator class should create a type that can interpret results from checkout flow and produce a Payment args.-->
+		<add key="PaymentProviderArgsCreatorType" value="CMS.PageTypes.CheckOut.DibsPaymentArgsCreator"/>
+
+		<!--Dibs have changed the hash key generating algorithm from February 2011. If you have generated hashkeys before Feb 2011,
+        you should use api version = 1, else 2. You will see a authorization error message when trying to make a payment to dibs,
+        if hash key is invalid.-->
+		<add key="apiVersion" value="2" />
+	</appSettings>
+</configuration>

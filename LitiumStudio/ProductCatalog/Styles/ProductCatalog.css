@@ -1,0 +1,525 @@
+﻿.litIconFolderUp{
+    height:16px;
+	margin-right:5px;
+	background-image: url(../Images/folder_up.png); 
+}
+.litIconProductPublished{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../Images/product_published_16px.png); 
+}
+.litIconProductPublishedListed{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../Images/product_published_listed_16px.png); 
+}
+.litIconProductUnpublished{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../Images/product_unpublished_16px.png); 
+}
+.litIconProductUnpublishedListed{
+    vertical-align:middle;
+    margin-right:5px;
+    height:16px;
+	background-image: url(../Images/product_unpublished_listed_16px.png); 
+}
+
+.litIconPublish{
+    height:16px;
+    margin-right:5px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/Ok.png); 
+}
+.litIconUnpublish{
+    height:16px;
+    margin-right:5px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/unpublish_16px.png); 
+}
+.litIconRefresh2{
+	height:16px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/refresh_16px.png); 
+}
+.litIconRequiredForPublishing{
+    height:16px;
+	background-image: url(../Images/required_for_publishing_16p.png);
+}
+.litIconRelations{
+    height:16px;
+	margin-right:5px;
+	vertical-align:middle;
+	background-image: url(../Images/assign_add.png); 
+}
+.litIconFind{
+    height:16px;
+    margin-right:5px;
+	background-image: url(../../../LitiumStudio/Images/icons_standard/find.png);
+}
+
+
+.litListAreaProduct td{
+    height:auto;
+    padding-left:8px;
+    padding-right:8px;
+}
+.litListAreaProduct th{
+    padding-top:0px;
+    padding-bottom:0px;
+    padding-left:8px;
+    padding-right:8px;
+}
+.litImageBorder{
+    background-color: #FFFFFF;
+	border:2px solid #FFFFFF;
+}
+.litImageBorderSpace{
+    background-color: #FFFFFF;
+	border:2px solid #FFFFFF;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.litProductList th{
+    padding:5px;
+}
+.litProductList td{
+    padding:5px;
+	border:1px solid white;
+    font-weight:bold;
+    text-align:center;
+    FONT-SIZE: 85%;
+}
+.litProductListCatalog{
+    background-position:bottom right;
+    background-repeat:no-repeat;
+}
+.litProductListGroup{
+    background-position:bottom right;
+    background-repeat:no-repeat;
+}
+.litProductListProduct{
+    background-position:bottom right;
+    background-color:  #F9F9F9;
+    background-repeat:no-repeat;
+}
+.litProductListProductPublished{
+    background-position:bottom right;
+    background-image:url(../images/product_published_128px.png);
+    background-repeat:no-repeat;
+}
+.litProductListProductPublishedListed{
+    background-position:bottom right;
+    background-image:url(../images/product_published_listed_128px.png);
+    background-repeat:no-repeat;
+}
+.litProductListProductUnpublished{
+    background-position:bottom right;
+    background-image:url(../images/product_unpublished_128px.png);
+    background-repeat:no-repeat;
+}
+.litProductListProductUnpublishedListed{
+    background-position:bottom right;
+    background-image:url(../images/product_unpublished_listed_128px.png);
+    background-repeat:no-repeat;
+}
+.litProductListDetails{
+    font-weight:normal;
+    text-align:left;
+}
+.litUnderTreeView{
+    padding-top:10px;
+    padding-left:10px;
+    padding-right:10px;
+    height:24px;
+    width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 267 + 'px');
+}
+
+
+.litInputCheckbox label{
+	FONT-SIZE: 85%;
+}
+.litGridEditField{
+	FONT-SIZE: 85%!important;
+	width:25px!important;
+}
+
+
+.litHoverTreeNode{
+  margin-left: 1px;
+  margin-right: 0px;
+}
+.litTreeViewList{
+  padding-top: 0px;
+  padding-left: 0px;
+  overflow: visible!important;
+} 
+
+.litSelectedTreeNodeRowList{
+  font-family: arial,verdana; 
+  font-size: 85%;
+  padding-left:5px;
+  height: 25px;
+  cursor: pointer;
+  cursor: hand;
+  width:auto!important;
+}
+.litHoverTreeNodeRowList{
+  font-family: arial,verdana; 
+  font-size: 85%;
+  height: 25px;
+  cursor: pointer;
+  cursor: hand;
+  width:auto!important;
+  padding-left:5px;
+  background-color :white;
+  border-bottom:1px solid white;
+}
+.litTreeNodeRowList{
+  height: 25px;
+  padding-left:5px;
+  border-bottom:1px solid white;
+  /*width:auto;*/
+}
+.litTreeNodeRowListFullWidth{
+  height: 25px;
+  padding-left:5px;
+  border-bottom:1px solid white;
+  width:auto;
+}
+.litHoverTreeNodeRowListFullWidth{
+  font-family: arial,verdana; 
+  font-size: 85%;
+  height: 25px;
+  cursor: pointer;
+  cursor: hand;
+  width:auto!important;
+  padding-left:5px;
+  background-color :white;
+  border-bottom:1px solid white;
+  width:auto;
+}
+.litTreeNodeRowList td,
+.litHoverTreeNodeRowList td,
+.litSelectedTreeNodeRowList td,
+.litTreeNodeHeader td,
+.litHoverTreeNodeHeader td{
+    width:auto;
+}
+.litTreeNodeHeaderRowList{
+  border-bottom:1px solid white;
+  height: 25px;
+  padding-left:5px;
+  cursor:default;
+}
+.litTreeNodeHeaderRowBold{
+  font-weight:bold;
+}
+.litTreeNodeTable{
+    width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 285 + 'px');
+}
+.litTreeNodeVariantsTable{
+    width:expression((document.documentElement.clientWidth || document.body.clientWidth) - 260 + 'px');
+}
+.litTreeNodeHeader,
+.litHoverTreeNodeHeader{
+    border-bottom:1px solid white;
+    height: 25px;
+    padding-left:5px;
+}
+.litTreeNodeHeader input,
+.litHoverTreeNodeHeader input{
+    visibility:hidden;
+}
+.ProductCatalogSearchHeader input {
+    visibility: visible;
+}
+input.ProductCatalogArticlesToggleTreeNodes {
+    z-index: 100;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+.litTreeNodeTop{
+    visibility:hidden;
+}
+
+
+.litInputRadio label{
+    font-size:80%;
+}
+input.ProductCatalogStockBalanceToggleWarehouseItems {
+    z-index: 100;
+    position: absolute;
+    left: 7px;
+    top: 42px;
+}
+
+
+
+
+.ProductCatalogTopGroup
+{
+  z-index:99;
+  position:relative;
+}
+.ProductCatalogDefaultTab, .ProductCatalogDefaultTab td
+{
+  color:black; 
+  background-image: url(../images/ca_tab/tab_bg.gif);
+  background-repeat:repeat-x;
+  background-position:top;
+  font-size:11px; 
+  cursor:default;
+}
+.ProductCatalogDefaultTabHover, .ProductCatalogDefaultTabHover td
+{
+  color:black; 
+  background-image: url(../images/ca_tab/hover_tab_bg.gif);
+  background-repeat:repeat-x;
+  background-position:top;
+  font-size:11px; 
+  cursor:default;
+}
+.ProductCatalogSelectedTab, .ProductCatalogSelectedTab td
+{
+  color:black; 
+  background-image: url(../images/ca_tab/selected_tab_bg.gif);
+  background-repeat:repeat-x;
+  background-position:top;
+  font-size:11px; 
+  cursor:default;
+}
+.ProductCatalogMultiPage
+{
+  background-color:White;
+  overflow:visible;
+  position:relative;
+  padding:10px;
+  top:-3px;
+  left:1px;
+  z-index:98;
+  border: 1px solid #919B9C;
+  width:420px;
+  height:200px;
+}
+.ProductCatalogPageContent
+{
+  font-family:MS Sans Serif, Verdana; 
+  font-size:10px; 
+}
+.ProductCatalogPageHeader
+{
+  font-size:22px;
+  font-weight:bold;
+  letter-spacing:-0.2mm;
+  font-family: verdana; 
+  color: #3F3F3F; 
+  margin-top:0px;
+  margin-bottom:0px;
+}
+
+/* Articles: Create new product */
+.CreateNewProductDialog
+{
+    width: 300px;
+    border-right: 1px solid #C8C2A8;
+    border-left: 1px solid #C8C2A8;        
+    
+}
+.CreateNewProductDialogBottom {
+    border-top: 1px solid #b5b5b5;
+   
+}
+#CreateNewProductDialogIframe
+{
+    overflow: hidden;    
+    width: 100%;
+    height: 250px;
+    padding: 0;
+    margin: 0;
+}
+
+.litSimpleNodeView
+{
+    margin-top: 2px;
+}
+.litSimpleNodeView .litTreeNodeHeader,
+.litSimpleNodeView .litTreeNodeRowList,
+.litSimpleNodeView .litHoverTreeNodeRowList,
+.litSimpleNodeView .litSelectedTreeNodeRowList
+{
+    height: 20px;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+.litSimpleNodeView .litTreeNodeHeader th
+{
+    text-align: left;
+}
+
+
+* html .litModuleArtilesEditBaseIE6
+{
+    height:500px;
+    background:pink;
+}
+
+/* AssortmentView.aspx - Start */
+.litCatalogHeaderContainer
+{
+	float:left; 
+	
+}
+.litCatalogHeaderContainerLeft
+{
+	float:left; 
+	height:115px; 
+	width:211px;
+	border-right:solid 1px #E0E0E0;
+	padding: 10px;
+}
+.litCatalogHeaderContainerCenter
+{
+	float:left; 
+	height:115px; 
+	width:630px;
+}
+.litCatalogHeaderContainerRight
+{
+	float:left; 
+	height:115px; 
+	width:70px;
+}
+.litCatalogFull
+{
+	width:100%;
+	height:100%;
+}
+.litCatalogCentred
+{
+	text-align:center; 
+	vertical-align:middle;
+}
+.litCatalogPaddingTen
+{
+	padding:10px;
+}
+.litCatalogPaddingTopTen
+{
+	padding-top:10px;
+}
+.litCatalogFloatLeft
+{
+	float:left;
+}
+.litCatalogClearBoth
+{
+	clear:both;
+}
+.litCatalogGroupContainer
+{
+	float:left; 
+	width:211px; 
+	height:150px; 
+	border-right:solid 1px #E0E0E0; 
+	border-bottom:solid 1px #E0E0E0; 
+	cursor:pointer; 
+	overflow:hidden;
+	padding: 10px;
+}
+.litCatalogGroupImageContainer
+{
+	float:left; 
+	width:100%;
+	height:115px;
+	cursor:pointer;
+}
+.litCatalogGroupNameContainer
+{
+	float:left; 
+	width:100%; 
+	height:35px; 
+	text-align:center; 
+	text-decoration:none;
+	cursor:pointer;
+}
+/* AssortmentView.aspx - End */
+
+/* ArticleView.aspx - Begin */
+.groupName {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	color: #B7B7B7;
+	font-weight: bold;
+}
+.imgLink {
+	text-decoration: none;
+}
+.propertyItem {
+	padding-left: 3px;
+}
+.VGInformation {
+	margin-top: -10px;
+}
+.IE7 .VGInformation{
+	margin-top: -30px;
+}
+.priceListTbl {
+	padding: 15px 0px 5px 5px;
+	width: 100%;
+	border:solid 0px white;
+}
+.priceListTblHeader {
+	background-color: #FAFAFA;
+	border: solid 1px #E0DFDF;
+	font-weight: bold;
+	font-size: 85%;
+	padding-left: 3px;
+	height: 20px;
+	border-left: 0px;
+	border-right: 0px;
+}
+.priceListTblItem {
+	font-size: 85%;
+	padding-left: 3px;
+	height: 20px;
+	border: solid 0px #E0DFDF;
+}
+.variantGroupToogleDown {
+	background-image: url(/LitiumStudio/Stylesheets/DefaultSkin/Images/FilterPanelDown.png);
+	position: relative; 
+	float: right; 
+	width: 17px; 
+	text-decoration: none; 
+	cursor: pointer;
+}
+.variantGroupToogleUp {
+	background-image: url(/LitiumStudio/Stylesheets/DefaultSkin/Images/FilterPanelUp.png);
+	position: relative; 
+	float: right; 
+	width: 17px; 
+	text-decoration: none; 
+	cursor: pointer;
+}
+.IE7 .variantGroupToogleDown
+{
+    margin-top: -16px;
+}
+/* ArticleView.aspx - End */
+
+/* Articles Filter - Begin */
+.articlesFilterFirstRow,
+.articlesFilterLastRow {
+	font-weight: normal; 
+	clear: both; 
+	width: 100%;
+}
+.articlesFilterLastRow {
+	margin-bottom: 30px;
+}
+.articlesFilterItem {
+	float:left; 
+	padding:3px;
+}
+/* Articles Filter - End */

@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Plugins.ECommerce.StateTransitionPlugin</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryState">
+            <summary>
+            set of user defined delivery states.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryState.Init">
+            <summary>
+            Initial state.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryState.Delivered">
+            <summary>
+            Delivery completed.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryState.Failed">
+            <summary>
+            Delivery failed
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryState.Cancelled">
+            <summary>
+            Delivery cancelled.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryStateBuilder">
+            <summary>
+            Builds delivery states.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryStateBuilder.CanOrderMoveToWarehouse(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier,Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier},Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier},Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Check whether an delivery can be marked from a particular warehouse.
+            </summary>
+            <param name="carrier">Carrier to be examined</param>
+            <param name="current">Current state.</param>
+            <param name="next">Next state.</param>
+            <param name="token">Security token.</param>
+            <returns>True if order can move, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.DeliveryStateBuilder.OnDeliveryConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier,Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier},Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Called when delivery is confirmed.
+            </summary>
+            <param name="carrier">The carrier.</param>
+            <param name="state">The state.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderDeliveryState">
+            <summary>
+            Defines the delivery states a complete order can be in.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderDeliveryState.Unknown">
+            <summary>
+            State is unknown.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderDeliveryState.Init">
+            <summary>
+            Order is in initial delivery state.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderDeliveryState.NotUsed">
+            <summary>
+            Order delivery state is not used
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderDeliveryStateBuilder">
+            <summary>
+            Builds the OrderDelivery states
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderDeliveryStateBuilder.BuildStateTransitions(Litium.Foundation.Modules.ECommerce.StateTransitionSystem.OrderDeliveryStateMachine)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="stateMachine">Statemachine.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderRowState">
+            <summary>
+            Defines the state of a order row.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderRowState.Unknown">
+            <summary>
+            Order row state is not known.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderRowState.Init">
+            <summary>
+            Order row is in its initial state.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderRowState.NotUsed">
+            <summary>
+            State not used
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderRowStateBuilder">
+            <summary>
+            Builds the order row states.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderRowStateBuilder.BuildStateTransitions(Litium.Foundation.Modules.ECommerce.StateTransitionSystem.OrderRowStateMachine)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="stateMachine">Statemachine.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState">
+            <summary>
+            State of the order.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Init">
+            <summary>
+            When order is first created.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Confirmed">
+            <summary>
+            When user confirms the order, all information should be correct by now.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Processing">
+            <summary>
+            Order is dispatched, payments stated.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Completed">
+            <summary>
+            Order is successfully Completed.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Cancelled">
+            <summary>
+            Order is cancelled.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Returned">
+            <summary>
+            Order is returned.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Attention">
+            <summary>
+            Order needs administrative attention.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Invalid">
+            <summary>
+            Invalid order status code.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder">
+            <summary>
+            Builds Order State Machine
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.CanOrderMoveToAttentionState(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Order can move to attention state, if either delivery or payments need special attention.
+            </summary>
+            <param name="carrier">Carrier to be examined</param>
+            <param name="current">Current state.</param>
+            <param name="next">Next state.</param>
+            <param name="token">Security token.</param>
+            <returns>True if order can move, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.CanOrderMoveToConfirmedState(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Check whether an order can move from current state to next
+            </summary>
+            <param name="carrier">Carrier to be examined</param>
+            <param name="current">Current state.</param>
+            <param name="next">Next state.</param>
+            <param name="token">Security token.</param>
+            <returns>True if order can move, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.CanOrderMoveToProcessingState(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Check whether an order can move from current state to next
+            </summary>
+            <param name="carrier">Carrier to be examined</param>
+            <param name="current">Current state.</param>
+            <param name="next">Next state.</param>
+            <param name="token">Security token.</param>
+            <returns>True if order can move, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.CanOrderMoveToCompletedState(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Modules.ECommerce.StateTransitionSystem.State{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier},Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Check whether order can move to next state from current state.
+            </summary>
+            <remarks>In this default implementation, an order is treated as complete, only if its Payments are Paid,
+            and all Deliveries are made.</remarks>
+            <param name="carrier">Carrier which contains order information.</param>
+            <param name="current">Current state of the carrier.</param>
+            <param name="next">Next state to move to.</param>
+            <param name="token">Security token.</param>
+            <returns>True if order can move to next state, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.ConvertOrderStateTo(System.String)">
+            <summary>
+            Convert to a <see cref="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState"/>. If order state is not recognized <see cref="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Invalid"/> is returned.
+            </summary>
+            <param name="state">String representation of the state.</param>
+            <returns>object of OrderState.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.ConvertToOrderState(System.Int32)">
+            <summary>
+            Convert to a <see cref="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState"/>. If order state is not recognized <see cref="F:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderState.Invalid"/> is returned.
+            </summary>
+            <param name="state">String representation of the state.</param>
+            <returns>object of OrderState.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.IsDeliveryStateRequireAttention(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Check whether delivery state requires special attention.
+            </summary>
+            <param name="carrier">Order carrier which contain all deliveries.</param>
+            <returns>True if delivery state need attention, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.IsPaymentStateRequireAttention(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Checks whether payment state is deterministic.
+            </summary>
+            <param name="carrier">Order carrier which contains payment info.</param>
+            <returns>True if payment needs attention, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.IsPaymentsStarted(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Check whether payments have started.
+            </summary>
+            <param name="carrier">Carrier which contains payment info.</param>
+            <returns>True if payments have started, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.IsDeliveriesStarted(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Check whether atleast one delivery is started.
+            </summary>
+            <param name="carrier">Order carrier containing deliveries.</param>
+            <returns>True if atleast one delivery is started.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.IsPaymentsCompleted(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Checks whether all payments are completed.
+            </summary>
+            <param name="carrier">Carrier containing paymentInfo.</param>
+            <returns>True if all payments are completed, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.OrderStateBuilder.IsDeliveriesCompleted(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Checks whether all deliveries are completed.
+            </summary>
+            <param name="carrier">Order carrier with delivery info.</param>
+            <returns>True if all deliveries are completed, false otherwise.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.PaymentStateBuilder">
+            <summary>
+            Builds Payment State Machine
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.PaymentStateBuilder.BuildStateTransitions(Litium.Foundation.Modules.ECommerce.StateTransitionSystem.StateTransitionsManager)">
+            <summary>
+            Builds related transitions to payment state.
+            </summary>
+            <param name="stateManager">State transitions manager.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.StateTransitionBuilder">
+            <summary>
+            Builds state transitions.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.StateTransitionBuilder.BuildStateTransitions(Litium.Foundation.Modules.ECommerce.StateTransitionSystem.StateTransitionsManager)">
+            <summary>
+            Builds the state transition system.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.StateTransitionBuilder.BuildOrderStatePropertyMetaInfo(Litium.Foundation.Modules.ECommerce.StateTransitionSystem.PropertyMetaInfoBuilder{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier})">
+            <summary>
+            Build meta information about the properties, based on OrderState.
+            </summary>
+            <remarks>This information is not affecting the functionality of public website or API.
+            This only affect the administration GUI.</remarks>
+            <param name="propertyMetaInfoBuilder">Property meta info builder object utilized to build meta information.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.StateTransitionBuilder.SetOrderPaymentStatusMetaInfo(Litium.Foundation.Modules.ECommerce.StateTransitionSystem.PropertyMetaInfoBuilder{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier})">
+            <summary>
+            Set meta information.
+            </summary>
+            <param name="propertyMetaInfoBuilder">Meta info builder to use.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.StateTransitionPlugin.StateTransitionBuilder.SetOrderDeliveryStatusMetaInfo(Litium.Foundation.Modules.ECommerce.StateTransitionSystem.PropertyMetaInfoBuilder{Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier})">
+            <summary>
+            Set meta information.
+            </summary>
+            <param name="propertyMetaInfoBuilder">Meta info builder to use.</param>
+        </member>
+    </members>
+</doc>

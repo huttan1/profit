@@ -1,0 +1,2796 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Studio.Plugins.ECommerce.PricingRulesPlugin</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign">
+            <summary>
+            Class acts as the base for all campaigns. 
+            This class is a collection of helper methods and functions common to all default campaigns provided.
+            </summary>
+            <remarks>
+            It is not necessary to inherit from this base class in your implementations. 
+            But this class will provider some helper methods if you do so.
+            </remarks>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.CURRENCY_CODE">
+            <summary>
+            Currency key used in campaign info collection.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.m_campaign">
+            <summary>
+            Campaign instance.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.IsArticleValid(System.String,Litium.Foundation.Modules.ProductCatalog.Articles.Article@)">
+            <summary>
+            Determines whether [is article valid] [the specified article number].
+            </summary>
+            <param name="articleNumber">
+            The article number.
+            </param>
+            <param name="article">
+            The article.
+            </param>
+            <returns>
+            	<c>true</c> if [is article valid] [the specified article number]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetOrderRowCarriers(System.Guid,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Gets the order row carriers.
+            </summary>
+            <param name="articleID">
+            The article ID.
+            </param>
+            <param name="order">
+            The order.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetOrderRowCarriers(System.String,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Gets the order row carriers.
+            </summary>
+            <param name="articleNumber">
+            The article number.
+            </param>
+            <param name="order">
+            The order.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetProductCatalogID(System.Guid)">
+            <summary>
+            Gets the product catalog ID.
+            </summary
+            >
+            <param name="productGroupID">
+            The product group ID.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetProductCatalogIdFromProductId(System.Guid)">
+            <summary>
+            Gets the product catalog ID.
+            </summary>
+            <param name="productID">
+            The product group ID.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetOrderCarrierClone(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,System.Double,Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier@)">
+            <summary>
+            Gets the order carrier clone. The product denoted by <paramref name="productId"/> is added to the cloned order carrier.
+            </summary>
+            <param name="originalOrder">
+            The original order.
+            </param>
+            <param name="productId">
+            The product id.
+            </param>
+            <param name="quantity">
+            The quantity.
+            </param>
+            <param name="orderRow">
+            The order row.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetDistinctArticleIdsForCampaign">
+            <summary>
+            Returns a distinct articles list that were specified in the campaign collections.
+            </summary>
+            <returns>A list of article ids.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetOrderRowTotalForCampaign(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets Total of order rows, if current campaign is not applied, including vat.
+            </summary>
+            <param name="carrier">The carrier.</param>
+            <param name="token">The token.</param>
+            <returns>Total of order rows, if current campaign is not applied, including vat.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetAllProducts(Litium.Foundation.Modules.ProductCatalog.Assortments.Assortment,System.Collections.Generic.List{Litium.Foundation.Modules.ProductCatalog.Products.Product})">
+            <summary>
+            Gets all products of a product group by recursively scanning the sub groups of the product group.
+            </summary>
+            <param name="assortment">The catalog.</param>
+            <param name="products">The products.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetAllProducts(Litium.Foundation.Modules.ProductCatalog.Products.ProductGroup,System.Collections.Generic.List{Litium.Foundation.Modules.ProductCatalog.Products.Product})">
+            <summary>
+            Gets all products of a product group by recursively scanning the sub groups of the product group.
+            </summary>
+            <param name="productGroup">The product group.</param>
+            <param name="products">The products.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.PopulateArticleIds(System.Collections.Generic.List{System.Guid},System.Collections.Generic.List{Litium.Foundation.Modules.ProductCatalog.Products.Product})">
+            <summary>
+            Obtains the list of distinct article ids in the product group.
+            </summary>
+            <param name="articleIds">list of article ids.</param>
+            <param name="products">products to check.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.IsMemberOfACampaignGroup(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Returns whether this campaign is applicable for the person who placed this order.
+            </summary>
+            <param name="orderCarrier">An instance of a order carrier.</param>
+            <returns>Whether the campaign is applicable for the person who placed the order.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.AddEditOrderLevelCampaignDiscount(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Decimal,System.Guid,System.String)">
+            <summary>
+            Add or edit the orderlevel campaign discount.
+            </summary>
+            <param name="orderCarrier">Order carrier.</param>
+            <param name="discountAmountWithVAT">The discount amount with VAT.</param>
+            <param name="campaignId">Campaign ID.</param>
+            <param name="campaignInfo">Campaign info.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.RemoveOrderLevelCampaignDiscount(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid)">
+            <summary>
+            Remove order level campaign discount.
+            </summary>
+            <param name="orderCarrier">Order carrier to use.</param>
+            <param name="campaignId">Campaign Id to use.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.RemoveOrderRowCampaignDiscount(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="campaignId">The campaign id.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.RemoveDeliveryCampaignDiscount(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid)">
+            <summary>
+            Removes the delivery campaign discount.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="campaignId">The campaign id.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.RemoveFeeCampaignDiscount(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid)">
+            <summary>
+            Removes the fee campaign discounts.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="campaignId">The campaign id.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.RemoveOrderRowLevelCampaignDiscount(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="campaignId">The campaign id.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.IsOrderLevelCampaignApplied(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid)">
+            <summary>
+            Check whether order level campaign is already applied.
+            </summary>
+            <param name="orderCarrier">Order carrier to check.</param>
+            <param name="campaignId">Campaign id to check.</param>
+            <returns>True if campaign already applied, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.IsCampaignArticleFoundInOrder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Check whether atleast one article bought in the order is in the article list of campaign.
+            </summary>
+            <param name="orderCarrier">Order Carrier to check.</param>
+            <returns>True if article found, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.IsOrderRowEligibleForCampaign(Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier)">
+            <summary>
+            Check whether the given order row article belongs to current campaign
+            </summary>
+            <param name="orderRow">Order row to check</param>
+            <returns>True if order row article in current campaign, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetEligibleCampaignOrderRows(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Gets the order rows that have the articles specific for this campaign.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <returns>List of order rows with articles specific to this campaign.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.GetCampaignOrderRows(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Gets the order rows that have the articles specific for this campaign.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <returns>List of order rows with articles specific to this campaign.</returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.CampaignId">
+            <summary>
+            Gets the campaign id.
+            </summary>
+            <value>The campaign id.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.BaseCampaign.CurrencyCode">
+            <summary>
+            Gets the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY">
+            <summary>
+            Buy X amount and only pay for Y amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.BUY_QUANTITY">
+            <summary>
+            Buy quantity
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.PAY_FOR_QUANTITY">
+            <summary>
+            Pay for quantity
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this 
+            campaign results in special campaign prices.</remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated 
+            for this order carrier, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign priceses and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.BuyQuantity">
+            <summary>
+            Gets the buy quantity.
+            </summary>
+            <value>
+            The buy quantity.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignBuyXPayY.PayForQuantity">
+            <summary>
+            Gets the pay for quantity.
+            </summary>
+            <value>
+            The pay for quantity.
+            </value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator">
+            <summary>
+            Calculates the campaign price for an order.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.initializing">
+            <summary>
+            When initializing, do not allow to read in calculate methods.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.m_campaignTypeInstances">
+            <summary>
+            A list of ordered active campaign type instances.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.m_allCampaignTypeInstances">
+            <summary>
+            All the campaign type instances, key is campaignId
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.m_campaignTypeInstanceCampaignMapper">
+            <summary>
+            A dictionary that holds mapping for a campaign type instance and a campaign.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.GetLowestCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the lowest campaign price for article.
+            </summary>
+            <param name="articleId">The article id.</param>
+            <param name="quantity">The quantity.</param>
+            <param name="campaignPrice">The campaign price.</param>
+            <param name="saving">The total additional amount that can be saved due to applicable campaigns.</param>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+            <returns>True if lowest campaign price is calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculates the campaign prices.
+            </summary>
+            <param name="orderCarrier">Order to be used for calculations.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.CalculateOrderTotalWithoutCampaignsLogic(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculates the order total without campaigns logic.
+            Campaign calculator is skipped in the calculation.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.RemoveIncorrectCampaigns(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the incorrect campaigns.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="orderCurrencyCode">The order currency code.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.RemoveCampaigns(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the all the campaigns.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+            <returns>
+            True if atleast one campaign is removed, false otherwise
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.GetCampaignIDsApplied(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Gets the campaign Ids applied.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.GetLowestCampaignPriceForProduct(System.Guid,System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the lowest campaign price for article.
+            </summary>
+            <param name="articleId">The article id.</param>
+            <param name="productId">The article id.</param>
+            <param name="quantity">The quantity.</param>
+            <param name="campaignPrice">The campaign price.</param>
+            <param name="saving">The total additional amount that can be saved due to applicable campaigns.</param>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+            <returns>True if lowest campaign price is calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.GetCampaignSaving(Litium.Foundation.Modules.ECommerce.Carriers.ShoppingCartCarrier,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the lowest campaign price for product.
+            </summary>
+            <param name="shoppingCartRow">The shopping cart row, which contains the new product and its quantity.</param>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+            <returns>
+            An instance of CampaignSavingDescriptor containing campaign prices.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.GetOrderCarrierClone(System.Guid,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier@,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the order carrier clone. The product denoted by <paramref name="productId"/> is added to the cloned order carrier.
+            </summary>
+            <param name="productId">The product id.</param>
+            <param name="originalOrder">The original order.</param>
+            <param name="orderRow">The order row.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            When a order is confirmed, this method will be called, to handle any post confirmation scenarios.
+            </summary>
+            <param name="carrier">Order carrier with confirmed order.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.HandleOrderConfirmation(System.Guid,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICampaignTypeFactory,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handles the order confirmation.
+            </summary>
+            <param name="campaignId">The campaign id.</param>
+            <param name="carrier">The carrier.</param>
+            <param name="campaignTypeFactory">The campaign type factory.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.Finalize">
+            <summary>
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.UpdateCache(System.Guid)">
+            <summary>
+            Updates the cache.
+            </summary>
+            <param name="campaignID">The campaign ID.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignCalculator.Initialize(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Initializes the campaign types list.
+            </summary>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees">
+            <summary>
+            The order will be free of fees.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.EXCEED_AMOUNT">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier based on User groups.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this campaign results in special 
+            campaign price.
+            <para>
+            This method is a pre-check to find out whether a campaign is applicable in the outset,
+             before a detailed calculation is done. Therefore, logic here should be limited to checking group membership
+            </para>
+            </remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated for this order carrier, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the product.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign priceses and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeFees.MinimumRequiredOrderTotal">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway">
+            <summary>
+            When a customer buys product x he or she gets product  y for free.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.PRODUCT_Y">
+            <summary>
+            Product Y, this is the product id of article given free.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.ARTICLE_Y">
+            <summary>
+            Article Y, this is the Article ID given free.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.EXCEED_AMOUNT">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.MAX_QUANTITY_PER_SHOPPING_CART">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this 
+            campaign results in special 
+            campaign prices.</remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated for this order carrier, 
+            False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the
+             shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Campaign price.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the product.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the
+             shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Campaign price.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign prices and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign 
+            prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.GetGiveAwayArticle(Litium.Foundation.Modules.ProductCatalog.Products.Product)">
+            <summary>
+            Gets the give away article, given the product..
+            </summary>
+            <param name="giveAwayProduct">The give away product.</param>
+            <returns>Give away article</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.ReconfigureDeliveries(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether delivery rows are properly placed and their OrderRowIds are correct.
+            </summary>
+            <param name="orderCarrier">Order carrier to check.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.DeleteOrderRows(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier})">
+            <summary>
+            Delete order rows from the order.
+            </summary>
+            <param name="orderCarrier">Order carrier with order rows.</param>
+            <param name="giveAwayArticleRows">Give away article rows.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.CreateGiveAwayArticleRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Int32,System.Guid,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the give away article row.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="quantity">The quantity.</param>
+            <param name="campaignId">The campaign id.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.GetExistingRowsWithGiveAwayArticle(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Int32@,System.Int32@)">
+            <summary>
+            Gets the give away article quantity and order rows that contains give away articles.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="desiredGiveAwayQuantity">The desired give away quantity.</param>
+            <param name="existingGiveAwayQuantity">The existing give away quantity.</param>
+            <returns>
+            List of order rows that have give away articles.
+            </returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower 
+            priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied 
+            at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, 
+            before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.ProductY">
+            <summary>
+            Gets the product y.
+            </summary>
+            <value>
+            The product y.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.ArticleY">
+            <summary>
+            Gets the article y.
+            </summary>
+            <value>
+            The article y.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.MinimumRequiredOrderTotal">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.MaxGiveAwayQuantityPerCart">
+            <summary>
+            Gets the max give away quantity per cart.
+            </summary>
+            <value>The max give away quantity per cart.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.CurrencyCode">
+            <summary>
+            Gets the currency, to which this campaign is applicable. This is the ISO 4217 three letter symbol of the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignGiveaway.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType">
+            <summary>
+            Types of campaigns.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.BuyXPayY">
+            <summary>
+            Buy X amount and only pay for Y amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.XPercentOff">
+            <summary>
+            X percentage is taken off if order total exceeds certain value.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.Giveaway">
+            <summary>
+            When a customer buys product x he or she gets product  y for free.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.FreeFees">
+            <summary>
+            The order will be free of fees.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.FreeShipping">
+            <summary>
+            The order will be free of shipping charges.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.VoucherSingleUse">
+            <summary>
+            Gives the customer a percentage or amount discount when he or she is exceeding a certain amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.XAmountOff">
+            <summary>
+            Gives the customer a discount of x amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignType.VoucherMultiUse">
+            <summary>
+            User should be able to define the voucher codes, and the usage frequency.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignTypeComparer">
+            <summary>
+            Campagin type comparer.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignTypeComparer.Compare(Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICampaignType,Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICampaignType)">
+            <summary>
+            Compare method
+            </summary>
+            <param name="x">Campaign type.</param>
+            <param name="y">Campaign type.</param>
+            <returns>Campaign type with lowest priority index.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignTypeFactory">
+            <summary>
+            Creates campaign types.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignTypeFactory.CreateInstance(System.String,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates a campaigntype for the corresponding Id.
+            </summary>
+            <param name="campaignTypeId">Id of the campaing type.</param>
+            <param name="token">Security token.</param>
+            <returns>A new instance of campaingType.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignTypeFactory.GetCampaignTypeIds(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get the list of campaign Types Ids
+            </summary>
+            <param name="token">Security token.</param>
+            <returns>List of campaign Type Ids</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignTypeFactory.GetCampaignTypes(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get the list of campaign types.
+            </summary>
+            <param name="token">Security token.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse">
+            <summary>
+            Gives the customer a percentage or amount discount when he or she is exceeding a certain amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.EXCEED_AMOUNT">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.AMOUNT_DISCOUNT">
+            <summary>
+            Amount discount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.PERCENTAGE_DISCOUNT">
+            <summary>
+            Percentage discount. this is a value between 0 and 100
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.NO_OF_VOUCHER_CODES">
+            <summary>
+            No of voucher codes
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.GetDiscountMethod(System.Boolean@,System.Boolean@,System.Decimal@,System.Decimal@)">
+            <summary>
+            Gets the discount method.
+            </summary>
+            <param name="isPercentageDiscount">if set to <c>true</c> [is percentage discount].</param>
+            <param name="isAmountDiscount">if set to <c>true</c> [is amount discount].</param>
+            <param name="percentageDiscount">The percentage discount.</param>
+            <param name="discountAmount">The discount amount.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this campaign results in special 
+            campaign prices.</remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated for this order carrier, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the product.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign priceses and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.AddOrderRowCampaignPrices(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier})">
+            <summary>
+            Adds the order row campaign prices if campaign is IsPercentageDiscount.
+            </summary>
+            <param name="orderRowsForCampaign">The order rows for campaign.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.RemoveOrderRowCampaignPrices(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier})">
+            <summary>
+            Removes the order row campaign prices.
+            </summary>
+            <param name="orderRowsForCampaign">The order rows for campaign.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsValidVoucherCodeSupplied(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Check whether a valid voucher code is supplied.
+            </summary>
+            <param name="orderCarrier">Order carrier containing voucher code.</param>
+            <param name="token">Security token.</param>
+            <returns>True if voucher code exists, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.AmountNeedsToBeExceeded">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsAmountDiscount">
+            <summary>
+            Gets or sets a value indicating whether this instance is amount discount.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is amount discount; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsPercentageDiscount">
+            <summary>
+            Gets or sets a value indicating whether this instance is percentage discount.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is percentage discount; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.DiscountAmount">
+            <summary>
+            Gets or sets the discount amount.
+            </summary>
+            <value>The discount amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.DiscountPercentage">
+            <summary>
+            Gets or sets the discount percentage.
+            </summary>
+            <value>The discount percentage.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.MinimumRequiredOrderTotal">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.CurrencyCode">
+            <summary>
+            Gets the currency, to which this campaign is applicable. This is the ISO 4217 three letter symbol of the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherMultiUse.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse">
+            <summary>
+            Gives the customer a percentage or amount discount when he or she is exceeding a certain amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.EXCEED_AMOUNT">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.AMOUNT_DISCOUNT">
+            <summary>
+            Amount discount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.PERCENTAGE_DISCOUNT">
+            <summary>
+            Percentage discount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.NO_OF_VOUCHER_CODES">
+            <summary>
+            No of voucher codes
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this campaign results in special 
+            campaign prices.</remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated for this order carrier, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the product.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign priceses and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.AddOrderRowCampaignPrices(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier})">
+            <summary>
+            Adds the order row campaign prices if campaign is IsPercentageDiscount.
+            </summary>
+            <param name="orderRowsForCampaign">The order rows for campaign.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.RemoveOrderRowCampaignPrices(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier})">
+            <summary>
+            Removes the order row campaign prices.
+            </summary>
+            <param name="orderRowsForCampaign">The order rows for campaign.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsValidVoucherCodeSupplied(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Check whether a valid voucher code is supplied.
+            </summary>
+            <param name="orderCarrier">Order carrier containing voucher code.</param>
+            <param name="token">Security token.</param>
+            <returns>True if voucher code exists, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.GetDiscountMethod(System.Boolean@,System.Boolean@,System.Decimal@,System.Decimal@)">
+            <summary>
+            Gets the discount method.
+            </summary>
+            <param name="isPercentageDiscount">if set to <c>true</c> [is percentage discount].</param>
+            <param name="isAmountDiscount">if set to <c>true</c> [is amount discount].</param>
+            <param name="percentageDiscount">The percentage discount.</param>
+            <param name="discountAmount">The discount amount.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.AmountNeedsToBeExceeded">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsAmountDiscount">
+            <summary>
+            Gets or sets a value indicating whether this instance is amount discount.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is amount discount; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsPercentageDiscount">
+            <summary>
+            Gets or sets a value indicating whether this instance is percentage discount.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is percentage discount; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.DiscountAmount">
+            <summary>
+            Gets or sets the discount amount.
+            </summary>
+            <value>The discount amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.DiscountPercentage">
+            <summary>
+            Gets or sets the discount percentage. This is a value between 0 to 100
+            </summary>
+            <value>The discount percentage.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.MinimumRequiredOrderTotal">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignVoucherSingleUse.CurrencyCode">
+            <summary>
+            Gets the currency, to which this campaign is applicable. This is the ISO 4217 three letter symbol of the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff">
+            <summary>
+            Gives the customer a discount of x amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.EXCEED_AMOUNT">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.X_AMOUNT">
+            <summary>
+            X amount
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this campaign results in special 
+            campaign prices.</remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated for this order carrier, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the product.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign priceses and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.XAmount">
+            <summary>
+            Gets the x amount.
+            </summary>
+            <value>
+            The x amount.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.CurrencyCode">
+            <summary>
+            Gets the currency, to which this campaign is applicable. This is the ISO 4217 three letter symbol of the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXAmountOff.MinimumRequiredOrderTotal">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff">
+            <summary>
+            X percentage is taken off from the specified articles, if order total exceeds certain value.
+            </summary>
+            <remarks>This is a order row level campaign.</remarks>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.EXCEED_AMOUNT">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.X_PERCENTAGE">
+            <summary>
+            X percentage
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this campaign results in special 
+            campaign prices.</remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated for this order carrier, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the product.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign priceses and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.XPercentage">
+            <summary>
+            Gets the x percentage
+            </summary>
+            <value>
+            The x percentage.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.CurrencyCode">
+            <summary>
+            Gets the currency, to which this campaign is applicable. This is the ISO 4217 three letter symbol of the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignXPercentOff.MinimumRequiredOrderTotal">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping">
+            <summary>
+            The order will be free of shipping charges.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.EXCEED_AMOUNT">
+            <summary>
+            Exceed amount
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.GetDescription(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the description about the campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>description about the campaign</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.Initialize(Litium.Foundation.Modules.ECommerce.Campaigns.Campaign)">
+            <summary>
+            Initializes the campaign type.
+            </summary>
+            <param name="campaign">An instance of a campaign</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.IsCampaignApplicable(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Checks whether this campaign is applicable to the given order carrier.
+            </summary>
+            <remarks>Based on the data in orderCarrier, determines whether applying this campaign results in special 
+            campaign prices.</remarks>
+            <param name="orderCarrier">Order carrier to check whether campaign is applicable.</param>
+            <param name="token">Security token.</param>
+            <returns>True if a special campaign price can be calculated for this order carrier, False otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.GetCampaignPriceForArticle(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="articleId">Guid of the article.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.GetCampaignPriceForProduct(System.Guid,System.Double,System.Decimal@,System.Decimal@,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Get a campaing price for the article, given the contents of the order in order carrier.
+            </summary>
+            <param name="productId">Guid of the product.</param>
+            <param name="orderCarrier">Order carrier, which represent current items of the shopping cart.</param>
+            <param name="quantity">quantity of the article bought.</param>
+            <param name="campaignPrice">Campaign price.</param>
+            <param name="saving">Saving.</param>
+            <param name="token">Security token.</param>
+            <returns>True if the campaign price is calculated, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.CalculateCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate campaign priceses and discounts. 
+            When implemented in a class this method should update the orderCarrier with campaign prices and discounts.
+            </summary>
+            <param name="orderCarrier">Order Carrier.</param>
+            <param name="token">Security token.</param>
+            <returns>True if campaign prices are calculated.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.RemoveCampaignPrice(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Removes the campaign price if the current campaign is applied for the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.HandleOrderConfirmation(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Handle any post order confirmation scenarios, such as deleting campaign codes, 
+            updating any third party systems.
+            </summary>
+            <param name="carrier">Order carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.GetVatSaving(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Gets the vat saving.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.Name">
+            <summary>
+            Name of campaign.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.Description">
+            <summary>
+            Gets the description of this campaign. This should describe the purpose and logic of campaign briefly.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.ID">
+            <summary>
+            ID of campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.PriorityIndex">
+            <summary>
+            Priority of campaign. High priority campaign types are applied first, and lower priority ones later.
+            If two campaigns have same priority, then order is non deterministic.
+            </summary>
+            <remarks>In case two campaings are mutually not exclusive, that is can be applied at the same time 
+            then the campaings will be applied based on priority index in a sequential order.
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.IsCalculationDependOnOrderTotals">
+            <summary>
+            Whether the campaing depends on order totals, so that order total should be calculated, before campain logic is applied.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.CurrencyCode">
+            <summary>
+            Gets the currency, to which this campaign is applicable. This is the ISO 4217 three letter symbol of the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.IsArticlesApplicable">
+            <summary>
+            Gets whether articles are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.IsProductGroupsApplicable">
+            <summary>
+            Gets whether product groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.IsProductCatalogsApplicable">
+            <summary>
+            Gets whether product catalogs are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.IsGroupsApplicable">
+            <summary>
+            Gets whether groups are applicable for this campaign type.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Campaigns.CampaignFreeShipping.MinimumRequiredOrderTotal">
+            <summary>
+            Gets the amount the order has to exceed.
+            </summary>
+            <value>
+            The Amount order has to exceed in order to qualify for this campaign.
+            </value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.AdditionalInfoArgs">
+            <summary>
+            Provide additional order information to be added to the order.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow">
+            <summary>
+            Implements the checkout flow. Please see documentation in <see cref="T:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow"/>
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.CreateCheckoutFlowInfo(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the checkout flow info.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>Instance of checkout flow info.</returns>
+            <remarks>This instance will be used in the shopping cart,
+            use this instance to represent the data capatured by the checkout flow.</remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.CreateAdditionalOrderInfoArgs(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the additional order info.
+            </summary>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.CreateAdditionalOrderInfoArgs(Litium.Foundation.Security.SecurityToken)"/></remarks>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.CreateDeliveryPayloadInfo(Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the delivery payload info. This instance will be used in the shopping cart.
+            Use this instance when creating your custom deliveries.
+            </summary>
+            <param name="token">The token.</param>
+            <returns>Instance of delivery payload info.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddDelivery(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the delivery.
+            This sample implementation will always use only one delivery, if a delivery does not exist, it will create one.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="deliveryMethodID">The delivery method ID.</param>
+            <param name="deliveryAddress">The delivery address.</param>
+            <param name="token">The token.</param>
+            <returns>Delivery carrier of added delivery.</returns>
+            <remarks>Please see documentation in ICheckoutFlow.AddDelivery(OrderCarrier orderCarrier, Guid deliveryMethodID, AddressCarrier deliveryAddress, SecurityToken token) /&gt;</remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddDelivery(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Plugins.DeliveryPayloadInfo,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the delivery into the carrier. Parameter <paramref name="deliveryPayload"/> should not be null,
+            use <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.CreateDeliveryPayloadInfo(Litium.Foundation.Security.SecurityToken)"/> method to instantiate an object of <see cref="T:Litium.Foundation.Modules.ECommerce.Plugins.DeliveryPayloadInfo"/>
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="deliveryPayload">The delivery payload.</param>
+            <param name="token">The token.</param>
+            <returns>
+            Delivery carrier added or null if not added.
+            </returns>
+            <remarks>
+            Use this method to add a custom delivery.
+            The default implementation makesure that all order rows are included in one of the deliveries created.
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.EditDelivery(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,Litium.Foundation.Modules.ECommerce.Plugins.DeliveryPayloadInfo,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Edits the delivery. If <paramref name="deliveryPayload"/> does not contain any delivery rows to be included with the delivery,
+            delivery should be removed.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="deliveryCarrierIdToEdit">The delivery carrier id to edit.</param>
+            <param name="deliveryPayload">The delivery payload.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.ConfigureDeliveries(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Configures the deliveries, by verifying order rows are matched with delivery rows.
+            If the order carrier order rows or amounts has changed, the delivery rows need recalculation.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddPaymentInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the payment info.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="paymentProviderName">Name of the payment provider.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="billingAddress">The payment address.</param>
+            <param name="token">The token.</param>
+            <returns>
+            Payment info carrier added, or null if not added.
+            </returns>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.AddPaymentInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.SetProductUnitListPrices(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Set the product unit list prices for the order rows in the carrier.
+            This step may be done to re-fetch the unit list prices for products of a saved shopping cart. 
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.ChangeCurrency(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Changes the currency of the order carrier.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="currencyId">The currency id.</param>
+            <param name="token">The token.</param>
+            <returns>
+            True if currency is changed, false otherwise.
+            </returns>
+            <remarks>
+            When you have sites with multiple currencies, and when the user is going from one site to another,
+            the checkout flow should adapt to the current sites currency and prices in that currency.
+            <para>If your business requirement is to have a single currency in back office,
+            but only to display the prices using different currencies, then you should not change the order currency here.
+            </para>
+            	<para>
+            You are not required to call the calculate methods inside the implementation of this method,
+            since its callers responsibility to call the calculate methods to effect the currency change.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.EditPaymentInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Edits the payment info.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="paymentInfoIdToEdit">The payment info id to edit.</param>
+            <param name="paymentProviderName">Name of the payment provider.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="billingAddress">The billing address.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.CreateOrder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Creates the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+            <returns>A new order carrier.</returns>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.CreateOrder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.CopyExternalOrderIDWithPadding(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Copies the external order ID and pads a seq number.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="newCarrier">The new carrier.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddCustomerInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the customer info.
+            </summary>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.AddCustomerInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)"/></remarks>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="customerAddress">The customer address.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddAdditionalOrderInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Plugins.AdditionalOrderInfoArgs,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the additional order info.
+            </summary>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.AddAdditionalOrderInfo(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Plugins.AdditionalOrderInfoArgs,Litium.Foundation.Security.SecurityToken)"/></remarks>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="additionalOrderInfo">The additional order info.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddOrderRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.ShoppingCartCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds the order row.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="shoppingCartRow">The shopping cart row.</param>
+            <param name="token">The token.</param>
+            <remarks>Please see documentation in <see cref="M:Litium.Foundation.Modules.ECommerce.Plugins.Interfaces.ICheckoutFlow.AddOrderRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.ShoppingCartCarrier,Litium.Foundation.Security.SecurityToken)"/></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddOrderRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,System.Decimal,System.String,System.Decimal,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Adds a order row. If the product is a variant group, base article of the variant group is treated as the product that is bought.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="productId">The product id.</param>
+            <param name="quantity">The quantity.</param>
+            <param name="comments">The comments.</param>
+            <param name="discountPercentage">The discount percentage for the entire order row.</param>
+            <param name="token">The token.</param>
+            <returns>Order row created or null if not created.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.EditOrderRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid,System.Decimal,System.String,System.Decimal,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Edits the order row. Implementation class should remove the order carrier from order, if <paramref name="quantity"/> is zero.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="orderRowIdToEdit"></param>
+            <param name="quantity">The quantity. If quantity is zero, order row should be removed from carrier.</param>
+            <param name="comments">The comments.</param>
+            <param name="discountPercentage">The discount percentage.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.GetPaymentInfoCarrierForRelationUser(System.Guid,System.String,System.String,Litium.Foundation.Modules.ECommerce.Carriers.AddressCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Gets the payment info carrier for relation module user.
+            </summary>
+            <param name="personId">The person id.</param>
+            <param name="paymentProviderName">Name of the payment provider.</param>
+            <param name="paymentMethod">The payment method.</param>
+            <param name="billingAddress">The billing address.</param>
+            <param name="token">The token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.AddNewDelivery(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Create and Adds a new delivery to the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <returns>created new delivery</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.SetCustomerInfoFromRelationsUser(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Sets the customer info from relations user.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.GetArticleNumber(Litium.Foundation.Modules.ProductCatalog.Products.Product)">
+            <summary>
+            Gets the article number.
+            </summary>
+            <param name="product">The product.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.CheckoutFlow.RemoveExistingDeliveryRow(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Guid)">
+            <summary>
+            Removes the existing delivery row.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="orderRowID">The order row ID.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo">
+            <summary>
+            Extended implementation specific information about the checkout flow.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo.CreateInstance">
+            <summary>
+            Creates the instance of the checkout flow.
+            </summary>
+            <returns>
+            An instance of <see cref="T:Litium.Foundation.Modules.ECommerce.Plugins.CheckoutFlowInfo"/>
+            </returns>
+            <remarks>In a custom implementation, this method should be implemented to return a new instance of the
+            derived class. The <see cref="T:Litium.Foundation.Modules.ECommerce.Plugins.PaymentProviderFactory"/>
+            </remarks>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo.ExecuteScript">
+            <summary>
+            Gets or sets the execute script that execute the payment provider script that post information to provider site.
+            </summary>
+            <value>The execute script.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo.CustomerSsn">
+            <summary>
+            Gets or sets the customer SSN.
+            </summary>
+            <value>The customer SSN.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo.CustomerSalary">
+            <summary>
+            Gets or sets the customer salary.
+            </summary>
+            <value>The customer salary.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo.KreditorCampaignCode">
+            <summary>
+            Gets or sets the kreditor campaign code.
+            </summary>
+            <value>The kreditor campaign code.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedCheckoutFlowInfo.ExecuteScriptHandler">
+            <summary>
+            delegate to execute the payment provider script that post information to provider site, or redirect to provider site.
+            </summary>        
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.ExtendedDeliveryPayloadInfo">
+            <summary>
+            Custom implementation of <see cref="T:Litium.Foundation.Modules.ECommerce.Plugins.DeliveryPayloadInfo"/>.
+            </summary>
+            <remarks>Add your custom information to this class or a derived instance of this class.
+            you should use the information during the checkout flow.</remarks>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.OrderRowBuilder">
+            <summary>
+            Builds a order row to be used in the order. 
+            </summary>
+            <remarks>Extend the <see cref="T:Litium.Foundation.Modules.ECommerce.Carriers.Utilities.OrderRowCarrierBuilder"/> to make a order row carrier.
+            <para>
+            Override the <see cref="M:Litium.Foundation.Modules.ECommerce.Carriers.Utilities.OrderRowCarrierBuilder.Build(Litium.Foundation.Security.SecurityToken)"/> method to put custom functionality in build process.
+            </para>
+            <para>You may provide your own prices for the articles contained in the order by changing the build process.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.OrderRowBuilder.#ctor(Litium.Foundation.Modules.ECommerce.Carriers.ShoppingCartCarrier,System.Guid,System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.OrderRowBuilder"/> class.
+            </summary>
+            <param name="shoppingCartRow">The shopping cart row.</param>
+            <param name="currencyId">The currency id.</param>
+            <param name="customerId">The customer id.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.OrderRowBuilder.GetOrderRowDescription">
+            <summary>
+            Get the display name of the article.
+            </summary>
+            <returns>Description to be used for this order row.</returns>
+            <remarks>This method is called by <see cref="M:Litium.Foundation.Modules.ECommerce.Carriers.Utilities.OrderRowCarrierBuilder.Build(Litium.Foundation.Security.SecurityToken)"/> to set the order row description.
+            <para>Override this method to set a customized description.</para></remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.OrderRowBuilder.GetExternalOrderRowId">
+            <summary>
+            Gets the external order row id.
+            </summary>
+            <remarks>Called by the <see cref="M:Litium.Foundation.Modules.ECommerce.Carriers.Utilities.OrderRowCarrierBuilder.Build(Litium.Foundation.Security.SecurityToken)"/> to obtain external order row id.</remarks>
+            <returns>External order row id</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.PaymentInfoRowCreator">
+            <summary>
+            Creates payment info rows for the order.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.CheckoutFlow.PaymentInfoRowCreator.Create(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Modules.ECommerce.Carriers.PaymentInfoCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Create payment info rows using all the information available in the order.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="paymentInfoCarrier">The payment info carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.AddDeliveryToOrderHandler">
+            <summary>
+            Delegate to be passed to when making <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder"/>.
+            This delegate provides the ability to create a external delivery and attach it to the order carrier.
+            </summary>
+            <remarks>
+            The <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder"/> will be unaware of what delivery method to use, 
+            what delivery address to use when making a delivery. Therefore, a delivery has to be build outside, 
+            from user code. For flexibility the sample delivery builder delegate this task to this method. 
+            Take a look at <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory"/> documentation for more information.
+            </remarks>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory">
+            <summary>
+            Provides the creation methods for concrete implementations of <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryBuilder"/>
+             and <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryCostStrategy"/>.
+            </summary>
+            <remarks>This class will be used from the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostCalculator"/> to obtain the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryBuilder"/> and
+             the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryCostStrategy"/>. 
+             <para>In a implementation project, change the following methods in this class to instantiate your own builder and cost strategy code.</para>
+            <para></para> 
+            <para><see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryBuilder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)"/></para>
+            <para><see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryCostStrategy"/></para>
+            <para></para>
+            <para>Note that the default implementation of <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryBuilder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)"/> has a constructor 
+            which expect a parameter of <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.AddDeliveryToOrderHandler"/>. If you are planing to use the sample delivery builder,
+            supply a method delegate, that can construct a delivery as this parameter. In default implementation this parameter is null.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.instance">
+            <summary>
+            instance variable for singleton class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryBuilder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Creates the delivery builder.
+            </summary>
+            <remarks>Change this method to return your implementation delivery builder.</remarks>
+            <param name="orderCarrier">The order carrier.</param>
+            <returns>An object of <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryBuilder"/></returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryCostStrategy">
+            <summary>
+            Creates the delivery cost strategy.
+            </summary>
+            <remarks>Change this method to return your implementation of delivery cost strategy.</remarks>
+            <returns>An object of <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryCostStrategy"/></returns>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+            <value>The instance.</value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder">
+            <summary>
+            Builds deliveries using information in a order. This is a sample provided to build deliveries. 
+            </summary>
+            <remarks>Use this sample DeliveryBuilder to build deliveries using order rows.
+            <para>Note that the default implementation of this class has a constructor 
+            which expect a parameter of <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.AddDeliveryToOrderHandler"/>. If you are planing to use the sample delivery builder,
+            supply a method delegate, that can construct a delivery as this parameter. In default implementation this parameter is null.
+            </para>
+            <para>In default implementation, <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryBuilder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)"/> method passes null to the 
+            addDelivery parameter of the constructor of this class. Because of that, if you already do not have a delelivery created,
+            a new delivery will not be created, because this sample implementation depends on that parameter to create a 
+            new delivery if a delivery is not already present.</para>
+            </remarks>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryBuilder">
+            <summary>
+            Interface for a Delivery Builder. A Delivery builder is responsible for building a delivery, 
+            by providing the delivery rows and organizing the related complecations.
+            </summary>
+            <remarks>Provide your own delivery builder from the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory"/> to be used by the
+            <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostCalculator"/> class. </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryBuilder.Build">
+            <summary>
+            Builds the deliveries.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.m_OrderCarrier">
+            <summary>
+            Order carrier.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.#ctor(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.AddDeliveryToOrderHandler)">
+            <summary>
+            Constructs and instance of delivery builder.
+            </summary>
+            <param name="orderCarrier">order carrier to use to build deliveries.</param>
+            <param name="addDelivery">Delegate to be called, if the builder needs to add a delivery.
+            Note that instance of this parameter is modified when <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.Build"/> method is called.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.Build">
+            <summary>
+            Builds the deliveries.
+            </summary>
+            <remarks>The order carrier which is passed when constructing an instance of <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder"/> 
+            is modified when Build method is called.
+            <para>Note:</para>
+            <para>In default implementation, <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryBuilder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)"/> method passes null to the 
+            addDelivery parameter of the constructor <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.#ctor(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.AddDeliveryToOrderHandler)"/> of this class. Because of that, if you already do not have a delelivery created,
+            a new delivery will not be created, because this sample implementation depends on that parameter to create a 
+            new delivery if a delivery is not already present.</para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.AddDeliveryRows(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier})">
+            <summary>
+            Add delivery rows to the first available delivery.
+            </summary>
+            <param name="orderRowsWithMissingDeliveryRows">Order rows to which delivery rows need to be added.</param>
+            <returns>True if delivery found, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.AddDeliveryRowsForOrderRows(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier},Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier)">
+            <summary>
+            Adds delivery rows for the order rows that doesnt have delivery rows.
+            </summary>
+            <param name="orderRowsWithMissingDeliveryRows">Order rows with missing delivery rows.</param>
+            <param name="delivery">Delivery to which the order rows need to be added.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.AdjustDeliveryQuantities(Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier,System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.DeliveryRowCarrier})">
+            <summary>
+            Adjust the delivery quantity according to the order row quantity. 
+            </summary>
+            <remarks>Always the first instance of the delivery row in the <paramref name="validDeliveryRowsForOrderRow"/>
+            is modified if any discrepancy.</remarks>
+            <param name="orderRow">Order row.</param>
+            <param name="validDeliveryRowsForOrderRow">Delivery rows to adjust.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.GetConfiguredDeliveryRows(System.Guid)">
+            <summary>
+            Gets the list of valid delivery rows for the given orderRowId.
+            </summary>
+            <param name="orderRowId">Order row id to get the list of delivery rows.</param>
+            <returns>List of delivery rows for the given order row.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryBuilder.AddDelivery">
+            <summary>
+            Delegate to add deliveries.
+            </summary>
+            <param name="orderCarrier">Order carrier to which delivery will be added.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder">
+            <summary>
+            Builds deliveries using information in a order. 
+            </summary>
+            <remarks>Use the DeliveryBuilder to build deliveries using order rows.
+            </remarks>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.m_OrderCarrier">
+            <summary>
+            Order carrier.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.#ctor(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.AddDelivery)">
+            <summary>
+            Constructs and instance of delivery builder.
+            </summary>
+            <param name="orderCarrier">order carrier to use to build deliveries.</param>
+            <param name="addDelivery">Delegate to be called, if the builder needs to add a delivery.
+            Note that instance of this parameter is modified when <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.Build"/> method is called.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.Build">
+            <summary>
+            Builds the deliveries.
+            </summary>
+            <remarks>The order carrier which is passed when constructing an instance of <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder"/> 
+            is modified when Build method is called.</remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.AddDeliveryRows(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier})">
+            <summary>
+            Add delivery rows to the first available delivery.
+            </summary>
+            <param name="orderRowsWithMissingDeliveryRows">Order rows to which delivery rows need to be added.</param>
+            <returns>True if delivery found, false otherwise.</returns>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.AddDeliveryRowsForOrderRows(System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier},Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier)">
+            <summary>
+            Adds delivery rows for the order rows that doesnt have delivery rows.
+            </summary>
+            <param name="orderRowsWithMissingDeliveryRows">Order rows with missing delivery rows.</param>
+            <param name="delivery">Delivery to which the order rows need to be added.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.AdjustDeliveryQuantities(Litium.Foundation.Modules.ECommerce.Carriers.OrderRowCarrier,System.Collections.Generic.List{Litium.Foundation.Modules.ECommerce.Carriers.DeliveryRowCarrier})">
+            <summary>
+            Adjust the delivery quantity according to the order row quantity. 
+            </summary>
+            <remarks>Always the first instance of the delivery row in the <paramref name="validDeliveryRowsForOrderRow"/>
+            is modified if any discrepancy.</remarks>
+            <param name="orderRow">Order row.</param>
+            <param name="validDeliveryRowsForOrderRow">Delivery rows to adjust.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.GetConfiguredDeliveryRows(System.Guid)">
+            <summary>
+            Gets the list of valid delivery rows for the given orderRowId.
+            </summary>
+            <param name="orderRowId">Order row id to get the list of delivery rows.</param>
+            <returns>List of delivery rows for the given order row.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryBuilder.AddDelivery">
+            <summary>
+            Delegate to add deliveries.
+            </summary>
+            <param name="orderCarrier">Order carrier to which delivery will be added.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostCalculator">
+            <summary>
+            Calculates delivery cost for an order.
+            </summary>
+            <remarks>In implementation project you will need to implement your own concrete implementations of following two interfaces.
+            <para><see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryBuilder"/> </para>
+            <para><see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryCostStrategy"/></para>
+            <para></para>
+            <para>Then, simply change following two instantiation methods in <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory"/></para>
+            <para><see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryBuilder(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)"/></para>
+            <para><see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryCostStrategy"/></para>
+            </remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate the delivery cost connected to the Order. Delivery carriers should be properly filled up and present for the cost calculation.
+            </summary>
+            <param name="orderCarrier">Carrier containing complete information about the order.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate the delivery cost connected to a single delivery. 
+            </summary>
+            <param name="deliveryCarrier">Carrier containing complete information about the delivery.
+            Update the delivery cost and other information in delivery carrier.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostCalculator.CreateDeliveries(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Create deliveries using the order carrier.
+            </summary>
+            <remarks>You need to create delivery carriers and add to the Deliveries subcarrier.</remarks>
+            <param name="orderCarrier">Order carrier with complete information.</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryCostStrategy">
+            <summary>
+            Sample delivery cost strategy. Calculates sample delivery costs for default implementation.
+            </summary>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryCostStrategy">
+            <summary>
+            Interface to calculate the delivery cost.
+            </summary>
+            <remarks>Provide your sample implementation that calculates custom delivery cost,
+            and change the <see cref="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.DeliveryCostFactory.CreateDeliveryCostStrategy"/> method.</remarks>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.IDeliveryCostStrategy.Calculate(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculates the specified delivery carrier delivery costs.
+            </summary>
+            <param name="deliveryCarrier">The delivery carrier.</param>
+            <param name="token">The security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryCostStrategy.Calculate(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculates the specified delivery carrier delivery costs.
+            </summary>
+            <param name="deliveryCarrier">The delivery carrier.</param>
+            <param name="token">The security token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.DeliveryCost.SampleDeliveryCostStrategy.AddAdditionalDeliveryInfoTest(Litium.Foundation.Modules.ECommerce.Carriers.DeliveryCarrier)">
+            <summary>
+            Adds the additional delivery info test. Should be called only if <see cref="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.IsTestMode"/> is true.
+            </summary>
+            <param name="deliveryCarrier">The delivery carrier.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Fees.FeesCalculator">
+            <summary>
+            Calculate Fees.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Fees.FeesCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate Fees.
+            </summary>
+            <param name="orderCarrier">Carrier for which fees need to be calculted</param>
+            <param name="token">Security token.</param>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.OrderTotalCalculator">
+            <summary>
+            Calculates the order totals
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.OrderTotalCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculates the order total for an order.
+            </summary>
+            <param name="orderCarrier"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.OrderTotalCalculator.CalculatePaymentInfoAmounts(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculates the payment info. in the <paramref name="orderCarrier"/> 
+            by setting the payment amounts and vat amounts.
+            <B>DO NOT Change the order carrier totals in this method</B> because as order total is not recalculated after calling this method.
+            </summary>
+            <remarks>Necessary financial information such as payment amount and vat information should be set in this method.
+            <para>This method will be called when payment information need to be obtained from the order,
+            in order to be sent to a payment provider to collect the payment from the customer.</para>
+            <para>Information contained in the payment info carrier may be modified by the payment provider implementation. 
+            Therefore also refer the specific payment provider implementation about how payment amount is calculated.</para>
+            </remarks>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.OrderTotalCalculator.CreatePaymentInfoRows(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Create payment info rows for a single order.
+            </summary>
+            <param name="orderCarrier"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.OrderTotalCalculator.CalculateOrderTotal(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Calculates the order total.
+            </summary>
+            <param name="orderCarrier">Order carrier to calculate order total.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.OrderTotalCalculator.ValidateOrderGrandTotalAndVAT(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Validates the order grand total and VAT for accuracy.
+            Grand Total = Total of all order rows + deliveries + fees - discounts - campaigns + VAT
+            Grand Total = Total of all payment Infos + VAT in those payment infos.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="token">The token.</param>
+            <returns>True if valid, false if amounts mismatch.</returns>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings">
+            <summary>
+            Provides configuration information about the payex payment provider from configuration file
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.IS_TEST_MODE">
+            <summary>
+            Key for is test mode.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.FEE_VAT_PERCENTAGE_TEST_AMOUNT">
+            <summary>
+            Key for fee vat percentage test amount
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.FEE_TEST_AMOUNT">
+            <summary>
+            Key for fee test amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.ORDER_DISCOUNT_PERCENTAGE_TEST_AMOUNT">
+            <summary>
+            Key for order discount percentage test amount.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.ORDER_DISCOUNTS_TEST_ENTRIES">
+            <summary>
+            Order discount test entries.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.CURRENCY_UNIT_PRECISION">
+            <summary>
+            Precision of currency unit.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.FEE_TEST_ENTRIES">
+            <summary>
+            Fee test entries.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.ADD_ADDITIONAL_DELIVERY_INFO_TEST">
+            <summary>
+            Key for additional delivery info.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.ADDITIONAL_DELIVERY_INFO_TEST_KEY">
+            <summary>
+            Key for additional delivery info key.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.ADDITIONAL_DELIVERY_INFO_TEST_VAL">
+            <summary>
+            key for additional delivery info value.
+            </summary>
+        </member>
+        <member name="F:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.ADD_ORDER_DISCOUNT_TEST">
+            <summary>
+            Key for add order discount tet
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.#cctor">
+            <summary>
+            Initializes the <see cref="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.LoadConfiguration">
+            <summary>
+            Verifies the configuration.
+            </summary>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.IsTestMode">
+            <summary>
+            Gets or sets a value indicating whether plugin is in test mode.
+            </summary>
+            <value>
+            	<c>true</c> if this plugin is test mode; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.FeeVatPercentageTestAmount">
+            <summary>
+            Gets or sets the fee vat percentage test amount.
+            </summary>
+            <value>The fee vat percentage test amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.FeeTestAmount">
+            <summary>
+            Gets or sets the fee test amount.
+            </summary>
+            <value>The fee test amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.OrderDiscountPercentageTestAmount">
+            <summary>
+            Gets or sets the order discount percentage test amount.
+            </summary>
+            <value>The order discount percentage test amount.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.OrderDiscountTestEntries">
+            <summary>
+            Gets or sets the order discount test entries.
+            </summary>
+            <value>The order discount test entries.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.FeeTestEntries">
+            <summary>
+            Gets or sets the fee test entries.
+            </summary>
+            <value>The fee test entries.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.AddAdditionalDeliveryInfoTest">
+            <summary>
+            Gets or sets a value indicating whether to add additional delivery info.
+            </summary>
+            <value>
+            	<c>true</c> if [add additional delivery info]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.AdditionalDeliveryInfoTestKey">
+            <summary>
+            Gets or sets the additional delivery info key.
+            </summary>
+            <value>The additional delivery info key.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.AdditionalDeliveryInfoTestValue">
+            <summary>
+            Gets or sets the additional delivery info value.
+            </summary>
+            <value>The additional delivery info value.</value>
+        </member>
+        <member name="P:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.PluginSettings.AddOrderDiscountTest">
+            <summary>
+            Gets or sets a value indicating whether [add order discount test].
+            </summary>
+            <value>
+            	<c>true</c> if [add order discount test]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator">
+            <summary>
+            Calculates VAT and order grand total.
+            </summary>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator.CalculateFromCarrier(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,Litium.Foundation.Security.SecurityToken)">
+            <summary>
+            Calculate VAT amounts for the given carrier.
+            </summary>
+            <param name="orderCarrier">Carrier for which VAT calculations are needed.</param>
+            <param name="token">secuirty token.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator.CalculateOrderDiscountVat(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Decimal)">
+            <summary>
+            Calculates the order discount vat.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="totalVatAmount">The total vat amount.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator.CalculateOrderCampaignDiscountVat(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier,System.Decimal)">
+            <summary>
+            Calculates the order campaign discount vat.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <param name="totalVatAmount">The total vat amount.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator.CalculateTotalOrderRowsVat(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Calculates the total OrderRow vat.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator.CalculateTotalFeeVat(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Calculates the total fee vat.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator.CalculateTotalDeliveryVat(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Calculates the total delivery vat.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+        </member>
+        <member name="M:Litium.Studio.Plugins.ECommerce.PricingRulesPlugin.Vat.VatCalculator.GetOrderRowsVatAmount(Litium.Foundation.Modules.ECommerce.Carriers.OrderCarrier)">
+            <summary>
+            Gets the order rows vat amount.
+            In default implementation, this method does not change or update the order carrier.
+            </summary>
+            <param name="orderCarrier">The order carrier.</param>
+            <returns>Order rows vat amount.</returns>
+        </member>
+    </members>
+</doc>

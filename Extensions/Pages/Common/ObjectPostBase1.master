@@ -1,0 +1,73 @@
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/LitiumStudio/Framework/ControlPanel.master" CodeFile="ObjectPostBase1.master.cs" Inherits="ObjectPostBase1" %>
+<%@ MasterType VirtualPath="~/LitiumStudio/Framework/LitiumStudio.master" %>
+
+<asp:Content ContentPlaceHolderID="ToolbarRight" runat="server">
+	<asp:ContentPlaceHolder ID="ToolbarRight" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="LitiumStudioContentHeading" runat="server">
+	<asp:ContentPlaceHolder ID="LitiumStudioContentHeading" runat="server" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="ContentRight" runat="server">
+	<link rel="stylesheet" href="<%= ResolveUrl("~/Extensions/Pages/Styles/objectpostadmin.css") %>" type="text/css" />
+	<div class="lsContentTabScroll">
+		<asp:ContentPlaceHolder ID="ObjectPostNavigation" runat="server">
+			<!-- Tabs -->
+			<link rel="stylesheet" href="<%= ResolveUrl("~/LitiumStudio/Stylesheets/RadTab.css") %>" type="text/css" />	    
+			<div class="extensions lsTabContainer">
+				<div class="RadTabStrip RadTabStrip_Default RadTabStripTop_Default RadTabStripTop_Default_Baseline">
+					<div class="rtsLevel rtsLevel1">
+						<ul class="rtsUL">
+							<WebControls:TabListItem
+								ID="c_tabListItemReported"
+								CausesValidation="true"
+								LinkClass="rtsLink rtsFirst"
+								LinkSelectedClass="rtsLink rtsSelected"
+								ListClass="rtsLI rtsFirst"
+								ListSelectedClass="rtsLI rtsFirst"
+								SpanInClass="rtsIn"
+								SpanOutClass="rtsOut"
+								SpanTextClass="rtsText"
+								OnClick="TabReported_Click"
+								runat="server"
+							/>
+							<WebControls:TabListItem
+								ID="c_tabListItemAll"
+								CausesValidation="true"
+								LinkClass="rtsLink rtsAfter"
+								LinkSelectedClass="rtsLink rtsSelected"
+								ListClass="rtsLI rtsAfter"
+								ListSelectedClass="rtsLI rtsAfter"
+								SpanInClass="rtsIn"
+								SpanOutClass="rtsOut"
+								SpanTextClass="rtsText"
+								OnClick="TabAll_Click"
+								runat="server"
+							/>
+							<WebControls:TabListItem
+								ID="c_tabListItemNotification"
+								CausesValidation="true"
+								LinkClass="rtsLink rtsAfter"
+								LinkSelectedClass="rtsLink rtsSelected"
+								ListClass="rtsLI rtsLast"
+								ListSelectedClass="rtsLI rtsLast"
+								SpanInClass="rtsIn"
+								SpanOutClass="rtsOut"
+								SpanTextClass="rtsText"
+								OnClick="TabNotification_Click"
+								runat="server"
+							/>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</asp:ContentPlaceHolder>
+		<!-- Toolbar -->
+		<div class="litModuleContentToolbarTabAreaV2">
+			<asp:ContentPlaceHolder ID="ToolbarContent" runat="server" />
+		</div>
+		<!-- Content -->
+		<asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+</asp:Content>

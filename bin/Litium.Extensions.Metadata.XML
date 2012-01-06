@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litium.Extensions.Metadata</name>
+    </assembly>
+    <members>
+        <member name="T:Litium.Extensions.Metadata.License">
+            <summary>
+            A class used for determing if there is a valid license dll for Metadata in the /Bin/ folder
+            </summary>
+        </member>
+        <member name="M:Litium.Extensions.Metadata.License.CheckLicense(System.Object)">
+            <summary>
+            Checks if the license for Metadata is valid
+            </summary>
+            <param name="license">License information</param>
+            <returns>True if there is a valid license, otherwise false</returns>
+        </member>
+    </members>
+</doc>

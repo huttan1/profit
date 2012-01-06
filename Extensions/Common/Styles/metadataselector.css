@@ -1,0 +1,14 @@
+#MetadataSelector_Container { display:none; }
+#MetadataSelector_TypesContainer { float:left; width:49%; }
+.MetadataSelector_TypeContainer{ margin-bottom:10px; }
+#MetadataSelector_SelectedMetadatasContainer { position:relative; float:right; width:49%; }
+.MetadataSelector_SelectedMetadataType { margin-bottom:10px; }
+.MetadataSelector_SelectedMetadata { border:solid 1px transparent; padding:0px 2px 0px 2px; width: 99%; float:left; position: relative; }
+.MetadataSelector_SelectedMetadataHover { border:solid 1px #000000; }
+.MetadataSelector_SelectedMetadata img {position: absolute; right: 0; top: 0; cursor:pointer; cursor:hand; }
+.MetadataSelector_SelectedMetadata span { float:left; margin-top:1px; }
+#MetadataSelector_SelectedMetadataLoading { position:absolute; }
+.MetadataSelector_TypeDropDownContainer { height:18px; padding:0px 2px 0px 2px; }
+.MetadataSelector_TypeDropDown { float:left; width:90%; }
+.MetadataSelector_TypeAddButton { float:right; cursor:pointer; cursor:hand; }
+.MetadataSelector_TypeAddButton img { border:0; }

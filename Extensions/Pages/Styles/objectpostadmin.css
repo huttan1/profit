@@ -1,0 +1,11 @@
+.lsTopMenu .extensions.litToolbarItem select { margin-top: 2px; font-size: 92%; }
+.extensions.lsContentScroll label { display: block; }
+.extensions.lsContentScroll input, 
+.extensions.lsContentScroll select,
+.extensions.lsContentScroll textarea { margin-bottom: 10px; }
+.extensions.lsContentScroll th.litListHeader { text-align: left; }
+.extensions.lsContentScroll td.litListContent { vertical-align: top; }
+.extensions.lsContentScroll input.disabled { color: #a0a0a0;}
+.extensions.lsTabContainer { min-height: 100%; height: auto; }
+.clear {clear: both;}
+.date { width: 105px;}

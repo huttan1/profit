@@ -1,0 +1,35 @@
+/*-----------------------------------------------------------------------------
+editor.css
+Used in: Newsletter
+Configuration: editorConfig.js
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+01. [HTML]
+02. [ADAPTED STYLES]
+-----------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+01. [HTML]
+-----------------------------------------------------------------------------*/
+body { color: #000; font: 75% Arial, verdana, sans-serif; }
+h1, h2, h3, h4, h5, h6 { margin-bottom: 1em; color: #333; }
+h2, h3, h4, h5, h6 { margin-top: 1em; margin-bottom: .5em; }
+h1 { font-size: 2em; margin-bottom: .5em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1em; font-weight: bold; }            
+td, th { text-align: left; vertical-align: top; }
+th { font-weight: bold; }
+ul { list-style: disc outside; margin: 1em 0 2em 1.63em; }
+ol { list-style: decimal outside; margin: 1em 0 2em 1.72em; }
+ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; padding-top: 1em; }
+li { margin: 0 0 .5em 0; }
+p { margin: 0 0 1em 0; }
+a:link, a:visited { color: #008eb6; text-decoration: underline; }
+a:active, a:hover { color: #3e9fc2; text-decoration: none; }
+a img { border: 0; }            
+
+/*-----------------------------------------------------------------------------
+02 [ADAPTED STYLE] Styles for editor drop down list
+-----------------------------------------------------------------------------*/
+.ImportantEditor{background-color:#808080; color:#FFFFFF;}
